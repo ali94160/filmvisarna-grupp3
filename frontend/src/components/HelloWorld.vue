@@ -1,7 +1,13 @@
 <template>
-  <h1>{{ msg }}</h1>
-  <button @click="count++">count is: {{ count }}</button>
-  <p>Edit <code>components/HelloWorld.vue</code> to test hot module replacement.</p>
+  <div>
+    <a class="waves-effect waves-light btn">button</a>
+    <a class="waves-effect waves-light btn"
+      ><i class="material-icons left">cloud</i>button</a
+    >
+    <a class="waves-effect waves-light btn"
+      ><i class="material-icons right">cloud</i>button</a
+    >
+  </div>
 </template>
 
 <script>
