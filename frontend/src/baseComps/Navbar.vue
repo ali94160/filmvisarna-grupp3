@@ -4,7 +4,9 @@
       <a href="#" data-target="mobile-demo" class="sidenav-trigger">
         <i class="material-icons">menu</i>
       </a>
+      <router-link to="/" class="brand-logo">Filmvisarna</router-link>
       <ul class="hide-on-med-and-down">
+
         <li><router-link to="/">Start</router-link></li>
         <li><router-link to="/movies">Filmer</router-link></li>
         <li><router-link to="/info">Biljett info</router-link></li>
@@ -32,3 +34,8 @@ export default {
 </script>
 
 <style scoped>
+  nav{
+    background-color: var(--purpleish);
+    text-align: center;
+  }
+</style>
