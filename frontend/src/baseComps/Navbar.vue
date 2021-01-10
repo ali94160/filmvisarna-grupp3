@@ -12,8 +12,11 @@
         <li><router-link to="/about">Om oss</router-link></li>
       </ul>
       <ul class="hide-on-med-and-down right">
-        <li><router-link to="/register" v-if="!isSignedIn"> Bli medlem</router-link></li>
-        <li><router-link to="/signin" v-if="!isSignedIn">{{signedIn}}</router-link></li>
+        <li><router-link to="/register" v-if="!isLoggedIn"> Bli medlem</router-link></li>
+        <li><router-link to="/login" v-if="!isLoggedIn">{{loggedIn}}</router-link></li>
+
+        <li><router-link to="/" v-if="isLoggedIn"> Mina sidor</router-link></li>
+        <li><a v-if="isLoggedIn" v-on:click="logOut">{{loggedIn}}</a></li>
       </ul>
     </div>
   </nav>
@@ -24,8 +27,11 @@
     <li><router-link to="/info">Biljett info</router-link></li>
     <li><router-link to="/about">Om oss</router-link></li>
     <li><div class="divider"></div></li>
-    <li><router-link to="/register" v-if="!isSignedIn"> Bli medlem</router-link></li>
-    <li><router-link to="/signin" v-if="!isSignedIn">{{signedIn}}</router-link></li>
+    <li><router-link to="/register" v-if="!isLoggedIn"> Bli medlem</router-link></li>
+    <li><router-link to="/login" v-if="!isLoggedIn">{{loggedIn}}</router-link></li>
+
+    <li><router-link to="/" v-if="isLoggedIn"> Mina sidor</router-link></li>
+    <li><a v-if="isLoggedIn" v-on:click="logOut">{{loggedIn}}</a></li>
   </ul>
 
 </template>
@@ -35,15 +41,20 @@ import M from 'materialize-css'
 export default {
   data(){
     return{
-      isSignedIn: false
+      isLoggedIn: false
     }
   },
   computed:{
-    signedIn(){
-      if(this.isSignedIn){
+    loggedIn(){
+      if(this.isLoggedIn){
         return 'Logga ut'
       }
       return 'Logga in'
+    }
+  },
+  methods:{
+    logOut(){
+      this.isLoggedIn = false
     }
   },
   mounted(){
