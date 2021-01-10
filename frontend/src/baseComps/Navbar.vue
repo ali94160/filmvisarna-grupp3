@@ -12,8 +12,8 @@
         <li><router-link to="/about">Om oss</router-link></li>
       </ul>
       <ul class="hide-on-med-and-down right">
-        <li><router-link to="/">Bli medlem</router-link></li>
-        <li><router-link to="/">{{loggedIn}}</router-link></li>
+        <li><router-link to="/register" v-if="!isSignedIn"> Bli medlem</router-link></li>
+        <li><router-link to="/signin" v-if="!isSignedIn">{{signedIn}}</router-link></li>
       </ul>
     </div>
   </nav>
@@ -23,8 +23,9 @@
     <li><router-link to="/movies">Filmer</router-link></li>
     <li><router-link to="/info">Biljett info</router-link></li>
     <li><router-link to="/about">Om oss</router-link></li>
-    <li><router-link to="/">Bli medlem</router-link></li>
-    <li><router-link to="/">{{loggedIn}}</router-link></li>
+    <li><div class="divider"></div></li>
+    <li><router-link to="/register" v-if="!isSignedIn"> Bli medlem</router-link></li>
+    <li><router-link to="/signin" v-if="!isSignedIn">{{signedIn}}</router-link></li>
   </ul>
 
 </template>
@@ -34,12 +35,12 @@ import M from 'materialize-css'
 export default {
   data(){
     return{
-      isLoggedIn: false
+      isSignedIn: false
     }
   },
   computed:{
-    loggedIn(){
-      if(this.isLoggedIn){
+    signedIn(){
+      if(this.isSignedIn){
         return 'Logga ut'
       }
       return 'Logga in'
