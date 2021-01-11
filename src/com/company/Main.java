@@ -8,10 +8,7 @@ public class Main {
         // write your code here
         var app = new Express();
         app.enableCollections();
-        app.get("/hello", (req, res) -> {
-            res.send("<h1>Hello world</h1>");
-        });
-
+        app.get("/hello", (req, res) -> res.send("<h1>Hello world</h1>"));
         app.listen(4000);
     }
 }
