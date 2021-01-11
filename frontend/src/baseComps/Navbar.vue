@@ -4,6 +4,7 @@
         <i class="material-icons">menu</i>
       </a>
     <router-link to="/" class="brand-logo">Filmvisarna</router-link>
+
     <div class="container">
       <ul class="hide-on-med-and-down">
         <li><router-link to="/">Start</router-link></li>
@@ -19,6 +20,7 @@
         <li><a v-if="isLoggedIn" v-on:click="logOut">{{loggedIn}}</a></li>
       </ul>
     </div>
+    
   </nav>
 
   <ul class="sidenav sidenav-close" id="mobile-demo">
