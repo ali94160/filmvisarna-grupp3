@@ -2,6 +2,7 @@
   <h1>Home page</h1>
   <div v-for="movie of movies" :key="movie.id">
     <h1>{{movie.title}}</h1>
+    <img :src="movie.imgUrl" alt="">
   </div>
 </template>
 
