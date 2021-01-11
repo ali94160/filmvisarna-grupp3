@@ -67,6 +67,6 @@ export default {
 
 <style scoped>
   nav{
-    background-color: var(--purpleish);
+    background-color: var(--red);
   }
 </style>

@@ -1,6 +1,7 @@
 :root{
-  --purpleish: rgb(44, 45, 80);
+  --red: rgb(124, 0, 0);
   --lightgrey: #d4e3f1;
+  --darkgrey: rgb(22, 22, 22);
 }
 
 #app {
@@ -8,6 +9,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #d4e3f1;
-  background: #292929;
+  background: var(--darkgrey);
   min-height: 100vh;
 }
