@@ -12,8 +12,8 @@ public class Movie {
     private int length;
     private String[] actors;
     private String[] directors;
-    private String genre;
-    private String language;
+    private String[] genre;
+    private String[] languages;
     private String[] subtitles;
     private String rating;
     private String description;
@@ -68,20 +68,20 @@ public class Movie {
         this.directors = directors;
     }
 
-    public String getGenre() {
+    public String[] getGenre() {
         return genre;
     }
 
-    public void setGenre(String genre) {
+    public void setGenre(String[] genre) {
         this.genre = genre;
     }
 
-    public String getLanguage() {
-        return language;
+    public String[] getLanguages() {
+        return languages;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
+    public void setLanguages(String[] languages) {
+        this.languages = languages;
     }
 
     public String[] getSubtitles() {
