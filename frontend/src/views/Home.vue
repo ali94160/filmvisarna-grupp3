@@ -1,8 +1,9 @@
 <template>
   <h1>Home page</h1>
-  <div v-for="movie of movies" :key="movie.id">
-    <h1>{{movie.title}}</h1>
-    <img :src="movie.imgUrl" alt="">
+  <div class="container">
+    <div v-for="movie of movies" :key="movie.id">
+      <img :src="movie.imgUrl" alt="">
+    </div>
   </div>
 </template>
 
@@ -20,6 +21,23 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.container{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 2vw;
+  padding: 20px;
+  text-align: center;
+}
+
+img{
+  width: 100%;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+img:hover{
+  opacity: 70%;
+}
 
 </style>
