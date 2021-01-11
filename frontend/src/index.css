@@ -1,8 +1,13 @@
+:root{
+  --purpleish: rgb(44, 45, 80);
+  --lightgrey: #d4e3f1;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #d4e3f1;
+  background: #292929;
+  min-height: 100vh;
 }
