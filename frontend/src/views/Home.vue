@@ -2,7 +2,9 @@
   <h1>Home page</h1>
   <div class="container">
     <div v-for="movie of movies" :key="movie.id">
+      <router-link :to="'/moviedetails/' + movie.id">
       <img :src="movie.imgUrl" alt="">
+      </router-link>
     </div>
   </div>
 </template>
