@@ -47,7 +47,7 @@ export default {
         this.show = false;
         let user = this.users.filter((u) => u.email == this.email);
         this.$store.commit('addCurrentUser',user);
-        console.log(this.$store.state.currentUser);
+        this.$store.commit('setOnline');
       }else{
         this.show = true;
       }

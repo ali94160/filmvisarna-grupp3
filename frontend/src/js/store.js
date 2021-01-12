@@ -19,6 +19,9 @@ const mutations = {
   },
   addCurrentUser(state, user) {
     state.currentUser.push(user);
+  },
+  setOnline(state) {
+    state.online = true;
   }
 }
 
