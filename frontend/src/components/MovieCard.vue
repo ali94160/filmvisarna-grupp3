@@ -1,20 +1,24 @@
 <template>
-  <div class="container">
-    <img :src="imgUrl" alt="">
+  <div @click="goToDetails" class="container">
+    <img :src="movie.imgUrl" alt="">
     <div>
-      <h3>{{title}}</h3>
-      <p>Datum: {{date}}</p>
-      <p>Platser kvar: </p>
-      <p>Pris: </p>
+      <h3>{{movie.title}}</h3>
+      <p>Datum: {{movie.date}}</p>
       <p>Åldersgräns: </p>
-      <p>Handling: {{description}}</p> 
+      <p>Handling: {{movie.description}}</p> 
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props:['title','date','description', 'imgUrl']
+  props:['movie'],
+  methods: {
+    goToDetails(){
+      console.log(this.movie.id, 'movie id');
+      this.$router.push('/moviedetails/' + this.movie.id)
+    }
+  }
 }
 </script>
 
@@ -46,4 +50,6 @@ export default {
   p{
     font-size: 1em;
   }
+
+
 </style>

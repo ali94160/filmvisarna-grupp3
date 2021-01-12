@@ -2,10 +2,8 @@
   <h1>Movies</h1>
   <MovieCard v-for="movie of movies" 
   :key="movie.id"
-  :date="movie.date"
-  :imgUrl="movie.imgUrl"
-  :title="movie.title"
-  :description="movie.description" />
+  :movie="movie"
+/>
 </template>
 
 <script>
