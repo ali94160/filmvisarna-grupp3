@@ -13,6 +13,9 @@ const mutations = {
   setUser(state, list) {
     state.user = list
   },
+  addUser(state, user) {
+    state.user.push(user);
+  }
 }
 
 const actions = {
@@ -29,6 +32,21 @@ const actions = {
 
     console.log(list);
     store.commit('setUser', list)
+  },
+  async addUser(store, user) {
+    let newUser =
+    {
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      password: user.password,
+      tickets: []
+    };
+    let response = await fetch('/rest/user', {
+      method: 'POST',
+      body: JSON.stringify(newUser)
+    })
+    store.commit('addUser', newUser);
   }
 }
 
