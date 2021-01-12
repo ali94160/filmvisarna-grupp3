@@ -2,7 +2,8 @@ import { createStore } from 'vuex'
 
 const state = {
   movies: [],
-  user: []
+  user: [],
+  online: false
 }
 
 const mutations = {
