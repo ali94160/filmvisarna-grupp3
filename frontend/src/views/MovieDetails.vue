@@ -43,6 +43,8 @@ export default {
 }
 .moviePoster img {
   max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 0 7px 0.1px #7e7e7e;
 }
 .movieDetailsButton{
   display: block;
@@ -56,6 +58,10 @@ export default {
   font-weight: bold;
   font-size: large;
   background-color: rgb(238, 238, 238);
+}
+.movieDetailsButton:hover{
+  opacity: 70%;
+  cursor: pointer;
 }
 .movieTrailer{
  width: 60vw; 
