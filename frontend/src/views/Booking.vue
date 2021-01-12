@@ -10,6 +10,9 @@
       <div class="value-button" v-on:click="decreaseValue">-</div>
       <input type="number" v-model="chosenSeats">
       <div class="value-button" v-on:click="increaseValue">+</div>
+
+      <BookingInput v-for="seat in chosenSeatsInput" :key="seat" />
+
     </div>
   </div>
         <input type="number" id="number" value="chosenSeats" />
@@ -36,6 +39,18 @@ export default {
     },
     increaseValue(){
       this.chosenSeats++;
+    }
+  },
+
+  computed:{
+    chosenSeatsInput(){
+      let array = [];
+      for(let seat = 0; seat < this.chosenSeats; seat++){
+        array.push(seat)
+        console.log("hello" + seat);
+      }
+      console.log(array);
+      return array
     }
   }
 
