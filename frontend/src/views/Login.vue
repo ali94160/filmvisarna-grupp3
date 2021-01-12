@@ -48,6 +48,7 @@ export default {
         let user = this.users.filter((u) => u.email == this.email);
         this.$store.commit('addCurrentUser',user);
         this.$store.commit('setOnline');
+        this.$router.push('/');
       }else{
         this.show = true;
       }
