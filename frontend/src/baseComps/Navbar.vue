@@ -18,8 +18,8 @@
         </li>
         <li><router-link to="/login" v-if="!online">Logga in</router-link></li>
 
-        <li><roter-link v-if="online">Mina sidor</roter-link></li>
-        <li><roter-link v-if="online">Logga ut</roter-link></li>
+        <li><router-link to="/mypage" v-if="online">Mina sidor</router-link></li>
+        <li><a @click="logOut" v-if="online">Logga ut</a></li>
       </ul>
     </div>
   </nav>
@@ -48,6 +48,12 @@ export default {
     online() {
       return this.$store.state.online;
     },
+  },
+  methods:{
+    async logOut(){
+      await this.$router.push('/');
+      window.location.reload()
+    }
   },
   mounted() {
     M.AutoInit();
