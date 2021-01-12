@@ -38,12 +38,14 @@ export default {
       let check = false;
       for(let i = 0; i < this.users.length; i++){
         if(this.users[i].email === this.email){
+          if(this.users[i].password === this.password){
           check = true;
+          }
         }
       }
       if(check){
         this.show = false;
-        
+
       }else{
         this.show = true;
       }
