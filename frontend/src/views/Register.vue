@@ -61,17 +61,17 @@ computed:{
 <style scoped>
 h3{
   margin: 0 0 10px 0;
-  color: black;
+  color: white;
 }
 .regrister{
   max-width: 40%;
-  background: white;
+  background:  rgba(49, 45, 45, 0.664);
   margin: 50px auto;
   padding: 20px;
   border-radius: 10px;
 }
 label{
-  color: black;
+  color: white;
   text-align: center;
 }
 button{
@@ -81,11 +81,12 @@ button{
   padding: 10px;
   border: none;
   border-radius: 10px;
-  background: var(--red);
+  background: #4caf50;
+  opacity: 75%;
   color: white;
 }
 button:hover{
-  zoom: 1.1;
+  opacity: 100%;
 }
 p{
   color: red;
