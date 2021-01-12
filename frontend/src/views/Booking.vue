@@ -11,7 +11,9 @@
       <input type="number" v-model="chosenSeats" max="8">
       <div class="value-button" v-on:click="increaseValue">+</div>
 
-      <BookingInput v-for="seat in chosenSeatsInput" :key="seat" :ticketNumber="seat" />
+      <BookingInput v-for="seat in chosenSeatsInput" :key="seat" :ticketNumber="seat" v-on:change="updateTotalPrice($event)" />
+      <p>Total pris: {{ totalPrice }}</p>
+
     </div>
   </div>
 </template>
@@ -23,7 +25,8 @@ export default {
   data(){
     return{
       chosenSeats: 2,
-      maxSeats: 8
+      maxSeats: 8, 
+      totalPrice:0
     }
   },
 
@@ -39,7 +42,12 @@ export default {
     increaseValue(){
       if(this.chosenSeats < this.maxSeats)
       this.chosenSeats++;
-    }
+    },
+updateTotalPrice(event1){
+  console.log(event1);
+this.totalPrice=event1;
+}
+
   },
 
   computed:{
