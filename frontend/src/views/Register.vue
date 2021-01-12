@@ -3,13 +3,13 @@
     <form v-on:submit.prevent="becomeMember">
       <h3>Bli medlem</h3>
       <label>Namn</label>
-      <input required type="text">
+      <input v-model="name" required type="text">
       <label>Efternamn</label>
-      <input required type="text">
+      <input v-model="lastName" required type="text">
       <label>Email</label>
-      <input required type="email">
+      <input v-model="email" required type="email">
       <label>Lösenord</label>
-      <input required type="password">
+      <input v-model="password" required type="password">
       <button>Bli medlem</button>
     </form>
   </div>
@@ -17,6 +17,14 @@
 
 <script>
 export default {
+data(){
+  return{
+    name: '',
+    lastName: '',
+    email: '',
+    password: '',   
+  }
+},  
 methods:{
   becomeMember(){
 
@@ -53,5 +61,8 @@ button{
 }
 button:hover{
   zoom: 1.1;
+}
+p{
+  color: red;
 }
 </style>
