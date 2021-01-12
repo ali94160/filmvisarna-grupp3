@@ -27,11 +27,15 @@ data(){
 },  
 methods:{
   becomeMember(){
-    
+    if(!this.users.length){
+      
+    }
   }
 },
 computed:{
-  
+  users(){
+  return this.$store.state.user
+  }
 }
 }
 </script>
