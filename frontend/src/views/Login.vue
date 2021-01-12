@@ -1,14 +1,13 @@
 <template>
-  <form v-on:submit.prevent>
+  <form v-on:submit.prevent="logIn">
     <h3>Logga in</h3>
-
     <label>Epost:</label>
     <input required v-model="email" type="email" />
     <label>Lösenord:</label>
     <input required v-model="password" type="password" />
+    <p class="failedLogin" v-if="show">Ej giltigt Epost/lösenord</p>
     <button>Logga in</button>
     <button @click="goToRegister">Registrera</button>
-    <p class="failedLogin" v-if="true">Ej giltigt Epost/lösenord</p>
   </form>
 
   <div class="loginFeatures">
@@ -35,7 +34,26 @@ export default {
     goToRegister() {
       this.$router.push("/register");
     },
+    logIn(){
+      let check = false;
+      for(let i = 0; i < this.users.length; i++){
+        if(this.users[i].email === this.email){
+          check = true;
+        }
+      }
+      if(check){
+        this.show = false;
+        
+      }else{
+        this.show = true;
+      }
+    }
   },
+  computed:{
+    users(){
+     return this.$store.state.user
+    }
+  }
 };
 </script>
 
