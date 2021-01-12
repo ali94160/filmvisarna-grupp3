@@ -17,7 +17,7 @@
           <router-link to="/register" v-if="!online"> Bli medlem</router-link>
         </li>
         <li><router-link to="/login" v-if="!online">Logga in</router-link></li>
-
+        <li><router-link class="userOnline" to="/mypage" v-if="online">{{currentUser.firstName}}</router-link></li>
         <li><router-link to="/mypage" v-if="online">Mina sidor</router-link></li>
         <li><a @click="logOut" v-if="online">Logga ut</a></li>
       </ul>
@@ -32,9 +32,6 @@
     <li><div class="divider"></div></li>
     <li><router-link v-if="!online" to="/register">Bli medlem</router-link></li>
     <li><router-link v-if="!online" to="/login">logga in</router-link></li>
-
-    <li><roter-link v-if="online">Mina sidor</roter-link></li>
-    <li><roter-link v-if="online">Logga ut</roter-link></li>
   </ul>
 </template>
 
@@ -48,6 +45,9 @@ export default {
     online() {
       return this.$store.state.online;
     },
+    currentUser(){
+      return this.$store.state.currentUser[0];
+    }
   },
   methods:{
     async logOut(){
@@ -64,5 +64,12 @@ export default {
 <style scoped>
 nav {
   background-color: var(--red);
+}
+.userOnline::before {
+  content: "•";
+  margin-right: 8px;
+  color: rgb(57, 207, 57);
+  font-weight: bolder;
+  font-size: 1rem;
 }
 </style>
