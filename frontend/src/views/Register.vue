@@ -10,6 +10,7 @@
       <input v-model="email" required type="email">
       <label>Lösenord</label>
       <input v-model="password" required type="password">
+      <p v-if="alreadyMember">Emailen är upptagen..</p>
       <button>Bli medlem</button>
     </form>
   </div>
@@ -22,7 +23,8 @@ data(){
     name: '',
     lastName: '',
     email: '',
-    password: '',   
+    password: '',
+    alreadyMember: false   
   }
 },  
 methods:{
@@ -36,6 +38,12 @@ methods:{
     }
     if(!this.users.length){
       this.$store.dispatch('addUser', user)
+    }else{
+      for(let i = 0; i < this.users.length; i++){
+        if(this.users[i].email === user.email){
+          this.alreadyMember = true;
+        }
+      }
     }
   }
 },
