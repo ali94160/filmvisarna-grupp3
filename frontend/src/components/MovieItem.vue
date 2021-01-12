@@ -11,7 +11,7 @@ export default {
   methods: {
     goToDetails() {
         // change route and add the current id as param
-        this.$router.push('/details/' + this.movie.id)
+        this.$router.push('/moviedetails/' + this.movie.id)
       }
 }
 }

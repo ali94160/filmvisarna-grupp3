@@ -4,13 +4,15 @@
     <img :src="movie.imgUrl" :alt="movie.title" />
   </div>
   <div class="movieInfo">
+    <button class="movieDetailsButton">Boka</button>
     <h3>{{ movie.title }}</h3>
     <p>{{ movie.description }}</p>
-  <button class="movieDetailsButton">Boka</button>
+  </div>
+  <div class="trailerDiv">
+  <iframe class="movieTrailer" :src="movie.trailerUrl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 </div>
 
-<iframe class="movieTrailer" :src="movie.trailerUrl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </template>
 
 <script>
@@ -30,6 +32,7 @@ export default {
 .container{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
   margin: 0 auto;
   margin-top: 10vh;
   margin-bottom: 10vh;
@@ -39,19 +42,29 @@ export default {
   box-shadow: 0px 0px 15px 1px rgb(61, 61, 61);
 }
 .moviePoster img {
-  display: grid;
   max-width: 400px;
-
-}
-.movieInfo{
-  display: grid;
 }
 .movieDetailsButton{
-  display: grid;
-  grid-template-rows: repeat(1, 1fr);
+  display: block;
+  float: right;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  width: 120px;
+  height: 50px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: large;
+  background-color: rgb(238, 238, 238);
 }
 .movieTrailer{
- width: 560px; 
- height: 315px;
+ width: 60vw; 
+ height: 60vh;
+}
+.trailerDiv{
+  display: block;
+  margin: 0 auto;
+  grid-column: 1/3;
+  grid-row: 2/3;
 }
 </style>
