@@ -37,6 +37,7 @@ export default {
     onChange(event){
       console.log(event.target.value);
       this.price = this.prices[event.target.value - 1]
+      this.$emit('updateTotalPrice', "test")
     }
   }
 };
