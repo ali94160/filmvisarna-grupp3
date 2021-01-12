@@ -27,8 +27,15 @@ data(){
 },  
 methods:{
   becomeMember(){
+    let user = 
+    {
+      name: this.name,
+      lastName: this.lastName,
+      email: this.email,
+      password: this.password
+    }
     if(!this.users.length){
-      
+      this.$store.dispatch('addUser', user)
     }
   }
 },

@@ -36,7 +36,7 @@ const actions = {
   async addUser(store, user) {
     let newUser =
     {
-      firstName: user.firstName,
+      firstName: user.name,
       lastName: user.lastName,
       email: user.email,
       password: user.password,
