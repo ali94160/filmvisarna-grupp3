@@ -8,14 +8,12 @@
     <div class="info">
       <span>Platser: </span>
       <div class="value-button" v-on:click="decreaseValue">-</div>
-      <input type="number" v-model="chosenSeats">
+      <input type="number" v-model="chosenSeats" max="8">
       <div class="value-button" v-on:click="increaseValue">+</div>
 
-      <BookingInput v-for="seat in chosenSeatsInput" :key="seat" />
-
+      <BookingInput v-for="seat in chosenSeatsInput" :key="seat" :ticketNumber="seat" />
     </div>
   </div>
-        <input type="number" id="number" value="chosenSeats" />
 </template>
 
 <script>
@@ -24,7 +22,8 @@ export default {
   
   data(){
     return{
-      chosenSeats: 2
+      chosenSeats: 2,
+      maxSeats: 8
     }
   },
 
@@ -38,6 +37,7 @@ export default {
       this.chosenSeats--;
     },
     increaseValue(){
+      if(this.chosenSeats < this.maxSeats)
       this.chosenSeats++;
     }
   },
@@ -45,11 +45,9 @@ export default {
   computed:{
     chosenSeatsInput(){
       let array = [];
-      for(let seat = 0; seat < this.chosenSeats; seat++){
+      for(let seat = 1; seat <= this.chosenSeats; seat++){
         array.push(seat)
-        console.log("hello" + seat);
       }
-      console.log(array);
       return array
     }
   }
@@ -67,12 +65,14 @@ input::-webkit-inner-spin-button {
 .container input{
   background-color: white !important;
   border-radius: 10px;
-  max-width: 20%;
+  max-width: 5vh;
+  max-height: 5vh;
   text-align: center;
   color: black;
 }
 
 .container{
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 3fr);
   grid-gap: 60px;
@@ -99,11 +99,11 @@ span{
 .value-button {
   display: inline-block;
   border: 1px solid #ddd;
-  width: 20px;
-  height: 20px;
+  width: 5vh;
+  height: 5vh;
   text-align: center;
   vertical-align: middle;
-  background: #eee;
+  background: rgb(192, 192, 192);
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -111,6 +111,8 @@ span{
   -ms-user-select: none;
   user-select: none;
   color: black;
+  font-weight: bold;
+  font-size: 3vh;
 }
 
 .value-button:hover {
