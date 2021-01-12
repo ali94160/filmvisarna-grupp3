@@ -1,13 +1,16 @@
 <template>
 <div class="container">
-<div class="moviePoster">
-  <img :src="movie.imgUrl" :alt="movie.title" />
-</div>
+  <div class="moviePoster">
+    <img :src="movie.imgUrl" :alt="movie.title" />
+  </div>
   <div class="movieInfo">
     <h3>{{ movie.title }}</h3>
     <p>{{ movie.description }}</p>
-    </div>
-    </div>
+  <button class="movieDetailsButton">Boka</button>
+  </div>
+</div>
+
+<iframe class="movieTrailer" :src="movie.trailerUrl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </template>
 
 <script>
@@ -28,7 +31,8 @@ export default {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin: 0 auto;
-  margin-top: 25px;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
   background-color: #333;
   padding: 10px;
   border-radius: 10px;
@@ -41,5 +45,13 @@ export default {
 }
 .movieInfo{
   display: grid;
+}
+.movieDetailsButton{
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+}
+.movieTrailer{
+ width: 560px; 
+ height: 315px;
 }
 </style>
