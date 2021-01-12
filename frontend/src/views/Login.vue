@@ -7,7 +7,7 @@
     <label>Lösenord:</label>
     <input required v-model="password" type="password" />
     <button>Logga in</button>
-    <button>Registrera</button>
+    <button @click="goToRegister">Registrera</button>
     <p class="failedLogin" v-if="true">Ej giltigt Epost/lösenord</p>
   </form>
 
@@ -31,14 +31,21 @@ export default {
     };
   },
 
-  methods: {},
+  methods: {
+    goToRegister() {
+      this.$router.push("/register");
+    },
+  },
 };
 </script>
 
 <style scoped>
 h3 {
+  margin-top: 12px;
   font-size: 30px;
   text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.123);
+  padding-bottom: 12px;
 }
 label {
   font-size: 15px;
