@@ -3,7 +3,8 @@ import { createStore } from 'vuex'
 const state = {
   movies: [],
   user: [],
-  online: false
+  currentUser: [],
+  online: false 
 }
 
 const mutations = {
