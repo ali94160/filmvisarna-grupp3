@@ -5,7 +5,7 @@
     </div>
 
     <div class="input-field col s6 l5">
-      <select v-on:change="onChange($event)">
+      <select v-on:change="onChange">
         <option value="1">Vuxen</option>
         <option value="2">Barn</option>
         <option value="3">Pensionär</option>
@@ -34,10 +34,10 @@ export default {
     M.AutoInit();
   },
   methods:{
-    onChange(event){
-      console.log(event.target.value);
+    onChange(){
+     
       this.price = this.prices[event.target.value - 1]
-      this.$emit('updateTotalPrice', "test")
+      this.$emit('updateTotalPrice', this.price)
     }
   }
 };
