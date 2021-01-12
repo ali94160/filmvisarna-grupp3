@@ -1,6 +1,6 @@
 <template>
   <div class="regrister">
-    <form>
+    <form v-on:submit.prevent="becomeMember">
       <h3>Bli medlem</h3>
       <label>Namn</label>
       <input type="text">
@@ -17,7 +17,11 @@
 
 <script>
 export default {
-
+methods:{
+  becomeMember(){
+    
+  }
+}
 }
 </script>
 
