@@ -5,7 +5,7 @@
     </div>
 
     <div class="input-field col s6 l5">
-      <select v-on:change="logga">
+      <select v-on:change="onChange($event)">
         <option value="1">Vuxen</option>
         <option value="2">Barn</option>
         <option value="3">Pensionär</option>
@@ -14,7 +14,7 @@
     </div>
 
     <div class="col s6 l2">
-      <span>85 kr</span>
+      <span>{{price}} kr</span>
     </div>
   </div>
 </template>
@@ -23,9 +23,21 @@
 import M from "materialize-css";
 
 export default {
+  data(){
+    return{
+      prices: [85, 65, 75],
+      price: 85
+    }
+  },
   props:['ticketNumber'],
   mounted() {
     M.AutoInit();
+  },
+  methods:{
+    onChange(event){
+      console.log(event.target.value);
+      this.price = this.prices[event.target.value - 1]
+    }
   }
 };
 </script>
