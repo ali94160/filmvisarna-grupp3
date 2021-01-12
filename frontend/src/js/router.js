@@ -8,6 +8,7 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import MyPage from '../views/MyPage.vue'
 import Booking from '../views/Booking.vue'
+import MovieDetails from '../views/MovieDetails.vue'
 
 const routes = [
   {
@@ -49,6 +50,11 @@ const routes = [
     name: 'Booking',
     path: "/booking",
     component: Booking
+  },
+  {
+    name: "MovieDetails",
+    path: "/moviedetails/:id",
+    component: MovieDetails
   }
 ]
 

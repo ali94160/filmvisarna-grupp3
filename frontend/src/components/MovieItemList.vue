@@ -1,0 +1,31 @@
+<template>
+  <div class="container">
+    <MovieItem v-for="movie of movies" :key="movie.id" :movie="movie" />
+  </div>
+</template>
+
+<script>
+import MovieItem from './MovieItem.vue'
+export default {
+  
+  components: {
+  MovieItem
+  },
+  computed: {
+    movies() {
+      return this.$store.state.movies;
+    }
+  }
+}
+</script>
+
+<style scoped>
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 2vw;
+  padding: 0 20px;
+  text-align: center;
+  width: 100%;
+}
+</style>
