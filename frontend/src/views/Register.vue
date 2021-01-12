@@ -44,6 +44,9 @@ methods:{
           this.alreadyMember = true;
         }
       }
+      if(!this.alreadyMember){
+        this.$store.dispatch('addUser', user)
+      }
     }
   }
 },
