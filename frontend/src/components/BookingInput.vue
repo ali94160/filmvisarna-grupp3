@@ -36,6 +36,8 @@ export default {
   methods:{
     onChange(){
      
+     //Denna emit funkar
+     //Problem: subtraherar inte priset när man gör mindre input fält
       this.price = this.prices[event.target.value - 1]
       this.$emit('updateTotalPrice', this.price)
     }
