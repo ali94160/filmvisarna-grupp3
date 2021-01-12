@@ -32,6 +32,11 @@ export default {
     background-color: var(--lightgrey);
     border-radius: 10px;
     color: var(--darkgrey);
+    cursor: pointer;
+  }
+
+  .container:hover {
+    opacity: 70%;
   }
 
   .container div{
