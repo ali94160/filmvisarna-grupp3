@@ -31,8 +31,23 @@ h3{
   background: white;
   margin: 50px auto;
   padding: 20px;
+  border-radius: 10px;
 }
 label{
+  color: black;
   text-align: center;
+}
+button{
+  cursor: pointer;
+  display: block;
+  margin: 20px auto;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: var(--red);
+  color: white;
+}
+button:hover{
+  zoom: 1.1;
 }
 </style>
