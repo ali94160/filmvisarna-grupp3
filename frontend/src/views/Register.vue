@@ -27,8 +27,11 @@ data(){
 },  
 methods:{
   becomeMember(){
-
+    
   }
+},
+computed:{
+  
 }
 }
 </script>
