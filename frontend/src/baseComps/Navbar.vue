@@ -11,6 +11,7 @@
         <li><router-link to="/movies">Filmer</router-link></li>
         <li><router-link to="/info">Biljett info</router-link></li>
         <li><router-link to="/about">Om oss</router-link></li>
+        <li><router-link to="/booking">Boka</router-link></li>
       </ul>
       <ul class="hide-on-med-and-down right">
         <li><router-link to="/register" v-if="!isLoggedIn"> Bli medlem</router-link></li>
