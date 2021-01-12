@@ -7,6 +7,7 @@ import About from '../views/About.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import MyPage from '../views/MyPage.vue'
+import Booking from '../views/Booking.vue'
 
 const routes = [
   {
@@ -43,6 +44,11 @@ const routes = [
     name: "MyPage",
     path: "/mypage",
     component: MyPage
+  },
+  {
+    name: 'Booking',
+    path: "/booking",
+    component: Booking
   }
 ]
 
