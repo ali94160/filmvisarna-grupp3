@@ -45,7 +45,9 @@ export default {
       }
       if(check){
         this.show = false;
-
+        let user = this.users.filter((u) => u.email == this.email);
+        this.$store.commit('addCurrentUser',user);
+        console.log(this.$store.state.currentUser);
       }else{
         this.show = true;
       }

@@ -16,6 +16,9 @@ const mutations = {
   },
   addUser(state, user) {
     state.user.push(user);
+  },
+  addCurrentUser(state, user) {
+    state.currentUser.push(user);
   }
 }
 
