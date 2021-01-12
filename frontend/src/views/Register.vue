@@ -3,13 +3,13 @@
     <form v-on:submit.prevent="becomeMember">
       <h3>Bli medlem</h3>
       <label>Namn</label>
-      <input type="text">
+      <input required type="text">
       <label>Efternamn</label>
-      <input type="text">
+      <input required type="text">
       <label>Email</label>
-      <input type="email">
+      <input required type="email">
       <label>Lösenord</label>
-      <input type="password">
+      <input required type="password">
       <button>Bli medlem</button>
     </form>
   </div>
@@ -19,7 +19,7 @@
 export default {
 methods:{
   becomeMember(){
-    
+
   }
 }
 }
