@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="buttons">
-      <button @click="clear()">Rensa</button>
+      <button @click="clear">Rensa</button>
     </div>
   </div>
 </template>
