@@ -16,6 +16,9 @@
         <span class="material-icons"> event_seat </span>
       </div>
     </div>
+    <div class="buttons">
+      <button @click="clear()">Rensa</button>
+    </div>
   </div>
 </template>
 
@@ -37,6 +40,9 @@
           console.log('you have clicked on:', this.chairs)
         }
         
+      },
+      clear(){
+        this.chairs = [];
       }
     },
   computed: {
@@ -56,6 +62,7 @@ h3,
 p {
   margin: 0 auto;
   text-align: center;
+  padding: 5px 0;
 }
 .salon {
   text-align: center;
@@ -70,14 +77,6 @@ p {
   padding: 5px;
 }
 
-.seats {
-  margin: 0 auto;
-}
-
-.seats > div {
-  margin: 0;
-}
-
 div > .seats:hover {
   cursor: pointer;
   opacity: 70%;
@@ -89,5 +88,13 @@ div.highlight {
 
 div.booked {
   background: red;
+}
+div.booked:hover {
+  cursor: default;
+  opacity: 100%;
+}
+.buttons {
+  margin: 0 auto;
+  text-align: center;
 }
 </style>
