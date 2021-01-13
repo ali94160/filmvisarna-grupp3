@@ -4,9 +4,26 @@
     <img :src="movie.imgUrl" :alt="movie.title" />
   </div>
   <div class="movieInfo">
-    <button class="movieDetailsButton">Boka</button>
+
     <h3>{{ movie.title }}</h3>
-    <p>{{ movie.description }}</p>
+    <p><span>Åldersgräns:</span> {{ movie.age }}</p>
+    <p><span>Språk:</span> {{ movie.languages[0] }}</p>
+    <p><span>Undertext:</span> {{ movie.subtitles[0] }}</p>
+    <p class="actors"><span>Skådespelare:</span></p>
+    <span class="movieActors" v-for="actor in movie.actors" :key="actor.id"> {{ actor }}, </span>
+
+    <p class="description1"><span>Handling:</span></p>
+    <p class="description2">{{ movie.description }}</p>
+
+    <select class="selection" name="opt" id="name">
+    <option value="date">datum 1/1</option>
+    <option value="date">datum 1/2</option>
+    <option value="date">datum 1/3</option>
+    <option value="audi">datum 1/4</option>
+  </select>
+
+    <button v-if="online" class="movieDetailsButton">Boka</button>
+    <button @click="signIn" v-if="!online" class="signInToBook">Logga in för att boka</button>
   </div>
   <div class="trailerDiv">
   <iframe class="movieTrailer" :src="movie.trailerUrl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -24,7 +41,15 @@ export default {
     movie() {
       return this.$store.state.movies.filter((movie) => movie.id == this.id)[0];
     },
+    online(){
+      return this.$store.state.online;
+    }
   },
+  methods:{
+    signIn(){
+      this.$router.push('/login');
+    }
+  }
 };
 </script>
 
@@ -42,35 +67,78 @@ export default {
   box-shadow: 0px 0px 15px 1px rgb(61, 61, 61);
 }
 .moviePoster img {
+  margin-left: 5%;
   max-width: 400px;
   border-radius: 10px;
   box-shadow: 0 0 7px 0.1px #7e7e7e;
 }
+span{
+  font-weight: bolder;
+  color: white;
+}
+.actors {
+  margin-bottom: 2px;
+}
+.movieActors{
+  font-weight: normal;
+  margin-top: 2px;
+}
+.description1 {
+  margin-bottom: 0;
+}
+.description2 {
+  margin-top: 2px;
+}
+.movieInfo {
+  margin-right: 5%;
+}
 .movieDetailsButton{
   display: block;
-  float: right;
   padding: 10px;
-  margin: 10px;
+  margin: 10px auto;
   border-radius: 10px;
-  width: 120px;
+  width: 220px;
   height: 50px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: bold;
   font-size: large;
   background-color: rgb(238, 238, 238);
 }
-.movieDetailsButton:hover{
+.signInToBook{
+  display: block;
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 10px;
+  width: 220px;
+  height: 50px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: large;
+  background-color: rgb(238, 238, 238);
+}
+.movieDetailsButton:hover, .signInToBook:hover{
   opacity: 70%;
   cursor: pointer;
 }
 .movieTrailer{
- width: 60vw; 
- height: 60vh;
+ width: 65vw; 
+ height: 65vh;
+ border-radius: 10px;
 }
 .trailerDiv{
   display: block;
   margin: 0 auto;
   grid-column: 1/3;
   grid-row: 2/3;
+}
+.selection{
+  display: block; 
+  width: 220px;
+  margin: 10px auto;
+  margin-top: 30px;
+  padding: 5px;
+  height: 40px;
+  border-radius: 10px;
+  text-align: center;
 }
 </style>
