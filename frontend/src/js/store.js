@@ -50,8 +50,7 @@ const actions = {
       firstName: user.name,
       lastName: user.lastName,
       email: user.email,
-      password: user.password,
-      tickets: []
+      password: user.password
     };
     let response = await fetch('/rest/user', {
       method: 'POST',
