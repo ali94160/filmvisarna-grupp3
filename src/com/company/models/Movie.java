@@ -19,6 +19,7 @@ public class Movie {
     private String description;
     private String trailerUrl;
     private String imgUrl;
+    private int age;
 
     public String getId() {
         return id;
@@ -122,5 +123,13 @@ public class Movie {
 
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }

@@ -4,6 +4,7 @@ const state = {
   movies: [],
   user: [],
   currentUser: [],
+  currentMovie: [],
   online: false 
 }
 
@@ -22,6 +23,9 @@ const mutations = {
   },
   setOnline(state) {
     state.online = true;
+  },
+  setCurrentMovie(state, movie) {
+    state.currentMovie = movie;
   }
 }
 
