@@ -48,20 +48,16 @@ export default {
   methods: {
     decreaseValue() {
       if (this.chosenSeats > 1) {
-        console.log("before", this.chosenSeats);
         this.chosenSeats--;
-        console.log("after", this.chosenSeats);
         this.ticketPrices[this.chosenSeats] = 0;
       }
     },
 
     increaseValue() {
       if (this.chosenSeats < this.maxSeats) this.chosenSeats++;
-      console.log(this.ticketPrices);
     },
 
     updateTotalPrice(price, ticketNumber) {
-      console.log("ticket number is", ticketNumber);
       this.ticketPrices[ticketNumber - 1] = price;
     },
     changeBooked(){
