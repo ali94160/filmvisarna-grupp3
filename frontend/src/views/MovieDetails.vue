@@ -4,7 +4,8 @@
     <img :src="movie.imgUrl" :alt="movie.title" />
   </div>
   <div class="movieInfo">
-    <button class="movieDetailsButton">Boka</button>
+    <button v-if="online" class="movieDetailsButton">Boka</button>
+    <button @click="signIn" v-if="!online" class="signInToBook">Logga in för att boka</button>
     <h3>{{ movie.title }}</h3>
     <p>{{ movie.description }}</p>
   </div>
@@ -24,7 +25,15 @@ export default {
     movie() {
       return this.$store.state.movies.filter((movie) => movie.id == this.id)[0];
     },
+    online(){
+      return this.$store.state.online;
+    }
   },
+  methods:{
+    signIn(){
+      this.$router.push('/login');
+    }
+  }
 };
 </script>
 
@@ -59,7 +68,20 @@ export default {
   font-size: large;
   background-color: rgb(238, 238, 238);
 }
-.movieDetailsButton:hover{
+.signInToBook{
+  display: block;
+  float: right;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  width: 220px;
+  height: 50px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: large;
+  background-color: rgb(238, 238, 238);
+}
+.movieDetailsButton:hover, .signInToBook:hover{
   opacity: 70%;
   cursor: pointer;
 }
