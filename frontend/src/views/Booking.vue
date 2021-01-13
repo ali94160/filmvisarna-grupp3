@@ -35,13 +35,6 @@ export default {
     }
   },
 
-    computed:{
-     getTotalPrice(){
-      
-       
-     }
-    },
-
   components:{
     BookingInput,
     ConfirmButton
@@ -53,6 +46,7 @@ export default {
       if(this.chosenSeats > 1)
       this.chosenSeats--;
       
+
         
     
     
