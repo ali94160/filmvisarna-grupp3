@@ -40,7 +40,9 @@ export default {
      //Denna emit funkar
      //Problem: subtraherar inte priset när man gör mindre input fält
       this.price = this.prices[event.target.value - 1]
-      this.$emit('updateTotalPrice', this.price)
+      
+      this.$emit('updateTotalPrice', this.price, this.ticketNumber )
+      
     }
   }
 };
@@ -51,6 +53,10 @@ span {
   color: white;
   display: table-cell;
   vertical-align: bottom;
+  padding: 10px;
+}
+.l5{
+  background-color: white;
 }
 
 .input {
