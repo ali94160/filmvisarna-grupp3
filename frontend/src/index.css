@@ -22,10 +22,12 @@ body {
 .select-wrapper input.select-dropdown{
   color: var(--lightgrey) !important;
   font-family: var(--textFamily);
+  font-size: 1em !important;
 }
 
 .dropdown-content li > a, .dropdown-content li > span {
   color: var(--red) !important;
+  font-size: 1em !important;
 }
 
 .select-wrapper input.select-dropdown:focus{

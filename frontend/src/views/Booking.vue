@@ -1,6 +1,6 @@
 <template>
-  <div id="#bookingDiv" v-if="!booked">
-    <h1>Booking Page</h1>
+  <div id="#bookingDiv" v-if="!booked" >
+    <h1>{{getCurrentMovie.title}}</h1>
     <div class="container">
       <div class="salon"></div>
 
@@ -18,7 +18,7 @@
             @updateTotalPrice="updateTotalPrice"
           />
         </div>
-        <p>Totala priset: {{ getTotalPrice }}</p>
+        <p id="totalPrice">Totala priset: <span class="right">{{ getTotalPrice }} kr</span></p>
         <button class="btn" v-on:click="changeBooked">Beställ plats(er)</button>
       </div>
     </div>
@@ -82,6 +82,9 @@ export default {
     },
     hasThreeTickets(){
       return this.chosenSeats > 3
+    },
+    getCurrentMovie(){
+      return this.$store.state.currentMovie
     }
   },
 };
@@ -90,6 +93,10 @@ export default {
 <style scoped>
 * {
   margin: 0;
+}
+
+h1 {
+  font-size: 5vw;
 }
 
 input::-webkit-outer-spin-button,
@@ -108,11 +115,11 @@ input::-webkit-inner-spin-button {
 }
 
 .container {
-  width: 100%;
+  width: 90%;
   display: grid;
-  grid-template-columns: repeat(2, 3fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 60px;
-  padding: 30px;
+  margin: 0 auto;
 }
 
 span {
@@ -163,4 +170,16 @@ p {
   overflow-x: hidden;
   width: 100%;
 }
+
+#totalPrice{
+  padding: 10px;
+  font-size: 2vw;
+}
+
+@media only screen and (max-width: 992px){
+  .container{
+    grid-template-columns: none;
+  }
+}
+
 </style>

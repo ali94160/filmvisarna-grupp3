@@ -1,10 +1,10 @@
 <template>
-  <div class="input row">
-    <div class="input-field col s12 l3">
+  <div class="container row">
+    <div class="input-field col l3">
       <span>Vuxen/Barn/Pensionär</span>
     </div>
 
-    <div class="input-field col s6 l4" id="selectDiv">
+    <div class="input-field col l3" id="selectDiv">
       <select v-on:change="onChange" class="select text-white" id="selectPrice">
         <option value="" disabled selected>Välj</option>
         <option value="1">Vuxen</option>
@@ -14,8 +14,8 @@
       <!--<label for="ticket">Biljett {{ticketNumber}}</label>-->
     </div>
 
-    <div class="col s6 l2">
-      <span>{{price}} kr</span>
+    <div class="col l2 right">
+      <span>{{price}}kr</span>
       <!--<span v-show="price>0">{{price}} kr</span>-->
     </div>
   </div>
@@ -58,7 +58,7 @@ span {
   font-size: 1em;
 }
 
-.input {
+.container .row{
   height: 6vh; 
   margin-bottom: 10vh;
   display: table;
