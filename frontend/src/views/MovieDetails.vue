@@ -15,9 +15,15 @@
     <p class="description1"><span>Handling:</span></p>
     <p class="description2">{{ movie.description }}</p>
 
+    <select class="selection" name="opt" id="name">
+    <option value="date">datum 1/1</option>
+    <option value="date">datum 1/2</option>
+    <option value="date">datum 1/3</option>
+    <option value="audi">datum 1/4</option>
+  </select>
 
     <button v-if="online" class="movieDetailsButton">Boka</button>
-    <button @click="signIn" v-if="!online" class="signInToBook">Logga in</button>
+    <button @click="signIn" v-if="!online" class="signInToBook">Logga in för att boka</button>
   </div>
   <div class="trailerDiv">
   <iframe class="movieTrailer" :src="movie.trailerUrl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -101,9 +107,9 @@ span{
 }
 .signInToBook{
   display: block;
-  float: right;
+
   padding: 10px;
-  margin: 10px;
+  margin: 10px auto;
   border-radius: 10px;
   width: 220px;
   height: 50px;
@@ -129,6 +135,12 @@ span{
 }
 .selection{
   display: block; 
-  z-index: 100;
+  width: 220px;
+  margin: 10px auto;
+  margin-top: 30px;
+  padding: 5px;
+  height: 40px;
+  border-radius: 10px;
+  text-align: center;
 }
 </style>
