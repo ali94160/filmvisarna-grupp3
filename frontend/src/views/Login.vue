@@ -11,12 +11,34 @@
   </form>
 
   <div class="loginFeatures">
-    <h4>Varför ska jag logga in?</h4>
-    <ul>
-      <li>Boka biljetter snabbt och säkert.</li>
-      <li>Boka en eller flera platser.</li>
-      <li>Få tillgång till dina kommande och använda biljetter.</li>
-    </ul>
+    <div class="one">
+      <img
+        src="https://www.freeiconspng.com/thumbs/hd-tickets/download-ticket-ticket-free-entertainment-icon-orange-ticket-design-0.png"
+        alt=""
+      />
+      <p>Boka biljetter snabbt och säkert</p>
+    </div>
+
+    <div class="two">
+      <img
+        src="https://cdn0.iconfinder.com/data/icons/movie-flat/512/seats-512.png"
+        alt=""
+      />
+      <p>Boka en eller flera platser</p>
+    </div>
+
+    <div class="three">
+      <img
+        src="https://assets.stickpng.com/images/5bb0a964554c7f08176ec095.png"
+        alt=""
+      />
+      <img
+        class="soda"
+        src="https://i.pinimg.com/originals/a9/8e/7e/a98e7ec36f6851f4d1dfd83898a011b9.png"
+        alt=""
+      />
+      <p>Erbjudande vid kiosken</p>
+    </div>
   </div>
 </template>
 
@@ -63,6 +85,29 @@ export default {
 </script>
 
 <style scoped>
+
+.loginFeatures {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  text-align: center;
+  font-weight: bold;
+  grid-gap: 20px;
+}
+.three {
+  max-width: 80%;
+}
+
+img {
+  max-width: 200px;
+  max-height: 100px;
+}
+
+.soda {
+  max-width: 180px;
+  max-height: 85px;
+  margin-bottom: 7%;
+}
+
 h3 {
   margin-top: 12px;
   font-size: 30px;
@@ -108,7 +153,7 @@ form > input {
 
 .loginFeatures {
   padding: 10px;
-  max-width: 500px;
+  max-width: 700px;
   margin: 0 auto;
   background: rgba(49, 45, 45, 0.664);
 
