@@ -5,7 +5,7 @@
 
     </div>
 
-    <div class="info blue-text">
+    <div class="info">
       <span>Platser: </span>
       <div class="value-button" v-on:click="decreaseValue">-</div>
       <input type="number" v-model="chosenSeats" max="8">
@@ -85,6 +85,10 @@ export default {
 </script>
 
 <style scoped>
+*{
+  margin: 0;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -94,8 +98,8 @@ input::-webkit-inner-spin-button {
 .container input{
   background-color: white !important;
   border-radius: 10px;
-  max-width: 5vh;
-  max-height: 5vh;
+  max-width: calc(2vh + 2vw);
+  max-height: calc(2vh + 2vw);
   text-align: center;
   color: black;
 }
@@ -127,10 +131,9 @@ span{
 .value-button {
   display: inline-block;
   border: 1px solid #ddd;
-  width: 5vh;
-  height: 5vh;
+  width: calc(2vh + 2vw);
+  height: calc(2vh + 2vw);
   text-align: center;
-  vertical-align: middle;
   background: rgb(192, 192, 192);
   -webkit-touch-callout: none;
   -webkit-user-select: none;

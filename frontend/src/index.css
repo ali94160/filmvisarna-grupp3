@@ -35,3 +35,7 @@ body {
 .select-dropdown li.disabled, .select-dropdown li.disabled > span, .select-dropdown li.optgroup{
   color: grey !important;
 }
+
+.select-wrapper .caret{
+  fill: var(--lightgrey) !important;
+}
