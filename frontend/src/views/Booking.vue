@@ -16,48 +16,69 @@
 
     </div>
   </div>
+
 </template>
 
 <script>
 import BookingInput from '../components/BookingInput.vue'
+import ConfirmButton from '../components/ConfirmButton.vue'
 export default {
   
   data(){
     return{
       chosenSeats: 2,
       maxSeats: 8, 
-      totalPrice:0,
-      lastAddedPrice:[]
+      ticketPrices:[0, 0, 0, 0, 0, 0, 0, 0],
+      totalPrice:0
+
+      
     }
   },
 
+    computed:{
+     getTotalPrice(){
+      
+       
+     }
+    },
+
   components:{
-    BookingInput
+    BookingInput,
+    ConfirmButton
   },
 
   methods:{
     decreaseValue(){
+
       if(this.chosenSeats > 1)
       this.chosenSeats--;
-        console.log('last added price is', this.lastAddedPrice[this.lastAddedPrice.length-1])
-        this.totalPrice-=this.lastAddedPrice[this.lastAddedPrice.length-1];
-        this.lastAddedPrice.splice(this.lastAddedPrice.length-1, 1)
-     
+      
+        
+    
     
     },
 
     increaseValue(){
       if(this.chosenSeats < this.maxSeats)
       this.chosenSeats++;
+      console.log(this.ticketPrices)
     },
 
-  updateTotalPrice(price){
-  console.log('price som pushas upp är', price)
-  this.lastAddedPrice.push(price)
-  this.totalPrice+=price;
-  console.log('total pris är', this.totalPrice)
- 
-}
+    updateTotalPrice(price, ticketNumber){
+   
+      console.log('ticket number is', ticketNumber)
+      this.ticketPrices[ticketNumber-1]=price;
+
+       let sum=0;
+       for(let i=0; i<this.ticketPrices.length; i++){
+         sum+=this.ticketPrices[i]
+       }
+       this.totalPrice=sum;
+      
+      
+
+  
+  }
 
   },
 
@@ -110,9 +131,10 @@ span{
 }
 
 .info{
- 
+
   padding: 10px;
 }
+
 
 .value-button {
   display: inline-block;
