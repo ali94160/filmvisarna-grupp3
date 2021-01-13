@@ -35,6 +35,7 @@ export default {
     },
     book(){
       this.$store.commit('addCurrentMovie', this.movie);
+      this.$router.push('/booking');
     }
   }
 };
