@@ -5,7 +5,7 @@
 
     </div>
 
-    <div class="info">
+    <div class="info blue-text">
       <span>Platser: </span>
       <div class="value-button" v-on:click="decreaseValue">-</div>
       <input type="number" v-model="chosenSeats" max="8">
@@ -111,8 +111,7 @@ input::-webkit-inner-spin-button {
 
 span{
   padding: 5px;
-  color:white;
-
+  color: var(--lightgrey);
 }
 
 .salon, p{
@@ -120,8 +119,8 @@ span{
 }
 
 .info{
-
   padding: 10px;
+  padding-bottom: 0;
 }
 
 

@@ -1,12 +1,12 @@
 <template>
   <div class="input row">
-    <div class="input-field col s12 l4">
+    <div class="input-field col s12 l3">
       <span>Vuxen/Barn/Pensionär</span>
     </div>
 
-    <div class="input-field col s6 l5">
-      <select v-on:change="onChange">
-         <option value="" disabled selected>Välj</option>
+    <div class="input-field col s6 l4" id="selectDiv">
+      <select v-on:change="onChange" class="select text-white" id="selectPrice">
+        <option value="" disabled selected>Välj</option>
         <option value="1">Vuxen</option>
         <option value="2">Barn</option>
         <option value="3">Pensionär</option>
@@ -15,7 +15,8 @@
     </div>
 
     <div class="col s6 l2">
-      <span v-if="price>0">{{price}} kr</span>
+      <span>{{price}} kr</span>
+      <!--<span v-show="price>0">{{price}} kr</span>-->
     </div>
   </div>
 </template>
@@ -50,14 +51,11 @@ export default {
 
 <style scoped>
 span {
-  color: white;
+  color: var(--lightgrey);
   display: table-cell;
   vertical-align: bottom;
   padding: 10px;
-  font-size: 1vw;
-}
-.l5{
-  background-color: white;
+  font-size: 1em;
 }
 
 .input {
@@ -72,8 +70,5 @@ span {
   height: 100%;
   color: black;
 }
-
-
-
 
 </style>
