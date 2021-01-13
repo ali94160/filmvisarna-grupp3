@@ -4,6 +4,7 @@ const state = {
   movies: [],
   user: [],
   currentUser: [],
+  currentMovie: [],
   online: false 
 }
 

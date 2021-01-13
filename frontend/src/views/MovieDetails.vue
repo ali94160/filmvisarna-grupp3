@@ -4,7 +4,7 @@
     <img :src="movie.imgUrl" :alt="movie.title" />
   </div>
   <div class="movieInfo">
-    <button v-if="online" class="movieDetailsButton">Boka</button>
+    <button @click="book" v-if="online" class="movieDetailsButton">Boka</button>
     <button @click="signIn" v-if="!online" class="signInToBook">Logga in för att boka</button>
     <h3>{{ movie.title }}</h3>
     <p>{{ movie.description }}</p>
@@ -32,6 +32,9 @@ export default {
   methods:{
     signIn(){
       this.$router.push('/login');
+    },
+    book(){
+      
     }
   }
 };
