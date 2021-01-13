@@ -22,7 +22,7 @@
     <option value="audi">datum 1/4</option>
   </select>
 
-    <button v-if="online" class="movieDetailsButton">Boka</button>
+    <button @click="book" v-if="online" class="movieDetailsButton">Boka</button>
     <button @click="signIn" v-if="!online" class="signInToBook">Logga in för att boka</button>
   </div>
   <div class="trailerDiv">
@@ -48,6 +48,10 @@ export default {
   methods:{
     signIn(){
       this.$router.push('/login');
+    },
+    book(){
+      this.$store.commit('setCurrentMovie', this.movie);
+      this.$router.push('/booking');
     }
   }
 };
