@@ -5,13 +5,18 @@
 
     </div>
 
-    <div class="info">
+    <div class="info" >
+     
       <span>Platser: </span>
       <div class="value-button" v-on:click="decreaseValue">-</div>
       <input type="number" v-model="chosenSeats" max="8">
       <div class="value-button" v-on:click="increaseValue">+</div>
 
+
+<div class="tickets">
+
       <BookingInput v-for="seat in chosenSeatsInput" :key="seat" :ticketNumber="seat" @updateTotalPrice="updateTotalPrice" />
+</div>
       <p>Totala priset: {{ getTotalPrice }}</p>
 
     </div>
@@ -36,6 +41,7 @@ export default {
     BookingInput,
     ConfirmButton
   },
+
 
   methods:{
     decreaseValue(){
@@ -120,6 +126,11 @@ span{
 
 .salon, p{
   background-color: brown;
+  
+}
+
+.salon{
+  height: 50vh;
 }
 
 .info{
@@ -148,6 +159,14 @@ span{
 
 .value-button:hover {
   cursor: pointer;
+}
+
+.tickets{
+   width: 400px;
+  height: 400px;
+  overflow: scroll;
+  overflow-x:hidden;
+  width: 100%;
 }
 
 
