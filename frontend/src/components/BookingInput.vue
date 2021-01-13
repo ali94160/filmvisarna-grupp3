@@ -54,6 +54,7 @@ span {
   display: table-cell;
   vertical-align: bottom;
   padding: 10px;
+  font-size: 1vw;
 }
 .l5{
   background-color: white;

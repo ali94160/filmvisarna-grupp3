@@ -12,7 +12,7 @@
       <div class="value-button" v-on:click="increaseValue">+</div>
 
       <BookingInput v-for="seat in chosenSeatsInput" :key="seat" :ticketNumber="seat" @updateTotalPrice="updateTotalPrice" />
-      <p>Totala priset: {{ totalPrice }}</p>
+      <p>Totala priset: {{ getTotalPrice }}</p>
 
     </div>
   </div>
@@ -29,9 +29,6 @@ export default {
       chosenSeats: 2,
       maxSeats: 8, 
       ticketPrices:[0, 0, 0, 0, 0, 0, 0, 0],
-      totalPrice:0
-
-      
     }
   },
 
@@ -42,14 +39,12 @@ export default {
 
   methods:{
     decreaseValue(){
-
-      if(this.chosenSeats > 1)
-      this.chosenSeats--;
-      
-
-        
-    
-    
+      if(this.chosenSeats > 1){
+        console.log("before", this.chosenSeats);
+        this.chosenSeats--;
+        console.log("after", this.chosenSeats);
+        this.ticketPrices[this.chosenSeats] = 0
+      }
     },
 
     increaseValue(){
@@ -63,15 +58,8 @@ export default {
       console.log('ticket number is', ticketNumber)
       this.ticketPrices[ticketNumber-1]=price;
 
-       let sum=0;
-       for(let i=0; i<this.ticketPrices.length; i++){
-         sum+=this.ticketPrices[i]
-       }
-       this.totalPrice=sum;
-      
-      
 
-  
+
   }
 
   },
@@ -83,6 +71,13 @@ export default {
         array.push(seat)
       }
       return array
+    },
+    getTotalPrice(){
+      let sum=0;
+       for(let i=0; i<this.ticketPrices.length; i++){
+         sum+=this.ticketPrices[i]
+       }
+       return sum
     }
   }
 
