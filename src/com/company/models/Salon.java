@@ -10,7 +10,6 @@ public class Salon {
     private String name;
     private int seats;
     private int[] seatsPerRow;
-    private Show[] shows;
 
     public String getId() {
         return id;
@@ -42,13 +41,5 @@ public class Salon {
 
     public void setSeatsPerRow(int[] seatsPerRow) {
         this.seatsPerRow = seatsPerRow;
-    }
-
-    public Show[] getShows() {
-        return shows;
-    }
-
-    public void setShows(Show[] shows) {
-        this.shows = shows;
     }
 }
