@@ -24,7 +24,7 @@ const mutations = {
   setOnline(state) {
     state.online = true;
   },
-  addCurrentMovie(state, movie) {
+  setCurrentMovie(state, movie) {
     state.currentMovie = movie;
   }
 }
