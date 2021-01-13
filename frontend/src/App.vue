@@ -11,13 +11,14 @@ export default {
     Navbar
   },
   created(){
-    this.$store.dispatch('fetchMovie')
+    this.$store.dispatch('fetchMovie');
+    this.$store.dispatch('fetchSalon');
   }
 }
 </script>
 
 <style scoped>
-body{
+body {
   background: black;
 }
 </style>
