@@ -12,7 +12,7 @@
       <div class="value-button" v-on:click="increaseValue">+</div>
 
       <BookingInput v-for="seat in chosenSeatsInput" :key="seat" :ticketNumber="seat" @updateTotalPrice="updateTotalPrice" />
-      <p>Total pris: {{ totalPrice }}</p>
+      <p>Totala priset: {{ totalPrice }}</p>
 
     </div>
   </div>
@@ -26,7 +26,8 @@ export default {
     return{
       chosenSeats: 2,
       maxSeats: 8, 
-      totalPrice:0
+      totalPrice:0,
+      lastAddedPrice:[]
     }
   },
 
@@ -38,16 +39,24 @@ export default {
     decreaseValue(){
       if(this.chosenSeats > 1)
       this.chosenSeats--;
+        console.log('last added price is', this.lastAddedPrice[this.lastAddedPrice.length-1])
+        this.totalPrice-=this.lastAddedPrice[this.lastAddedPrice.length-1];
+        this.lastAddedPrice.splice(this.lastAddedPrice.length-1, 1)
+     
+    
     },
 
     increaseValue(){
       if(this.chosenSeats < this.maxSeats)
       this.chosenSeats++;
     },
-updateTotalPrice(price){
+
+  updateTotalPrice(price){
+  console.log('price som pushas upp är', price)
+  this.lastAddedPrice.push(price)
   this.totalPrice+=price;
   console.log('total pris är', this.totalPrice)
-
+ 
 }
 
   },
@@ -86,14 +95,13 @@ input::-webkit-inner-spin-button {
   display: grid;
   grid-template-columns: repeat(2, 3fr);
   grid-gap: 60px;
-  background-color: burlywood;
   padding: 30px;
  
 }
 
 span{
   padding: 5px;
-  color: black;
+  color:white;
 
 }
 
@@ -102,7 +110,7 @@ span{
 }
 
 .info{
-  background-color: pink;
+ 
   padding: 10px;
 }
 
