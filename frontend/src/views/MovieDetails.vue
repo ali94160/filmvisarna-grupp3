@@ -94,9 +94,8 @@ span{
 }
 .movieDetailsButton{
   display: block;
-  float: right;
   padding: 10px;
-  margin: 10px;
+  margin: 10px auto;
   border-radius: 10px;
   width: 220px;
   height: 50px;
@@ -107,7 +106,6 @@ span{
 }
 .signInToBook{
   display: block;
-
   padding: 10px;
   margin: 10px auto;
   border-radius: 10px;
