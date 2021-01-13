@@ -6,6 +6,7 @@
 
     <div class="input-field col s6 l5">
       <select v-on:change="onChange">
+         <option value="" disabled selected>Välj</option>
         <option value="1">Vuxen</option>
         <option value="2">Barn</option>
         <option value="3">Pensionär</option>
@@ -14,7 +15,7 @@
     </div>
 
     <div class="col s6 l2">
-      <span>{{price}} kr</span>
+      <span v-if="price>0">{{price}} kr</span>
     </div>
   </div>
 </template>
@@ -26,7 +27,7 @@ export default {
   data(){
     return{
       prices: [85, 65, 75],
-      price: 85
+      price: ''
     }
   },
   props:['ticketNumber'],
@@ -47,7 +48,7 @@ export default {
 
 <style scoped>
 span {
-  color: black;
+  color: white;
   display: table-cell;
   vertical-align: bottom;
 }
@@ -64,6 +65,7 @@ span {
   height: 100%;
   color: black;
 }
+
 
 
 
