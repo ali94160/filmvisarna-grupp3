@@ -16,6 +16,7 @@
     <p class="description2">{{ movie.description }}</p>
 
     <select v-model="showId" class="selection" name="opt" id="name">
+      <option value="" disabled selected>Välj datum/tid</option>
     <option v-for="show in shows" :key="show.id" :value="show.id">{{show.date}} - kl. {{show.time}}</option>
   </select>
     <button @click="book" v-if="online" class="movieDetailsButton">Boka</button>
@@ -55,7 +56,6 @@ export default {
     },
     book(){
       let show = this.$store.state.currentShows.filter((s) => s.id == this.showId)[0];
-      console.log(show);
       this.$store.commit('setCurrentMovie', show);
       this.$router.push('/booking');
     }
