@@ -12,7 +12,7 @@ export default {
   },
   created(){
     this.$store.dispatch(
-      'fetchTicketsFromUser', this.$store.state.currentUser[0].id)
+      'fetchTicketsFromUser', this.$store.state.currentUser.id)
   }
 }
 </script>

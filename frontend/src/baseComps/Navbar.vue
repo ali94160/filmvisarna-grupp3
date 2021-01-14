@@ -48,7 +48,8 @@ export default {
       return this.$store.state.online;
     },
     currentUser(){
-      return this.$store.state.currentUser[0];
+      console.log('Häär',this.$store.state.currentUser.firstName);
+      return this.$store.state.currentUser;
     }
   },
   methods:{

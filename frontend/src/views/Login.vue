@@ -13,7 +13,7 @@
   <div class="loginFeatures">
     <div class="one">
       <img
-        src="https://www.freeiconspng.com/thumbs/hd-tickets/download-ticket-ticket-free-entertainment-icon-orange-ticket-design-0.png"
+        src="../assets/tickets.png"
         alt=""
       />
       <p>Boka biljetter snabbt och säkert</p>
@@ -21,7 +21,7 @@
 
     <div class="two">
       <img
-        src="https://cdn0.iconfinder.com/data/icons/movie-flat/512/seats-512.png"
+        src="../assets/seats.png"
         alt=""
       />
       <p>Boka en eller flera platser</p>
@@ -29,12 +29,12 @@
 
     <div class="three">
       <img
-        src="https://assets.stickpng.com/images/5bb0a964554c7f08176ec095.png"
+        src="../assets/popcorn.png"
         alt=""
       />
       <img
         class="soda"
-        src="https://i.pinimg.com/originals/a9/8e/7e/a98e7ec36f6851f4d1dfd83898a011b9.png"
+        src="../assets/soda.png"
         alt=""
       />
       <p>Erbjudande vid kiosken</p>

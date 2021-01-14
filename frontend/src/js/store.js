@@ -3,7 +3,7 @@ import { createStore } from 'vuex'
 const state = {
   movies: [],
   user: [],
-  currentUser: [],
+  currentUser: {},
   currentMovie: [],
   currentUserTickets: [],
   online: false 
@@ -20,7 +20,7 @@ const mutations = {
     state.user.push(user);
   },
   setCurrentUser(state, user) {
-    state.currentUser.push(user);
+    state.currentUser = user;
   },
   setOnline(state) {
     state.online = true;
@@ -69,7 +69,9 @@ const actions = {
   async fetchTicketsFromUser(store, userId) { 
     let list = await fetch('/rest/user/get-ticket/' + userId)
     list = await list.json()
-    store.commit('setCurrentUserTickets', list)
+    if (list.length) {
+      store.commit('setCurrentUserTickets', list)
+    }
   }
 }
 
