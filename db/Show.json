@@ -1,0 +1,36 @@
+[ {
+  "id" : "7SuXtaW3O61sQkFicCty_",
+  "date" : "6/2/2020",
+  "time" : "3:01",
+  "seatsTaken" : 0,
+  "movieId" : "gtR4rG_xXGSqvFUbYFotn",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "6XFjfssW0VsQ8YiUIQ7Fz",
+  "date" : "6/30/2020",
+  "time" : "2:27",
+  "seatsTaken" : 0,
+  "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "CoiIm07lHrTxvw3N-3X9O",
+  "date" : "12/4/2020",
+  "time" : "22:45",
+  "seatsTaken" : 0,
+  "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "9FA_KfM-drxSitg7tkemX",
+  "date" : "5/31/2020",
+  "time" : "17:43",
+  "seatsTaken" : 0,
+  "movieId" : "kE86jJGJ7EMWx3ka17XGK",
+  "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
+}, {
+  "id" : "ukHRQC7M1trktAk1iCNNK",
+  "date" : "1/28/2020",
+  "time" : "6:08",
+  "seatsTaken" : 0,
+  "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
+  "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
+} ]
