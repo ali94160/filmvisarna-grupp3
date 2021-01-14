@@ -120,6 +120,14 @@ public class Main {
             }
         });
 
+        app.put("/rest/show/increase-seats/:id/:amount", (req, res) -> {
+            var id = req.params("id");
+            Show list = collection("Show").findById(id);
+            String amount = req.params("amount");
+
+            list.increaseSeatsTaken(amount);
+        });
+
         app.post("rest/user/:id", (req, res) ->{
 
         });

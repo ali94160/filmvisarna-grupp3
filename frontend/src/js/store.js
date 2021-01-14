@@ -2,11 +2,13 @@ import { createStore } from 'vuex'
 
 const state = {
   movies: [],
+  salons: [],
   user: [],
   currentUser: {},
   currentMovie: [],
   currentUserTickets: [],
   currentShows: [],
+  currentSalon: [],
   online: false 
 }
 
@@ -16,6 +18,9 @@ const mutations = {
   },
   setUser(state, list) {
     state.user = list
+  },
+  setSalons(state, list) {
+    state.salons = list
   },
   addUser(state, user) {
     state.user.push(user);
@@ -37,6 +42,9 @@ const mutations = {
   },
   setCurrentShow(state, shows) {
     state.currentShows = shows
+  },
+  setCurrentSalon(state, salon) {
+    state.currentSalon = salon
   }
 }
 
@@ -82,7 +90,19 @@ const actions = {
     if (list.length) {
       store.commit('setCurrentShow', list);
     }
+  },
+  async fetchSalons(store) {
+    let list = await fetch('/rest/salon')
+    list = await list.json()
 
+    store.commit('setSalons', list)
+  },
+  async fetchSpecificSalon(store, showId) {
+    let list = await fetch('/rest/show/get-salon/' + showId)
+    list = await list.json()
+   
+    store.commit('setCurrentSalon', list)
+    
   }
 }
 

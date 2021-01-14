@@ -13,6 +13,10 @@ public class Show {
     private String movieId;
     private String salonId;
 
+    public void increaseSeatsTaken(String amount){
+        this.seatsTaken += Integer.parseInt(amount);
+    }
+
     public String getId() {
         return id;
     }

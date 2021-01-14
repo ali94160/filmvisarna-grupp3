@@ -18,6 +18,7 @@
     <select v-model="showId" class="selection" name="opt" id="name">
     <option v-for="show in shows" :key="show.id" :value="show.id">{{show.date}} - kl. {{show.time}}</option>
   </select>
+    <p class="fullSalonAlert" v-if="fullSalon">Fullbokat</p>
     <button @click="book" v-if="online" class="movieDetailsButton">Boka</button>
     <button @click="signIn" v-if="!online" class="signInToBook">Logga in för att boka</button>
   </div>
@@ -33,6 +34,7 @@ export default {
   data(){
     return{
       showId: '',
+      fullSalon: false
     }
   },
   computed: {
@@ -55,9 +57,21 @@ export default {
     },
     book(){
       let show = this.$store.state.currentShows.filter((s) => s.id == this.showId)[0];
-      console.log(show);
+
       this.$store.commit('setCurrentMovie', show);
-      this.$router.push('/booking');
+      this.$store.dispatch('fetchSpecificSalon', show.id)
+      // shit aint working
+      
+      console.log( ' seats in salon', this.$store.state.currentSalon[0].seats);
+      console.log( ' seats taken',this.$store.state.currentShows[0].seatsTaken);
+
+      if(this.$store.state.currentShows[0].seatsTaken !== this.$store.state.currentSalon[0].seats){
+        this.fullSalon = false
+        this.$router.push('/booking');
+      }
+      else{
+        this.fullSalon = true
+      }
     }
   },
   created(){
