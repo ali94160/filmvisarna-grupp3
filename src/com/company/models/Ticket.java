@@ -1,7 +1,8 @@
 package com.company.models;
 
+import express.database.Model;
 import org.dizitart.no2.objects.Id;
-
+@Model
 public class Ticket {
     @Id
     private String id;
@@ -11,7 +12,7 @@ public class Ticket {
     private String seat;
     private int childPrice = 65;
     private int seniorPrice = 75;
-    private String userId;
+    private transient String userId;
     private String showId;
 
     public String getId() {

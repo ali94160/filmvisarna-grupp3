@@ -5,6 +5,8 @@ import com.company.models.User;
 import com.company.models.Show;
 import com.company.models.Salon;
 import com.company.models.Movie;
+import com.company.models.Ticket;
+
 import express.Express;
 
 import java.util.List;
@@ -31,6 +33,22 @@ public class Main {
         app.get("/rest/show",(req, res) ->{
             var show = collection("Show").find();
             res.json(show);
+        });
+
+        app.get("/rest/user",(req, res) ->{
+            var user = collection("User").find();
+            res.json(user);
+        });
+
+        app.get("/rest/ticket",(req, res) ->{
+            var ticket = collection("Ticket").find();
+            res.json(ticket);
+        });
+
+        app.post("rest/user", (req, res) ->{
+            var user = req.body(User.class);
+            var createdUser = collection("User").save(user);
+            res.json(createdUser);
         });
 
         app.get("/rest/show/get-salon/:id",(req, res) ->{
@@ -74,17 +92,30 @@ public class Main {
             }
         });
 
-
-
-        app.get("/rest/user",(req, res) ->{
-            var user = collection("User").find();
-            res.json(user);
+        app.get("/rest/ticket/get-show/:id", (req, res) -> {
+            var id = req.params("id");
+            Ticket ticket = collection("Ticket").findById(id);
+            Show show = collection("Show").findById(ticket.getShowId());
+            if(show != null) {
+                res.json(show);
+            }
+            else{
+                res.send("Show not found");
+            }
         });
 
-        app.post("rest/user", (req, res) ->{
-            var user = req.body(User.class);
-            var createdUser = collection("User").save(user);
-            res.json(createdUser);
+        app.get("/rest/user/get-ticket/:id", (req, res) -> {
+            var id = req.params("id");
+            // fetching the salon
+            User user = collection("User").findById(id);
+            // fetch and filter shows with matching salonId
+            List<Ticket> tickets = collection("Ticket").find(eq("userId", user.getId()));
+            if(tickets != null) {
+                res.json(tickets);
+            }
+            else{
+                res.send("Tickets not found");
+            }
         });
 
         app.post("rest/user/:id", (req, res) ->{
