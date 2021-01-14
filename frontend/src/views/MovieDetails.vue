@@ -15,10 +15,9 @@
     <p class="description1"><span>Handling:</span></p>
     <p class="description2">{{ movie.description }}</p>
 
-    <select class="selection" name="opt" id="name">
-    <option v-for="show in shows" :key="show.id" value="">{{show.date}} - kl. {{show.time}}</option>
+    <select v-model="showId" class="selection" name="opt" id="name">
+    <option v-for="show in shows" :key="show.id" :value="show.id">{{show.date}} - kl. {{show.time}}</option>
   </select>
-
     <button @click="book" v-if="online" class="movieDetailsButton">Boka</button>
     <button @click="signIn" v-if="!online" class="signInToBook">Logga in för att boka</button>
   </div>
@@ -31,6 +30,11 @@
 
 <script>
 export default {
+  data(){
+    return{
+      showId: '',
+    }
+  },
   computed: {
     id() {
       return this.$route.params.id;
@@ -50,7 +54,9 @@ export default {
       this.$router.push('/login');
     },
     book(){
-      this.$store.commit('setCurrentMovie', this.movie);
+      let show = this.$store.state.currentShows.filter((s) => s.id == this.showId)[0];
+      console.log(show);
+      this.$store.commit('setCurrentMovie', show);
       this.$router.push('/booking');
     }
   },
