@@ -56,16 +56,12 @@ export default {
     signIn(){
       this.$router.push('/login');
     },
-    book(){
+    async book(){
       let show = this.$store.state.currentShows.filter((s) => s.id == this.showId)[0];
       this.$store.commit('setCurrentMovie', show);
-      this.$store.dispatch('fetchSpecificSalon', show.id)
-      // shit aint working
+      await this.$store.dispatch('fetchSpecificSalon', show.id)
       
-      console.log( ' seats in salon', this.$store.state.currentSalon[0].seats);
-      console.log( ' seats taken',this.$store.state.currentShows[0].seatsTaken);
-
-      if(this.$store.state.currentShows[0].seatsTaken !== this.$store.state.currentSalon[0].seats){
+      if(this.$store.state.currentMovie.seatsTaken !== this.$store.state.currentSalon.seats){
         this.fullSalon = false
         this.$router.push('/booking');
       }
