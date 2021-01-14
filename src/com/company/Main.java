@@ -27,6 +27,14 @@ public class Main {
             res.json(show);
         });
 
+        app.get("/rest/show/:id",(req, res) ->{
+            var id = req.params("id");
+            var show = collection("Show").findById(id);
+            System.out.println("found " + show);
+            //var salon = collection("Salon").findById(show.salonId);
+            res.json(show);
+        });
+
         app.get("/rest/user",(req, res) ->{
             var user = collection("User").find();
             res.json(user);
