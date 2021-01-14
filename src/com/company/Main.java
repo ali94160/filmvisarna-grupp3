@@ -93,6 +93,7 @@ public class Main {
         });
 
         app.get("/rest/ticket/get-show/:id", (req, res) -> {
+            // get show from ticket
             var id = req.params("id");
             Ticket ticket = collection("Ticket").findById(id);
             Show show = collection("Show").findById(ticket.getShowId());
@@ -105,6 +106,7 @@ public class Main {
         });
 
         app.get("/rest/user/get-ticket/:id", (req, res) -> {
+            //get tickets from userId
             var id = req.params("id");
             // fetching the salon
             User user = collection("User").findById(id);

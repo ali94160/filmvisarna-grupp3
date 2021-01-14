@@ -5,6 +5,7 @@ const state = {
   user: [],
   currentUser: [],
   currentMovie: [],
+  currentUserTickets: [],
   online: false 
 }
 
@@ -18,7 +19,7 @@ const mutations = {
   addUser(state, user) {
     state.user.push(user);
   },
-  addCurrentUser(state, user) {
+  setCurrentUser(state, user) {
     state.currentUser.push(user);
   },
   setOnline(state) {
@@ -26,7 +27,14 @@ const mutations = {
   },
   setCurrentMovie(state, movie) {
     state.currentMovie = movie;
+  },
+  addCurrentUserTickets(state, tickets) { 
+    state.currentUserTickets.push(tickets)
+  },
+  setCurrentUserTickets(state, tickets) { 
+    state.currentUserTickets = tickets
   }
+  
 }
 
 const actions = {
@@ -57,6 +65,11 @@ const actions = {
       body: JSON.stringify(newUser)
     })
     store.commit('addUser', newUser);
+  },
+  async fetchTicketsFromUser(store, userId) { 
+    let list = await fetch('/rest/user/get-ticket/' + userId)
+    list = await list.json()
+    store.commit('setCurrentUserTickets', list)
   }
 }
 
