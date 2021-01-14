@@ -3,7 +3,10 @@
     <a href="#" data-target="mobile-demo" class="sidenav-trigger">
       <i class="material-icons">menu</i>
     </a>
-    <router-link to="/" class="brand-logo">Filmvisarna</router-link>
+
+    <router-link to="/" class="brand-logo">
+      <img class="loggan" :src="loggan" /><a class="logoName">Filmvisarna</a>
+    </router-link>
 
     <div class="container">
       <ul class="hide-on-med-and-down">
@@ -17,8 +20,14 @@
           <router-link to="/register" v-if="!online"> Bli medlem</router-link>
         </li>
         <li><router-link to="/login" v-if="!online">Logga in</router-link></li>
-        <li><router-link class="userOnline" to="/mypage" v-if="online">{{currentUser.firstName}}</router-link></li>
-        <li><router-link to="/mypage" v-if="online">Mina sidor</router-link></li>
+        <li>
+          <router-link class="userOnline" to="/mypage" v-if="online">{{
+            currentUser.firstName
+          }}</router-link>
+        </li>
+        <li>
+          <router-link to="/mypage" v-if="online">Mina sidor</router-link>
+        </li>
         <li><a @click="logOut" v-if="online">Logga ut</a></li>
       </ul>
     </div>
@@ -39,21 +48,23 @@
 import M from "materialize-css";
 export default {
   data() {
-    return {};
+    return {
+      loggan: "https://i.postimg.cc/SK9Ch5R1/logo-Nyaste-1.png",
+    };
   },
   computed: {
     online() {
       return this.$store.state.online;
     },
-    currentUser(){
+    currentUser() {
       return this.$store.state.currentUser[0];
-    }
+    },
   },
-  methods:{
-    async logOut(){
-      await this.$router.push('/');
-      window.location.reload()
-    }
+  methods: {
+    async logOut() {
+      await this.$router.push("/");
+      window.location.reload();
+    },
   },
   mounted() {
     M.AutoInit();
@@ -62,6 +73,19 @@ export default {
 </script>
 
 <style scoped>
+.logoName {
+  position: relative;
+  top: -22px;
+  font-size: 22px;
+
+  
+}
+
+.loggan {
+  margin: 10px 5px 10px 5px;
+  max-width: 40px;
+}
+
 nav {
   background-color: var(--red);
 }
