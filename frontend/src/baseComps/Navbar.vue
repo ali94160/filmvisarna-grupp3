@@ -59,7 +59,6 @@ export default {
       return this.$store.state.online;
     },
     currentUser(){
-      console.log('Häär',this.$store.state.currentUser.firstName);
       return this.$store.state.currentUser;
     }
   },
