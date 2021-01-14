@@ -6,6 +6,7 @@ const state = {
   currentUser: {},
   currentMovie: [],
   currentUserTickets: [],
+  currentShows: [],
   online: false 
 }
 
@@ -33,8 +34,10 @@ const mutations = {
   },
   setCurrentUserTickets(state, tickets) { 
     state.currentUserTickets = tickets
+  },
+  setCurrentShow(state, shows) {
+    state.currentShows = shows
   }
-  
 }
 
 const actions = {
@@ -72,6 +75,14 @@ const actions = {
     if (list.length) {
       store.commit('setCurrentUserTickets', list)
     }
+  },
+  async fetchShows(store, movieId) {
+    let list = await fetch('/rest/movie/get-show/' + movieId)
+    list = await list.json();
+    if (list.length) {
+      store.commit('setCurrentShow', list);
+    }
+
   }
 }
 

@@ -16,10 +16,7 @@
     <p class="description2">{{ movie.description }}</p>
 
     <select class="selection" name="opt" id="name">
-    <option value="date">datum 1/1</option>
-    <option value="date">datum 1/2</option>
-    <option value="date">datum 1/3</option>
-    <option value="audi">datum 1/4</option>
+    <option v-for="show in shows" :key="show.id" value="">{{show.date}} - kl. {{show.time}}</option>
   </select>
 
     <button @click="book" v-if="online" class="movieDetailsButton">Boka</button>
@@ -43,6 +40,9 @@ export default {
     },
     online(){
       return this.$store.state.online;
+    },
+    shows(){
+      return this.$store.state.currentShows;
     }
   },
   methods:{
@@ -53,6 +53,9 @@ export default {
       this.$store.commit('setCurrentMovie', this.movie);
       this.$router.push('/booking');
     }
+  },
+  created(){
+    this.$store.dispatch('fetchShows', this.id);
   }
 };
 </script>
