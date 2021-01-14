@@ -33,7 +33,7 @@ public class Main {
             res.json(show);
         });
 
-        app.get("/rest/show/:id",(req, res) ->{
+        app.get("/rest/show/get-salon/:id",(req, res) ->{
             //get salon with showId
             var id = req.params("id");
             Show show = collection("Show").findById(id);
@@ -44,7 +44,7 @@ public class Main {
             res.json(salon);
         });
 
-        app.get("/rest/salon/:id",(req, res) ->{
+        app.get("/rest/salon/get-show/:id",(req, res) ->{
             //get shows with salonId
             var id = req.params("id");
             // fetching the salon
@@ -59,8 +59,8 @@ public class Main {
             }
         });
 
-        app.get("/rest/movie/:id",(req, res) ->{
-            //get show by movieId
+        app.get("/rest/movie/get-show/:id",(req, res) ->{
+            //get shows by movieId
             var id = req.params("id");
             // fetching the salon
             Movie movie = collection("Movie").findById(id);
