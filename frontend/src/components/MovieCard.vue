@@ -3,9 +3,11 @@
     <img :src="movie.imgUrl" alt="">
     <div>
       <h3>{{ movie.title }}</h3>
-      <p><span class="title">Åldersgräns:</span> {{ movie.age }}</p>
-      <p><span class="title">Språk:</span> {{ movie.languages[0] }}</p>
-      <p><span class="title">Handling:</span> {{ movie.description }}</p> 
+      <p><span class="titleTag">Åldersgräns:</span> {{ movie.age }}</p>
+      <p><span class="titleTag">Genre:</span> 
+      <span v-for="genre in movie.genre" :key="genre.is">{{ " " + genre + " " }}</p>
+      <p><span class="titleTag">Språk:</span> {{ movie.languages[0] }}</p>
+      <p><span class="titleTag">Handling:</span> {{ movie.description }}</p> 
     </div>
   </div>
 </template>
@@ -55,7 +57,7 @@ export default {
     font-size: 1em;
   }
 
-  .title {
+  .titleTag {
     font-weight: bold;
   }
 
