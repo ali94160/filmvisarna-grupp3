@@ -1,126 +1,152 @@
 <template>
-  <h1>Booking Page</h1>
-  <div class="container">
-    <div class="salon">
+  <div id="#bookingDiv" v-if="!booked" >
+    <h1>{{getCurrentMovie.title}}</h1>
+    <div class="container">
+      <div class="salon"></div>
 
-    </div>
+      <div class="info">
+        <span>Platser: </span>
+        <div class="value-button" v-on:click="decreaseValue">-</div>
+        <input type="number" v-model="chosenSeats" max="8" />
+        <div class="value-button" v-on:click="increaseValue">+</div>
 
-    <div class="info">
-      <span>Platser: </span>
-      <div class="value-button" v-on:click="decreaseValue">-</div>
-      <input type="number" v-model="chosenSeats" max="8">
-      <div class="value-button" v-on:click="increaseValue">+</div>
-
-      <BookingInput v-for="seat in chosenSeatsInput" :key="seat" :ticketNumber="seat" @updateTotalPrice="updateTotalPrice" />
-      <p>Totala priset: {{ totalPrice }}</p>
-
+        <div :class="{tickets: hasThreeTickets}">
+          <BookingInput
+            v-for="seat in chosenSeatsInput"
+            :key="seat"
+            :ticketNumber="seat"
+            @updateTotalPrice="updateTotalPrice"
+          />
+        </div>
+        <p id="totalPrice">Totala priset: <span class="right">{{ getTotalPrice }} kr</span></p>
+        <button class="btn" v-on:click="changeBooked">Beställ plats(er)</button>
+      </div>
     </div>
   </div>
+
+  <Confirm v-if="booked" :ticketPrices="ticketPrices"/>
 </template>
 
 <script>
-import BookingInput from '../components/BookingInput.vue'
+import BookingInput from "../components/BookingInput.vue";
+import Confirm from "../components/Confirm.vue";
 export default {
-  
-  data(){
-    return{
+  data() {
+    return {
       chosenSeats: 2,
-      maxSeats: 8, 
-      totalPrice:0,
-      lastAddedPrice:[]
-    }
+      maxSeats: 8,
+      ticketPrices: [0, 0, 0, 0, 0, 0, 0, 0],
+      booked: false
+    };
   },
 
-  components:{
-    BookingInput
+  components: {
+    BookingInput,
+    Confirm
   },
 
-  methods:{
-    decreaseValue(){
-      if(this.chosenSeats > 1)
-      this.chosenSeats--;
-        console.log('last added price is', this.lastAddedPrice[this.lastAddedPrice.length-1])
-        this.totalPrice-=this.lastAddedPrice[this.lastAddedPrice.length-1];
-        this.lastAddedPrice.splice(this.lastAddedPrice.length-1, 1)
-     
-    
-    },
-
-    increaseValue(){
-      if(this.chosenSeats < this.maxSeats)
-      this.chosenSeats++;
-    },
-
-  updateTotalPrice(price){
-  console.log('price som pushas upp är', price)
-  this.lastAddedPrice.push(price)
-  this.totalPrice+=price;
-  console.log('total pris är', this.totalPrice)
- 
-}
-
-  },
-
-  computed:{
-    chosenSeatsInput(){
-      let array = [];
-      for(let seat = 1; seat <= this.chosenSeats; seat++){
-        array.push(seat)
+  methods: {
+    decreaseValue() {
+      if (this.chosenSeats > 1) {
+        this.chosenSeats--;
+        this.ticketPrices[this.chosenSeats] = 0;
       }
-      return array
-    }
-  }
+    },
 
-}
+    increaseValue() {
+      if (this.chosenSeats < this.maxSeats) this.chosenSeats++;
+    },
+
+    updateTotalPrice(price, ticketNumber) {
+      this.ticketPrices[ticketNumber - 1] = price;
+    },
+    changeBooked(){
+      this.booked = !this.booked
+    }
+  },
+
+  computed: {
+    chosenSeatsInput() {
+      let array = [];
+      for (let seat = 1; seat <= this.chosenSeats; seat++) {
+        array.push(seat);
+      }
+      return array;
+    },
+    getTotalPrice() {
+      let sum = 0;
+      for (let i = 0; i < this.ticketPrices.length; i++) {
+        sum += this.ticketPrices[i];
+      }
+      return sum;
+    },
+    hasThreeTickets(){
+      return this.chosenSeats > 3
+    },
+    getCurrentMovie(){
+      return this.$store.state.currentMovie
+    }
+  },
+};
 </script>
 
 <style scoped>
+* {
+  margin: 0;
+}
+
+h1 {
+  font-size: 5vw;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
-  margin: 0;  
+  margin: 0;
 }
 
-.container input{
+.container input {
   background-color: white !important;
   border-radius: 10px;
-  max-width: 5vh;
-  max-height: 5vh;
+  max-width: calc(2vh + 2vw);
+  max-height: calc(2vh + 2vw);
   text-align: center;
   color: black;
 }
 
-.container{
-  width: 100%;
+.container {
+  width: 90%;
   display: grid;
-  grid-template-columns: repeat(2, 3fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 60px;
-  padding: 30px;
- 
+  margin: 0 auto;
 }
 
-span{
+span {
   padding: 5px;
-  color:white;
-
+  color: var(--lightgrey);
 }
 
-.salon, p{
+.salon,
+p {
   background-color: brown;
 }
 
-.info{
- 
+.salon {
+  height: 50vh;
+}
+
+.info {
   padding: 10px;
+  padding-bottom: 0;
 }
 
 .value-button {
   display: inline-block;
   border: 1px solid #ddd;
-  width: 5vh;
-  height: 5vh;
+  width: calc(2vh + 2vw);
+  height: calc(2vh + 2vw);
   text-align: center;
-  vertical-align: middle;
   background: rgb(192, 192, 192);
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -137,7 +163,23 @@ span{
   cursor: pointer;
 }
 
+.tickets {
+  width: 400px;
+  height: 50vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  width: 100%;
+}
 
+#totalPrice{
+  padding: 10px;
+  font-size: 2vw;
+}
 
+@media only screen and (max-width: 992px){
+  .container{
+    grid-template-columns: none;
+  }
+}
 
 </style>
