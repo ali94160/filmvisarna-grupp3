@@ -3,6 +3,8 @@ package com.company.models;
 import express.database.Model;
 import org.dizitart.no2.objects.Id;
 
+import java.util.Arrays;
+
 @Model
 public class Salon {
     @Id
@@ -10,7 +12,18 @@ public class Salon {
     private String name;
     private int seats;
     private int[] seatsPerRow;
-    private Show[] shows;
+
+    public Salon() { }
+
+    @Override
+    public String toString() {
+        return "Salon{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", seats=" + seats +
+                ", seatsPerRow=" + Arrays.toString(seatsPerRow) +
+                '}';
+    }
 
     public String getId() {
         return id;
@@ -42,13 +55,5 @@ public class Salon {
 
     public void setSeatsPerRow(int[] seatsPerRow) {
         this.seatsPerRow = seatsPerRow;
-    }
-
-    public Show[] getShows() {
-        return shows;
-    }
-
-    public void setShows(Show[] shows) {
-        this.shows = shows;
     }
 }

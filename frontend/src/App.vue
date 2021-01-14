@@ -11,7 +11,9 @@ export default {
     Navbar
   },
   created(){
-    this.$store.dispatch('fetchMovie')
+    this.$store.dispatch('fetchMovie');
+    this.$store.dispatch('fetchUsers');
+    this.$store.dispatch('fetchSalons');
   }
 }
 </script>

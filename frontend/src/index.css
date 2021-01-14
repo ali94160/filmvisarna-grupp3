@@ -2,6 +2,13 @@
   --red: rgb(124, 0, 0);
   --lightgrey: #d4e3f1;
   --darkgrey: rgb(22, 22, 22);
+  --textFamily: Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--darkgrey);
 }
 
 #app {
@@ -9,6 +16,28 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #d4e3f1;
-  background: var(--darkgrey);
-  min-height: 100vh;
+  background: var(--darkgrey); 
+}
+
+.select-wrapper input.select-dropdown{
+  color: var(--lightgrey) !important;
+  font-family: var(--textFamily);
+  font-size: 1em !important;
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+  color: var(--red) !important;
+  font-size: 1em !important;
+}
+
+.select-wrapper input.select-dropdown:focus{
+  border-bottom: 1px solid var(--lightgrey) !important;
+}
+
+.select-dropdown li.disabled, .select-dropdown li.disabled > span, .select-dropdown li.optgroup{
+  color: grey !important;
+}
+
+.select-wrapper .caret{
+  fill: var(--lightgrey) !important;
 }

@@ -11,7 +11,6 @@ public class User {
     private String lastName;
     private String email;
     private String password;
-    private Ticket[] tickets;
 
     public String getId() {
         return id;
@@ -51,13 +50,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Ticket[] getTickets() {
-        return tickets;
-    }
-
-    public void setTickets(Ticket[] tickets) {
-        this.tickets = tickets;
     }
 }

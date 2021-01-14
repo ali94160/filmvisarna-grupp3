@@ -1,5 +1,9 @@
 export default {
   proxy: {
-    "/rest": "http://localhost:4000",
-  },
-};
+    "/rest": {
+      target: "http://localhost:4000",
+      changeOrigin: true,
+      ws: true
+    }
+  }
+}

@@ -1,16 +1,19 @@
 package com.company.models;
 
+import express.database.Model;
 import org.dizitart.no2.objects.Id;
-
+@Model
 public class Ticket {
     @Id
     private String id;
     private int price;
+    private String date;
+    private String time;
     private String seat;
-    private Salon salon;
     private int childPrice = 65;
     private int seniorPrice = 75;
-    private Show show;
+    private transient String userId;
+    private String showId;
 
     public String getId() {
         return id;
@@ -28,20 +31,28 @@ public class Ticket {
         this.price = price;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
     public String getSeat() {
         return seat;
     }
 
     public void setSeat(String seat) {
         this.seat = seat;
-    }
-
-    public Salon getSalon() {
-        return salon;
-    }
-
-    public void setSalon(Salon salon) {
-        this.salon = salon;
     }
 
     public int getChildPrice() {
@@ -60,11 +71,19 @@ public class Ticket {
         this.seniorPrice = seniorPrice;
     }
 
-    public Show getShow() {
-        return show;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setShow(Show show) {
-        this.show = show;
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getShowId() {
+        return showId;
+    }
+
+    public void setShowId(String showId) {
+        this.showId = showId;
     }
 }
