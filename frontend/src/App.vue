@@ -13,6 +13,7 @@ export default {
   created(){
     this.$store.dispatch('fetchMovie');
     this.$store.dispatch('fetchUsers');
+    this.$store.dispatch('fetchSalons');
   }
 }
 </script>
