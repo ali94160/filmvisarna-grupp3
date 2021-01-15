@@ -49,6 +49,9 @@
         Logga in för att boka
       </button>
     </div>
+    <div class="trailerDiv">
+      <iframe class="movieTrailer" :src="movie.trailerUrl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
   </div>
 </template>
 
