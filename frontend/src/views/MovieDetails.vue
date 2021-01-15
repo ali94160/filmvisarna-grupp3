@@ -80,7 +80,7 @@ export default {
     },
 
     book() {
-      if (!this.fullSalon && this.showId.length) {
+      if (!this.isFullSalon && this.showId.length) {
         this.$router.push("/booking");
       }
     },
