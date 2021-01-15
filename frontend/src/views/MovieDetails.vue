@@ -77,6 +77,7 @@ export default {
     }
   },
   created(){
+    this.$store.commit('setSelectedMovie',this.$store.state.movies.filter((movie) => movie.id == this.id)[0]);
     this.$store.dispatch('fetchShows', this.id);
   }
 };

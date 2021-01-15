@@ -5,16 +5,23 @@ const state = {
   salons: [],
   user: [],
   currentUser: {},
+  //holds the current show
   currentMovie: [],
   currentUserTickets: [],
+  //all the shows for the specific movie
   currentShows: [],
   currentSalon: [],
+  //the movie the user selected
+  selectedMovie: {},
   online: false 
 }
 
 const mutations = {
   setMovie(state, list) { 
     state.movies = list
+  },
+  setSelectedMovie(state, movie) {
+    state.selectedMovie = movie
   },
   setUser(state, list) {
     state.user = list
