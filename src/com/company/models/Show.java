@@ -7,11 +7,15 @@ import org.dizitart.no2.objects.Id;
 public class Show {
     @Id
     private String id;
-    private int date;
-    private int time;
-    private String movie;
-    private Salon salon;
-    private int remainingSeats;
+    private String date;
+    private String time;
+    private int seatsTaken;
+    private String movieId;
+    private String salonId;
+
+    public void increaseSeatsTaken(String amount){
+        this.seatsTaken += Integer.parseInt(amount);
+    }
 
     public String getId() {
         return id;
@@ -21,43 +25,43 @@ public class Show {
         this.id = id;
     }
 
-    public int getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public int getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(int time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
-    public String getMovie() {
-        return movie;
+    public int getSeatsTaken() {
+        return seatsTaken;
     }
 
-    public void setMovie(String movie) {
-        this.movie = movie;
+    public void setSeatsTaken(int seatsTaken) {
+        this.seatsTaken = seatsTaken;
     }
 
-    public Salon getSalon() {
-        return salon;
+    public String getMovieId() {
+        return movieId;
     }
 
-    public void setSalon(Salon salon) {
-        this.salon = salon;
+    public void setMovieId(String movieId) {
+        this.movieId = movieId;
     }
 
-    public int getRemainingSeats() {
-        return remainingSeats;
+    public String getSalonId() {
+        return salonId;
     }
 
-    public void setRemainingSeats(int remainingSeats) {
-        this.remainingSeats = remainingSeats;
+    public void setSalonId(String salonId) {
+        this.salonId = salonId;
     }
 }
