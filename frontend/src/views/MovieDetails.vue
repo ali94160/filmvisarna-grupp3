@@ -81,6 +81,9 @@ export default {
   created(){
     this.$store.commit('setSelectedMovie',this.$store.state.movies.filter((movie) => movie.id == this.id)[0]);
     this.$store.dispatch('fetchShows', this.id);
+  },
+  mounted() {
+    window.scrollTo(0, 0);
   }
 };
 </script>
@@ -100,11 +103,12 @@ export default {
 }
 .moviePoster img {
   margin-left: 5%;
-  max-width: 400px;
+  min-width: 100px;
+  width: 100%;
   border-radius: 10px;
   box-shadow: 0 0 7px 0.1px #7e7e7e;
 }
-.titleTag{
+.titleTag {
   font-weight: bolder;
   color: white;
 }
