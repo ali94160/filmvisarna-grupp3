@@ -58,9 +58,7 @@ export default {
     },
 
     book(){ 
-      console.log("book called");
       if(!this.isFullSalon){
-        console.log("condition met");
         this.$router.push('/booking');
       }
     },

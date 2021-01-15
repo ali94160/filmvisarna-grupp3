@@ -61,7 +61,11 @@ export default {
       this.ticketPrices[ticketNumber - 1] = price;
     },
     changeBooked(){
-      this.booked = !this.booked
+      console.log(this.chosenSeats);
+      console.log(this.ticketPrices.filter(p => p !== 0).length);
+      if(this.ticketPrices.filter(p => p !== 0).length === this.chosenSeats){
+        this.booked = !this.booked
+      }
     }
   },
 
