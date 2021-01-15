@@ -1,26 +1,24 @@
 <template>
-  <div v-for="salon of salons" :key="salon.id" class="container">
-    <h3>{{ salon.name }}</h3>
-    <p>Du vill boka: {{ chairs }}</p>
-    <div class="salon">
+  <h3>{{ salon.name }}</h3>
+  <p>Du vill boka: {{ chairs }}</p>
+  <div class="salon">
+    <div
+      v-for="(seatsPerRow, row) of salon.seatsPerRow"
+      :key="row"
+      class="rows"
+    >
       <div
-        v-for="(seatsPerRow, row) of salon.seatsPerRow"
-        :key="row"
-        class="rows"
+        v-for="(seat, col) of seatsPerRow"
+        :key="col"
+        class="seats"
+        @click="changeColor(row, col)"
       >
-        <div
-          v-for="(seat, col) of seatsPerRow"
-          :key="col"
-          class="seats"
-          @click="changeColor(row, col)"
-        >
-          <span class="material-icons"> event_seat </span>
-        </div>
+        <span class="material-icons"> event_seat </span>
       </div>
     </div>
-    <div class="buttons">
-      <button @click="clear">Rensa</button>
-    </div>
+  </div>
+  <div class="buttons">
+    <button @click="clear">Rensa</button>
   </div>
 </template>
 
@@ -59,9 +57,11 @@
       }
     },
   computed: {
-    salons() {
-      return this.$store.state.salons;
-    }
+    salon() {
+      console.log('ozkar', this.$store.state.currentSalon)
+      return this.$store.state.currentSalon;
+    },
+
   }
 }
 
@@ -80,7 +80,7 @@ p {
 .salon {
   text-align: center;
   margin: 0 auto;
-  width: 30rem;
+  width: 100%;
 }
 
 .material-icons {

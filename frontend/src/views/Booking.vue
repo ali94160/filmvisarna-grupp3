@@ -1,8 +1,10 @@
 <template>
-  <div id="#bookingDiv" v-if="!booked" >
-    <h1>{{getCurrentMovie.title}}</h1>
+  <div id="#bookingDiv" v-if="!booked">
+    <h1>{{ getCurrentMovie.title }}</h1>
     <div class="container">
-      <div class="salon"></div>
+      <div class="salon">
+        <ChairList />
+      </div>
 
       <div class="info">
         <span>Platser: </span>
@@ -10,7 +12,7 @@
         <input type="number" v-model="chosenSeats" max="8" />
         <div class="value-button" v-on:click="increaseValue">+</div>
 
-        <div :class="{tickets: hasThreeTickets}">
+        <div :class="{ tickets: hasThreeTickets }">
           <BookingInput
             v-for="seat in chosenSeatsInput"
             :key="seat"
@@ -18,18 +20,21 @@
             @updateTotalPrice="updateTotalPrice"
           />
         </div>
-        <p id="totalPrice">Totala priset: <span class="right">{{ getTotalPrice }} kr</span></p>
+        <p id="totalPrice">
+          Totala priset: <span class="right">{{ getTotalPrice }} kr</span>
+        </p>
         <button class="btn" v-on:click="changeBooked">Beställ plats(er)</button>
       </div>
     </div>
   </div>
 
-  <Confirm v-if="booked" :ticketPrices="ticketPrices"/>
+  <Confirm v-if="booked" :ticketPrices="ticketPrices" />
 </template>
 
 <script>
 import BookingInput from "../components/BookingInput.vue";
 import Confirm from "../components/Confirm.vue";
+import ChairList from "../components/ChairList.vue";
 export default {
   data() {
     return {
@@ -42,7 +47,8 @@ export default {
 
   components: {
     BookingInput,
-    Confirm
+    Confirm,
+    ChairList
   },
 
   methods: {
@@ -131,15 +137,6 @@ span {
   color: var(--lightgrey);
 }
 
-.salon,
-p {
-  background-color: brown;
-}
-
-.salon {
-  height: 50vh;
-}
-
 .info {
   padding: 10px;
   padding-bottom: 0;
@@ -175,15 +172,14 @@ p {
   width: 100%;
 }
 
-#totalPrice{
+#totalPrice {
   padding: 10px;
   font-size: 2vw;
 }
 
-@media only screen and (max-width: 992px){
-  .container{
+@media only screen and (max-width: 992px) {
+  .container {
     grid-template-columns: none;
   }
 }
-
 </style>
