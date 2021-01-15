@@ -1,50 +1,34 @@
 <template>
-  <div class="container">
-    <div class="moviePoster">
-      <img :src="movie.imgUrl" :alt="movie.title" />
-    </div>
-    <div class="movieInfo">
-      <h3>{{ movie.title }}</h3>
-      <p><span>Åldersgräns:</span> {{ movie.age }}</p>
-      <p><span>Språk:</span> {{ movie.languages[0] }}</p>
-      <p><span>Undertext:</span> {{ movie.subtitles[0] }}</p>
-      <p class="actors"><span>Skådespelare:</span></p>
-      <span class="movieActors" v-for="actor in movie.actors" :key="actor.id">
-        {{ actor }},
-      </span>
+<div class="container">
+  <div class="moviePoster">
+    <img :src="movie.imgUrl" :alt="movie.title" />
+  </div>
+  <div class="movieInfo">
 
-      <p class="description1"><span>Handling:</span></p>
-      <p class="description2">{{ movie.description }}</p>
+    <h3>{{ movie.title }}</h3>
+    <p><span class="titleTag">Åldersgräns:</span> {{ movie.age }}</p>
 
-      <select
-        v-on:change="fullSalon"
-        v-model="showId"
-        class="selection"
-        name="opt"
-        id="name"
-      >
-        <option value="" disabled selected>Välj datum/tid</option>
-        <option v-for="show in shows" :key="show.id" :value="show.id">
-          {{ show.date }} - kl. {{ show.time }}
-        </option>
-      </select>
-      <p class="isFullSalonAlert" v-if="isFullSalon">Fullbokat</p>
-      <button @click="book" v-if="online" class="movieDetailsButton">
-        Boka
-      </button>
-      <button @click="signIn" v-if="!online" class="signInToBook">
-        Logga in för att boka
-      </button>
-    </div>
-    <div class="trailerDiv">
-      <iframe
-        class="movieTrailer"
-        :src="movie.trailerUrl"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
+    <p><span class="titleTag">Genre:</span>
+    <span v-for="genre in movie.genre" :key="genre.id"> {{" " + genre }} </span></p>
+
+    <p><span class="titleTag">Språk:</span> {{ movie.languages[0] }}</p>
+    <p><span class="titleTag">Undertext:</span> {{ movie.subtitles[0] }}</p>
+    <p class="actors"><span class="titleTag">Skådespelare:</span></p>
+    <span class="movieActors" v-for="actor in movie.actors" :key="actor.id"> {{ actor }}, </span>
+
+    <p><span class="titleTag">Regissör:</span>
+    <span v-for="director in movie.directors" :key="director.id"> {{ " " + director + " "}}</p>
+
+    <p class="description1"><span class="titleTag">Handling:</span></p>
+    <p class="description2">{{ movie.description }}</p>
+
+    <select v-model="showId" class="selection" name="opt" id="name">
+      <option value="" disabled selected>Välj datum/tid</option>
+      <option v-for="show in shows" :key="show.id" :value="show.id">{{show.date}} - kl. {{show.time}}</option>
+    </select>
+    <p class="fullSalonAlert" v-if="fullSalon">Fullbokat</p>
+    <button @click="book" v-if="online" class="movieDetailsButton">Boka</button>
+    <button @click="signIn" v-if="!online" class="signInToBook">Logga in för att boka</button>
   </div>
 </template>
 
@@ -120,7 +104,7 @@ export default {
   border-radius: 10px;
   box-shadow: 0 0 7px 0.1px #7e7e7e;
 }
-span {
+.titleTag{
   font-weight: bolder;
   color: white;
 }
