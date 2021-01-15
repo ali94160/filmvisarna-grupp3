@@ -26,7 +26,7 @@
       <option value="" disabled selected>Välj datum/tid</option>
       <option v-for="show in shows" :key="show.id" :value="show.id">{{show.date}} - kl. {{show.time}}</option>
     </select>
-    <p class="fullSalonAlert" v-if="fullSalon">Fullbokat</p>
+    <p class="fullSalonAlert" v-if="isFullSalon">Fullbokat</p>
     <button @click="book" v-if="online" class="movieDetailsButton">Boka</button>
     <button @click="signIn" v-if="!online" class="signInToBook">Logga in för att boka</button>
   </div>
