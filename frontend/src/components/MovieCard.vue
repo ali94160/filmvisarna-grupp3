@@ -15,7 +15,6 @@ export default {
   props:['movie'],
   methods: {
     goToDetails(){
-      console.log(this.movie.id, 'movie id');
       this.$router.push('/moviedetails/' + this.movie.id)
     }
   }
