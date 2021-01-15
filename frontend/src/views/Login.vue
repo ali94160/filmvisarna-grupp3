@@ -70,6 +70,7 @@ export default {
         let user = this.users.filter((u) => u.email == this.email)[0];
         this.$store.commit('setCurrentUser',user);
         this.$store.commit('setOnline');
+        console.log('CORRECT??',this.$store.state.currentUser.id);
         this.$router.push('/');
       }else{
         this.show = true;

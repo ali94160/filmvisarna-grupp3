@@ -28,7 +28,7 @@ export default {
     };
   },
   methods: {
-    becomeMember() {
+    async becomeMember() {
       let user = {
         name: this.name,
         lastName: this.lastName,
@@ -48,7 +48,8 @@ export default {
         }
         if (!this.alreadyMember) {
           this.$store.dispatch("addUser", user);
-          this.$router.push("/login");
+          await this.$router.push("/login");
+          window.location.reload();
         }
       }
     },
