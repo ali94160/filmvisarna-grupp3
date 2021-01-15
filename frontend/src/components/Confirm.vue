@@ -63,7 +63,8 @@ export default {
       time: this.show.time,
       seats: this.amountOfTickets,
       userId: this.$store.state.currentUser.id,
-      showId: this.show.id
+      showId: this.show.id,
+      
     };
     this.$store.dispatch("addTicket", ticket);
   }

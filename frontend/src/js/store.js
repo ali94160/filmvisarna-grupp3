@@ -94,7 +94,8 @@ const actions = {
       childPrice: 65,
       seniorPrice: 75,
       userId: ticket.userId,
-      showId: ticket.showId
+      showId: ticket.showId,
+      movieId: state.selectedMovie.id
     };
     let response = await fetch('rest/ticket', {
       method: 'POST',
@@ -127,7 +128,6 @@ const actions = {
     list = await list.json()
 
     store.commit('setCurrentSalon', list)
-
   }
 }
 

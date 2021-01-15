@@ -14,6 +14,7 @@ public class Ticket {
     private int seniorPrice = 75;
     private String userId;
     private String showId;
+    private String movieId;
 
     public String getId() {
         return id;
@@ -85,5 +86,13 @@ public class Ticket {
 
     public void setShowId(String showId) {
         this.showId = showId;
+    }
+
+    public String getMovieId() {
+        return movieId;
+    }
+
+    public void setMovieId(String movieId) {
+        this.movieId = movieId;
     }
 }
