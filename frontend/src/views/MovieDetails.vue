@@ -15,11 +15,11 @@
     <p class="description1"><span>Handling:</span></p>
     <p class="description2">{{ movie.description }}</p>
 
-    <select v-model="showId" class="selection" name="opt" id="name">
+    <select v-on:change="fullSalon" v-model="showId" class="selection" name="opt" id="name">
       <option value="" disabled selected>Välj datum/tid</option>
     <option v-for="show in shows" :key="show.id" :value="show.id">{{show.date}} - kl. {{show.time}}</option>
   </select>
-    <p class="fullSalonAlert" v-if="fullSalon">Fullbokat</p>
+    <p class="isFullSalonAlert" v-if="isFullSalon">Fullbokat</p>
     <button @click="book" v-if="online" class="movieDetailsButton">Boka</button>
     <button @click="signIn" v-if="!online" class="signInToBook">Logga in för att boka</button>
   </div>
@@ -35,7 +35,7 @@ export default {
   data(){
     return{
       showId: '',
-      fullSalon: false
+      isFullSalon: false
     }
   },
   computed: {
@@ -56,17 +56,25 @@ export default {
     signIn(){
       this.$router.push('/login');
     },
-    async book(){
+
+    book(){ 
+      console.log("book called");
+      if(!this.isFullSalon){
+        console.log("condition met");
+        this.$router.push('/booking');
+      }
+    },
+
+    async fullSalon(){
       let show = this.$store.state.currentShows.filter((s) => s.id == this.showId)[0];
       this.$store.commit('setCurrentMovie', show);
       await this.$store.dispatch('fetchSpecificSalon', show.id)
-      
+
       if(this.$store.state.currentMovie.seatsTaken !== this.$store.state.currentSalon.seats){
-        this.fullSalon = false
-        this.$router.push('/booking');
+        this.isFullSalon = false
       }
-      else{
-        this.fullSalon = true
+      else {
+        this.isFullSalon = true
       }
     }
   },

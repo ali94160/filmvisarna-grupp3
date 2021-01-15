@@ -25,6 +25,12 @@ public class Main {
             res.json(movie);
         });
 
+        app.get("/rest/movie/:id", (req, res) -> {
+            var id = req.params("id");
+            var movie = collection("Movie").findById(id);
+            res.json(movie);
+        });
+
         app.get("/rest/salon",(req, res) ->{
             var salon = collection("Salon").find();
             res.json(salon);
@@ -82,8 +88,9 @@ public class Main {
             var id = req.params("id");
             // fetching the salon
             Movie movie = collection("Movie").findById(id);
-            // fetch and filter shows with matching salonId
+            // fetch and filter shows with matching movieId
             List<Show> show = collection("Show").find(eq("movieId", movie.getId()));
+
             if(show != null) {
                 res.json(show);
             }
@@ -126,6 +133,8 @@ public class Main {
             String amount = req.params("amount");
 
             list.increaseSeatsTaken(amount);
+            collection("Show").updateById(id, list);
+            res.json(list);
         });
 
         app.post("rest/user/:id", (req, res) ->{
