@@ -1,45 +1,64 @@
 <template>
-<div class="container">
-  <div class="moviePoster">
-    <img :src="movie.imgUrl" :alt="movie.title" />
+  <div class="container">
+    <div class="moviePoster">
+      <img :src="movie.imgUrl" :alt="movie.title" />
+    </div>
+    <div class="movieInfo">
+      <h3>{{ movie.title }}</h3>
+      <p><span class="titleTag">Åldersgräns:</span> {{ movie.age }}</p>
+
+      <p>
+        <span class="titleTag">Genre:</span>
+        <span v-for="genre in movie.genre" :key="genre.id">
+          {{ " " + genre }}
+        </span>
+      </p>
+
+      <p><span class="titleTag">Språk:</span> {{ movie.languages[0] }}</p>
+      <p><span class="titleTag">Undertext:</span> {{ movie.subtitles[0] }}</p>
+      <p class="actors"><span class="titleTag">Skådespelare:</span></p>
+      <span
+        class="movieActors"
+        v-for="(actor, index) in movie.actors"
+        :key="index"
+      >
+        {{ actor }},
+      </span>
+
+      <p>
+        <span class="titleTag">Regissör:</span>
+        <span v-for="(director, index) in movie.directors" :key="index">
+          {{ " " + director + " " }}</span
+        >
+      </p>
+
+      <p class="description1"><span class="titleTag">Handling:</span></p>
+      <p class="description2">{{ movie.description }}</p>
+
+      <select @change="fullSalon" v-model="showId" class="selection" name="opt" id="name">
+        <option value="" disabled selected>Välj datum/tid</option>
+        <option v-for="show in shows" :key="show.id" :value="show.id">
+          {{ show.date }} - kl. {{ show.time }}
+        </option>
+      </select>
+      <p v-if="isFullSalon" class="fullSalonAlert">Fullbokat</p>
+      <button @click="book" v-if="online" class="movieDetailsButton">
+        Boka
+      </button>
+      <button @click="signIn" v-if="!online" class="signInToBook">
+        Logga in för att boka
+      </button>
+    </div>
   </div>
-  <div class="movieInfo">
-
-    <h3>{{ movie.title }}</h3>
-    <p><span class="titleTag">Åldersgräns:</span> {{ movie.age }}</p>
-
-    <p><span class="titleTag">Genre:</span>
-    <span v-for="genre in movie.genre" :key="genre.id"> {{" " + genre }} </span></p>
-
-    <p><span class="titleTag">Språk:</span> {{ movie.languages[0] }}</p>
-    <p><span class="titleTag">Undertext:</span> {{ movie.subtitles[0] }}</p>
-    <p class="actors"><span class="titleTag">Skådespelare:</span></p>
-    <span class="movieActors" v-for="(actor, index) in movie.actors" :key="index"> {{ actor }}, </span>
-
-    <p><span class="titleTag">Regissör:</span>
-    <span v-for="(director, index) in movie.directors" :key="index"> {{ " " + director + " "}}</span></p>
-
-    <p class="description1"><span class="titleTag">Handling:</span></p>
-    <p class="description2">{{ movie.description }}</p>
-
-    <select v-model="showId" class="selection" name="opt" id="name">
-      <option value="" disabled selected>Välj datum/tid</option>
-      <option v-for="show in shows" :key="show.id" :value="show.id">{{show.date}} - kl. {{show.time}}</option>
-    </select>
-    <p class="fullSalonAlert" v-if="isFullSalon">Fullbokat</p>
-    <button @click="book" v-if="online" class="movieDetailsButton">Boka</button>
-    <button @click="signIn" v-if="!online" class="signInToBook">Logga in för att boka</button>
-  </div>
-</div>
 </template>
 
 <script>
 export default {
-  data(){
-    return{
-      showId: '',
-      isFullSalon: false
-    }
+  data() {
+    return {
+      showId: "",
+      isFullSalon: false,
+    };
   },
   computed: {
     id() {
@@ -48,44 +67,52 @@ export default {
     movie() {
       return this.$store.state.movies.filter((movie) => movie.id == this.id)[0];
     },
-    online(){
+    online() {
       return this.$store.state.online;
     },
-    shows(){
+    shows() {
       return this.$store.state.currentShows;
-    }
+    },
   },
-  methods:{
-    signIn(){
-      this.$router.push('/login');
+  methods: {
+    signIn() {
+      this.$router.push("/login");
     },
 
-    book(){ 
-      if(!this.isFullSalon && this.showId.length){
-        this.$router.push('/booking');
+    book() {
+      if (!this.fullSalon && this.showId.length) {
+        this.$router.push("/booking");
       }
     },
 
-    async fullSalon(){
-      let show = this.$store.state.currentShows.filter((s) => s.id == this.showId)[0];
-      this.$store.commit('setCurrentMovie', show);
-      await this.$store.dispatch('fetchSpecificSalon', show.id)
-
-      if(this.$store.state.currentMovie.seatsTaken !== this.$store.state.currentSalon.seats){
-        this.isFullSalon = false
+    async fullSalon() {
+      if (this.showId) {
+        let show = this.$store.state.currentShows.filter(
+          (s) => s.id == this.showId
+        )[0];
+        this.$store.commit("setCurrentMovie", show);
+        await this.$store.dispatch("fetchSpecificSalon", show.id);
+        if (
+          this.$store.state.currentMovie.seatsTaken !==
+          this.$store.state.currentSalon.seats
+        ) {
+          this.isFullSalon = false;
+        } else {
+          this.isFullSalon = true;
+        }
       }
-      else {
-        this.isFullSalon = true
-      }
-    }
+    },
   },
-  created(){
-    this.$store.commit('setSelectedMovie',this.$store.state.movies.filter((movie) => movie.id == this.id)[0]);
-    this.$store.dispatch('fetchShows', this.id);
+  created() {
+    this.$store.commit(
+      "setSelectedMovie",
+      this.$store.state.movies.filter((movie) => movie.id == this.id)[0]
+    );
+    this.$store.dispatch("fetchShows", this.id);
   },
   mounted() {
     window.scrollTo(0, 0);
-  }
+  },
 };
 </script>
 
