@@ -84,6 +84,24 @@ const actions = {
     })
     store.commit('addUser', newUser);
   },
+  async addTicket(store, ticket) {
+    let newTicket =
+    {
+      price: ticket.price,
+      date: ticket.date,
+      time: ticket.time,
+      seats: ticket.seats,
+      childPrice: 65,
+      seniorPrice: 75,
+      userId: ticket.userId,
+      showId: ticket.showId
+    };
+    let response = await fetch('rest/ticket', {
+      method: 'POST',
+      body: JSON.stringify(newTicket)
+    })
+  },
+
   async fetchTicketsFromUser(store, userId) { 
     let list = await fetch('/rest/user/get-ticket/' + userId)
     list = await list.json()

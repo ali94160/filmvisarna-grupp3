@@ -137,6 +137,12 @@ public class Main {
             res.json(list);
         });
 
+        app.post("rest/ticket", (req, res) ->{
+            var ticket = req.body(Ticket.class);
+            var createdTicket = collection("Ticket").save(ticket);
+            res.json(createdTicket);
+        });
+
         app.post("rest/user/:id", (req, res) ->{
 
         });

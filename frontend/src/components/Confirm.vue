@@ -55,6 +55,17 @@ export default {
     homePage(){
       this.$router.push('/');
     }
+  },
+  created(){
+    let ticket= {
+      price: this.totalPrice,
+      date: this.show.date,
+      time: this.show.time,
+      seats: this.amountOfTickets,
+      userId: this.$store.state.currentUser.id,
+      showId: this.show.id
+    };
+    this.$store.dispatch("addTicket", ticket);
   }
 }
 </script>

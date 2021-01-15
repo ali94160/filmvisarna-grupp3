@@ -9,10 +9,10 @@ public class Ticket {
     private int price;
     private String date;
     private String time;
-    private String seat;
+    private int seats;
     private int childPrice = 65;
     private int seniorPrice = 75;
-    private transient String userId;
+    private String userId;
     private String showId;
 
     public String getId() {
@@ -47,12 +47,12 @@ public class Ticket {
         this.time = time;
     }
 
-    public String getSeat() {
-        return seat;
+    public int getSeats() {
+        return seats;
     }
 
-    public void setSeat(String seat) {
-        this.seat = seat;
+    public void setSeats(int seats) {
+        this.seats = seats;
     }
 
     public int getChildPrice() {
