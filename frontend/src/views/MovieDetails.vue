@@ -14,10 +14,10 @@
     <p><span class="titleTag">Språk:</span> {{ movie.languages[0] }}</p>
     <p><span class="titleTag">Undertext:</span> {{ movie.subtitles[0] }}</p>
     <p class="actors"><span class="titleTag">Skådespelare:</span></p>
-    <span class="movieActors" v-for="actor in movie.actors" :key="actor.id"> {{ actor }}, </span>
+    <span class="movieActors" v-for="(actor, index) in movie.actors" :key="index"> {{ actor }}, </span>
 
     <p><span class="titleTag">Regissör:</span>
-    <span v-for="director in movie.directors" :key="director.id"> {{ " " + director + " "}}</p>
+    <span v-for="(director, index) in movie.directors" :key="index"> {{ " " + director + " "}}</span></p>
 
     <p class="description1"><span class="titleTag">Handling:</span></p>
     <p class="description2">{{ movie.description }}</p>
@@ -30,6 +30,7 @@
     <button @click="book" v-if="online" class="movieDetailsButton">Boka</button>
     <button @click="signIn" v-if="!online" class="signInToBook">Logga in för att boka</button>
   </div>
+</div>
 </template>
 
 <script>
