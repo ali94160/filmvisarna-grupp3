@@ -4,16 +4,18 @@
     <p>Du vill boka: {{ chairs }}</p>
     <div class="salon">
       <div
-        v-for="(seat, index) of salon.seats"
-        :key="index"
-        class="seats"
-        :class="{
-          highlight: chairs.includes(index),
-          booked: chairsBooked.includes(index),
-        }"
-        @click="changeColor(index)"
+        v-for="(seatsPerRow, row) of salon.seatsPerRow"
+        :key="row"
+        class="rows"
       >
-        <span class="material-icons"> event_seat </span>
+        <div
+          v-for="(seat, col) of seatsPerRow"
+          :key="col"
+          class="seats"
+          @click="changeColor(row, col)"
+        >
+          <span class="material-icons"> event_seat </span>
+        </div>
       </div>
     </div>
     <div class="buttons">
@@ -24,21 +26,32 @@
 
 <script>
 
+/*      
+ :class="{
+            highlight: chairs.includes(index),
+            booked: chairsBooked.includes(row, col),
+          }"    
+          */
+
 
   export default {
     data() {
       return{
         chairs: [],
-        chairsBooked: [3,4,5],
+        chairsBooked: [0][3],
         isHover: false
       }
     },
     methods:{
-      changeColor(index){
+      changeColor(row, col){
+          
+          console.log('you have clicked on:', row, col)
+      
+        /*        
+              changeColor(index){
         if(!this.chairsBooked.includes(index)){
           this.chairs.includes(index) ? this.chairs.splice(this.chairs.indexOf(index), 1) : this.chairs.push(index)
-          console.log('you have clicked on:', this.chairs)
-        }
+          */
         
       },
       clear(){
@@ -68,13 +81,15 @@ p {
   text-align: center;
   margin: 0 auto;
   width: 30rem;
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
 }
 
 .material-icons {
   font-size: 1.8rem;
   padding: 5px;
+}
+
+div > .seats {
+  display: inline-block;
 }
 
 div > .seats:hover {
@@ -83,11 +98,11 @@ div > .seats:hover {
 }
 
 div.highlight {
-  background: yellow;
+  color: yellow;
 }
 
 div.booked {
-  background: red;
+  color: red;
 }
 div.booked:hover {
   cursor: default;
