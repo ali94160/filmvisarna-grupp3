@@ -1,75 +1,104 @@
 <template>
   <div class="container">
-    <h1>Filmvisarna</h1>
-    <h4>- En upplevelse för alla</h4>
+    <img class="loggan" :src="loggan" /><a class="logoName">Filmvisarna</a>
+    <h4>Vilka är vi?</h4>
+
     <p>
       <span
-        >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, fugiat
-        pariatur. Quia, quam modi. A ipsa amet minus repellat dolor alias
-        tenetur veritatis eum, eos dolorem cumque, corrupti repellendus
-        sapiente.</span
-      >
-      <span
-        >Unde commodi, debitis quas repellendus vero dolores sunt assumenda
-        fugit temporibus laudantium dicta laborum tenetur mollitia sed totam ex
-        tempora repellat non numquam obcaecati quae dolore necessitatibus,
-        similique adipisci. Cum!</span
-      >
-      <span
-        >Aliquid consequatur, quae eaque iure repellendus mollitia ea quidem
-        doloribus veniam voluptatibus. Totam quaerat tempora est obcaecati
-        voluptate voluptatibus eveniet, provident repellat, voluptates dicta
-        dolorum iste fugit magnam saepe in?</span
-      >
+        >Filmvisarna grundades Januari 2021 av en grupp studerandra från Teknik Högskolan i Lund.
+      </span>
+      <br>
+      <span>
+        Gruppens medlemmar: Alex, Ali, Anna, Isabella, Lukas, Oscar, Qiling.
+      </span>
     </p>
+<h4>Salonger</h4>
+ <div class="salongerna">
 
-    <div>
-      <h3>Salonger</h3>
-      <h4>Stora salongen</h4>
-      
-      <p>
-        <span
-          >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia
-          tenetur ducimus eaque perspiciatis quas pariatur est consequatur
-          provident corrupti, aliquid optio, magnam voluptas dolorem sit quam
-          odio ipsa sed asperiores?</span
-        ><span
-          >Asperiores itaque, aut odio beatae, libero, natus dignissimos
-          mollitia et impedit dicta magnam numquam nostrum tempora ab voluptatem
-          sit hic dolorum modi iure repellendus possimus consectetur? Dolor,
-          quos culpa? Voluptatibus.</span
-        >
-      </p>
-      <h4>Lilla salongen</h4>
-      <p>
-        <span
-          >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia
-          tenetur ducimus eaque perspiciatis quas pariatur est consequatur
-          provident corrupti, aliquid optio, magnam voluptas dolorem sit quam
-          odio ipsa sed asperiores?</span
-        ><span
-          >Asperiores itaque, aut odio beatae, libero, natus dignissimos
-          mollitia et impedit dicta magnam numquam nostrum tempora ab voluptatem
-          sit hic dolorum modi iure repellendus possimus consectetur? Dolor,
-          quos culpa? Voluptatibus.</span
-        >
-      </p>
-    </div>
-  </div>
+ <div class="storaImg">
+<h5>Stora salongen</h5>
+      <img src="https://i.postimg.cc/HW4GYq0Q/Ska-rmavbild-2021-01-15-kl.png" alt="" class="stora">
+ </div>
+
+
+     <div class="lillaImg">
+       <h5 class="lilTitle">Lilla salongen</h5>
+       <img src="https://i.postimg.cc/rpHdphWk/Ska-rmavbild-2021-01-16-kl-00-38-09.png" alt="">
+     </div>
+     
+
+ </div>
+
+          
+
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      loggan: "https://i.postimg.cc/mrRHK1mz/logo-Nyaste-2-1.png",
+    };
+  },
+};
 </script>
 
 <style scoped>
+.lol {
+  position: relative;
+  margin: 0 auto;
+}
+.logoName {
+  position: relative;
+  bottom: 60px;
+  font-size: 80px;
+  color: white;
+}
+
+.loggan {
+  margin: 50px 50px 10px 9vw;
+  max-width: 200px;
+}
+
+.salons {
+  margin-bottom: 10%;
+}
+
 h1 {
   width: fit-content;
   margin: 2vh 0;
 }
 
-h3 {
+h5 {
   width: fit-content;
-  border-bottom: 3px solid var(--lightgrey);
+  margin: 20px auto;
+  margin-bottom: 30px;
+}
+
+.lilTitle{
+    width: fit-content;
+  margin: 22px auto;
+  margin-bottom: 28px;
+}
+
+.lillaImg img {
+  max-width: 31vw;
+}
+
+.stora {
+  max-width: 30vw;
+}
+
+.salongerna {
+  max-width: 30%;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  grid-gap: 120px;
+}
+.storaText {
+  margin: 0;
 }
 </style>

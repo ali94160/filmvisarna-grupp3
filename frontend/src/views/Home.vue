@@ -1,16 +1,21 @@
 <template>
-  <h1>Home page</h1>
-  <MovieItemList />
+<div class="movieList">
+<MovieItemList />
+</div>
+  
 </template>
 
 <script>
-import MovieItemList from '../components/MovieItemList.vue'
+import MovieItemList from "../components/MovieItemList.vue";
 export default {
   components: {
-    MovieItemList
-  }
-}
+    MovieItemList,
+  },
+};
 </script>
 
-<style>
+<style scoped>
+.movieList{
+  margin-top: 8vw;
+}
 </style>

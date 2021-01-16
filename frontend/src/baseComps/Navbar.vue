@@ -40,7 +40,11 @@
     <li><router-link to="/about">Om oss</router-link></li>
     <li><div class="divider"></div></li>
     <li><router-link to="/login" v-if="!online">Logga in</router-link></li>
-    <li><router-link class="userOnline" to="/mypage" v-if="online">{{currentUser.firstName}}</router-link></li>
+    <li>
+      <router-link class="userOnline" to="/mypage" v-if="online">{{
+        currentUser.firstName
+      }}</router-link>
+    </li>
     <li><router-link to="/mypage" v-if="online">Mina sidor</router-link></li>
     <li><a @click="logOut" v-if="online">Logga ut</a></li>
   </ul>
@@ -58,9 +62,9 @@ export default {
     online() {
       return this.$store.state.online;
     },
-    currentUser(){
+    currentUser() {
       return this.$store.state.currentUser;
-    }
+    },
   },
   methods: {
     async logOut() {
@@ -79,8 +83,6 @@ export default {
   position: relative;
   top: -22px;
   font-size: 22px;
-
-  
 }
 
 .loggan {
