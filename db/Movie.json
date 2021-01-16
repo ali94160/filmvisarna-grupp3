@@ -28,7 +28,7 @@
   "description" : "Harry Potter går sitt tredje år på Hogwarts skola för häxkonster och trolldom. Ingenting är sig likt. Sirius Black, den ökände massmördaren som suttit i fängelse i tolv år, är på rymmen. Det sägs att han är på väg mot Hogwarts. De grymma fångvaktarna från Azkaban har kallats in för att hålla vakt. Harry Potter går inte säker, inte ens bland sina vänner... Men han är fast besluten att lösa mysteriet med Sirius Black.",
   "trailerUrl" : "https://www.youtube.com/embed/lAxgztbYDbs",
   "imgUrl" : "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSlMXqUslfFqPFC1RQzEB7xNbmDdaHRqXuQ4Mf9PE04EJzQZWdS",
-  "backgroundUrl" : "https://catalog.cinema-api.com/cf/images/ncg-images/3fc06c85dcc049aa9888c1927b23f57e.jpg?width=1920&version=E5CEFDB3A415A67C7027B6BCF8D93D6E&format=webp",
+  "backgroundUrl" : "https://i.postimg.cc/0jxGfSys/Harry-Potter-fade.png",
   "age" : 11
 }, {
   "id" : "1l7pgmSX5KBQTvgrOVkuN",
@@ -44,7 +44,7 @@
   "description" : "Seth och Evan går sista året på high school och gör nästan vad som helst för att bli av med oskulden och bli fulla. Då de inte direkt är skolans coolaste killar, får de kämpa hårt och använda sin fantasi för att få tjejer. De bästa kompisarna ska snart gå skilda vägar inför college och måste ta itu med sin separationsångest, när allt kulminerar under en blöt fest som de sent ska glömma.",
   "trailerUrl" : "https://www.youtube.com/embed/4eaZ_48ZYog",
   "imgUrl" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDq1vTtoG4S9xMp_WASIsUmZUOU8I-rWQUp3lqn5jS6GljFr8v",
-  "backgroundUrl" : "https://i.postimg.cc/xdc3mpxK/superbad-wallpaper-NEW.jpg",
+  "backgroundUrl" : "https://i.postimg.cc/Z5kbDLhp/superabad-fade.png",
   "age" : 11
 }, {
   "id" : "kE86jJGJ7EMWx3ka17XGK",
@@ -60,7 +60,7 @@
   "description" : "I Detroit 1995 skildras en vecka i några ungdomars liv som kämpar för att hitta en väg ut ur slummen. För sådana som Jimmy Rabbit Smith Jr (Eminem) och hans vänner är hip-hopen det enda som gäller. Rabbit vet att hans rap-talang är hans enda chans att komma bort från ghettot. För att lyckas måste han sätta ord på sin vrede och klara sitt livs utmaning.",
   "trailerUrl" : "https://www.youtube.com/embed/axGVrfwm9L4",
   "imgUrl" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzjRFNBNG1AjDMi0P51RjuP8sCBrqV_h71TRBTlYXV9jErIhhG",
-  "backgroundUrl" : "https://i.postimg.cc/DzRffm4q/8m-wp.jpg",
+  "backgroundUrl" : "https://i.postimg.cc/j2HbppTf/8mile-fade.png",
   "age" : 11
 }, {
   "id" : "M66J4NuEIMJuoKgpQ6f0x",
@@ -76,6 +76,6 @@
   "description" : "Filmen som delvis är baserad på H.C Andersens saga Snödrottningen handlar om prinsessan Anna som ger sig ut på en magisk resa tillsammans med bergsmannen Kristoffer och hans ren Sven, för att hitta sin syster, Snödrottningen Elsa. Anna måste hitta henne för att rädda kungariket från en förbannelse om evig vinter.",
   "trailerUrl" : "https://www.youtube.com/embed/TbQm5doF_Uc",
   "imgUrl" : "https://www.movienewsletters.net/photos/SWE_119028R1.jpg",
-  "backgroundUrl" : "https://catalog.cinema-api.com/cf/images/ncg-images/b287960dd26b430099e1e2ed07b920f0.jpg?width=1920&version=DEF3C6EB3B0C235A7F6D3DAF7A79F09B&format=webp",
+  "backgroundUrl" : "https://i.postimg.cc/RZsBx1kg/frost-fade.png",
   "age" : 7
 } ]
