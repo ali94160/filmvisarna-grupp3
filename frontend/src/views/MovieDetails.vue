@@ -1,4 +1,6 @@
 <template>
+  <img class="backgroundImage" :src="movie.backgroundUrl" alt="" />
+
   <div class="container">
     <div class="moviePoster">
       <img :src="movie.imgUrl" :alt="movie.title" />
@@ -35,7 +37,13 @@
       <p class="description1"><span class="titleTag">Handling:</span></p>
       <p class="description2">{{ movie.description }}</p>
 
-      <select @change="fullSalon" v-model="showId" class="selection" name="opt" id="name">
+      <select
+        @change="fullSalon"
+        v-model="showId"
+        class="selection"
+        name="opt"
+        id="name"
+      >
         <option value="" disabled selected>Välj datum/tid</option>
         <option v-for="show in shows" :key="show.id" :value="show.id">
           {{ show.date }} - kl. {{ show.time }}
@@ -50,7 +58,13 @@
       </button>
     </div>
     <div class="trailerDiv">
-      <iframe class="movieTrailer" :src="movie.trailerUrl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe
+        class="movieTrailer"
+        :src="movie.trailerUrl"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
     </div>
   </div>
 </template>
@@ -120,17 +134,21 @@ export default {
 </script>
 
 <style scoped>
+.backgroundImage {
+  width: 100%;
+  box-shadow: 20px 600px 20px 2px var(--darkgrey);
+}
+
 .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 30px;
   margin: 0 auto;
-  margin-top: 10vh;
+  margin-top: -5vh;
   margin-bottom: 10vh;
-  background-color: #333;
+  background: none;
   padding: 10px;
   border-radius: 10px;
-  box-shadow: 0px 0px 15px 1px rgb(61, 61, 61);
 }
 .moviePoster img {
   margin-left: 5%;
@@ -169,7 +187,6 @@ export default {
   font-family: Georgia, "Times New Roman", Times, serif;
   font-weight: bold;
   font-size: large;
-  background-color: rgb(238, 238, 238);
 }
 .signInToBook {
   display: block;
