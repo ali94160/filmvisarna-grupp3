@@ -1,6 +1,5 @@
 <template>
   <img class="backgroundImage" :src="movie.backgroundUrl" alt="" />
-
   <div class="container">
     <div class="moviePoster">
       <img :src="movie.imgUrl" :alt="movie.title" />
@@ -136,24 +135,25 @@ export default {
 <style scoped>
 .backgroundImage {
   width: 100%;
-  box-shadow: 20px 600px 20px 2px var(--darkgrey);
 }
 
 .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 30px;
+  grid-gap: 1px;
   margin: 0 auto;
-  margin-top: -5vh;
-  margin-bottom: 10vh;
+
+  margin-top: -30vh;
+  margin-bottom: 20vh;
   background: none;
   padding: 10px;
   border-radius: 10px;
 }
+
 .moviePoster img {
-  margin-left: 5%;
+  margin-left: 40%;
   min-width: 100px;
-  width: 100%;
+  width: 50%;
   border-radius: 10px;
   box-shadow: 0 0 7px 0.1px #7e7e7e;
 }
