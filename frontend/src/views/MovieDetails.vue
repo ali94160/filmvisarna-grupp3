@@ -5,16 +5,21 @@
       <img :src="movie.imgUrl" :alt="movie.title" />
     </div>
     <div class="movieInfo">
-      <h3>{{ movie.title }}</h3>
-      <p><span class="titleTag">Åldersgräns:</span> {{ movie.age }}</p>
+      <div class="movieInfo2">
+        <h3>{{ movie.title }}</h3>
+        <p><span class="titleTag">Åldersgräns:</span> {{ movie.age }}</p>
 
-      <p>
-        <span class="titleTag">Genre:</span>
-        <span v-for="genre in movie.genre" :key="genre.id">
-          {{ " " + genre }}
-        </span>
-      </p>
-
+        <p>
+          <span class="titleTag">Genre:</span>
+          <span v-for="genre in movie.genre" :key="genre.id">
+            {{ " " + genre }}
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="info3">
+    <div class="moreMovieInfo">
       <p><span class="titleTag">Språk:</span> {{ movie.languages[0] }}</p>
       <p><span class="titleTag">Undertext:</span> {{ movie.subtitles[0] }}</p>
       <p class="actors"><span class="titleTag">Skådespelare:</span></p>
@@ -35,7 +40,8 @@
 
       <p class="description1"><span class="titleTag">Handling:</span></p>
       <p class="description2">{{ movie.description }}</p>
-
+    </div>
+    <div class="theBtn">
       <select
         @change="fullSalon"
         v-model="showId"
@@ -56,15 +62,16 @@
         Logga in för att boka
       </button>
     </div>
-    <div class="trailerDiv">
-      <iframe
-        class="movieTrailer"
-        :src="movie.trailerUrl"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
+  </div>
+
+  <div class="trailerDiv">
+    <iframe
+      class="movieTrailer"
+      :src="movie.trailerUrl"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
   </div>
 </template>
 
@@ -137,23 +144,52 @@ export default {
   width: 100%;
 }
 
-.container {
+.theBtn {
+  margin-top: -10px;
+  margin-right: 140px;
+  justify-content: start;
+}
+
+.moreMovieInfo{
+  margin-bottom: 20px;
+}
+
+.info3 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  -ms-grid-column-align: center;
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
   grid-gap: 1px;
   margin: 0 auto;
 
-  margin-top: -30vh;
-  margin-bottom: 20vh;
+  margin-top: -45vh;
+  margin-bottom: 10vh;
   background: none;
   padding: 10px;
   border-radius: 10px;
 }
 
+.movieInfo {
+  margin-top: 90px;
+  max-width: 70%;
+}
+.moviePoster {
+  display: grid;
+  max-width: 10vw;
+  grid-template-rows: 200px;
+}
+
 .moviePoster img {
   margin-left: 40%;
   min-width: 100px;
-  width: 50%;
+  width: 12vw;
   border-radius: 10px;
   box-shadow: 0 0 7px 0.1px #7e7e7e;
 }
@@ -206,17 +242,19 @@ export default {
   cursor: pointer;
 }
 .movieTrailer {
+  display: block;
+  margin: 0 auto;
   width: 65vw;
-  height: 65vh;
+  height: 55vh;
   border-radius: 10px;
+  
 }
 .trailerDiv {
   display: block;
-  margin: 0 auto;
-  grid-column: 1/3;
-  grid-row: 2/3;
+  margin-bottom: 100px;
 }
 .selection {
+  outline: none;
   display: block;
   width: 220px;
   margin: 10px auto;
