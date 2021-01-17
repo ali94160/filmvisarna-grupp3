@@ -57,7 +57,7 @@
           {{ show.date }} - kl. {{ show.time }}
         </option>
       </select>
-      <p v-if="isFullSalon" class="fullSalonAlert">Fullbokat</p>
+      <div v-if="isFullSalon" class="fullSalonAlert">Fullbokat Datum</div>
       <button @click="book" v-if="online" class="movieDetailsButton">
         Boka
       </button>
@@ -268,6 +268,7 @@ export default {
   margin-bottom: 100px;
 }
 .selection {
+  font-weight: bold;
   outline: none;
   display: block;
   width: 220px;
@@ -277,5 +278,21 @@ export default {
   height: 40px;
   border-radius: 10px;
   text-align: center;
+  cursor: pointer;
+}
+.selection:hover {
+}
+
+.fullSalonAlert {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 17px;
+  color: rgb(0, 0, 0);
+  background: crimson;
+  max-width: 15vw;
+  margin: 0 auto;
+
+  text-align: center;
+  border-radius: 5px;
 }
 </style>
