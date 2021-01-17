@@ -31,13 +31,15 @@ export default {
 .container {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-gap: 2vw;
+  grid-gap: 3vw;
   margin: 0 auto;
-  margin-top: 2vh;
+  margin-top: 3vh;
   background-color: var(--lightgrey);
   border-radius: 10px;
   color: var(--darkgrey);
   cursor: pointer;
+  font-size: calc(0.5vw + 12px);
+  box-shadow: 0 0 5px 5px var(--lightgrey);
 }
 
 .container:hover {
@@ -50,7 +52,8 @@ export default {
 
 img {
   width: 100%;
-  border-radius: 10px 0 0 10px;
+  margin: 5%; 
+  border-radius: 10px;
 }
 
 h3 {
@@ -63,5 +66,13 @@ p {
 
 .titleTag {
   font-weight: bold;
+  font-size: 1em;
 }
+
+@media only screen and (max-width: 480px){
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 </style>
