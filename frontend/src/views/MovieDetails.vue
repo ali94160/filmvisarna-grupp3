@@ -6,7 +6,10 @@
     </div>
     <div class="movieInfo">
       <div class="movieInfo2">
-        <h3>{{ movie.title }}</h3>
+        <div class="titleDiv">
+          <h3>{{ movie.title }}</h3>
+        </div>
+
         <p><span class="titleTag">Åldersgräns:</span> {{ movie.age }}</p>
 
         <p>
@@ -20,6 +23,9 @@
   </div>
   <div class="info3">
     <div class="moreMovieInfo">
+      <p class="description1"><span class="titleTag">Handling:</span></p>
+      <p class="description2">{{ movie.description }}</p>
+
       <p><span class="titleTag">Språk:</span> {{ movie.languages[0] }}</p>
       <p><span class="titleTag">Undertext:</span> {{ movie.subtitles[0] }}</p>
       <p class="actors"><span class="titleTag">Skådespelare:</span></p>
@@ -37,9 +43,6 @@
           {{ " " + director + " " }}</span
         >
       </p>
-
-      <p class="description1"><span class="titleTag">Handling:</span></p>
-      <p class="description2">{{ movie.description }}</p>
     </div>
     <div class="theBtn">
       <select
@@ -145,12 +148,12 @@ export default {
 }
 
 .theBtn {
-  margin-top: -10px;
+  margin-top: 10px;
   margin-right: 140px;
   justify-content: start;
 }
 
-.moreMovieInfo{
+.moreMovieInfo {
   margin-bottom: 20px;
 }
 
@@ -164,26 +167,38 @@ export default {
 
 .container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 
   grid-gap: 1px;
   margin: 0 auto;
 
-  margin-top: -45vh;
+  margin-top: -40vh;
   margin-bottom: 10vh;
   background: none;
   padding: 10px;
   border-radius: 10px;
 }
 
+.titleDiv {
+  max-width: 100%;
+}
+
 .movieInfo {
-  margin-top: 90px;
-  max-width: 70%;
+  width: 600px;
+  margin-top: 68px;
+  width: 44vw;
 }
 .moviePoster {
   display: grid;
+  margin-left: 3vw;
+  justify-self: left;
   max-width: 10vw;
   grid-template-rows: 200px;
+}
+
+.movieInfo p {
+  margin-top: 7px;
+  margin-bottom: 4px;
 }
 
 .moviePoster img {
@@ -247,7 +262,6 @@ export default {
   width: 65vw;
   height: 55vh;
   border-radius: 10px;
-  
 }
 .trailerDiv {
   display: block;
