@@ -230,30 +230,38 @@ export default {
 }
 .movieDetailsButton {
   display: block;
+  background: rgb(148, 1, 1);
+  color: white;
   padding: 10px;
   margin: 10px auto;
-  border-radius: 10px;
+  border-radius: 4px;
+  border: none;
   width: 220px;
   height: 50px;
   font-family: Georgia, "Times New Roman", Times, serif;
   font-weight: bold;
   font-size: large;
+  outline: none;
 }
 .signInToBook {
   display: block;
+  background: rgb(148, 1, 1);
+  color: white;
   padding: 10px;
   margin: 10px auto;
-  border-radius: 10px;
+  border-radius: 4px;
+  border: none;
   width: 220px;
   height: 50px;
   font-family: Georgia, "Times New Roman", Times, serif;
   font-weight: bold;
   font-size: large;
-  background-color: rgb(238, 238, 238);
+  outline: none;
+  
 }
 .movieDetailsButton:hover,
 .signInToBook:hover {
-  opacity: 70%;
+  background: crimson;
   cursor: pointer;
 }
 .movieTrailer {
@@ -276,11 +284,13 @@ export default {
   margin-top: 30px;
   padding: 5px;
   height: 40px;
-  border-radius: 10px;
+  border-radius: 4px;
   text-align: center;
   cursor: pointer;
+  outline: none;
 }
 .selection:hover {
+  opacity: 80%;
 }
 
 .fullSalonAlert {
