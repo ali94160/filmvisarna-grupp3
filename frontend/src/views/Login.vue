@@ -12,34 +12,22 @@
 
   <div class="loginFeatures">
     <div class="one">
-      <img
-        src="../assets/tickets.png"
-        alt=""
-      />
+      <img src="../assets/tickets.png" alt="" />
       <p>Boka biljetter snabbt och säkert</p>
     </div>
 
     <div class="two">
-      <img
-        src="../assets/seats.png"
-        alt=""
-      />
+      <img src="../assets/seats.png" alt="" />
       <p>Boka en eller flera platser</p>
     </div>
 
     <div class="three">
-      <img
-        src="../assets/popcorn.png"
-        alt=""
-      />
-      <img
-        class="soda"
-        src="../assets/soda.png"
-        alt=""
-      />
+      <img src="../assets/popcorn.png" alt="" />
+      <img class="soda" src="../assets/soda.png" alt="" />
       <p>Erbjudande vid kiosken</p>
     </div>
   </div>
+  <div class="container"></div>
 </template>
 
 <script>
@@ -56,36 +44,39 @@ export default {
     goToRegister() {
       this.$router.push("/register");
     },
-    logIn(){
+    logIn() {
       let check = false;
-      for(let i = 0; i < this.users.length; i++){
-        if(this.users[i].email === this.email){
-          if(this.users[i].password === this.password){
-          check = true;
+      for (let i = 0; i < this.users.length; i++) {
+        if (this.users[i].email === this.email) {
+          if (this.users[i].password === this.password) {
+            check = true;
           }
         }
       }
-      if(check){
+      if (check) {
         this.show = false;
         let user = this.users.filter((u) => u.email == this.email)[0];
-        this.$store.commit('setCurrentUser',user);
-        this.$store.commit('setOnline');
-        console.log('CORRECT??',this.$store.state.currentUser.id);
-        this.$router.push('/');
-      }else{
+        this.$store.commit("setCurrentUser", user);
+        this.$store.commit("setOnline");
+        console.log("CORRECT??", this.$store.state.currentUser.id);
+        this.$router.push("/");
+      } else {
         this.show = true;
       }
-    }
+    },
   },
-  computed:{
-    users(){
-     return this.$store.state.user
-    }
-  }
+  computed: {
+    users() {
+      return this.$store.state.user;
+    },
+  },
 };
 </script>
 
 <style scoped>
+.container {
+  margin-bottom: 4.7vw; /* For the footer */
+}
 
 .loginFeatures {
   display: grid;

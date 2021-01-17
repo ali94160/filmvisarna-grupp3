@@ -1,14 +1,17 @@
 <template>
   <Navbar />
   <router-view></router-view>
+  <Footer />
 </template>
 
 <script>
 import Navbar from './baseComps/Navbar.vue'
+import Footer from './baseComps/Footer.vue'
 export default {
   name: 'App',
   components: {
-    Navbar
+    Navbar,
+    Footer
   },
   created(){
     this.$store.dispatch('fetchMovie');
