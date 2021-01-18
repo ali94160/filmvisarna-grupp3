@@ -1,9 +1,8 @@
 <template>
-  <h1>Movies</h1>
   <MovieCard v-for="movie of movies" 
-  :key="movie.id"
-  :movie="movie"
-/>
+    :key="movie.id"
+    :movie="movie"
+  />
 </template>
 
 <script>
