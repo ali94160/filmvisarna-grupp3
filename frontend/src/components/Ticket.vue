@@ -69,12 +69,12 @@ export default {
 
 <style scoped>
 .ticket {
-  padding: 10px;
+  padding: 20px;
   display: block;
   border: 1px solid var(--lightgrey);
   border-radius: 0.3vw;
-
-  height: calc(70px + 10vh);
+  opacity: 80%;
+  height: fit-content;
   width: 80%;
   color: var(--light);
   margin: 0 auto;
@@ -84,12 +84,13 @@ export default {
 
 .ticket:hover {
   cursor: pointer;
-  opacity: 70%;
+  opacity: 100%;
 }
 
 .movieTitle {
   font-size: 1.5em;
   font-weight: bold;
+  margin-top: 0;
 }
 
 .modal {
@@ -104,7 +105,7 @@ export default {
   width: 40%;
   position: absolute;
   right: 0;
-  bottom: 5px;
+  bottom: 1px;
 }
 
 .infoModal {
@@ -130,10 +131,18 @@ export default {
 }
 
 .modal-close {
+  opacity: 80%;
   font-size: 30px;
+  margin-bottom: 15px; 
+}
+
+.modal-close:hover{
+  font-weight: bolder;
+  opacity: 100%;
 }
 
 .infoModal p {
-  margin: 0;
+  z-index: 99;
+  margin-bottom: 0;
 }
 </style>

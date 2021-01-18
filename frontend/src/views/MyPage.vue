@@ -35,6 +35,13 @@ export default {
 </script>
 
 <style scoped>
+.past{
+background: rgb(29, 29, 29);
+border-radius: 2%;
+margin-left: 10px;
+
+}
+
 .container {
   min-height: 88vh;
   display: grid;
