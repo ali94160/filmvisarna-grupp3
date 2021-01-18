@@ -1,13 +1,12 @@
 <template>
-  <h1>My page</h1>
+ 
   <div class="container">
     <div class="coming">
       <h4>Bokade biljetter</h4>
-      <div v-for="ticket of getTickets" :key="ticket.id">
-        {{ ticket.price }} Price
-        {{ getMovieById(ticket.movieId).title }}
-      </div>
+      <Ticket v-for="ticket of getTickets" :key="ticket.id" :id="ticket.id"/>
     </div>
+
+
     <div class="past">
       <h4>Historik</h4>
     </div>
@@ -15,6 +14,9 @@
 </template>
 
 <script>
+import Ticket from '../components/Ticket.vue'
+
+
 export default {
   computed: {
     getTickets(){
@@ -25,17 +27,15 @@ export default {
     this.$store.dispatch(
       'fetchTicketsFromUser', this.$store.state.currentUser.id)
   },
-  methods: {
-    getMovieById(movieId) {
-      return this.$store.state.movies.filter(p => p.id == movieId)[0]
-    }
-
+  components:{
+    Ticket
   }
 }
 </script>
 
 <style scoped>
 .container {
+  min-height: 88vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   width: 100%;

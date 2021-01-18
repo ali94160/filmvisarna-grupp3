@@ -134,6 +134,7 @@ public class Main {
 
             list.increaseSeatsTaken(amount);
             collection("Show").updateById(id, list);
+            System.out.println(list);
             res.json(list);
         });
 
@@ -143,8 +144,13 @@ public class Main {
             res.json(createdTicket);
         });
 
-        app.post("rest/user/:id", (req, res) ->{
-
+        app.put("rest/show", (req, res) ->{
+            var show = req.body(Show.class);
+            if(show.getId() == null){
+                res.send("No id provided");
+            }
+            var savedShow = collection("Show").save(show);
+            res.json(savedShow);
         });
 
         app.listen(4000);

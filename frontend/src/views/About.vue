@@ -1,44 +1,59 @@
 <template>
   <div class="container">
     <img class="loggan" :src="loggan" /><a class="logoName">Filmvisarna</a>
-       <hr>
+    <hr />
     <h4>Vilka är vi?</h4>
 
     <p>
       <span
-        >Filmvisarna grundades Januari 2021 av en grupp studerandra från Teknik Högskolan i Lund.
+        >Filmvisarna grundades Januari 2021 av en grupp studerandra från Teknik
+        Högskolan i Lund.
       </span>
-      <br>
+      <br />
       <span>
         Gruppens medlemmar: Alex, Ali, Anna, Isabella, Lukas, Oscar, Qiling.
       </span>
-        <br>
-      <span>Filmvisarna har som mål att leverera dem bästa och senaste filmerna i marknaden. Vi riktar vårat utbud mot alla åldrar.</span>
+      <br />
+      <span
+        >Filmvisarna har som mål att leverera dem bästa och senaste filmerna i
+        marknaden. Vi riktar vårat utbud mot alla åldrar.</span
+      >
     </p>
-      
-<h4 class="salTitle">Salonger</h4>
- <div class="salongerna">
 
- <div class="storaImg">
-<h5>Stora salongen</h5>
-      <img src="https://i.postimg.cc/HW4GYq0Q/Ska-rmavbild-2021-01-15-kl.png" alt="" class="stora">
+    <h4 class="salTitle">Salonger</h4>
+    <div class="salongerna">
+      <div class="storaImg">
+        <h5>Stora salongen</h5>
+        <img
+          src="https://i.postimg.cc/HW4GYq0Q/Ska-rmavbild-2021-01-15-kl.png"
+          alt=""
+          class="stora"
+        />
 
-      <p class="bigInfo">Våran stora salong med upp till 81 sittplatser. Perfekta salongen för att titta på en premiärfilm med flertal åskådare samtidigt. Du sitter alltid bekvämt på alla våra fåtöljer som är justerbara efter din bekvämlighet. </p>
- </div>
+        <p class="bigInfo">
+          Våran stora salong med upp till 81 sittplatser. Perfekta salongen för
+          att titta på en premiärfilm med flertal åskådare samtidigt. Du sitter
+          alltid bekvämt på alla våra fåtöljer som är justerbara efter din
+          bekvämlighet.
+        </p>
+      </div>
 
+      <div class="lillaImg">
+        <h5 class="lilTitle">Lilla salongen</h5>
+        <img
+          src="https://i.postimg.cc/rpHdphWk/Ska-rmavbild-2021-01-16-kl-00-38-09.png"
+          alt=""
+        />
 
-     <div class="lillaImg">
-       <h5 class="lilTitle">Lilla salongen</h5>
-       <img src="https://i.postimg.cc/rpHdphWk/Ska-rmavbild-2021-01-16-kl-00-38-09.png" alt="">
-
-       <p class="lilInfo">Våran lilla salong med upp till 56 sittplatser är den perfekta salongen för dig som vill uppleva en mer mysig känsla under besöket. Lika bekväma fåtöljer som den stora salongen men med en mysigare känsla.</p>
-     </div>
-     
-
- </div>
-
-          
-
+        <p class="lilInfo">
+          Våran lilla salong med upp till 56 sittplatser är den perfekta
+          salongen för dig som vill uppleva en mer mysig känsla under besöket.
+          Lika bekväma fåtöljer som den stora salongen men med en mysigare
+          känsla.
+        </p>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>

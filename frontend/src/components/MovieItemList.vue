@@ -28,4 +28,22 @@ export default {
   text-align: center;
   width: 100%;
 }
+
+@media only screen and (max-width: 960px){
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media only screen and (max-width: 680px){
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (max-width: 480px){
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 </style>

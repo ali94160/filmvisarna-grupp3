@@ -2,7 +2,7 @@
   <img class="backgroundImage" :src="movie.backgroundUrl" alt="" />
   <div class="container">
     <div class="moviePoster">
-      <img :src="movie.imgUrl" :alt="movie.title" />
+      <img :src="movie.imgUrl" :alt="movie.title" class="right" />
     </div>
     <div class="movieInfo">
       <div class="movieInfo2">
@@ -169,7 +169,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 
-  grid-gap: 1px;
+  grid-gap: 2vw;
   margin: 0 auto;
 
   margin-top: -40vh;
@@ -180,20 +180,14 @@ export default {
 }
 
 .titleDiv {
-  max-width: 100%;
+  width: fit-content;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
 .movieInfo {
   width: 600px;
   margin-top: 68px;
   width: 44vw;
-}
-.moviePoster {
-  display: grid;
-  margin-left: 3vw;
-  justify-self: left;
-  max-width: 10vw;
-  grid-template-rows: 200px;
 }
 
 .movieInfo p {
@@ -202,9 +196,10 @@ export default {
 }
 
 .moviePoster img {
-  margin-left: 40%;
+  margin-left: 120px;
+  margin-top: 30px;
   min-width: 100px;
-  width: 12vw;
+  width: 150px;
   border-radius: 10px;
   box-shadow: 0 0 7px 0.1px #7e7e7e;
 }
@@ -227,6 +222,12 @@ export default {
 }
 .movieInfo {
   margin-right: 5%;
+}
+.movieInfo2{
+  width: fit-content;
+  background-color: rgba(43, 43, 43, 0.452);
+  box-shadow: 0 0 15px 10px rgba(43, 43, 43, 0.466);
+  border-radius: 5px;
 }
 .movieDetailsButton {
   display: block;
