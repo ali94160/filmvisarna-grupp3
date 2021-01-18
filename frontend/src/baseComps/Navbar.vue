@@ -100,4 +100,10 @@ nav {
   font-weight: bolder;
   font-size: 1rem;
 }
+
+@media screen and (max-width: 360px){
+  .logoName{
+    display: none;
+  }
+}
 </style>
