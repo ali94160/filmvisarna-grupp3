@@ -66,9 +66,8 @@ export default {
       showId: this.show.id,
     };
     this.$store.dispatch("addTicket", ticket);
-    console.log(this.show.id, this.amountOfTickets);
+    
     let showInfo = {showId: this.show.id, seats: this.amountOfTickets}
-    console.log(showInfo);
     this.$store.dispatch("increaseSeatsInShow", showInfo)
   }
 }

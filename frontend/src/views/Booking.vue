@@ -62,7 +62,8 @@ export default {
     },
 
     increaseValue() {
-      if (this.chosenSeats < this.maxSeats) this.chosenSeats++;
+      if (this.chosenSeats < this.maxSeats && this.chosenSeats < this.salon.seats - this.getCurrentMovie.seatsTaken) { 
+        this.chosenSeats++ };
     },
 
     updateTotalPrice(price, ticketNumber) {
@@ -96,8 +97,15 @@ export default {
     },
     getCurrentMovie(){
       return this.$store.state.currentMovie
+    },
+    salon(){
+      return this.$store.state.currentSalon
     }
   },
+  mounted(){
+    this.chosenSeats = (this.salon.seats - this.getCurrentMovie.seatsTaken > 1 ? 2 : 1)
+    console.log(this.chosenSeats, "shoo");
+  }
 };
 </script>
 

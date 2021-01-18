@@ -1,5 +1,6 @@
 <template>
   <h3>{{ salon.name }}</h3>
+  <p>Antal lediga platser: {{ seatsLeft() }}</p>
   <p>Du vill boka: {{ chairs }}</p>
   <div class="salon">
     <div
@@ -74,11 +75,17 @@ export default {
       }
       return check;
     },
+    seatsLeft(){
+      return this.salon.seats - this.show.seatsTaken
+    }
   },
   computed: {
     salon() {
       return this.$store.state.currentSalon;
     },
+    show(){
+      return this.$store.state.currentMovie
+    }
   },
 };
 </script>
