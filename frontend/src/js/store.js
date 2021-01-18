@@ -60,15 +60,14 @@ const actions = {
     let list = await fetch('/rest/movie')
     list = await list.json();
 
-    console.log(list);
     store.commit('setMovie', list)
+    return list
   },
 
   async fetchUsers(store) {
     let list = await fetch('/rest/user')
     list = await list.json();
-
-    console.log(list);
+    
     store.commit('setUser', list)
   },
 

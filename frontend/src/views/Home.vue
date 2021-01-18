@@ -1,6 +1,6 @@
 <template>
 <div class="movieList">
-  <TabsSwipe />
+  <Carousel />
   <MovieItemList />
 </div>
   
@@ -9,6 +9,8 @@
 <script>
 import MovieItemList from "../components/MovieItemList.vue"
 import TabsSwipe from "../components/TabsSwipe.vue"
+import Carousel from "../components/Carousel.vue"
+
 
 export default {
   components: {

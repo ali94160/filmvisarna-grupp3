@@ -17,11 +17,13 @@ export default {
     Navbar,
     Footer,
   },
-  created() {
-    this.$store.dispatch("fetchMovie");
-    this.$store.dispatch("fetchUsers");
-    this.$store.dispatch("fetchSalons");
-  },
+  async created() {
+    console.log("before");
+    await this.$store.dispatch("fetchMovie");
+    await this.$store.dispatch("fetchUsers");
+    await this.$store.dispatch("fetchSalons");
+    console.log("after");
+  }
 };
 </script>
 
