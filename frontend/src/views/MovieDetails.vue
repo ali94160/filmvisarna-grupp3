@@ -2,7 +2,7 @@
   <img class="backgroundImage" :src="movie.backgroundUrl" alt="" />
   <div class="container">
     <div class="moviePoster">
-      <img :src="movie.imgUrl" :alt="movie.title" />
+      <img :src="movie.imgUrl" :alt="movie.title" class="right" />
     </div>
     <div class="movieInfo">
       <div class="movieInfo2">
@@ -168,7 +168,8 @@ export default {
 .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
+
+  grid-gap: 2vw;
   margin: 0 auto;
 
   margin-top: -40vh;
@@ -187,12 +188,6 @@ export default {
   width: 600px;
   margin-top: 68px;
   width: 44vw;
-}
-.moviePoster {
-  display: grid;
-  margin-left: 50px;
-  justify-self: left;
-  max-width: 400px;
 }
 
 .movieInfo p {
