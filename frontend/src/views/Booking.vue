@@ -104,7 +104,6 @@ export default {
   },
   mounted(){
     this.chosenSeats = (this.salon.seats - this.getCurrentMovie.seatsTaken > 1 ? 2 : 1)
-    console.log(this.chosenSeats, "shoo");
   }
 };
 </script>
