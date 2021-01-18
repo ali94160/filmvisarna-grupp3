@@ -168,8 +168,7 @@ export default {
 .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-
-  grid-gap: 1px;
+  grid-gap: 10px;
   margin: 0 auto;
 
   margin-top: -40vh;
@@ -191,10 +190,9 @@ export default {
 }
 .moviePoster {
   display: grid;
-  margin-left: 3vw;
+  margin-left: 50px;
   justify-self: left;
-  max-width: 10vw;
-  grid-template-rows: 200px;
+  max-width: 400px;
 }
 
 .movieInfo p {
@@ -203,9 +201,10 @@ export default {
 }
 
 .moviePoster img {
-  margin-left: 40%;
+  margin-left: 120px;
+  margin-top: 30px;
   min-width: 100px;
-  width: 12vw;
+  width: 150px;
   border-radius: 10px;
   box-shadow: 0 0 7px 0.1px #7e7e7e;
 }
