@@ -17,6 +17,18 @@ public class Show {
         this.seatsTaken += Integer.parseInt(amount);
     }
 
+    @Override
+    public String toString() {
+        return "Show{" +
+                "id='" + id + '\'' +
+                ", date='" + date + '\'' +
+                ", time='" + time + '\'' +
+                ", seatsTaken=" + seatsTaken +
+                ", movieId='" + movieId + '\'' +
+                ", salonId='" + salonId + '\'' +
+                '}';
+    }
+
     public String getId() {
         return id;
     }

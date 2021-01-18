@@ -63,6 +63,7 @@ const actions = {
     console.log(list);
     store.commit('setMovie', list)
   },
+
   async fetchUsers(store) {
     let list = await fetch('/rest/user')
     list = await list.json();
@@ -70,6 +71,7 @@ const actions = {
     console.log(list);
     store.commit('setUser', list)
   },
+
   async addUser(store, user) {
     let newUser =
     {
@@ -84,6 +86,7 @@ const actions = {
     })
     store.commit('addUser', newUser);
   },
+
   async addTicket(store, ticket) {
     let newTicket =
     {
@@ -128,6 +131,27 @@ const actions = {
     list = await list.json()
 
     store.commit('setCurrentSalon', list)
+  },
+
+  async increaseSeatsInShow2(show) {
+    let response = fetch("/rest/show", {
+      method: "PUT",
+      body: JSON.stringify(show),
+    });
+
+    console.log("increase called");
+  },
+
+  async increaseSeatsInShow(store, showInfo) {
+    console.log(showInfo, "info");
+    let response = fetch(
+      "/rest/show/increase-seats/" + showInfo.showId + "/" + showInfo.seats,
+      {
+        method: "PUT",
+      }
+    );
+
+    console.log("increase called adddddddd");
   }
 }
 
