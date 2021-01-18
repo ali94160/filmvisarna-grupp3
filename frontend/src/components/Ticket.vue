@@ -1,68 +1,80 @@
 <template>
-  <a class="ticket waves-effect waves-light modal-trigger" :href="'#' + modalId">
-      <p> {{ ticket.time }} {{ ticket.date }} </p>
-      <hr>
+  <div class="ticketWrap">
+    <a
+      class="ticket waves-effect waves-light modal-trigger"
+      :href="'#' + modalId"
+    >
+      <p>{{ ticket.time }} {{ ticket.date }}</p>
+      <hr />
       <p class="movieTitle">{{ getMovieById(ticket.movieId).title }}</p>
       <p>Pris: {{ ticket.price }} kr</p>
-  </a>
+    </a>
+  </div>
 
   <div :id="modalId" class="modal">
     <div class="modal-content">
-      <span class="modal-close right">x</span>
-      <h3 class="center">Biljett</h3>
-      <p>Film: {{getMovieById(ticket.movieId).title}}</p>
-      <br>
-      <p>Plats: </p>
-      <p>Datum: {{ ticket.date }}</p>
-      <p>Tid: {{ ticket.time }}</p>
+      <div class="infoModal">
+        <span class="modal-close material-icons right"> close </span>
+        <img class="transLogo right" src="../assets/transLogo.png" alt="" />
+        <h3 class="center">Biljett</h3>
+        <p class="movieTitleModal">{{ getMovieById(ticket.movieId).title }}</p>
+        <br />
+        <p>Salong:</p>
+        <p>Datum: {{ ticket.date }}</p>
+        <p>Tid: {{ ticket.time }}</p>
+      </div>
     </div>
+
     <div class="modal-footer">
-      <img src="../assets/blippCode.png" alt="">
-      <p>{{id}}</p>
+      <span class="ID">{{ id }}</span>
+      <img class="codeLines left" src="../assets/blippCode.png" alt="" />
     </div>
   </div>
-
 </template>
 
 <script>
-import M from 'materialize-css'
+import M from "materialize-css";
 
 export default {
-  data(){
-    return{
-      modalId: null
-    }
+  data() {
+    return {
+      modalId: null,
+    };
   },
-  props: ['id'],
+  props: ["id"],
   computed: {
-    ticket(){
-      return this.$store.state.currentUserTickets.filter(p => p.id == this.id)[0]
-    }
+    ticket() {
+      return this.$store.state.currentUserTickets.filter(
+        (p) => p.id == this.id
+      )[0];
+    },
   },
-  methods:{
+  methods: {
     getMovieById(movieId) {
-      return this.$store.state.movies.filter(p => p.id == movieId)[0]
+      return this.$store.state.movies.filter((p) => p.id == movieId)[0];
     },
-    getId(){
-      return this.id
+    getId() {
+      return this.id;
     },
-    clicked(){
+    clicked() {
       console.log(this.id);
-    }
+    },
   },
-  mounted(){
-    M.AutoInit()
-    this.modalId = "modal" + this.id
-  }
-}
+  mounted() {
+    M.AutoInit();
+    this.modalId = "modal" + this.id;
+  },
+};
 </script>
 
 <style scoped>
-.ticket{
+.ticket {
+  padding: 10px;
+  background: var(--red);
   display: block;
   border: 1px solid var(--lightgrey);
-  border-radius: 1vw;
-  box-shadow: 0 0 5px 1px;
+  border-radius: 0.3vw;
+
   height: calc(100px + 10vh);
   width: 80%;
   color: var(--light);
@@ -70,24 +82,54 @@ export default {
   margin-bottom: 2vh;
 }
 
-.ticket:hover{
+.ticket:hover {
   cursor: pointer;
   opacity: 70%;
 }
 
-.movieTitle{
+.movieTitle {
   font-size: 1.5em;
   font-weight: bold;
 }
 
-.modal{
+.modal {
   color: black;
   font-size: 1.5em;
 }
+.modal-content {
+  background: linear-gradient(red, var(--red));
+}
+.transLogo {
+  opacity: 30%;
+  width: 40%;
+  position: absolute;
+  right: 0;
+  bottom: 70px;
+}
 
-.modal .modal-footer{
-  height: 30%;
+.infoModal {
+  color: white;
+}
+
+.modal .modal-footer {
+  height: 60%;
   padding-right: 5%;
 }
 
+.ID {
+  font-size: 20px;
+}
+
+.codeLines {
+  padding: 5px;
+}
+
+.movieTitleModal {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.modal-close {
+  font-size: 30px;
+}
 </style>

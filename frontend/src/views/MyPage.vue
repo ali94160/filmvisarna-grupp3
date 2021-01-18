@@ -3,6 +3,7 @@
   <div class="container">
     <div class="coming">
       <h4>Bokade biljetter</h4>
+
       <Ticket v-for="ticket of getTickets" :key="ticket.id" :id="ticket.id"/>
     </div>
 
@@ -42,6 +43,16 @@ export default {
   padding: 20px;
 }
 h4 {
-  text-align: center;
+  margin: 15px auto;
+  width: fit-content;
+  border-bottom: solid rgba(255, 255, 255, 0.212) 2px;
+ 
 }
+
+.coming{
+  border-radius: 2%;
+  background: rgb(29, 29, 29);
+}
+
+
 </style>

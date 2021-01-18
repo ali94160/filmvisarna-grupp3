@@ -23,7 +23,6 @@
 </template>
 
 <script>
-
 /*      
  :class="{
             highlight: chairs.includes(index),
@@ -31,40 +30,33 @@
           }"    
           */
 
-
-  export default {
-    data() {
-      return{
-        chairs: [],
-        chairsBooked: [0][3],
-        isHover: false
-      }
-    },
-    methods:{
-      changeColor(row, col){
-          
-          console.log('you have clicked on:', row, col)
-      
-        /*        
+export default {
+  data() {
+    return {
+      chairs: [],
+      chairsBooked: [0][3],
+      isHover: false,
+    };
+  },
+  methods: {
+    changeColor(row, col) {
+      /*        
               changeColor(index){
         if(!this.chairsBooked.includes(index)){
           this.chairs.includes(index) ? this.chairs.splice(this.chairs.indexOf(index), 1) : this.chairs.push(index)
           */
-        
-      },
-      clear(){
-        this.chairs = [];
-      }
     },
+    clear() {
+      this.chairs = [];
+    },
+  },
   computed: {
     salon() {
-      console.log('ozkar', this.$store.state.currentSalon)
+      "ozkar", this.$store.state.currentSalon;
       return this.$store.state.currentSalon;
     },
-
-  }
-}
-
+  },
+};
 </script>
 
 <style scoped>
