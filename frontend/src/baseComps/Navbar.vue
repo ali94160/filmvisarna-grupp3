@@ -15,7 +15,7 @@
         <li><router-link to="/info">Biljett info</router-link></li>
         <li><router-link to="/about">Om oss</router-link></li>
       </ul>
-      <ul class="hide-on-med-and-down right">
+      <ul class="hide-on-med-and-down rightNav">
         <li>
           <router-link to="/register" v-if="!online"> Bli medlem</router-link>
         </li>
@@ -39,12 +39,9 @@
     <li><router-link to="/info">Biljett info</router-link></li>
     <li><router-link to="/about">Om oss</router-link></li>
     <li><div class="divider"></div></li>
+    <li><router-link to="/register" v-if="!online"> Bli medlem</router-link></li>
     <li><router-link to="/login" v-if="!online">Logga in</router-link></li>
-    <li>
-      <router-link class="userOnline" to="/mypage" v-if="online">{{
-        currentUser.firstName
-      }}</router-link>
-    </li>
+    <li><router-link class="userOnline" to="/mypage" v-if="online">{{ currentUser.firstName }}</router-link></li>
     <li><router-link to="/mypage" v-if="online">Mina sidor</router-link></li>
     <li><a @click="logOut" v-if="online">Logga ut</a></li>
   </ul>
@@ -93,6 +90,11 @@ export default {
 nav {
   background-color: var(--red);
 }
+
+.rightNav {
+  position: absolute;
+  right: 0;
+}
 .userOnline::before {
   content: "•";
   margin-right: 8px;
@@ -101,8 +103,8 @@ nav {
   font-size: 1rem;
 }
 
-@media screen and (max-width: 360px){
-  .logoName{
+@media screen and (max-width: 360px) {
+  .logoName {
     display: none;
   }
 }
