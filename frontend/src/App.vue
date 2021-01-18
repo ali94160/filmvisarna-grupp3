@@ -4,7 +4,6 @@
     <div class="routerView">
       <router-view></router-view>
     </div>
-
     <Footer />
   </div>
 </template>
@@ -27,7 +26,11 @@ export default {
 </script>
 
 <style scoped>
-
+.grid{
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 64px 1fr 45px;
+}
 body {
   background: black;
 }

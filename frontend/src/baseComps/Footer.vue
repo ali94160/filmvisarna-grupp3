@@ -17,6 +17,7 @@ hr {
 }
 
 footer{
+  margin-top: 20px;
   opacity: 50%;
   border-top: 1px solid rgba(194, 194, 194, 0.979);
   text-align: center;

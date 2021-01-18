@@ -13,7 +13,15 @@
         class="seats"
         @click="changeColor(row, col)"
       >
-        <span class="material-icons"> event_seat </span>
+        <span
+          class="material-icons"
+          :class="{
+            active:
+              check(row,col)
+          }"
+        >
+          event_seat
+        </span>
       </div>
     </div>
   </div>
@@ -23,45 +31,64 @@
 </template>
 
 <script>
-/*      
- :class="{
-            highlight: chairs.includes(index),
-            booked: chairsBooked.includes(row, col),
-          }"    
-          */
 
-export default {
-  data() {
-    return {
-      chairs: [],
-      chairsBooked: [0][3],
-      isHover: false,
-    };
-  },
-  methods: {
-    changeColor(row, col) {
-      /*        
-              changeColor(index){
-        if(!this.chairsBooked.includes(index)){
-          this.chairs.includes(index) ? this.chairs.splice(this.chairs.indexOf(index), 1) : this.chairs.push(index)
-          */
+  export default {
+    data() {
+      return{
+        chairs: [],
+        selectedChairs: [],
+        isHover: false
+      }
     },
+    methods:{
+      changeColor(row, col){
+        let add = true
+          for(let i = 0; i < this.selectedChairs.length; i++){
+            for(let j = 0; j < this.selectedChairs.length; j++){
+              if(this.selectedChairs[i][0] === row && this.selectedChairs[i][1] === col){
+                this.selectedChairs.splice(i,1);
+                add = false;
+                return;
+              }
+            }
+          }
+          if(add){
+          this.selectedChairs.push([row, col]); 
+          }
+      },
+      clear(){
+        this.selectedChairs = [];
+      },
+      check(row,col){
+        let check = false;
+        for(let i = 0; i < this.selectedChairs.length; i++){
+          for(let j = 0; j < this.selectedChairs.length; j++){
+            if(this.selectedChairs[i][0] === row && this.selectedChairs[i][1] === col){
+              check = true;
+            }
+          }
+        }
+        return check;
+      },
+   
     clear() {
       this.chairs = [];
     },
   },
   computed: {
     salon() {
-      "ozkar", this.$store.state.currentSalon;
       return this.$store.state.currentSalon;
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style scoped>
 * {
   user-select: none;
+}
+.active {
+  color: #4caf50;
 }
 h3,
 p {
