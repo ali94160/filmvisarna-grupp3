@@ -114,4 +114,7 @@ span{
   font-size: 11px;
   font-weight: normal;
 }
+.container{
+  margin-bottom: 12.5vw; /* For the footer */
+}
 </style>

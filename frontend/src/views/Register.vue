@@ -14,6 +14,7 @@
       <button>Bli medlem</button>
     </form>
   </div>
+  <div class="container"></div>
 </template>
 
 <script>
@@ -42,7 +43,7 @@ export default {
         for (let i = 0; i < this.users.length; i++) {
           if (this.users[i].email === user.email) {
             this.alreadyMember = true;
-          }else{
+          } else {
             this.alreadyMember = false;
           }
         }
@@ -97,5 +98,9 @@ button:hover {
 }
 p {
   color: red;
+}
+
+.container {
+  margin-bottom: 12.5vw; /* For the footer */
 }
 </style>

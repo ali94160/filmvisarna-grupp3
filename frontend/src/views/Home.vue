@@ -17,5 +17,6 @@ export default {
 <style scoped>
 .movieList{
   margin-top: 8vw;
+  margin-bottom: 18.2vw; /* For the footer */
 }
 </style>

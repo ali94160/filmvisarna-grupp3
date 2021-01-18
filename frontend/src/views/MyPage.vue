@@ -1,5 +1,5 @@
 <template>
-  <h1>My page</h1>
+ 
   <div class="container">
     <div class="coming">
       <h4>Bokade biljetter</h4>
@@ -35,6 +35,7 @@ export default {
 
 <style scoped>
 .container {
+  min-height: 88vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   width: 100%;
