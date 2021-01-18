@@ -4,6 +4,11 @@
       class="ticket waves-effect waves-light modal-trigger"
       :href="'#' + modalId"
     >
+      <img
+        class="ticketPost left"
+        :src="getMovieById(ticket.movieId).imgUrl"
+        alt=""
+      />
       <p class="movieTitle">{{ getMovieById(ticket.movieId).title }}</p>
       <p>{{ ticket.time }} {{ ticket.date }}</p>
 
@@ -68,10 +73,15 @@ export default {
 </script>
 
 <style scoped>
+.ticket p {
+  margin-bottom: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .ticket {
-  padding: 20px;
+  padding: 5px;
   display: block;
-  border: 1px solid var(--lightgrey);
+
   border-radius: 0.3vw;
   opacity: 80%;
   height: fit-content;
@@ -79,16 +89,26 @@ export default {
   color: var(--light);
   margin: 0 auto;
   margin-bottom: 2vh;
-  background: linear-gradient(var(--red), crimson);
+  background: linear-gradient(var(--red), rgb(80, 20, 20));
+}
+
+.ticketPost {
+  padding-right: 10px;
+
+  border-radius: 3px;
+  width: 17%;
+  opacity: 80%;
 }
 
 .ticket:hover {
+  background: linear-gradient(var(--red), rgb(209, 11, 11));
   cursor: pointer;
   opacity: 100%;
+  zoom: 1.1;
 }
 
 .movieTitle {
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: bold;
   margin-top: 0;
 }
@@ -133,10 +153,10 @@ export default {
 .modal-close {
   opacity: 80%;
   font-size: 30px;
-  margin-bottom: 15px; 
+  margin-bottom: 15px;
 }
 
-.modal-close:hover{
+.modal-close:hover {
   font-weight: bolder;
   opacity: 100%;
 }

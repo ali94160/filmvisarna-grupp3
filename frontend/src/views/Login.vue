@@ -59,6 +59,7 @@ export default {
         this.$store.commit("setCurrentUser", user);
         this.$store.commit("setOnline");
         this.$router.push("/");
+        M.toast({ html: "✓ Inloggning lyckades", classes: "color: green" });
       } else {
         this.show = true;
       }
