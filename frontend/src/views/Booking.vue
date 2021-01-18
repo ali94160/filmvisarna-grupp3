@@ -1,4 +1,5 @@
 <template>
+<div class="wrapper">
   <div id="#bookingDiv" v-if="!booked">
     <h1>{{ getCurrentMovie.title }}</h1>
     <div class="container">
@@ -29,6 +30,7 @@
   </div>
 
   <Confirm v-if="booked" :ticketPrices="ticketPrices" />
+  </div>
 </template>
 
 <script>
@@ -104,7 +106,9 @@ export default {
 * {
   margin: 0;
 }
-
+.wrapper{
+  margin-top: 10vh;
+}
 h1 {
   font-size: 5vw;
 }
