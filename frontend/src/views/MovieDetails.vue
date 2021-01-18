@@ -180,7 +180,8 @@ export default {
 }
 
 .titleDiv {
-  max-width: 100%;
+  width: fit-content;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
 .movieInfo {
@@ -227,6 +228,12 @@ export default {
 }
 .movieInfo {
   margin-right: 5%;
+}
+.movieInfo2{
+  width: fit-content;
+  background-color: rgba(43, 43, 43, 0.452);
+  box-shadow: 0 0 15px 10px rgba(43, 43, 43, 0.466);
+  border-radius: 5px;
 }
 .movieDetailsButton {
   display: block;
