@@ -16,8 +16,7 @@
         <span
           class="material-icons"
           :class="{
-            active:
-              check(row,col)
+            active: check(row, col),
           }"
         >
           event_seat
@@ -31,55 +30,56 @@
 </template>
 
 <script>
-
-  export default {
-    data() {
-      return{
-        chairs: [],
-        selectedChairs: [],
-        isHover: false
-      }
-    },
-    methods:{
-      changeColor(row, col){
-        let add = true
-          for(let i = 0; i < this.selectedChairs.length; i++){
-            for(let j = 0; j < this.selectedChairs.length; j++){
-              if(this.selectedChairs[i][0] === row && this.selectedChairs[i][1] === col){
-                this.selectedChairs.splice(i,1);
-                add = false;
-                return;
-              }
-            }
-          }
-          if(add){
-          this.selectedChairs.push([row, col]); 
-          }
-      },
-      clear(){
-        this.selectedChairs = [];
-      },
-      check(row,col){
-        let check = false;
-        for(let i = 0; i < this.selectedChairs.length; i++){
-          for(let j = 0; j < this.selectedChairs.length; j++){
-            if(this.selectedChairs[i][0] === row && this.selectedChairs[i][1] === col){
-              check = true;
-            }
+export default {
+  data() {
+    return {
+      chairs: [],
+      selectedChairs: [],
+      isHover: false,
+    };
+  },
+  methods: {
+    changeColor(row, col) {
+      let add = true;
+      for (let i = 0; i < this.selectedChairs.length; i++) {
+        for (let j = 0; j < this.selectedChairs.length; j++) {
+          if (
+            this.selectedChairs[i][0] === row &&
+            this.selectedChairs[i][1] === col
+          ) {
+            this.selectedChairs.splice(i, 1);
+            add = false;
+            return;
           }
         }
-        return check;
-      },
-   
+      }
+      if (add) {
+        this.selectedChairs.push([row, col]);
+      }
+    },
     clear() {
-      this.chairs = [];
+      this.selectedChairs = [];
+    },
+    check(row, col) {
+      let check = false;
+      for (let i = 0; i < this.selectedChairs.length; i++) {
+        for (let j = 0; j < this.selectedChairs.length; j++) {
+          if (
+            this.selectedChairs[i][0] === row &&
+            this.selectedChairs[i][1] === col
+          ) {
+            check = true;
+          }
+        }
+      }
+      return check;
     },
   },
   computed: {
     salon() {
       return this.$store.state.currentSalon;
-    }
-  }
+    },
+  },
 };
 </script>
 
