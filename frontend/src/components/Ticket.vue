@@ -4,9 +4,9 @@
       class="ticket waves-effect waves-light modal-trigger"
       :href="'#' + modalId"
     >
-      <p>{{ ticket.time }} {{ ticket.date }}</p>
-      <hr />
       <p class="movieTitle">{{ getMovieById(ticket.movieId).title }}</p>
+      <p>{{ ticket.time }} {{ ticket.date }}</p>
+
       <p>Pris: {{ ticket.price }} kr</p>
     </a>
   </div>
@@ -20,6 +20,7 @@
         <p class="movieTitleModal">{{ getMovieById(ticket.movieId).title }}</p>
         <br />
         <p>Salong:</p>
+        <p>Antal: {{ ticket.seats }}</p>
         <p>Datum: {{ ticket.date }}</p>
         <p>Tid: {{ ticket.time }}</p>
       </div>
@@ -27,7 +28,7 @@
 
     <div class="modal-footer">
       <span class="ID">{{ id }}</span>
-      <img class="codeLines left" src="../assets/blippCode.png" alt="" />
+      <img class="barCode left" src="../assets/blippCode.png" alt="" />
     </div>
   </div>
 </template>
@@ -70,16 +71,16 @@ export default {
 <style scoped>
 .ticket {
   padding: 10px;
-  background: var(--red);
   display: block;
   border: 1px solid var(--lightgrey);
   border-radius: 0.3vw;
 
-  height: calc(100px + 10vh);
+  height: calc(70px + 10vh);
   width: 80%;
   color: var(--light);
   margin: 0 auto;
   margin-bottom: 2vh;
+  background: linear-gradient(var(--red), crimson);
 }
 
 .ticket:hover {
@@ -104,7 +105,7 @@ export default {
   width: 40%;
   position: absolute;
   right: 0;
-  bottom: 70px;
+  bottom: 5px;
 }
 
 .infoModal {
@@ -120,7 +121,7 @@ export default {
   font-size: 20px;
 }
 
-.codeLines {
+.barCode {
   padding: 5px;
 }
 
@@ -131,5 +132,9 @@ export default {
 
 .modal-close {
   font-size: 30px;
+}
+
+.infoModal p {
+  margin: 0;
 }
 </style>
