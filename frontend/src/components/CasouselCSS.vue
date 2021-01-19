@@ -5,9 +5,10 @@
         tabindex="0"
         class="carousel__slide">
       <div class="carousel__snapper">
-        <a @click="someMethod" href="#carousel__slide4"
+        <a href="#carousel__slide4"
            class="carousel__prev">Go to last slide</a>
-        <a @click="someMethod" href="#carousel__slide2"
+           <img :src="movies[0].backgroundUrl" alt="">
+        <a href="#carousel__slide2"
            class="carousel__next">Go to next slide</a>
       </div>
     </li>
@@ -17,6 +18,7 @@
       <div class="carousel__snapper"></div>
       <a href="#carousel__slide1"
          class="carousel__prev">Go to previous slide</a>
+         <img :src="movies[1].backgroundUrl" alt="">
       <a href="#carousel__slide3"
          class="carousel__next">Go to next slide</a>
     </li>
@@ -26,6 +28,7 @@
       <div class="carousel__snapper"></div>
       <a href="#carousel__slide2"
          class="carousel__prev">Go to previous slide</a>
+         <img :src="movies[2].backgroundUrl" alt="">
       <a href="#carousel__slide4"
          class="carousel__next">Go to next slide</a>
     </li>
@@ -35,6 +38,7 @@
       <div class="carousel__snapper"></div>
       <a href="#carousel__slide3"
          class="carousel__prev">Go to previous slide</a>
+         <img :src="movies[3].backgroundUrl" alt="">
       <a href="#carousel__slide1"
          class="carousel__next">Go to first slide</a>
     </li>
@@ -69,6 +73,11 @@ export default {
       window.scrollTo(0,0)
       console.log("clicked")
       event.preventDefault()
+    }
+  },
+  computed:{
+    movies(){
+      return this.$store.state.movies
     }
   }
 }
@@ -143,6 +152,10 @@ export default {
   -ms-overflow-style: none;
 }
 
+img {
+  width: 100%;
+}
+
 ol, li {
   list-style: none;
   margin: 0;
@@ -175,12 +188,7 @@ ol, li {
   position: relative;
   flex: 0 0 100%;
   width: 100%;
-  background-color: #f99;
   counter-increment: item;
-}
-
-.carousel__slide:nth-child(even) {
-  background-color: #99f;
 }
 
 .carousel__slide:before {
@@ -189,8 +197,7 @@ ol, li {
   top: 50%;
   left: 50%;
   transform: translate3d(-50%,-40%,70px);
-  color: #fff;
-  font-size: 2em;
+  font-size: 0;
 }
 
 .carousel__snapper {
