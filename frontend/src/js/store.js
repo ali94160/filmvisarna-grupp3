@@ -19,6 +19,7 @@ const state = {
 const mutations = {
   setMovie(state, list) {
     state.movies = list
+    console.log("efteeeeer lag in lista");
   },
   setSelectedMovie(state, movie) {
     state.selectedMovie = movie

@@ -1,6 +1,7 @@
 <template>
-  <div class="carousel carousel-slider center">
+  <div v-if="movies" class="carousel carousel-slider center">
     <div class="carousel-item red white-text" href="#one!">
+      <img :src="movies[0].backgroundUrl" alt="">
     </div>
     <div class="carousel-item amber white-text" href="#two!">
       <h2>Second Panel</h2>
@@ -12,43 +13,44 @@
     </div>
     <div class="carousel-item blue white-text" href="#four!">
       <h2>Fourth Panel</h2>
-      <p class="white-text">This is your fourth panel</p>
     </div>
   </div>
 </template>
 
 <script>
+import M from 'materialize-css'
 
 export default {
   data(){
     return{
-      carouselInstance: null,
-      dataFetched: false
+      movie: []
     }
   },
-  /*
-  async created(){
-    this.movies = await this.$store.dispatch("fetchMovie");
-    let elems = document.querySelectorAll('.carousel');
-    this.carouselInstance = M.Carousel.init(elems,{
-      fullWidth: true,
-      indicators: true
-    });
-    console.log("mounted");
+  methods:{
+    setMovies(){
+      this.movies = this.$store.state.movies
+    }
   },
-  */
   computed:{
     movies(){
       return this.$store.state.movies
     }
+  },
+  mounted(){
+    let elems = document.querySelectorAll(".carousel");
+    let instance = M.Carousel.init(elems, {
+    fullWidth: true,
+    indicators: true
+  });
   }
 }
 </script>
 
 <style>
 .carousel{
-  width: 50% !important;
+  width: 70% !important;
   margin: 0 auto;
+  height: 20vh !important;
 }
 
 </style>
