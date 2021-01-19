@@ -1,7 +1,7 @@
 <template>
   <div v-if="movies" class="carousel carousel-slider center">
     <div class="carousel-item red white-text" href="#one!">
-      <img :src="movies[0].backgroundUrl" alt="">
+      <img src="../assets/soda.png" alt="">
     </div>
     <div class="carousel-item amber white-text" href="#two!">
       <h2>Second Panel</h2>
