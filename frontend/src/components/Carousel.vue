@@ -1,7 +1,6 @@
 <template>
   <div class="carousel carousel-slider center">
     <div class="carousel-item red white-text" href="#one!">
-      <h2>{{ movies }}</h2>
     </div>
     <div class="carousel-item amber white-text" href="#two!">
       <h2>Second Panel</h2>
@@ -24,10 +23,10 @@ export default {
   data(){
     return{
       carouselInstance: null,
-      dataFetched: false,
-      movies: []
+      dataFetched: false
     }
   },
+  /*
   async created(){
     this.movies = await this.$store.dispatch("fetchMovie");
     let elems = document.querySelectorAll('.carousel');
@@ -36,6 +35,12 @@ export default {
       indicators: true
     });
     console.log("mounted");
+  },
+  */
+  computed:{
+    movies(){
+      return this.$store.state.movies
+    }
   }
 }
 </script>
@@ -45,4 +50,5 @@ export default {
   width: 50% !important;
   margin: 0 auto;
 }
+
 </style>
