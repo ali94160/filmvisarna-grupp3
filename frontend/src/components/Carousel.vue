@@ -1,6 +1,9 @@
 <template>
   <div v-if="movies" class="carousel carousel-slider center">
     <div class="carousel-item red white-text" href="#one!">
+      <router-link to="/movies">
+        <button class="carousel-fixed-item btn center" >Se vårt utbud!</button>
+      </router-link>
       <img src="../assets/harryPotter.png" alt="">
     </div>
     <div class="carousel-item amber white-text" href="#two!">
@@ -43,13 +46,17 @@ export default {
     }
   },
   mounted(){
+    let slideTimeDefault = 10000
     let elems = document.querySelectorAll(".carousel");
     let instance = M.Carousel.init(elems, {
     fullWidth: true,
     indicators: true,
+    onCycleTo: function(){
+      console.log("slic", slideTimeDefault);
+    }
     });
     let indicatorItems = document.querySelectorAll('.carousel .indicator-item'),
-      slideTime = 5000,
+      slideTime = slideTimeDefault,
       activeClass = "active";
       
     setInterval(() => {
@@ -63,7 +70,7 @@ export default {
         }
       }
     });
-  }, slideTime);
+  }, slideTimeDefault);
   }
 }
 </script>
@@ -73,6 +80,11 @@ export default {
   width: 70% !important;
   margin: 0 auto;
   height: 30vw !important;
+}
+
+.carousel .indicators{
+  width: fit-content;
+  margin: 0 auto !important;
 }
 
 </style>
