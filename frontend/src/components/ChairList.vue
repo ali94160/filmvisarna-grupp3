@@ -80,6 +80,10 @@ export default {
       return this.$store.state.currentSalon;
     },
   },
+  created(){
+    this.selectedChairs.push([3,4]);
+    this.selectedChairs.push([3,5]);
+  }
 };
 </script>
 
