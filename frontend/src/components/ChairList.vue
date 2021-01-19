@@ -135,4 +135,29 @@ div.booked:hover {
   margin: 0 auto;
   text-align: center;
 }
+
+button{
+   text-align: center;
+    display: block;
+  background: rgb(38, 166, 154);
+  text-transform: uppercase;
+  font-weight: 20px;
+  color: white;
+  padding: 2px;
+  margin: 10px auto;
+  border-radius: 2px;
+  border: none;
+  width: 80px;
+  height: 25px;
+  font-size:14px;
+  transition: background-color 0.2s ease-out 0s;
+  letter-spacing: 0.8px;     
+  outline: none;
+ 
+}
+
+button:hover{
+    background: crimson;
+  cursor: pointer;
+}
 </style>
