@@ -5,7 +5,6 @@
   </div>
   <MovieItemList />
 </div>
-  
 </template>
 
 <script>
@@ -23,9 +22,13 @@ export default {
 .movieList{
   margin-top: 1vw;
   margin-bottom: 18.2vw; /* For the footer */
+  margin-left: 1vw;
+  margin-right: 1cw;
 }
 .carousel-wrapper {
-  width: 75vw;
+  background: pink;
+  width: 100%;
   margin: 0 auto;
+  height: 100%;
 }
 </style>

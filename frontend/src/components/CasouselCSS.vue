@@ -114,13 +114,6 @@ export default {
   }
 }
 
-body {
-  max-width: 37.5rem;
-  margin: 0 auto;
-  padding: 0 1.25rem;
-  font-family: 'Lato', sans-serif;
-}
-
 * {
   box-sizing: border-box;
   scrollbar-color: transparent transparent; /* thumb and track color */
@@ -151,10 +144,13 @@ ol, li {
 }
 
 .carousel {
-  position: relative;
-  padding-top: 75%;
+  /*position: relative;*/
+  padding: 0;
   filter: drop-shadow(0 0 10px #0003);
   perspective: 100px;
+  height: calc(50vh + 2vw);
+  width: 80%;
+  margin: 0 auto;
 }
 
 .carousel__viewport {
@@ -256,7 +252,7 @@ ol, li {
 .carousel__next {
   position: absolute;
   top: 0;
-  margin-top: 37.5%;
+  margin-top: 25vh;
   width: 4rem;
   height: 4rem;
   transform: translateY(-50%);
@@ -279,7 +275,7 @@ ol, li {
 .carousel::after {
   content: '';
   z-index: 1;
-  background-color: #333;
+  background-color: rgb(255, 0, 0);
   background-size: 1.5rem 1.5rem;
   background-repeat: no-repeat;
   background-position: center center;
