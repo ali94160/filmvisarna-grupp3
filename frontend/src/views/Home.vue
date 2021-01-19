@@ -26,9 +26,8 @@ export default {
   margin-right: 1cw;
 }
 .carousel-wrapper {
-  background: pink;
   width: 100%;
-  margin: 0 auto;
+  padding: 0 10px;
   height: 100%;
 }
 </style>

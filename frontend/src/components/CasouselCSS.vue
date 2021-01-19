@@ -5,9 +5,9 @@
         tabindex="0"
         class="carousel__slide">
       <div class="carousel__snapper">
-        <a href="#carousel__slide4"
+        <a @click="someMethod" href="#carousel__slide4"
            class="carousel__prev">Go to last slide</a>
-        <a href="#carousel__slide2"
+        <a @click="someMethod" href="#carousel__slide2"
            class="carousel__next">Go to next slide</a>
       </div>
     </li>
@@ -64,7 +64,13 @@
 
 <script>
 export default {
-
+  methods:{
+    someMethod(event){
+      window.scrollTo(0,0)
+      console.log("clicked")
+      event.preventDefault()
+    }
+  }
 }
 </script>
 
@@ -145,7 +151,6 @@ ol, li {
 
 .carousel {
   /*position: relative;*/
-  padding: 0;
   filter: drop-shadow(0 0 10px #0003);
   perspective: 100px;
   height: calc(50vh + 2vw);
@@ -263,19 +268,20 @@ ol, li {
 
 .carousel::before,
 .carousel__prev {
-  left: -1rem;
+  left: 1rem;
 }
 
 .carousel::after,
 .carousel__next {
-  right: -1rem;
+  right: 
+  1rem;
 }
 
 .carousel::before,
 .carousel::after {
   content: '';
   z-index: 1;
-  background-color: rgb(255, 0, 0);
+  background-color: rgba(49, 49, 49, 0.753);
   background-size: 1.5rem 1.5rem;
   background-repeat: no-repeat;
   background-position: center center;
