@@ -8,14 +8,10 @@
       </div>
 
       <div class="info">
-        <span>Platser: </span>
-        <div class="value-button" v-on:click="decreaseValue">-</div>
-        <input type="number" v-model="chosenSeats" max="8" />
-        <div class="value-button" v-on:click="increaseValue">+</div>
 
         <div :class="{ tickets: hasThreeTickets }">
           <BookingInput
-            v-for="seat in chosenSeatsInput"
+            v-for="seat in selectedSeats"
             :key="seat"
             :ticketNumber="seat"
             @updateTotalPrice="updateTotalPrice"
@@ -96,6 +92,9 @@ export default {
     },
     getCurrentMovie(){
       return this.$store.state.currentMovie
+    },
+    selectedSeats(){
+      return this.$store.state.selectedSeats
     }
   },
 };

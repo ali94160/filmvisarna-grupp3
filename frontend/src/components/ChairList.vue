@@ -48,6 +48,7 @@ export default {
             this.selectedChairs[i][1] === col
           ) {
             this.selectedChairs.splice(i, 1);
+            this.$store.commit('decreaseSeats');
             add = false;
             return;
           }
@@ -55,6 +56,7 @@ export default {
       }
       if (add) {
         this.selectedChairs.push([row, col]);
+        this.$store.commit('setSelectedSeats',this.selectedChairs.length);
       }
     },
     clear() {
@@ -83,6 +85,7 @@ export default {
   created(){
     this.selectedChairs.push([3,4]);
     this.selectedChairs.push([3,5]);
+    this.$store.commit('setSelectedSeats',this.selectedChairs.length);
   }
 };
 </script>
