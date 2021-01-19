@@ -27,6 +27,14 @@ export default {
   methods:{
     setMovies(){
       this.movies = this.$store.state.movies
+    },
+    changeSlide(instance){
+      console.log("before", instance);
+      setTimeout(() => {
+        console.log(instance)
+        changeSlide(instance);
+      },3000)
+      console.log("after");
     }
   },
   computed:{
@@ -38,8 +46,24 @@ export default {
     let elems = document.querySelectorAll(".carousel");
     let instance = M.Carousel.init(elems, {
     fullWidth: true,
-    indicators: true
-  });
+    indicators: true,
+    });
+    let indicatorItems = document.querySelectorAll('.carousel .indicator-item'),
+      slideTime = 5000,
+      activeClass = "active";
+      
+    setInterval(() => {
+    indicatorItems.forEach(el => {
+      if (el.classList.contains(activeClass)) {
+        let sib = el.nextElementSibling;
+        if (sib == null) {
+          indicatorItems[0].click();
+        } else {
+          sib.click()
+        }
+      }
+    });
+  }, slideTime);
   }
 }
 </script>
@@ -48,7 +72,7 @@ export default {
 .carousel{
   width: 70% !important;
   margin: 0 auto;
-  height: 20vh !important;
+  height: 30vw !important;
 }
 
 </style>
