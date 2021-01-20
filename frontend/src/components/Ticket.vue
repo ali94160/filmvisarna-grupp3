@@ -19,30 +19,14 @@
   <div :id="modalId" class="modal">
     <div class="modal-content">
         <span class="modal-close material-icons right"> close </span>
-      <div class="infoModal" v-for="seat of ticket.seats" :key="seat">
-        <img class="transLogo right" src="../assets/transLogo.png" alt="" />
-        <div class="ticketBody">
-          <h5> {{ticket.date}} </h5>
-          <h3 class="center">Biljett</h3>
-          <h3 class="movieTitleModal">{{ getMovieById(ticket.movieId).title }}</h3>
-          <div class="ticketBodyContent">
-            <p>Sittplats: rad stol</p>
-            <p>Datum: {{ ticket.date }}</p>
-            <p>Tid: {{ ticket.time }}</p>
-          </div>
-        </div>
-
-        <div class="ticketFooter">
-          <span class="ID right">{{ id }}</span>
-          <img class="barCode left" src="../assets/blippCode.png" alt="" />
-        </div>
-      </div>
+        <TicketPicture v-for="seat of ticket.seats" :key="seat" :ticket="ticket" :movieTitle="getMovieById(ticket.movieId).title"/>
     </div>
   </div>
 </template>
 
 <script>
 import M from "materialize-css";
+import TicketPicture from "./TicketPicture.vue"
 
 export default {
   data() {
@@ -51,6 +35,9 @@ export default {
     };
   },
   props: ["id"],
+  components:{
+    TicketPicture
+  },
   computed: {
     ticket() {
       return this.$store.state.currentUserTickets.filter(
@@ -68,6 +55,9 @@ export default {
       }
       console.log(toReturn);
       return toReturn
+    },
+    seatRow(seat){
+      return (seat + '').split('')[0]
     }
   },
   methods: {
@@ -137,92 +127,6 @@ export default {
   color: white;
 }
 
-.transLogo {
-  opacity: 30%;
-  width: 40%;
-  position: absolute;
-  right: 0;
-  bottom: 1px;
-}
 
-.infoModal {
-  position: relative;
-  display: grid;
-  grid-template-rows: 5fr 1fr;
-  border-radius: 10px;
-  margin: calc(5px + 1vh) auto;
-  padding: 0;
-  width: 90%;
-  font-size: calc(0.5vh + 1vw);
-}
 
-.infoModal p {
-  margin-bottom: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1em;
-  padding: 0;
-  margin: 0;
-}
-
-.ticketBody{
-  background: linear-gradient(red, var(--red));
-  border-radius: 10px 10px 0 0;
-}
-
-.ticketBody div{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-.ticketBody h5{
-  position: absolute;
-  right: 5%;
-}
-
-.ticketFooter {
-  color: black;
-  background: white;
-  border-radius: 0 0 10px 10px;
-}
-
-.ID {
-  margin-top: 2%;
-  margin-right: 2%;
-  font-size: 0.8em;
-}
-
-.barCode {
-  padding: 5px;
-}
-
-.movieTitleModal {
-  font-weight: bold;
-  font-size: 2em;
-}
-
-.modal-close {
-  position: absolute;
-  z-index: 1;
-  right: 5%;
-  opacity: 80%;
-  font-size: 30px;
-  margin-bottom: 15px;
-}
-
-.modal-close:hover {
-  font-weight: bolder;
-  opacity: 100%;
-}
-
-.infoModal p {
-  z-index: 99;
-  margin-bottom: 0;
-}
-
-.modal-footer{
-  color: var(--darkgrey);
-  width: 100%;
-  background: white;
-  height: 100px;
-}
 </style>
