@@ -17,6 +17,7 @@
           class="material-icons"
           :class="{
             active: check(row, col),
+            booked: checkBooked(row,col)
           }"
         >
           event_seat
@@ -80,10 +81,29 @@ export default {
       }
       return check;
     },
+    checkBooked(row,col){
+      let booked = false;
+      if(this.movie.seatsTaken){
+      for(let i = 0; i < this.movie.seatsTaken.length; i++){
+        if(this.movie.seatsTaken[i] < 10){
+          console.log('what is this?',col);
+          if('0' + this.movie.seatsTaken[i] + '' === row+  '' + col)
+          booked = true;
+        }
+        else if(this.movie.seatsTaken[i] + '' === row+ '' + col){
+          booked = true
+        }
+      }
+      return booked;
+      }
+    },
   },
   computed: {
     salon() {
       return this.$store.state.currentSalon;
+    },
+    movie(){
+      return this.$store.state.currentMovie
     },
     showSelectedSeats(){
       let sc = []
@@ -140,15 +160,16 @@ div.highlight {
   color: yellow;
 }
 
-div.booked {
-  color: red;
-}
-div.booked:hover {
+.booked:hover {
   cursor: default;
   opacity: 100%;
 }
 .buttons {
   margin: 0 auto;
   text-align: center;
+}
+.booked{
+  color: red;
+
 }
 </style>
