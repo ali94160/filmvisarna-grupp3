@@ -69,7 +69,7 @@ export default {
     },
 
     changeBooked(){
-      if(this.ticketPrices.filter(p => p !== 0).length === this.chosenSeats){
+      if(this.chosenSeats && this.ticketPrices.length){
         this.booked = !this.booked
       }
     }
