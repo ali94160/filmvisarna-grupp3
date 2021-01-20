@@ -61,7 +61,7 @@ export default {
     }
   },
   created(){
-    let ticket= {
+    let ticket = {
       price: this.totalPrice,
       date: this.show.date,
       time: this.show.time,
