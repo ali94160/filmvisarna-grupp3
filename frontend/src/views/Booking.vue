@@ -37,8 +37,8 @@ export default {
   data() {
     return {
       chosenSeats: 2,
-      maxSeats: 8,
-      ticketPrices: [0, 0, 0, 0, 0, 0, 0, 0],
+      maxSeats: 81,
+      ticketPrices: [],
       booked: false
     };
   },
