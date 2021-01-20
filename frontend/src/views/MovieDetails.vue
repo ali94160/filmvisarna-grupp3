@@ -97,6 +97,9 @@ export default {
       return this.$store.state.online;
     },
     shows() {
+      let today = new Date();
+      let date = today.getDate() + '/' + (today.getMonth()+1) + '/' + today.getFullYear();  
+
       return this.$store.state.currentShows;
     },
   },
