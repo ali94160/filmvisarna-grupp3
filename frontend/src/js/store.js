@@ -59,6 +59,9 @@ const mutations = {
   },
   decreaseSeats(state) {
     state.selectedSeats--;
+  },
+  clearSeats(state) {
+    state.selectedSeats = '';
   }
 }
 

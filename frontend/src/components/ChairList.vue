@@ -63,6 +63,8 @@ export default {
     },
     clear() {
       this.selectedChairs = [];
+      this.$store.commit('clearSeats');
+      this.$emit('clear');
     },
     check(row, col) {
       let check = false;

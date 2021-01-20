@@ -4,7 +4,7 @@
     <h1>{{ getCurrentMovie.title }}</h1>
     <div class="container">
       <div class="salon">
-        <ChairList @decreaseValues="decreaseValue" @increaseValue="increaseValue"/>
+        <ChairList @decreaseValues="decreaseValue" @increaseValue="increaseValue" @clear="clear"/>
       </div>
 
       <div class="info">
@@ -51,15 +51,16 @@ export default {
 
   methods: {
     decreaseValue() {
-      console.log('inne i decrease');
       if (this.chosenSeats >= 1) {
         this.chosenSeats--;
-        console.log('prices before',this.ticketPrices);
         this.ticketPrices[this.chosenSeats] = 0;
-        console.log('prices after',this.ticketPrices);
       }
     },
-
+    clear(){
+      this.chosenSeats = 0;
+      this.ticketPrices = [];
+      console.log(' in clear');
+    },
     increaseValue() {
       if (this.chosenSeats < this.maxSeats) this.chosenSeats++;
     },
