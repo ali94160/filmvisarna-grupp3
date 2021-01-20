@@ -86,6 +86,7 @@ export default {
       return this.$store.state.currentSalon;
     },
     showSelectedSeats(){
+      console.log(this.selectedChairs);
       let sc = []
       for(let s of this.selectedChairs){
         sc.push(parseInt('' + (s[0] + 1) + (s[1] + 1)))

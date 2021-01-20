@@ -19,7 +19,7 @@
   <div :id="modalId" class="modal">
     <div class="modal-content">
         <span class="modal-close material-icons right"> close </span>
-        <TicketPicture v-for="seat of ticket.seats" :key="seat" :ticket="ticket" :movieTitle="getMovieById(ticket.movieId).title"/>
+        <TicketPicture v-for="seat of ticket.seats" :key="seat" :ticket="ticket" :movieTitle="getMovieById(ticket.movieId).title" :seat="seat"/>
     </div>
   </div>
 </template>
@@ -127,6 +127,19 @@ export default {
   color: white;
 }
 
+.modal-close {
+  position: absolute;
+  z-index: 1;
+  right: 5%;
+  opacity: 80%;
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.modal-close:hover {
+  font-weight: bolder;
+  opacity: 100%;
+}
 
 
 </style>
