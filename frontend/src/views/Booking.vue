@@ -1,31 +1,32 @@
 <template>
-<div class="wrapper">
-  <div id="#bookingDiv" v-if="!booked">
-    <h1>{{ getCurrentMovie.title }}</h1>
-    <div class="container">
-      <div class="salon">
-        <ChairList />
-      </div>
-
-      <div class="info">
-
-        <div :class="{ tickets: hasThreeTickets }">
-          <BookingInput
-            v-for="seat in selectedSeats"
-            :key="seat"
-            :ticketNumber="seat"
-            @updateTotalPrice="updateTotalPrice"
-          />
+  <div class="wrapper">
+    <div id="#bookingDiv" v-if="!booked">
+      <h1>{{ getCurrentMovie.title }}</h1>
+      <div class="container">
+        <div class="salon">
+          <ChairList />
         </div>
-        <p id="totalPrice">
-          Totala priset: <span class="right">{{ getTotalPrice }} kr</span>
-        </p>
-        <button class="btn" v-on:click="changeBooked">Beställ plats(er)</button>
+
+        <div class="info">
+          <div :class="{ tickets: hasThreeTickets }">
+            <BookingInput
+              v-for="seat in selectedSeats"
+              :key="seat"
+              :ticketNumber="seat"
+              @updateTotalPrice="updateTotalPrice"
+            />
+          </div>
+          <p id="totalPrice">
+            Totala priset: <span class="right">{{ getTotalPrice }} kr</span>
+          </p>
+          <button class="btn" v-on:click="changeBooked">
+            Beställ plats(er)
+          </button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <Confirm v-if="booked" :ticketPrices="ticketPrices" />
+    <Confirm v-if="booked" :ticketPrices="ticketPrices" />
   </div>
 </template>
 
@@ -39,14 +40,14 @@ export default {
       chosenSeats: 2,
       maxSeats: 8,
       ticketPrices: [0, 0, 0, 0, 0, 0, 0, 0],
-      booked: false
+      booked: false,
     };
   },
 
   components: {
     BookingInput,
     Confirm,
-    ChairList
+    ChairList,
   },
 
   methods: {
@@ -65,11 +66,13 @@ export default {
       this.ticketPrices[ticketNumber - 1] = price;
     },
 
-    changeBooked(){
-      if(this.ticketPrices.filter(p => p !== 0).length === this.chosenSeats){
-        this.booked = !this.booked
+    changeBooked() {
+      if (
+        this.ticketPrices.filter((p) => p !== 0).length === this.chosenSeats
+      ) {
+        this.booked = !this.booked;
       }
-    }
+    },
   },
 
   computed: {
@@ -87,15 +90,15 @@ export default {
       }
       return sum;
     },
-    hasThreeTickets(){
-      return this.chosenSeats > 3
+    hasThreeTickets() {
+      return this.chosenSeats > 3;
     },
-    getCurrentMovie(){
-      return this.$store.state.currentMovie
+    getCurrentMovie() {
+      return this.$store.state.currentMovie;
     },
-    selectedSeats(){
-      return this.$store.state.selectedSeats
-    }
+    selectedSeats() {
+      return this.$store.state.selectedSeats;
+    },
   },
 };
 </script>
@@ -104,7 +107,7 @@ export default {
 * {
   margin: 0;
 }
-.wrapper{
+.wrapper {
   margin-top: 10vh;
 }
 h1 {
@@ -130,7 +133,7 @@ input::-webkit-inner-spin-button {
   width: 90%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 60px;
+  grid-gap: 10px;
   margin: 0 auto;
 }
 
@@ -139,9 +142,17 @@ span {
   color: var(--lightgrey);
 }
 
+.salon {
+  border-radius: 2%;
+  background: rgb(29, 29, 29);
+  padding-bottom: 5px;
+}
+
 .info {
-  padding: 10px;
+  padding: 20px;
   padding-bottom: 0;
+  border-radius: 2%;
+  background: rgb(29, 29, 29);
 }
 
 .value-button {
