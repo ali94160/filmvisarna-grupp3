@@ -4,7 +4,7 @@
     <h1>{{ getCurrentMovie.title }}</h1>
     <div class="container">
       <div class="salon">
-        <ChairList @updateSelectedChairs="updateSelectedChairs"/>
+        <ChairList @updateSelectedChairs="updateSelectedChairs" @decreaseValues="decreaseValue" @increaseValue="increaseValue" @clear="clear"/>
       </div>
 
       <div class="info">
@@ -37,10 +37,10 @@ export default {
   data() {
     return {
       chosenSeats: 2,
-      maxSeats: 8,
-      ticketPrices: [0, 0, 0, 0, 0, 0, 0, 0],
-      booked: false,
-      selectedChairs: []
+      selectedChairs: [],
+      maxSeats: 81,
+      ticketPrices: [],
+      booked: false
     };
   },
 
@@ -52,12 +52,16 @@ export default {
 
   methods: {
     decreaseValue() {
-      if (this.chosenSeats > 1) {
+      if (this.chosenSeats >= 1) {
         this.chosenSeats--;
         this.ticketPrices[this.chosenSeats] = 0;
       }
     },
-
+    clear(){
+      this.chosenSeats = 0;
+      this.ticketPrices = [];
+      console.log(' in clear');
+    },
     increaseValue() {
       if (this.chosenSeats < this.maxSeats) this.chosenSeats++;
     },
@@ -67,7 +71,7 @@ export default {
     },
 
     changeBooked(){
-      if(this.ticketPrices.filter(p => p !== 0).length === this.selectedChairs.length){
+      if(this.ticketPrices.filter(p => p !== 0).length === this.selectedChairs.length && this.chosenSeats && this.ticketPrices.length){
         this.booked = !this.booked
       }
     },
