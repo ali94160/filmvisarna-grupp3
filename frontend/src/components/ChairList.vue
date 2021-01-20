@@ -1,6 +1,6 @@
 <template>
   <h3>{{ salon.name }}</h3>
-  <p>Du vill boka: {{ chairs }}</p>
+  <p>Du vill boka: {{ showSelectedSeats }}</p>
   <div class="salon">
     <div
       v-for="(seatsPerRow, row) of salon.seatsPerRow"
@@ -81,6 +81,13 @@ export default {
     salon() {
       return this.$store.state.currentSalon;
     },
+    showSelectedSeats(){
+      let sc = []
+      for(let s of this.selectedChairs){
+        sc.push(parseInt('' + s[0] + s[1]))
+      }
+      return sc.sort((a,b) => {return a - b})
+    }
   },
   created(){
     this.selectedChairs.push([3,4]);
