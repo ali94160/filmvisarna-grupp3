@@ -69,13 +69,11 @@ export default {
       userId: this.$store.state.currentUser.id,
       showId: this.show.id,
     };
-    console.log(ticket.seats, 'säten');
-    console.log([...this.bookedChairs], ' nääääää');
+
 
     this.$store.dispatch("addTicket", ticket);
-    console.log(this.show.id, this.amountOfTickets);
-    let showInfo = {showId: this.show.id, seats: this.amountOfTickets}
-    console.log(showInfo);
+    let showInfo = {showId: this.show.id, seats: ([...this.bookedChairs]+ '')}
+    console.log('OOOOOOGG',showInfo);
     this.$store.dispatch("increaseSeatsInShow", showInfo)
   }
 }

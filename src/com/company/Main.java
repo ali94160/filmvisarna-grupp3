@@ -127,12 +127,12 @@ public class Main {
             }
         });
 
-        app.put("/rest/show/increase-seats/:id/:amount", (req, res) -> {
+        app.put("/rest/show/increase-seats/:id/:seats", (req, res) -> {
             var id = req.params("id");
             Show list = collection("Show").findById(id);
-            String amount = req.params("amount");
+            var seats = req.params("seats");
 
-            list.increaseSeatsTaken(amount);
+            list.increaseSeatsTaken(seats);
             collection("Show").updateById(id, list);
             System.out.println(list);
             res.json(list);

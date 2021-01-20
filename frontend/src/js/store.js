@@ -144,15 +144,6 @@ const actions = {
     store.commit('setCurrentSalon', list)
   },
 
-  async increaseSeatsInShow2(show) {
-    let response = fetch("/rest/show", {
-      method: "PUT",
-      body: JSON.stringify(show),
-    });
-
-    console.log("increase called");
-  },
-
   async increaseSeatsInShow(store, showInfo) {
     console.log(showInfo, "info");
     let response = fetch(
