@@ -9,7 +9,7 @@ public class Ticket {
     private int price;
     private String date;
     private String time;
-    private int seats;
+    private int[] seats;
     private int childPrice = 65;
     private int seniorPrice = 75;
     private String userId;
@@ -48,11 +48,11 @@ public class Ticket {
         this.time = time;
     }
 
-    public int getSeats() {
+    public int[] getSeats() {
         return seats;
     }
 
-    public void setSeats(int seats) {
+    public void setSeats(int[] seats) {
         this.seats = seats;
     }
 
