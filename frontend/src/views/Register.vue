@@ -65,6 +65,7 @@ export default {
 
 <style scoped>
 h3 {
+  text-align: center;
   margin: 0 0 10px 0;
   color: white;
 }
