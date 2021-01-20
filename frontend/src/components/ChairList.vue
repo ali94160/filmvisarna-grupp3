@@ -49,6 +49,7 @@ export default {
           ) {
             this.selectedChairs.splice(i, 1);
             this.$store.commit('decreaseSeats');
+            this.$emit('decreaseValues');
             add = false;
             return;
           }
@@ -57,6 +58,7 @@ export default {
       if (add) {
         this.selectedChairs.push([row, col]);
         this.$store.commit('setSelectedSeats',this.selectedChairs.length);
+        this.$emit('increaseValue')
       }
     },
     clear() {
