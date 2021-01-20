@@ -34,7 +34,7 @@
         v-for="(actor, index) in movie.actors"
         :key="index"
       >
-        {{ actor }},
+        {{ actor }},  
       </span>
 
       <p>

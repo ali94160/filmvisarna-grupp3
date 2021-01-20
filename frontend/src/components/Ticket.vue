@@ -18,22 +18,25 @@
 
   <div :id="modalId" class="modal">
     <div class="modal-content">
-      <div class="infoModal">
         <span class="modal-close material-icons right"> close </span>
+      <div class="infoModal" v-for="seat of ticket.seats" :key="seat">
         <img class="transLogo right" src="../assets/transLogo.png" alt="" />
-        <h3 class="center">Biljett</h3>
-        <p class="movieTitleModal">{{ getMovieById(ticket.movieId).title }}</p>
-        <br />
-        <p>Sittplats{{ addS }}: {{ showSeats }}</p>
-        <p>Antal: {{ ticket.seats.length }}</p>
-        <p>Datum: {{ ticket.date }}</p>
-        <p>Tid: {{ ticket.time }}</p>
-      </div>
-    </div>
+        <div class="ticketBody">
+          <h5> {{ticket.date}} </h5>
+          <h3 class="center">Biljett</h3>
+          <h3 class="movieTitleModal">{{ getMovieById(ticket.movieId).title }}</h3>
+          <div class="ticketBodyContent">
+            <p>Sittplats: rad stol</p>
+            <p>Datum: {{ ticket.date }}</p>
+            <p>Tid: {{ ticket.time }}</p>
+          </div>
+        </div>
 
-    <div class="modal-footer">
-      <span class="ID">{{ id }}</span>
-      <img class="barCode left" src="../assets/blippCode.png" alt="" />
+        <div class="ticketFooter">
+          <span class="ID right">{{ id }}</span>
+          <img class="barCode left" src="../assets/blippCode.png" alt="" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -55,16 +58,16 @@ export default {
       )[0];
     },
     showSeats(){
-      let toReturn = ''
+      let toReturn = []
       let seatStrings = (this.ticket.seats + '').split(',')
       for(let seat of seatStrings){
-        toReturn += 'rad ' + seat.split('')[0] + ' stol ' + seat + ', ' 
+        let s = seat.split('')
+        if(s.length > 1){
+          toReturn.push({row: s[0], seat: s[1]})
+        }
       }
       console.log(toReturn);
-      return 'rad' + seatStrings
-    },
-    addS(){
-      return (this.ticket.seats.length > 1 ? 'er': '')
+      return toReturn
     }
   },
   methods: {
@@ -86,11 +89,6 @@ export default {
 </script>
 
 <style scoped>
-.ticket p {
-  margin-bottom: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 .ticket {
   padding: 5px;
   display: block;
@@ -129,10 +127,16 @@ export default {
 .modal {
   color: black;
   font-size: 1.5em;
+  width: 90%;
+  max-width: 800px;
+  min-width: 300px;
+  border-radius: 10px;
 }
 .modal-content {
-  background: linear-gradient(red, var(--red));
+  background: var(--darkgrey);
+  color: white;
 }
+
 .transLogo {
   opacity: 30%;
   width: 40%;
@@ -142,16 +146,49 @@ export default {
 }
 
 .infoModal {
-  color: white;
+  position: relative;
+  display: grid;
+  grid-template-rows: 5fr 1fr;
+  border-radius: 10px;
+  margin: calc(5px + 1vh) auto;
+  padding: 0;
+  width: 90%;
+  font-size: calc(0.5vh + 1vw);
 }
 
-.modal .modal-footer {
-  height: 60%;
-  padding-right: 5%;
+.infoModal p {
+  margin-bottom: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+.ticketBody{
+  background: linear-gradient(red, var(--red));
+  border-radius: 10px 10px 0 0;
+}
+
+.ticketBody div{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.ticketBody h5{
+  position: absolute;
+  right: 5%;
+}
+
+.ticketFooter {
+  color: black;
+  background: white;
+  border-radius: 0 0 10px 10px;
 }
 
 .ID {
-  font-size: 20px;
+  margin-top: 2%;
+  margin-right: 2%;
+  font-size: 0.8em;
 }
 
 .barCode {
@@ -160,10 +197,13 @@ export default {
 
 .movieTitleModal {
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 2em;
 }
 
 .modal-close {
+  position: absolute;
+  z-index: 1;
+  right: 5%;
   opacity: 80%;
   font-size: 30px;
   margin-bottom: 15px;
@@ -177,5 +217,12 @@ export default {
 .infoModal p {
   z-index: 99;
   margin-bottom: 0;
+}
+
+.modal-footer{
+  color: var(--darkgrey);
+  width: 100%;
+  background: white;
+  height: 100px;
 }
 </style>
