@@ -65,10 +65,13 @@ export default {
       price: this.totalPrice,
       date: this.show.date,
       time: this.show.time,
-      seats: this.amountOfTickets,
+      seats: [...this.bookedChairs],
       userId: this.$store.state.currentUser.id,
       showId: this.show.id,
     };
+    console.log(ticket.seats, 'säten');
+    console.log([...this.bookedChairs], ' nääääää');
+
     this.$store.dispatch("addTicket", ticket);
     console.log(this.show.id, this.amountOfTickets);
     let showInfo = {showId: this.show.id, seats: this.amountOfTickets}

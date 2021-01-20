@@ -114,6 +114,7 @@ const actions = {
       method: 'POST',
       body: JSON.stringify(newTicket)
     })
+    console.log(response, ' bla');
   },
 
   async fetchTicketsFromUser(store, userId) {
