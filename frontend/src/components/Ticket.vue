@@ -24,7 +24,8 @@
         <h3 class="center">Biljett</h3>
         <p class="movieTitleModal">{{ getMovieById(ticket.movieId).title }}</p>
         <br />
-        <p>Antal: {{ ticket.seats }}</p>
+        <p>Sittplats{{ addS }}: {{ showSeats }}</p>
+        <p>Antal: {{ ticket.seats.length }}</p>
         <p>Datum: {{ ticket.date }}</p>
         <p>Tid: {{ ticket.time }}</p>
       </div>
@@ -53,6 +54,18 @@ export default {
         (p) => p.id == this.id
       )[0];
     },
+    showSeats(){
+      let toReturn = ''
+      let seatStrings = (this.ticket.seats + '').split(',')
+      for(let seat of seatStrings){
+        toReturn += 'rad ' + seat.split('')[0] + ' stol ' + seat + ', ' 
+      }
+      console.log(toReturn);
+      return 'rad' + seatStrings
+    },
+    addS(){
+      return (this.ticket.seats.length > 1 ? 'er': '')
+    }
   },
   methods: {
     getMovieById(movieId) {
@@ -63,7 +76,7 @@ export default {
     },
     clicked() {
       console.log(this.id);
-    },
+    }
   },
   mounted() {
     M.AutoInit();
