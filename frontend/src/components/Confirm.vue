@@ -10,7 +10,8 @@
       <p>Datum: {{show.date}}</p>
       <p>Tid: {{show.time}}</p>
       <p>{{salon.name}}</p>
-      <p>Antal biljetter: {{amountOfTickets}}</p>
+      <p>Antal biljetter: {{ amountOfTickets }}</p>
+      <p>Bokade stolar: {{ showBookedChairs }}</p>
       </div>
     </div>
     <div class="payment">
@@ -26,7 +27,7 @@
 
 <script>
 export default {
-  props: ['ticketPrices'],
+  props: ['ticketPrices', 'bookedChairs'],
   computed:{
     movie(){
       return this.$store.state.selectedMovie;
@@ -46,6 +47,9 @@ export default {
           sum += this.ticketPrices[i];
       }
       return sum;
+    },
+    showBookedChairs(){
+      return ('' + this.bookedChairs).replaceAll(',', ', ')
     }
   },
   methods:{

@@ -25,7 +25,7 @@
     </div>
   </div>
 
-  <Confirm v-if="booked" :ticketPrices="ticketPrices"/>
+  <Confirm v-if="booked" :ticketPrices="ticketPrices" :bookedChairs="selectedChairs"/>
   </div>
 </template>
 
@@ -39,7 +39,8 @@ export default {
       chosenSeats: 2,
       maxSeats: 8,
       ticketPrices: [0, 0, 0, 0, 0, 0, 0, 0],
-      booked: false
+      booked: false,
+      selectedChairs: []
     };
   },
 
@@ -66,12 +67,12 @@ export default {
     },
 
     changeBooked(){
-      if(this.ticketPrices.filter(p => p !== 0).length === this.chosenSeats){
+      if(this.ticketPrices.filter(p => p !== 0).length === this.selectedChairs.length){
         this.booked = !this.booked
       }
     },
     updateSelectedChairs(selectedChairs){
-      console.log("in booking", selectedChairs);
+      this.selectedChairs = selectedChairs
     }
   },
 
