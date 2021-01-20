@@ -41,6 +41,7 @@ export default {
   },
   methods: {
     changeColor(row, col) {
+      if(this.checkBooked(row,col)){return;}
       let add = true;
       for (let i = 0; i < this.selectedChairs.length; i++) {
         for (let j = 0; j < this.selectedChairs.length; j++) {
@@ -86,7 +87,6 @@ export default {
       if(this.movie.seatsTaken){
       for(let i = 0; i < this.movie.seatsTaken.length; i++){
         if(this.movie.seatsTaken[i] < 10){
-          console.log('what is this?',col);
           if('0' + this.movie.seatsTaken[i] + '' === row+  '' + col)
           booked = true;
         }
@@ -169,7 +169,7 @@ div.highlight {
   text-align: center;
 }
 .booked{
+  pointer-events: none;
   color: red;
-
 }
 </style>
