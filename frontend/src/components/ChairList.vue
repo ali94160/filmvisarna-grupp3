@@ -86,7 +86,9 @@ export default {
       for(let s of this.selectedChairs){
         sc.push(parseInt('' + s[0] + s[1]))
       }
-      return sc.sort((a,b) => {return a - b})
+      sc.sort((a,b) => {return a - b})
+      this.$emit('updateSelectedChairs', sc )
+      return sc
     }
   },
   created(){

@@ -4,7 +4,7 @@
     <h1>{{ getCurrentMovie.title }}</h1>
     <div class="container">
       <div class="salon">
-        <ChairList />
+        <ChairList @updateSelectedChairs="updateSelectedChairs"/>
       </div>
 
       <div class="info">
@@ -25,7 +25,7 @@
     </div>
   </div>
 
-  <Confirm v-if="booked" :ticketPrices="ticketPrices" />
+  <Confirm v-if="booked" :ticketPrices="ticketPrices"/>
   </div>
 </template>
 
@@ -69,6 +69,9 @@ export default {
       if(this.ticketPrices.filter(p => p !== 0).length === this.chosenSeats){
         this.booked = !this.booked
       }
+    },
+    updateSelectedChairs(selectedChairs){
+      console.log("in booking", selectedChairs);
     }
   },
 
