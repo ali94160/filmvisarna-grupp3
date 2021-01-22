@@ -13,6 +13,7 @@ const state = {
   //the movie the user selected
   selectedMovie: {},
   selectedSeats: '',
+
 }
 
 const mutations = {
@@ -90,11 +91,9 @@ const actions = {
     try {
       user = await user.json();
       await store.commit("setUser", user);
-      return true
     } catch (error) {
       console.warn("Bad credentials");
       await store.commit("setUser", null);
-      return false
     }
   },
 

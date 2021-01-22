@@ -49,11 +49,8 @@ export default {
         email: this.email,
         password: this.password
       }
-      let loggedIn = this.$store.dispatch('login', member) //inloggning
-      console.log("user", this.user);
-      console.log("before login", loggedIn);
-      if (loggedIn) {
-        console.log("loggin successful");
+      await this.$store.dispatch('login', member) //inloggning
+      if (this.user) {
         this.errorMessage = false;
         await this.$router.push("/");
         //window.location.reload();
