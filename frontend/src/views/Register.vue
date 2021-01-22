@@ -37,7 +37,7 @@ export default {
         password: this.password,
       };
       if (!this.users.length) {
-        this.$store.dispatch("addUser", user);
+        this.$store.dispatch("register", user);
         this.$router.push("/login");
       } else {
         for (let i = 0; i < this.users.length; i++) {
@@ -48,7 +48,7 @@ export default {
           }
         }
         if (!this.alreadyMember) {
-          this.$store.dispatch("addUser", user);
+          this.$store.dispatch("register", user);
           await this.$router.push("/login");
           window.location.reload();
         }
