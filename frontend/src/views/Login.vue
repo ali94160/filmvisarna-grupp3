@@ -50,12 +50,16 @@ export default {
         password: this.password
       }
       let loggedIn = this.$store.dispatch('login', member) //inloggning
+      console.log("user", this.user);
+      console.log("before login", loggedIn);
       if (loggedIn) {
+        console.log("loggin successful");
         this.errorMessage = false;
         await this.$router.push("/");
         //window.location.reload();
         M.toast({ html: "✓ Inloggning lyckades", classes: "color: green" });
       } else {
+        console.log("loggin failed");
         this.errorMessage = true;
       }
     },

@@ -3,8 +3,11 @@
   <div class="container">
     <div class="coming">
       <h4>Bokade biljetter</h4>
+
       <Ticket v-for="ticket of getTickets" :key="ticket.id" :id="ticket.id"/>
     </div>
+
+
     <div class="past">
       <h4>Historik</h4>
     </div>
