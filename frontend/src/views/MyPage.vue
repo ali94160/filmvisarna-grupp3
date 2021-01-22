@@ -26,7 +26,7 @@ export default {
   },
   created(){
     this.$store.dispatch(
-      'fetchTicketsFromUser', this.$store.state.currentUser.id)
+      'fetchTicketsFromUser', this.$store.state.user.id)
   },
   components:{
     Ticket

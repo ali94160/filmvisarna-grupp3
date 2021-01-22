@@ -66,7 +66,7 @@ export default {
       date: this.show.date,
       time: this.show.time,
       seats: [...this.bookedChairs],
-      userId: this.$store.state.currentUser.id,
+      userId: this.$store.state.user.id,
       showId: this.show.id,
     };
 
