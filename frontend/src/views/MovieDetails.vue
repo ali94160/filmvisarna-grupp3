@@ -94,7 +94,7 @@ export default {
       return this.$store.state.movies.filter((movie) => movie.id == this.id)[0];
     },
     online() {
-      return this.$store.state.online;
+      return this.$store.state.user != null;
     },
     shows() {
       return this.$store.state.currentShows;
