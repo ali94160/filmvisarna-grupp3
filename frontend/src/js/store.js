@@ -61,12 +61,12 @@ const actions = {
     store.commit("setMovie", list);
   },
 
-  async register(store, user) {
+  async register(store, member) {
     let newUser = {
-      firstName: user.name,
-      lastName: user.lastName,
-      email: user.email,
-      password: user.password,
+      firstName: member.name,
+      lastName:member.lastName,
+      email: member.email,
+      password: member.password,
     };
     let user = await fetch("/api/register", {
       method: "POST",
@@ -77,6 +77,7 @@ const actions = {
       store.commit("setUser", user);
     } catch (error) {
       console.warn("Bad credentials");
+      return false
     }
   },
 

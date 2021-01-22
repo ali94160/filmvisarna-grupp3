@@ -57,15 +57,17 @@ export default {
   },
   computed: {
     online() {
-      return this.$store.state.online;
+      return this.$store.state.user != null
     },
     currentUser() {
-      return this.$store.state.currentUser;
+      return this.$store.state.user;
     },
   },
   methods: {
     async logOut() {
       await this.$router.push("/");
+      fetch('api/logout')
+      this.$store.commit('setUser', null)
       window.location.reload();
     },
   },

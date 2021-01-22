@@ -3,7 +3,7 @@ import App from './App.vue'
 import './index.css'
 import store from "./js/store.js";
 import router from "./js/router.js";
-import "./socket.js";
+import "./js/socket.js";
 import Material from "materialize-css";
 import "materialize-css/dist/css/materialize.css";
 import "materialize-css";
