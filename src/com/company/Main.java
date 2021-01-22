@@ -8,6 +8,7 @@ import com.company.models.Movie;
 import com.company.models.Ticket;
 
 import express.Express;
+import express.database.CollectionOptions;
 
 import java.util.List;
 
@@ -18,7 +19,9 @@ public class Main {
     public static void main(String[] args) {
         // write your code here
         var app = new Express();
-        app.enableCollections();
+        app.enableCollections(CollectionOptions.ENABLE_WATCHER);
+
+        new Auth(app);
 
         app.get("/rest/movie", (req, res) -> {
             var movie = collection("Movie").find();
@@ -39,11 +42,6 @@ public class Main {
         app.get("/rest/show",(req, res) ->{
             var show = collection("Show").find();
             res.json(show);
-        });
-
-        app.get("/rest/user",(req, res) ->{
-            var user = collection("User").find();
-            res.json(user);
         });
 
         app.get("/rest/ticket",(req, res) ->{
