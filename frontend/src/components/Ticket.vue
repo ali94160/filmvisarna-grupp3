@@ -18,27 +18,15 @@
 
   <div :id="modalId" class="modal">
     <div class="modal-content">
-      <div class="infoModal">
         <span class="modal-close material-icons right"> close </span>
-        <img class="transLogo right" src="../assets/transLogo.png" alt="" />
-        <h3 class="center">Biljett</h3>
-        <p class="movieTitleModal">{{ getMovieById(ticket.movieId).title }}</p>
-        <br />
-        <p>Antal: {{ ticket.seats }}</p>
-        <p>Datum: {{ ticket.date }}</p>
-        <p>Tid: {{ ticket.time }}</p>
-      </div>
-    </div>
-
-    <div class="modal-footer">
-      <span class="ID">{{ id }}</span>
-      <img class="barCode left" src="../assets/blippCode.png" alt="" />
+        <TicketPicture v-for="seat of ticket.seats" :key="seat" :ticket="ticket" :movieTitle="getMovieById(ticket.movieId).title" :seat="seat"/>
     </div>
   </div>
 </template>
 
 <script>
 import M from "materialize-css";
+import TicketPicture from "./TicketPicture.vue"
 
 export default {
   data() {
@@ -47,12 +35,30 @@ export default {
     };
   },
   props: ["id"],
+  components:{
+    TicketPicture
+  },
   computed: {
     ticket() {
       return this.$store.state.currentUserTickets.filter(
         (p) => p.id == this.id
       )[0];
     },
+    showSeats(){
+      let toReturn = []
+      let seatStrings = (this.ticket.seats + '').split(',')
+      for(let seat of seatStrings){
+        let s = seat.split('')
+        if(s.length > 1){
+          toReturn.push({row: s[0], seat: s[1]})
+        }
+      }
+      console.log(toReturn);
+      return toReturn
+    },
+    seatRow(seat){
+      return (seat + '').split('')[0]
+    }
   },
   methods: {
     getMovieById(movieId) {
@@ -63,7 +69,7 @@ export default {
     },
     clicked() {
       console.log(this.id);
-    },
+    }
   },
   mounted() {
     M.AutoInit();
@@ -73,11 +79,6 @@ export default {
 </script>
 
 <style scoped>
-.ticket p {
-  margin-bottom: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 .ticket {
   padding: 5px;
   display: block;
@@ -116,41 +117,20 @@ export default {
 .modal {
   color: black;
   font-size: 1.5em;
+  width: 90%;
+  max-width: 800px;
+  min-width: 300px;
+  border-radius: 10px;
 }
 .modal-content {
-  background: linear-gradient(red, var(--red));
-}
-.transLogo {
-  opacity: 30%;
-  width: 40%;
-  position: absolute;
-  right: 0;
-  bottom: 1px;
-}
-
-.infoModal {
+  background: var(--darkgrey);
   color: white;
 }
 
-.modal .modal-footer {
-  height: 60%;
-  padding-right: 5%;
-}
-
-.ID {
-  font-size: 20px;
-}
-
-.barCode {
-  padding: 5px;
-}
-
-.movieTitleModal {
-  font-weight: bold;
-  font-size: 1.5em;
-}
-
 .modal-close {
+  position: absolute;
+  z-index: 1;
+  right: 5%;
   opacity: 80%;
   font-size: 30px;
   margin-bottom: 15px;
@@ -161,8 +141,5 @@ export default {
   opacity: 100%;
 }
 
-.infoModal p {
-  z-index: 99;
-  margin-bottom: 0;
-}
+
 </style>
