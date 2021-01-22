@@ -49,21 +49,24 @@ export default {
         email: this.email,
         password: this.password
       }
-      this.$store.dispatch('login', member)
-      
-      if (this.user) {
+      let loggedIn = this.$store.dispatch('login', member) //inloggning
+      console.log("user", this.user);
+      console.log("before login", loggedIn);
+      if (loggedIn) {
+        console.log("loggin successful");
         this.errorMessage = false;
         await this.$router.push("/");
-        window.location.reload();
+        //window.location.reload();
         M.toast({ html: "✓ Inloggning lyckades", classes: "color: green" });
       } else {
+        console.log("loggin failed");
         this.errorMessage = true;
       }
     },
   },
   computed: {
     user() {
-      return this.$store.state.user;
+      return this.$store.state.user != null; //false = inte inloggad
     },
   },
 };

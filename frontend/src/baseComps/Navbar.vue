@@ -57,6 +57,7 @@ export default {
   },
   computed: {
     online() {
+      console.log("navbar user update");
       return this.$store.state.user != null
     },
     currentUser() {

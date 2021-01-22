@@ -89,10 +89,12 @@ const actions = {
 
     try {
       user = await user.json();
-      store.commit("setUser", user);
+      await store.commit("setUser", user);
+      return true
     } catch (error) {
       console.warn("Bad credentials");
-      store.commit("setUser", null);
+      await store.commit("setUser", null);
+      return false
     }
   },
 
