@@ -119,17 +119,23 @@ export default {
     },
   },
   created() {
-    if(!this.movie.seatsTaken.includes(34) && !this.movie.seatsTaken.includes(35)){
+    if(this.movie.seatsTaken !== null){
+    if(!this.movie.seatsTaken.includes(34) && !this.movie.seatsTaken.includes(35) ){
         this.selectedChairs.push([3, 4]);
         this.selectedChairs.push([3, 5]);
        this.$store.commit("setSelectedSeats", this.selectedChairs.length);
-    }else if(!this.movie.seatsTaken.includes(44) && !this.movie.seatsTaken.includes(45)){
+    }else if(!this.movie.seatsTaken.includes(44) && !this.movie.seatsTaken.includes(45) ){
       this.selectedChairs.push([4, 4]);
         this.selectedChairs.push([4, 5]);
        this.$store.commit("setSelectedSeats", this.selectedChairs.length);
     }else if(!this.movie.seatsTaken.includes(54) && !this.movie.seatsTaken.includes(55)){
       this.selectedChairs.push([5, 5]);
         this.selectedChairs.push([5, 6]);
+       this.$store.commit("setSelectedSeats", this.selectedChairs.length);
+    }
+    }else{
+        this.selectedChairs.push([3, 4]);
+        this.selectedChairs.push([3, 5]);
        this.$store.commit("setSelectedSeats", this.selectedChairs.length);
     }
   },
