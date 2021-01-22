@@ -5,7 +5,7 @@ const state = {
   salons: [],
   user: null,
   //holds the current show
-  currentMovie: [],
+  currentMovie: {},
   currentUserTickets: [],
   //all the shows for the specific movie
   currentShows: [],
