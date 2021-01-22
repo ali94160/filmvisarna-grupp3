@@ -21,9 +21,7 @@ function connect() {
 
     if (model == "Show") {
       if (event == "update") {
-        console.log('What is this?', data);
         if (store.state.currentMovie.id === data[0].id) {
-          console.log('JAG ÄR INNE!!!!!!');
           store.commit('setCurrentMovie', data[0]);
         }
       }
