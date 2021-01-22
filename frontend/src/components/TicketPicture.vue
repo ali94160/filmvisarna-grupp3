@@ -109,6 +109,7 @@ export default {
 }
 
 .movieTitle {
+  padding-left: 5%;
   font-weight: bold;
   font-size: 2em;
 }
@@ -147,7 +148,7 @@ export default {
 
 @media screen and (max-width: 480px) {
   .ticketWrapper{
-    height: 20vh;
+    height: 28vh;
   }
 
   .transLogo{
