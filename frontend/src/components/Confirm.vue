@@ -73,7 +73,6 @@ export default {
 
     this.$store.dispatch("addTicket", ticket);
     let showInfo = {showId: this.show.id, seats: ([...this.bookedChairs]+ '')}
-    console.log('OOOOOOGG',showInfo);
     this.$store.dispatch("increaseSeatsInShow", showInfo)
   }
 }
