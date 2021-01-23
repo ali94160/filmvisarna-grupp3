@@ -24,7 +24,7 @@
         <h3 class="center">Biljett</h3>
         <p class="movieTitleModal">{{ getMovieById(ticket.movieId).title }}</p>
         <br />
-        <p>Antal: {{ ticket.seats }}</p>
+        <p>Bookade stolar: {{ ticket.seats }}</p>
         <p>Datum: {{ ticket.date }}</p>
         <p>Tid: {{ ticket.time }}</p>
       </div>
