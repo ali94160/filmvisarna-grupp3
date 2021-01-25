@@ -103,8 +103,7 @@ const actions = {
       user = await user.json();
       console.log(user);
       store.commit("setUser", user);
-    } catch (error) {}
-    console.warn("Bad credentials");
+    } catch (error) { console.warn("Bad credentials");}
   },
 
   async addTicket(store, ticket) {
