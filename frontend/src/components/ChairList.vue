@@ -40,6 +40,7 @@ export default {
   },
   methods: {
     changeColor(row, col) {
+      this.showSelectedSeats;
       if (this.checkBooked(row, col)) {
         return;
       }
@@ -65,11 +66,13 @@ export default {
       }
     },
     clear() {
+      this.showSelectedSeats;
       this.selectedChairs = [];
       this.$store.commit("clearSeats");
       this.$emit("clear");
     },
     check(row, col) {
+      this.showSelectedSeats;
       let check = false;
       for (let i = 0; i < this.selectedChairs.length; i++) {
         for (let j = 0; j < this.selectedChairs.length; j++) {
@@ -84,6 +87,7 @@ export default {
       return check;
     },
     checkBooked(row, col) {
+      this.showSelectedSeats;
       let booked = false;
       if (this.movie.seatsTaken) {
         for (let i = 0; i < this.movie.seatsTaken.length; i++) {
@@ -123,10 +127,6 @@ export default {
     }else if(!this.movie.seatsTaken.includes(44) && !this.movie.seatsTaken.includes(45) ){
       this.selectedChairs.push([4, 4]);
         this.selectedChairs.push([4, 5]);
-       this.$store.commit("setSelectedSeats", this.selectedChairs.length);
-    }else if(!this.movie.seatsTaken.includes(54) && !this.movie.seatsTaken.includes(55)){
-      this.selectedChairs.push([5, 5]);
-        this.selectedChairs.push([5, 6]);
        this.$store.commit("setSelectedSeats", this.selectedChairs.length);
     }
     }else{

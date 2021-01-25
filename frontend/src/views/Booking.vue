@@ -73,7 +73,8 @@ export default {
     },
 
     changeBooked(){
-      if(this.ticketPrices.filter(p => p !== 0).length === this.selectedChairs.length && this.chosenSeats && this.ticketPrices.length){
+      if(this.ticketPrices.filter(p => p !== 0).length === this.$store.state.selectedSeats && this.chosenSeats && this.ticketPrices.length){
+        console.log('inne');
         this.booked = !this.booked
       }
     },

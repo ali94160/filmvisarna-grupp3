@@ -11,7 +11,6 @@
         <p>Tid: {{ getTime(show) }}</p>
         <p>{{ salon.name }}</p>
         <p>Antal biljetter: {{ amountOfTickets }}</p>
-        <p>Bokade stolar: {{ showBookedChairs }}</p>
       </div>
     </div>
     <div class="payment">
@@ -55,9 +54,6 @@ export default {
         sum += this.ticketPrices[i];
       }
       return sum;
-    },
-    showBookedChairs() {
-      return ("" + this.bookedChairs).replaceAll(",", ", ");
     },
   },
   methods: {
