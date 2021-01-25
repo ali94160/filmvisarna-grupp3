@@ -5,7 +5,7 @@
     <input required v-model="email" type="email" />
     <label>Lösenord:</label>
     <input required v-model="password" type="password" />
-    <p class="failedLogin" v-if="show">Ej giltigt Epost/lösenord</p>
+    <p class="failedLogin" v-if="errorMessage">Ej giltigt Epost/lösenord</p>
     <button>Logga in</button>
     <button @click="goToRegister">Registrera</button>
   </form>
@@ -36,7 +36,7 @@ export default {
     return {
       email: "",
       password: "",
-      show: false,
+      errorMessage: false,
     };
   },
 
@@ -44,30 +44,26 @@ export default {
     goToRegister() {
       this.$router.push("/register");
     },
-    logIn() {
-      let check = false;
-      for (let i = 0; i < this.users.length; i++) {
-        if (this.users[i].email === this.email) {
-          if (this.users[i].password === this.password) {
-            check = true;
-          }
-        }
+    async logIn() {
+      let member = {
+        email: this.email,
+        password: this.password
       }
-      if (check) {
-        this.show = false;
-        let user = this.users.filter((u) => u.email == this.email)[0];
-        this.$store.commit("setCurrentUser", user);
-        this.$store.commit("setOnline");
-        this.$router.push("/");
+      await this.$store.dispatch('login', member) //inloggning
+      if (this.user) {
+        this.errorMessage = false;
+        await this.$router.push("/");
+        //window.location.reload();
         M.toast({ html: "✓ Inloggning lyckades", classes: "color: green" });
       } else {
-        this.show = true;
+        console.log("loggin failed");
+        this.errorMessage = true;
       }
     },
   },
   computed: {
-    users() {
-      return this.$store.state.user;
+    user() {
+      return this.$store.state.user != null; //false = inte inloggad
     },
   },
 };

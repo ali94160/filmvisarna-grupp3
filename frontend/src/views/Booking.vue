@@ -4,32 +4,30 @@
     <h1>{{ getCurrentMovie.title }}</h1>
     <div class="container">
       <div class="salon">
-        <ChairList />
+        <ChairList @updateSelectedChairs="updateSelectedChairs" @decreaseValues="decreaseValue" @increaseValue="increaseValue" @clear="clear"/>
       </div>
 
-      <div class="info">
-        <span>Platser: </span>
-        <div class="value-button" v-on:click="decreaseValue">-</div>
-        <input type="number" v-model="chosenSeats" max="8" />
-        <div class="value-button" v-on:click="increaseValue">+</div>
 
-        <div :class="{ tickets: hasThreeTickets }">
-          <BookingInput
-            v-for="seat in chosenSeatsInput"
-            :key="seat"
-            :ticketNumber="seat"
-            @updateTotalPrice="updateTotalPrice"
-          />
+        <div class="info">
+          <div :class="{ tickets: hasThreeTickets }">
+            <BookingInput
+              v-for="seat in selectedSeats"
+              :key="seat"
+              :ticketNumber="seat"
+              @updateTotalPrice="updateTotalPrice"
+            />
+          </div>
+          <p id="totalPrice">
+            Totala priset: <span class="right">{{ getTotalPrice }} kr</span>
+          </p>
+          <button class="btn" v-on:click="changeBooked">
+            Beställ plats(er)
+          </button>
         </div>
-        <p id="totalPrice">
-          Totala priset: <span class="right">{{ getTotalPrice }} kr</span>
-        </p>
-        <button class="btn" v-on:click="changeBooked">Beställ plats(er)</button>
       </div>
     </div>
-  </div>
 
-  <Confirm v-if="booked" :ticketPrices="ticketPrices" />
+  <Confirm v-if="booked" :ticketPrices="ticketPrices" :bookedChairs="selectedChairs"/>
   </div>
 </template>
 
@@ -41,8 +39,9 @@ export default {
   data() {
     return {
       chosenSeats: 2,
-      maxSeats: 8,
-      ticketPrices: [0, 0, 0, 0, 0, 0, 0, 0],
+      selectedChairs: [],
+      maxSeats: 81,
+      ticketPrices: [],
       booked: false
     };
   },
@@ -50,17 +49,21 @@ export default {
   components: {
     BookingInput,
     Confirm,
-    ChairList
+    ChairList,
   },
 
   methods: {
     decreaseValue() {
-      if (this.chosenSeats > 1) {
+      if (this.chosenSeats >= 1) {
         this.chosenSeats--;
         this.ticketPrices[this.chosenSeats] = 0;
       }
     },
-
+    clear(){
+      this.chosenSeats = 0;
+      this.ticketPrices = [];
+      console.log(' in clear');
+    },
     increaseValue() {
       if (this.chosenSeats < this.maxSeats) this.chosenSeats++;
     },
@@ -70,9 +73,12 @@ export default {
     },
 
     changeBooked(){
-      if(this.ticketPrices.filter(p => p !== 0).length === this.chosenSeats){
+      if(this.ticketPrices.filter(p => p !== 0).length === this.selectedChairs.length && this.chosenSeats && this.ticketPrices.length){
         this.booked = !this.booked
       }
+    },
+    updateSelectedChairs(selectedChairs){
+      this.selectedChairs = selectedChairs
     }
   },
 
@@ -91,12 +97,15 @@ export default {
       }
       return sum;
     },
-    hasThreeTickets(){
-      return this.chosenSeats > 3
+    hasThreeTickets() {
+      return this.chosenSeats > 3;
     },
-    getCurrentMovie(){
-      return this.$store.state.currentMovie
-    }
+    getCurrentMovie() {
+      return this.$store.state.currentMovie;
+    },
+    selectedSeats() {
+      return this.$store.state.selectedSeats;
+    },
   },
 };
 </script>
@@ -105,7 +114,7 @@ export default {
 * {
   margin: 0;
 }
-.wrapper{
+.wrapper {
   margin-top: 10vh;
 }
 h1 {
@@ -131,7 +140,7 @@ input::-webkit-inner-spin-button {
   width: 90%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 60px;
+  grid-gap: 10px;
   margin: 0 auto;
 }
 
@@ -140,9 +149,17 @@ span {
   color: var(--lightgrey);
 }
 
+.salon {
+  border-radius: 2%;
+  background: rgb(29, 29, 29);
+  padding-bottom: 5px;
+}
+
 .info {
-  padding: 10px;
+  padding: 20px;
   padding-bottom: 0;
+  border-radius: 2%;
+  background: rgb(29, 29, 29);
 }
 
 .value-button {
@@ -178,6 +195,18 @@ span {
 #totalPrice {
   padding: 10px;
   font-size: 2vw;
+}
+
+.btn {
+  background-color: var(--green);
+  opacity: 80%;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn:hover{
+background-color: var(--green);
+opacity: 100%;
 }
 
 @media only screen and (max-width: 992px) {

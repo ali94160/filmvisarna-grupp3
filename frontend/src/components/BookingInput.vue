@@ -37,7 +37,6 @@ export default {
   },
   methods:{
     onChange(){
-     
      //Denna emit funkar
      //Problem: subtraherar inte priset när man gör mindre input fält
       this.price = this.prices[event.target.value - 1]
@@ -70,5 +69,6 @@ span {
   height: 100%;
   color: black;
 }
+
 
 </style>

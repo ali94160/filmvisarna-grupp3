@@ -2,7 +2,7 @@
  
   <div class="container">
     <div class="coming">
-      <h4>Bokade biljetter</h4>
+      <h4>Bokningar</h4>
 
       <Ticket v-for="ticket of getTickets" :key="ticket.id" :id="ticket.id"/>
     </div>
@@ -10,6 +10,7 @@
 
     <div class="past">
       <h4>Historik</h4>
+       <Ticket v-for="ticket of historyTickets" :key="ticket.id" :id="ticket.id"/>
     </div>
   </div>
 </template>
@@ -19,14 +20,28 @@ import Ticket from '../components/Ticket.vue'
 
 
 export default {
+  data(){
+    return {
+      historyTickets: []
+    }
+  },
   computed: {
     getTickets(){
-      return this.$store.state.currentUserTickets;
+      let filteredTickets = []
+      for(let ticket of this.$store.state.currentUserTickets){
+        if((ticket.timeStamp * 1000) > new Date().getTime()){
+          filteredTickets.push(ticket);
+        }
+        else{
+          this.historyTickets.push(ticket);
+        }
+      }
+      return filteredTickets;
     }
   },
   created(){
     this.$store.dispatch(
-      'fetchTicketsFromUser', this.$store.state.currentUser.id)
+      'fetchTicketsFromUser', this.$store.state.user.id)
   },
   components:{
     Ticket
