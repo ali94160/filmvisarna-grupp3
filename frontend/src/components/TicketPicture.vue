@@ -33,16 +33,21 @@ export default {
   props: ['ticket', 'movieTitle', 'seat'],
   computed:{
     row(){
+      // seat 0 = 11
       if(this.seat > 9){
-        return (this.seat + '').split('')[0]
+        return parseInt((this.seat + '').split('')[0]) + 1
       }
       return 1
     },
     seatNumber(){
       if(this.seat/100 > 1){
-        return (this.seat + '').split('')[1] + (this.seat + '').split('')[2]
+        return parseInt((this.seat + '').split('')[1] + (this.seat + '').split('')[2]) + 1
       }
-      return (this.seat + '').split('')[1]
+      else if(this.seat/10 > 1){
+        return parseInt((this.seat + '').split('')[1]) + 1
+      }
+      else
+        return this.seat + 1
     },
     getDate(){
       let millis = this.ticket.timeStamp * 1000;

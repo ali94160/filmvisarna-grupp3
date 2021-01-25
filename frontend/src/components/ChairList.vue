@@ -109,11 +109,8 @@ export default {
     showSelectedSeats() {
       let sc = [];
       for (let s of this.selectedChairs) {
-      sc.push(parseInt('' + (s[0] + 1) + (s[1] + 1)))
+      sc.push(parseInt('' + s[0] + s[1]))
       }
-      sc.sort((a, b) => {
-        return a - b;
-      });
       this.$emit("updateSelectedChairs", sc);
       return sc;
     },
