@@ -1,22 +1,22 @@
 <template>
   <div v-if="movies" class="carousel carousel-slider center">
     <div class="carousel-item white-text" href="#one!">
-      <router-link to="/movies">
-        <button class="carousel-fixed-item btn center toMovies transparent" >Se vårt utbud!</button>
-      </router-link>
+        <button @click="guideMe('8Ai8Vq6mWIYfJEVxqnc_O')" id="btnSize" class="carousel-fixed-item btn center transparent" >Boka</button>
       <img src="../assets/carousel-harry-potter.png" alt="">
     </div>
       <div class="carousel-item white-text" href="">
+        <button @click="guideMe('gtR4rG_xXGSqvFUbYFotn')" id="btnSize" class="carousel-fixed-item btn center transparent" >Boka</button>
         <img src="../assets/carousel-batman.png" alt="">
     </div>
 
     <div class="carousel-item white-text height" href="">
+      <button @click="guideMe('M66J4NuEIMJuoKgpQ6f0x')" id="btnSize" class="carousel-fixed-item btn center transparent" >Boka</button>
       <img src="../assets/carousel-frozen.jpg" alt="">
     </div>
 
     <div class="carousel-item amber white-text" href="">
       <router-link to="/about">
-        <button class="toInfo btn right transparent" >Se våra salonger!</button>
+        <button id="btnSize" class="toInfo btn right transparent" >Se våra salonger!</button>
       </router-link>
       <img src="../assets/emptySalon.jpg" alt="">
     </div>
@@ -35,6 +35,9 @@ export default {
   methods:{
     setMovies(){
       this.movies = this.$store.state.movies
+    },
+    guideMe(id){
+      this.$router.push('/moviedetails/'+id)
     },
     changeSlide(instance){
       setTimeout(() => {
@@ -82,15 +85,21 @@ export default {
   margin: 3vh auto 5vh;
   height: 30vw !important;
 }
-
 .carousel .indicators{
   width: fit-content;
   margin: 0 auto !important;
 }
 
-.carousel-fixed-item.toMovies{
+.carousel-fixed-item{
   top: 50%;
   margin: 0 auto;
+  height: 10%;
+  width: 10%;
+  font-weight: bolder;
+}
+
+#btnSize{
+  font-size: 1.5em;
 }
 
 .toInfo{
