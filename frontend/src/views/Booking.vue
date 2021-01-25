@@ -93,6 +93,7 @@ export default {
     getTotalPrice() {
       let sum = 0;
       for (let i = 0; i < this.ticketPrices.length; i++) {
+        if(this.ticketPrices[i] == undefined){ continue; }
         sum += this.ticketPrices[i];
       }
       return sum;
