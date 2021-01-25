@@ -34,7 +34,7 @@
         v-for="(actor, index) in movie.actors"
         :key="index"
       >
-        {{ actor }},
+        {{ actor }},  
       </span>
 
       <p>
@@ -54,7 +54,7 @@
       >
         <option value="" disabled selected>Välj datum/tid</option>
         <option v-for="show in shows" :key="show.id" :value="show.id">
-          {{ show.date }} - kl. {{ show.time }}
+          {{ getDate(show) }} kl: {{getTime(show)}}
         </option>
       </select>
       <div v-if="isFullSalon" class="fullSalonAlert">Fullbokat Datum</div>
@@ -94,10 +94,16 @@ export default {
       return this.$store.state.movies.filter((movie) => movie.id == this.id)[0];
     },
     online() {
-      return this.$store.state.online;
+      return this.$store.state.user != null;
     },
     shows() {
-      return this.$store.state.currentShows;
+      let filteredShows = []
+      for(let show of this.$store.state.currentShows){
+        if((show.timeStamp * 1000) > new Date().getTime()){
+            filteredShows.push(show);
+        }
+      }
+      return filteredShows;
     },
   },
   methods: {
@@ -108,7 +114,15 @@ export default {
     book() {
       if (!this.isFullSalon && this.showId.length) {
         this.$router.push("/booking");
-      }
+      }     
+    },
+    getDate(show){
+      let millis = show.timeStamp * 1000;
+      return new Date(millis).toLocaleDateString();
+    },
+    getTime(show){
+      let millis = show.timeStamp * 1000;
+      return new Date(millis).toTimeString().substring(0,5);
     },
 
     async fullSalon() {
@@ -139,6 +153,7 @@ export default {
   mounted() {
     window.scrollTo(0, 0);
   },
+
 };
 </script>
 

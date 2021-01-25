@@ -3,26 +3,36 @@ package com.company.models;
 import express.database.Model;
 import org.dizitart.no2.objects.Id;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 @Model
 public class Show {
     @Id
     private String id;
-    private String date;
-    private String time;
-    private int seatsTaken;
+    private long timeStamp;
+    private ArrayList<Integer> seatsTaken;
     private String movieId;
     private String salonId;
 
-    public void increaseSeatsTaken(String amount){
-        this.seatsTaken += Integer.parseInt(amount);
+    public void increaseSeatsTaken(String seats){
+
+        String[] bookedSeats = seats.split(",");
+        System.out.println(Arrays.toString(bookedSeats));
+        if(this.seatsTaken == null){
+            this.seatsTaken = new ArrayList<Integer>();
+        }
+        for(int i = 0; i < bookedSeats.length; i++) {
+            this.seatsTaken.add(Integer.parseInt(bookedSeats[i]));
+        }
+        System.out.println(this.seatsTaken);
     }
 
     @Override
     public String toString() {
         return "Show{" +
                 "id='" + id + '\'' +
-                ", date='" + date + '\'' +
-                ", time='" + time + '\'' +
+                ", timeStamp=" + timeStamp +
                 ", seatsTaken=" + seatsTaken +
                 ", movieId='" + movieId + '\'' +
                 ", salonId='" + salonId + '\'' +
@@ -37,27 +47,19 @@ public class Show {
         this.id = id;
     }
 
-    public String getDate() {
-        return date;
+    public long getTimeStamp() {
+        return timeStamp;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setTimeStamp(long timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public int getSeatsTaken() {
+    public ArrayList<Integer> getSeatsTaken() {
         return seatsTaken;
     }
 
-    public void setSeatsTaken(int seatsTaken) {
+    public void setSeatsTaken(ArrayList<Integer> seatsTaken) {
         this.seatsTaken = seatsTaken;
     }
 

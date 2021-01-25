@@ -2,7 +2,7 @@
  
   <div class="container">
     <div class="coming">
-      <h4>Bokade biljetter</h4>
+      <h4>Bokningar</h4>
 
       <Ticket v-for="ticket of getTickets" :key="ticket.id" :id="ticket.id"/>
     </div>
@@ -26,7 +26,7 @@ export default {
   },
   created(){
     this.$store.dispatch(
-      'fetchTicketsFromUser', this.$store.state.currentUser.id)
+      'fetchTicketsFromUser', this.$store.state.user.id)
   },
   components:{
     Ticket

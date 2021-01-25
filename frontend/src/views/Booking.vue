@@ -1,11 +1,13 @@
 <template>
-  <div class="wrapper">
-    <div id="#bookingDiv" v-if="!booked">
-      <h1>{{ getCurrentMovie.title }}</h1>
-      <div class="container">
-        <div class="salon">
-          <ChairList />
-        </div>
+<div class="wrapper">
+  <div id="#bookingDiv" v-if="!booked">
+    <h1>{{ getCurrentMovie.title }}</h1>
+    <div class="container">
+      <div class="salon">
+        <ChairList @updateSelectedChairs="updateSelectedChairs" @decreaseValues="decreaseValue" @increaseValue="increaseValue" @clear="clear"/>
+      </div>
+
+      <div class="info">
 
         <div class="info">
           <div :class="{ tickets: hasThreeTickets }">
@@ -26,7 +28,7 @@
       </div>
     </div>
 
-    <Confirm v-if="booked" :ticketPrices="ticketPrices" />
+  <Confirm v-if="booked" :ticketPrices="ticketPrices" :bookedChairs="selectedChairs"/>
   </div>
 </template>
 
@@ -38,9 +40,10 @@ export default {
   data() {
     return {
       chosenSeats: 2,
-      maxSeats: 8,
-      ticketPrices: [0, 0, 0, 0, 0, 0, 0, 0],
-      booked: false,
+      selectedChairs: [],
+      maxSeats: 81,
+      ticketPrices: [],
+      booked: false
     };
   },
 
@@ -52,12 +55,16 @@ export default {
 
   methods: {
     decreaseValue() {
-      if (this.chosenSeats > 1) {
+      if (this.chosenSeats >= 1) {
         this.chosenSeats--;
         this.ticketPrices[this.chosenSeats] = 0;
       }
     },
-
+    clear(){
+      this.chosenSeats = 0;
+      this.ticketPrices = [];
+      console.log(' in clear');
+    },
     increaseValue() {
       if (this.chosenSeats < this.maxSeats) this.chosenSeats++;
     },
@@ -66,13 +73,14 @@ export default {
       this.ticketPrices[ticketNumber - 1] = price;
     },
 
-    changeBooked() {
-      if (
-        this.ticketPrices.filter((p) => p !== 0).length === this.chosenSeats
-      ) {
-        this.booked = !this.booked;
+    changeBooked(){
+      if(this.ticketPrices.filter(p => p !== 0).length === this.selectedChairs.length && this.chosenSeats && this.ticketPrices.length){
+        this.booked = !this.booked
       }
     },
+    updateSelectedChairs(selectedChairs){
+      this.selectedChairs = selectedChairs
+    }
   },
 
   computed: {
@@ -188,6 +196,18 @@ span {
 #totalPrice {
   padding: 10px;
   font-size: 2vw;
+}
+
+.btn {
+  background-color: var(--green);
+  opacity: 80%;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn:hover{
+background-color: var(--green);
+opacity: 100%;
 }
 
 @media only screen and (max-width: 992px) {
