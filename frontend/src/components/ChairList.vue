@@ -17,6 +17,7 @@
           class="material-icons"
           :class="{
             active: check(row, col),
+            booked: checkBooked(row, col),
           }"
         >
           event_seat
@@ -40,6 +41,9 @@ export default {
   },
   methods: {
     changeColor(row, col) {
+      if (this.checkBooked(row, col)) {
+        return;
+      }
       let add = true;
       for (let i = 0; i < this.selectedChairs.length; i++) {
         for (let j = 0; j < this.selectedChairs.length; j++) {
@@ -48,8 +52,8 @@ export default {
             this.selectedChairs[i][1] === col
           ) {
             this.selectedChairs.splice(i, 1);
-            this.$store.commit('decreaseSeats');
-            this.$emit('decreaseValues');
+            this.$store.commit("decreaseSeats");
+            this.$emit("decreaseValues");
             add = false;
             return;
           }
@@ -57,14 +61,14 @@ export default {
       }
       if (add) {
         this.selectedChairs.push([row, col]);
-        this.$store.commit('setSelectedSeats',this.selectedChairs.length);
-        this.$emit('increaseValue')
+        this.$store.commit("setSelectedSeats", this.selectedChairs.length);
+        this.$emit("increaseValue");
       }
     },
     clear() {
       this.selectedChairs = [];
-      this.$store.commit('clearSeats');
-      this.$emit('clear');
+      this.$store.commit("clearSeats");
+      this.$emit("clear");
     },
     check(row, col) {
       let check = false;
@@ -80,27 +84,61 @@ export default {
       }
       return check;
     },
+    checkBooked(row, col) {
+      let booked = false;
+      if (this.movie.seatsTaken) {
+        for (let i = 0; i < this.movie.seatsTaken.length; i++) {
+          if (this.movie.seatsTaken[i] < 10) {
+            if ("0" + this.movie.seatsTaken[i] + "" === row + "" + col)
+              booked = true;
+          } else if (this.movie.seatsTaken[i] + "" === row + "" + col) {
+            booked = true;
+          }
+        }
+        return booked;
+      }
+    },
   },
   computed: {
     salon() {
       return this.$store.state.currentSalon;
     },
-    showSelectedSeats(){
-      console.log(this.selectedChairs);
-      let sc = []
-      for(let s of this.selectedChairs){
-        sc.push(parseInt('' + (s[0] + 1) + (s[1] + 1)))
+    movie() {
+      return this.$store.state.currentMovie;
+    },
+    showSelectedSeats() {
+      let sc = [];
+      for (let s of this.selectedChairs) {
+      sc.push(parseInt('' + (s[0] + 1) + (s[1] + 1)))
       }
-      sc.sort((a,b) => {return a - b})
-      this.$emit('updateSelectedChairs', sc )
-      return sc
+      sc.sort((a, b) => {
+        return a - b;
+      });
+      this.$emit("updateSelectedChairs", sc);
+      return sc;
+    },
+  },
+  created() {
+    if(this.movie.seatsTaken !== null){
+    if(!this.movie.seatsTaken.includes(34) && !this.movie.seatsTaken.includes(35) ){
+        this.selectedChairs.push([3, 4]);
+        this.selectedChairs.push([3, 5]);
+       this.$store.commit("setSelectedSeats", this.selectedChairs.length);
+    }else if(!this.movie.seatsTaken.includes(44) && !this.movie.seatsTaken.includes(45) ){
+      this.selectedChairs.push([4, 4]);
+        this.selectedChairs.push([4, 5]);
+       this.$store.commit("setSelectedSeats", this.selectedChairs.length);
+    }else if(!this.movie.seatsTaken.includes(54) && !this.movie.seatsTaken.includes(55)){
+      this.selectedChairs.push([5, 5]);
+        this.selectedChairs.push([5, 6]);
+       this.$store.commit("setSelectedSeats", this.selectedChairs.length);
+    }
+    }else{
+        this.selectedChairs.push([3, 4]);
+        this.selectedChairs.push([3, 5]);
+       this.$store.commit("setSelectedSeats", this.selectedChairs.length);
     }
   },
-  created(){
-    this.selectedChairs.push([3,4]);
-    this.selectedChairs.push([3,5]);
-    this.$store.commit('setSelectedSeats',this.selectedChairs.length);
-  }
 };
 </script>
 
@@ -141,15 +179,12 @@ div.highlight {
   color: yellow;
 }
 
-div.booked {
-  color: red;
-}
-div.booked:hover {
-  cursor: default;
-  opacity: 100%;
-}
 .buttons {
   margin: 0 auto;
   text-align: center;
+}
+.booked {
+  cursor: default;
+  color: red;
 }
 </style>

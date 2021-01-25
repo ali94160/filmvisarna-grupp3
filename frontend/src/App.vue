@@ -18,8 +18,8 @@ export default {
     Footer,
   },
   created() {
+    this.$store.dispatch('whoAmI')
     this.$store.dispatch("fetchMovie");
-    this.$store.dispatch("fetchUsers");
     this.$store.dispatch("fetchSalons");
   },
 };

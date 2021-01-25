@@ -1,337 +1,505 @@
 [ {
-  "id" : "wmVqmTivlD_gX35xJ0Gxs",
-  "date" : "1/2/2020",
-  "time" : "18:00",
-  "seatsTaken" : [ 4, 10, 44, 45 ],
+  "id" : "VODrZb-SpugmQTwsVlQx2",
+  "timeStamp" : 1612202400,
+  "seatsTaken" : null,
   "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "WoErtWt_DWU4GxTQYRSxq",
-  "date" : "1/2/2020",
-  "time" : "18:00",
+  "id" : "mV3mRaudInVZ4YZcZJCTc",
+  "timeStamp" : 1612202400,
   "seatsTaken" : null,
   "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
-  "id" : "ggMmBqLH6idHqdZIm7Qjh",
-  "date" : "1/2/2020",
-  "time" : "21:00",
+  "id" : "RSKDcmAhO3nyjUytpWEVH",
+  "timeStamp" : 1612213200,
   "seatsTaken" : null,
   "movieId" : "kE86jJGJ7EMWx3ka17XGK",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "pCYNfqqVpfz9dEV4wljxW",
-  "date" : "2/2/2020",
-  "time" : "18:00",
+  "id" : "HXzvkqCxDO3uXk1VSnib7",
+  "timeStamp" : 1612288800,
   "seatsTaken" : null,
   "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "Xh6vnBxVgpOyHL2TObOWz",
-  "date" : "2/2/2020",
-  "time" : "18:00",
+  "id" : "-KGdGAEivEPvRZ1c2jyaR",
+  "timeStamp" : 1612288800,
   "seatsTaken" : null,
   "movieId" : "gtR4rG_xXGSqvFUbYFotn",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
-  "id" : "hvJkQtt0UI4Pmb7mIaofq",
-  "date" : "2/2/2020",
-  "time" : "21:00",
+  "id" : "Is8a1sZldotLJQDi7Spvk",
+  "timeStamp" : 1612299600,
   "seatsTaken" : null,
   "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "DaZmk_HkFSkcsRoVyvw5a",
-  "date" : "3/2/2020",
-  "time" : "18:00",
+  "id" : "UNkxn7KxckzPQgv1ww6au",
+  "timeStamp" : 1612375200,
   "seatsTaken" : null,
   "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "-PaRkUjaNMXpkMZP-dtj8",
-  "date" : "3/2/2020",
-  "time" : "18:00",
+  "id" : "ny06h9Ex_hGUbAJsAa3Ao",
+  "timeStamp" : 1612375200,
   "seatsTaken" : null,
   "movieId" : "kE86jJGJ7EMWx3ka17XGK",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
-  "id" : "wenogKKRh4v0hvKIqSUqJ",
-  "date" : "3/2/2020",
-  "time" : "21:00",
+  "id" : "6SXnLQY85-adJZqClhUVX",
+  "timeStamp" : 1612386000,
   "seatsTaken" : null,
   "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "UMaOWJP_Plwe5ZlMMaih0",
-  "date" : "4/2/2020",
-  "time" : "18:00",
+  "id" : "dMiS25CaqchBn1rV7_4a7",
+  "timeStamp" : 1612461600,
   "seatsTaken" : null,
   "movieId" : "gtR4rG_xXGSqvFUbYFotn",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "ELUTXn67FaxAjRUCyjIq3",
-  "date" : "4/2/2020",
-  "time" : "18:00",
+  "id" : "4U-4U00fvHK2zrURibLRA",
+  "timeStamp" : 1612461600,
   "seatsTaken" : null,
   "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
-  "id" : "-hUh3Nnz1Mu4v6G0TXOyQ",
-  "date" : "4/2/2020",
-  "time" : "21:00",
+  "id" : "dTDeDFKLgOcKLxB44rZXl",
+  "timeStamp" : 1612472400,
   "seatsTaken" : null,
   "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "F4MOteOT-o0_lew5UsaIe",
-  "date" : "5/2/2020",
-  "time" : "18:00",
+  "id" : "92rSsPfSGkmTCIvQELMZJ",
+  "timeStamp" : 1612548000,
   "seatsTaken" : null,
   "movieId" : "kE86jJGJ7EMWx3ka17XGK",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "12lEPklIdzWauwqJyeAn1",
-  "date" : "5/2/2020",
-  "time" : "18:00",
+  "id" : "-YgOzoKMfz2f_xJ1Ih0nq",
+  "timeStamp" : 1612548000,
   "seatsTaken" : null,
   "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
-  "id" : "LjU64foBrWG0DJlMssqr9",
-  "date" : "5/2/2020",
-  "time" : "21:00",
+  "id" : "NVaaOW-hyI2UZgSXKFSsr",
+  "timeStamp" : 1612558800,
   "seatsTaken" : null,
   "movieId" : "gtR4rG_xXGSqvFUbYFotn",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "le1qW2dZa5xujvu33f4OG",
-  "date" : "6/2/2020",
-  "time" : "18:00",
+  "id" : "_-ggUYkaeGfv-YEUhPjDU",
+  "timeStamp" : 1612634400,
   "seatsTaken" : null,
   "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "xTzYgRO3XeWmkQM_ye6XM",
-  "date" : "6/2/2020",
-  "time" : "18:00",
+  "id" : "6pMGnVtuG_kLHB48zfcBG",
+  "timeStamp" : 1612634400,
   "seatsTaken" : null,
   "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
-  "id" : "d97XlODXtLh48yBPpMmc8",
-  "date" : "6/2/2020",
-  "time" : "21:00",
+  "id" : "MU_vf_h15OqCthreFTwr7",
+  "timeStamp" : 1612645200,
   "seatsTaken" : null,
   "movieId" : "kE86jJGJ7EMWx3ka17XGK",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "TYIkEZRpYVlEDh0h80HCs",
-  "date" : "7/2/2020",
-  "time" : "18:00",
+  "id" : "BJUtuqe69DoNj7ldb7Gfh",
+  "timeStamp" : 1612720800,
   "seatsTaken" : null,
   "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "rkvIv2KE3poOIBETeGJ-3",
-  "date" : "7/2/2020",
-  "time" : "18:00",
+  "id" : "WbU8aQXhGkr-9vKkc-je0",
+  "timeStamp" : 1612720800,
   "seatsTaken" : null,
   "movieId" : "gtR4rG_xXGSqvFUbYFotn",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
-  "id" : "YUV2dmTWAp2HeRQvc9d-D",
-  "date" : "7/2/2020",
-  "time" : "21:00",
+  "id" : "uWQRM-2moy5zClp41gbDE",
+  "timeStamp" : 1612731600,
   "seatsTaken" : null,
   "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "oCDEi_H7GbOQqh7djhMy8",
-  "date" : "8/2/2020",
-  "time" : "18:00",
+  "id" : "g4LKkJTAxbyfy8RXhlPmf",
+  "timeStamp" : 1612807200,
   "seatsTaken" : null,
   "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "lVSYRxKJHs7fXYbXC-ANV",
-  "date" : "8/2/2020",
-  "time" : "18:00",
+  "id" : "z88zweMA-8HxLg6xQeFKe",
+  "timeStamp" : 1612807200,
   "seatsTaken" : null,
   "movieId" : "kE86jJGJ7EMWx3ka17XGK",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
-  "id" : "6eosWUW8b5VOZwo4Xko7c",
-  "date" : "8/2/2020",
-  "time" : "21:00",
+  "id" : "0otdbzOOIceSLh6SXUmCc",
+  "timeStamp" : 1612818000,
   "seatsTaken" : null,
   "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "qkZRngFRWk01R5qbgUHV8",
-  "date" : "9/2/2020",
-  "time" : "18:00",
+  "id" : "W9Hs6qDE8_xUnrY2tDf31",
+  "timeStamp" : 1612893600,
   "seatsTaken" : null,
   "movieId" : "gtR4rG_xXGSqvFUbYFotn",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "Ry-Des73fl3_skgRhv8_N",
-  "date" : "9/2/2020",
-  "time" : "18:00",
+  "id" : "462iScm_STWC-m_g7HPyD",
+  "timeStamp" : 1612893600,
   "seatsTaken" : null,
   "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
-  "id" : "fsvWgWY_oC_ncAR5ApF6e",
-  "date" : "9/2/2020",
-  "time" : "21:00",
+  "id" : "BcqsPKBYXDoJZUcx1TqGf",
+  "timeStamp" : 1612904400,
   "seatsTaken" : null,
   "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "MBixfSkx7rPtTG7W61OuN",
-  "date" : "10/2/2020",
-  "time" : "18:00",
+  "id" : "zB_7fYlfBqZLun9If4Baz",
+  "timeStamp" : 1612980000,
   "seatsTaken" : null,
   "movieId" : "kE86jJGJ7EMWx3ka17XGK",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "wj16pWIhaSUlVdOBDvGHg",
-  "date" : "10/2/2020",
-  "time" : "18:00",
+  "id" : "GziVh8cNNfhKN-Ysc9r5U",
+  "timeStamp" : 1612980000,
   "seatsTaken" : null,
   "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
-  "id" : "uB2WT59E1HfVeGcCcrRU9",
-  "date" : "10/2/2020",
-  "time" : "21:00",
+  "id" : "4eEbdi_kHeGuzIsDDz67a",
+  "timeStamp" : 1612990800,
   "seatsTaken" : null,
   "movieId" : "gtR4rG_xXGSqvFUbYFotn",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "pGLFw0ywa-mwacI35OgpH",
-  "date" : "11/2/2020",
-  "time" : "18:00",
+  "id" : "TNtJHmsnyyyqRjCefOigj",
+  "timeStamp" : 1613066400,
   "seatsTaken" : null,
   "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "INmmd4cJTUJzH2K003-PA",
-  "date" : "11/2/2020",
-  "time" : "18:00",
+  "id" : "1RPO9JZh_L61VoBJk_oWh",
+  "timeStamp" : 1613066400,
   "seatsTaken" : null,
   "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
-  "id" : "uZ_1IMjK5y_BKrsU2AgFb",
-  "date" : "11/2/2020",
-  "time" : "21:00",
+  "id" : "vIr2XfoIe3zer60r7aL9E",
+  "timeStamp" : 1613077200,
   "seatsTaken" : null,
   "movieId" : "kE86jJGJ7EMWx3ka17XGK",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "HDdkHAfXSLh4l_uRWUzUI",
-  "date" : "12/2/2020",
-  "time" : "18:00",
+  "id" : "gIPC8Khn2z5tDSEVnyr_o",
+  "timeStamp" : 1613152800,
   "seatsTaken" : null,
   "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "F78OR_c5XiTTozWTGyVDW",
-  "date" : "12/2/2020",
-  "time" : "18:00",
+  "id" : "Udz81Z6labp5Sp0-0hEXJ",
+  "timeStamp" : 1613152800,
   "seatsTaken" : null,
   "movieId" : "gtR4rG_xXGSqvFUbYFotn",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
-  "id" : "WvWTfedecFPNiYq3obT9t",
-  "date" : "12/2/2020",
-  "time" : "21:00",
+  "id" : "W2jnnC1UdNPcKaQ1HUm7Q",
+  "timeStamp" : 1613163600,
   "seatsTaken" : null,
   "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "lAu3Qd4OJjhA-4znhcBm9",
-  "date" : "13/2/2020",
-  "time" : "18:00",
+  "id" : "7nimA-8v78RV0mDuHi5EL",
+  "timeStamp" : 1613239200,
   "seatsTaken" : null,
   "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "_RStdwVy3kE4MUtKAgoo7",
-  "date" : "13/2/2020",
-  "time" : "18:00",
+  "id" : "HAJx7XuU8yi173oV5O-1X",
+  "timeStamp" : 1613239200,
   "seatsTaken" : null,
   "movieId" : "kE86jJGJ7EMWx3ka17XGK",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
-  "id" : "dAe2OIcCY4hBgTXKeQZAA",
-  "date" : "13/2/2020",
-  "time" : "21:00",
+  "id" : "iXoqVPHtb6KdRsJW9n-19",
+  "timeStamp" : 1613250000,
   "seatsTaken" : null,
   "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "30h4a4SyHwu2oU8D8FLaz",
-  "date" : "14/2/2020",
-  "time" : "18:00",
+  "id" : "Y8rXv5BbmBZlKoXqzaAjr",
+  "timeStamp" : 1613325600,
   "seatsTaken" : null,
   "movieId" : "gtR4rG_xXGSqvFUbYFotn",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "rtrmtNE2mxP1rYaoUv3QK",
-  "date" : "14/2/2020",
-  "time" : "18:00",
+  "id" : "yR8l_jO531LaiUKs--8tY",
+  "timeStamp" : 1613325600,
   "seatsTaken" : null,
   "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
-  "id" : "_QPX9g3yRLizkui-gmM4a",
-  "date" : "14/2/2020",
-  "time" : "21:00",
+  "id" : "cHPuuUNDZj9uOxRTtPyv3",
+  "timeStamp" : 1613336400,
   "seatsTaken" : null,
   "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "ZVV34GFtcKP0MTjC2Iswk",
-  "date" : "15/2/2020",
-  "time" : "18:00",
+  "id" : "MDPVx8rDg-afg4GmEN9Jq",
+  "timeStamp" : 1613412000,
   "seatsTaken" : null,
   "movieId" : "kE86jJGJ7EMWx3ka17XGK",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "wnoTt5Xrm2Bs19qQunXjb",
-  "date" : "15/2/2020",
-  "time" : "18:00",
+  "id" : "S19VU9S6w7TC8jk3HsFSv",
+  "timeStamp" : 1613412000,
   "seatsTaken" : null,
   "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
-  "id" : "pxZA7bwLzPuKHX5FvN99J",
-  "date" : "15/2/2020",
-  "time" : "21:00",
+  "id" : "ih9asXTH-0ZH9XPc59lVZ",
+  "timeStamp" : 1613422800,
   "seatsTaken" : null,
   "movieId" : "gtR4rG_xXGSqvFUbYFotn",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "0dUpXdWB_lQd9WRtV64oG",
-  "date" : "16/2/2020",
-  "time" : "18:00",
+  "id" : "ei1BkzKVcgkbLbT1jmYpL",
+  "timeStamp" : 1613498400,
   "seatsTaken" : null,
   "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
-  "id" : "WMs5-MVF5z2UTZsQXoc6k",
-  "date" : "16/2/2020",
-  "time" : "18:00",
+  "id" : "FbdbfSNFW8lxF_wF2Y-g5",
+  "timeStamp" : 1613498400,
   "seatsTaken" : null,
   "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
-  "id" : "gwx-jFGFge6JJHoJq1p5q",
-  "date" : "16/2/2020",
-  "time" : "21:00",
+  "id" : "oQvdg8hF0MM3owg1Jvank",
+  "timeStamp" : 1613509200,
   "seatsTaken" : null,
   "movieId" : "kE86jJGJ7EMWx3ka17XGK",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "pMaTZUdI9HXTJo9mefcLj",
+  "timeStamp" : 1613584800,
+  "seatsTaken" : null,
+  "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "eRI_ql3WjTjZICHUEVgwd",
+  "timeStamp" : 1613584800,
+  "seatsTaken" : null,
+  "movieId" : "gtR4rG_xXGSqvFUbYFotn",
+  "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
+}, {
+  "id" : "XdaBADiqKLYZapzauojh4",
+  "timeStamp" : 1613595600,
+  "seatsTaken" : null,
+  "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "wz3744l_bVVADELhXVPYA",
+  "timeStamp" : 1613671200,
+  "seatsTaken" : null,
+  "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "Jfp2LhvaC4NSWQOMRB9hm",
+  "timeStamp" : 1613671200,
+  "seatsTaken" : null,
+  "movieId" : "kE86jJGJ7EMWx3ka17XGK",
+  "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
+}, {
+  "id" : "qSZxeRDSzJPjjasVOjklb",
+  "timeStamp" : 1613682000,
+  "seatsTaken" : null,
+  "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "PowzlMyOhZCteh_vJesat",
+  "timeStamp" : 1613757600,
+  "seatsTaken" : null,
+  "movieId" : "gtR4rG_xXGSqvFUbYFotn",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "GH3eZ9Y0pXF3xzJuFaT12",
+  "timeStamp" : 1613757600,
+  "seatsTaken" : null,
+  "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
+  "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
+}, {
+  "id" : "KUOkDdd6XQJFI3lWH15NH",
+  "timeStamp" : 1613768400,
+  "seatsTaken" : null,
+  "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "Kq6PacVhdl_WBqFuR-hMC",
+  "timeStamp" : 1613844000,
+  "seatsTaken" : null,
+  "movieId" : "kE86jJGJ7EMWx3ka17XGK",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "FjkPhjTFTwfPn-Ac_Dlxj",
+  "timeStamp" : 1613844000,
+  "seatsTaken" : null,
+  "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
+  "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
+}, {
+  "id" : "Kk0siJxm8MYGi_9-QTEhX",
+  "timeStamp" : 1613854800,
+  "seatsTaken" : null,
+  "movieId" : "gtR4rG_xXGSqvFUbYFotn",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "aQxo0ceIzNI9F8aPzlZuE",
+  "timeStamp" : 1613930400,
+  "seatsTaken" : null,
+  "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "5PYNNE8bDqahSMm5mK5tI",
+  "timeStamp" : 1613930400,
+  "seatsTaken" : null,
+  "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
+  "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
+}, {
+  "id" : "chFaFBGvCKSw22R5vbjSj",
+  "timeStamp" : 1613941200,
+  "seatsTaken" : null,
+  "movieId" : "kE86jJGJ7EMWx3ka17XGK",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "iuIuEzTYT4aBY9iZ_9cGJ",
+  "timeStamp" : 1614016800,
+  "seatsTaken" : null,
+  "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "8WAUuA-5OaKlHLGnrca35",
+  "timeStamp" : 1614016800,
+  "seatsTaken" : null,
+  "movieId" : "gtR4rG_xXGSqvFUbYFotn",
+  "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
+}, {
+  "id" : "moMcXe87VlBm62AcpvEL5",
+  "timeStamp" : 1614027600,
+  "seatsTaken" : null,
+  "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "nTyt3PVvo93ZAZMPA-D0Z",
+  "timeStamp" : 1614103200,
+  "seatsTaken" : null,
+  "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "Hr-u0ZOlEYSpfKjnL-x1x",
+  "timeStamp" : 1614103200,
+  "seatsTaken" : null,
+  "movieId" : "kE86jJGJ7EMWx3ka17XGK",
+  "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
+}, {
+  "id" : "XOF7dga_nDbDeabPO53QN",
+  "timeStamp" : 1614114000,
+  "seatsTaken" : null,
+  "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "XLoYmST48xfBiOTFkCyns",
+  "timeStamp" : 1614189600,
+  "seatsTaken" : null,
+  "movieId" : "gtR4rG_xXGSqvFUbYFotn",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "_TW-ttqPOHy63_eG03eqA",
+  "timeStamp" : 1614189600,
+  "seatsTaken" : null,
+  "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
+  "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
+}, {
+  "id" : "aotJ7Lq9ezl0dhrNZjo6Z",
+  "timeStamp" : 1614276000,
+  "seatsTaken" : null,
+  "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "Omr7ckBv4u6qF6o6dqwjK",
+  "timeStamp" : 1614276000,
+  "seatsTaken" : null,
+  "movieId" : "kE86jJGJ7EMWx3ka17XGK",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "S6JLaMDzMFZQoL3-wqX6c",
+  "timeStamp" : 1614286800,
+  "seatsTaken" : null,
+  "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
+  "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
+}, {
+  "id" : "A8XiGhizKgwdD0LhwYgYA",
+  "timeStamp" : 1614286800,
+  "seatsTaken" : null,
+  "movieId" : "gtR4rG_xXGSqvFUbYFotn",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "toLeyO7fa1VSHulhletyb",
+  "timeStamp" : 1614362400,
+  "seatsTaken" : null,
+  "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "eeElBPh_0pxNbd4oXxq0e",
+  "timeStamp" : 1614362400,
+  "seatsTaken" : null,
+  "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
+  "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
+}, {
+  "id" : "wzpULQ-5G_Db30MKCMU2D",
+  "timeStamp" : 1614373200,
+  "seatsTaken" : null,
+  "movieId" : "kE86jJGJ7EMWx3ka17XGK",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "F4kdwH4d9Yo25DvCxk96u",
+  "timeStamp" : 1614448800,
+  "seatsTaken" : null,
+  "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "Q36m8vfirhYM3VArRALwF",
+  "timeStamp" : 1614448800,
+  "seatsTaken" : null,
+  "movieId" : "gtR4rG_xXGSqvFUbYFotn",
+  "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
+}, {
+  "id" : "mE64uQ5cEtduZnkzUP7ds",
+  "timeStamp" : 1614459600,
+  "seatsTaken" : null,
+  "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "qgdS7DOfmxpzVhyhryWxk",
+  "timeStamp" : 1614535200,
+  "seatsTaken" : null,
+  "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
+  "salonId" : "FK5WXajTTlWZf7ftYu58r"
+}, {
+  "id" : "RRBOn_ZqniJHCkPrU2ebl",
+  "timeStamp" : 1614535200,
+  "seatsTaken" : null,
+  "movieId" : "kE86jJGJ7EMWx3ka17XGK",
+  "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
+}, {
+  "id" : "4SY76vfTpNUuImGWUXBE3",
+  "timeStamp" : 1614546000,
+  "seatsTaken" : null,
+  "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 } ]

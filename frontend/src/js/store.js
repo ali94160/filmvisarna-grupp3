@@ -3,41 +3,31 @@ import { createStore } from 'vuex'
 const state = {
   movies: [],
   salons: [],
-  user: [],
-  currentUser: {},
+  user: null,
   //holds the current show
-  currentMovie: [],
+  currentMovie: {},
   currentUserTickets: [],
   //all the shows for the specific movie
   currentShows: [],
   currentSalon: [],
   //the movie the user selected
   selectedMovie: {},
-  online: false,
   selectedSeats: '',
+
 }
 
 const mutations = {
-  setMovie(state, list) {
-    state.movies = list
+  setMovie(state, movies) {
+    state.movies = movies
   },
   setSelectedMovie(state, movie) {
     state.selectedMovie = movie
   },
-  setUser(state, list) {
-    state.user = list
+  setUser(state, user) {
+    state.user = user
   },
   setSalons(state, list) {
     state.salons = list
-  },
-  addUser(state, user) {
-    state.user.push(user);
-  },
-  setCurrentUser(state, user) {
-    state.currentUser = user;
-  },
-  setOnline(state) {
-    state.online = true;
   },
   setCurrentMovie(state, movie) {
     state.currentMovie = movie;
@@ -67,39 +57,58 @@ const mutations = {
 
 const actions = {
   async fetchMovie(store) {
-    let list = await fetch('/rest/movie')
+    let list = await fetch("/rest/movie");
     list = await list.json();
-
-    console.log(list);
-    store.commit('setMovie', list)
+    store.commit("setMovie", list);
   },
 
-  async fetchUsers(store) {
-    let list = await fetch('/rest/user')
-    list = await list.json();
-
-    console.log(list);
-    store.commit('setUser', list)
-  },
-
-  async addUser(store, user) {
-    let newUser =
-    {
-      firstName: user.name,
-      lastName: user.lastName,
-      email: user.email,
-      password: user.password
+  async register(store, member) {
+    let newUser = {
+      firstName: member.name,
+      lastName:member.lastName,
+      email: member.email,
+      password: member.password,
     };
-    let response = await fetch('/rest/user', {
-      method: 'POST',
-      body: JSON.stringify(newUser)
-    })
-    store.commit('addUser', newUser);
+    let user = await fetch("/api/register", {
+      method: "POST",
+      body: JSON.stringify(newUser),
+    });
+    try {
+      user = await user.json();
+      store.commit("setUser", user);
+    } catch (error) {
+      console.warn("Bad credentials");
+      return false
+    }
+  },
+
+  async login(store, credentials) {
+    let user = await fetch("/api/login", {
+      method: "POST",
+      body: JSON.stringify(credentials),
+    });
+
+    try {
+      user = await user.json();
+      await store.commit("setUser", user);
+    } catch (error) {
+      console.warn("Bad credentials");
+      await store.commit("setUser", null);
+    }
+  },
+
+  async whoAmI(store) {
+    let user = await fetch("/api/whoami");
+    try {
+      user = await user.json();
+      console.log(user);
+      store.commit("setUser", user);
+    } catch (error) {}
+    console.warn("Bad credentials");
   },
 
   async addTicket(store, ticket) {
-    let newTicket =
-    {
+    let newTicket = {
       price: ticket.price,
       date: ticket.date,
       time: ticket.time,
@@ -108,53 +117,59 @@ const actions = {
       seniorPrice: 75,
       userId: ticket.userId,
       showId: ticket.showId,
-      movieId: state.selectedMovie.id
+      movieId: state.selectedMovie.id,
     };
-    let response = await fetch('rest/ticket', {
-      method: 'POST',
-      body: JSON.stringify(newTicket)
-    })
-    console.log(response, ' bla');
+    let response = await fetch("rest/ticket", {
+      method: "POST",
+      body: JSON.stringify(newTicket),
+    });
   },
 
   async fetchTicketsFromUser(store, userId) {
-    let list = await fetch('/rest/user/get-ticket/' + userId)
-    list = await list.json()
-    if (list.length) {
-      store.commit('setCurrentUserTickets', list)
-    }
-  },
-  async fetchShows(store, movieId) {
-    let list = await fetch('/rest/movie/get-show/' + movieId)
+    let list = await fetch("/rest/user/get-ticket/" + userId);
     list = await list.json();
     if (list.length) {
-      store.commit('setCurrentShow', list);
+      store.commit("setCurrentUserTickets", list);
+    } else {
+      store.commit("setCurrentUserTickets", []);
     }
   },
-  async fetchSalons(store) {
-    let list = await fetch('/rest/salon')
-    list = await list.json()
 
-    store.commit('setSalons', list)
+  async fetchShows(store, movieId) {
+    let list = await fetch("/rest/movie/get-show/" + movieId);
+    list = await list.json();
+    if (list.length) {
+      store.commit("setCurrentShow", list);
+    } else {
+      store.commit("setCurrentShow", []);
+    }
   },
-  async fetchSpecificSalon(store, showId) {
-    let list = await fetch('/rest/show/get-salon/' + showId)
-    list = await list.json()
 
-    store.commit('setCurrentSalon', list)
+  async fetchSalons(store) {
+    let list = await fetch("/rest/salon");
+    list = await list.json();
+
+    store.commit("setSalons", list);
+  },
+
+  async fetchSpecificSalon(store, showId) {
+    let list = await fetch("/rest/show/get-salon/" + showId);
+    try {
+      list = await list.json();
+      store.commit("setCurrentSalon", list);
+    } catch (error) {
+      console.warn("No show found");
+    }
   },
 
   async increaseSeatsInShow(store, showInfo) {
-    console.log(showInfo, "info");
-    let response = fetch(
+    fetch(
       "/rest/show/increase-seats/" + showInfo.showId + "/" + showInfo.seats,
       {
         method: "PUT",
       }
     );
-
-    console.log("increase called adddddddd");
-  }
-}
+  },
+};
 
 export default createStore({ state, mutations, actions })

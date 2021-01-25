@@ -10,8 +10,7 @@ import java.util.Arrays;
 public class Show {
     @Id
     private String id;
-    private String date;
-    private String time;
+    private long timeStamp;
     private ArrayList<Integer> seatsTaken;
     private String movieId;
     private String salonId;
@@ -33,8 +32,7 @@ public class Show {
     public String toString() {
         return "Show{" +
                 "id='" + id + '\'' +
-                ", date='" + date + '\'' +
-                ", time='" + time + '\'' +
+                ", timeStamp=" + timeStamp +
                 ", seatsTaken=" + seatsTaken +
                 ", movieId='" + movieId + '\'' +
                 ", salonId='" + salonId + '\'' +
@@ -49,20 +47,12 @@ public class Show {
         this.id = id;
     }
 
-    public String getDate() {
-        return date;
+    public long getTimeStamp() {
+        return timeStamp;
     }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
+    public void setTimeStamp(long timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
     public ArrayList<Integer> getSeatsTaken() {

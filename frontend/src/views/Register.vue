@@ -36,30 +36,25 @@ export default {
         email: this.email,
         password: this.password,
       };
-      if (!this.users.length) {
-        this.$store.dispatch("addUser", user);
-        this.$router.push("/login");
-      } else {
-        for (let i = 0; i < this.users.length; i++) {
-          if (this.users[i].email === user.email) {
-            this.alreadyMember = true;
-          } else {
-            this.alreadyMember = false;
-          }
+
+      if (!this.userLoggedIn) {
+        // if not logged in
+        if(this.$store.dispatch("register", user)){
+          this.$router.push("/");
+          this.alreadyMember = false
         }
-        if (!this.alreadyMember) {
-          this.$store.dispatch("addUser", user);
-          await this.$router.push("/login");
-          window.location.reload();
+        else{
+          this.alreadyMember = true
+          return
         }
       }
-    },
+    }
   },
   computed: {
-    users() {
-      return this.$store.state.user;
+    userLoggedIn() {
+      return this.$store.state.user != null;
     },
-  },
+  }
 };
 </script>
 
