@@ -187,6 +187,18 @@ span {
   font-size: 2vw;
 }
 
+.btn {
+  background-color: var(--green);
+  opacity: 80%;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn:hover{
+background-color: var(--green);
+opacity: 100%;
+}
+
 @media only screen and (max-width: 992px) {
   .container {
     grid-template-columns: none;
