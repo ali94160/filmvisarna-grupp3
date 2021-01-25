@@ -39,7 +39,10 @@ export default {
       return 1
     },
     seatNumber(){
-      return ((this.seat + 1) + '').split('')[1]
+      if(this.seat/100 > 1){
+        return (this.seat + '').split('')[1] + (this.seat + '').split('')[2]
+      }
+      return (this.seat + '').split('')[1]
     },
     getDate(){
       let millis = this.ticket.timeStamp * 1000;
