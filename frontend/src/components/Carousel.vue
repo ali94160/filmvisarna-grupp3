@@ -2,20 +2,19 @@
   <div v-if="movies" class="carousel carousel-slider center">
     <div class="carousel-item white-text" href="#one!">
       <router-link to="/movies">
-        <button class="carousel-fixed-item btn center toMovies" >Se vårt utbud!</button>
+        <button class="carousel-fixed-item btn center toMovies transparent" >Se vårt utbud!</button>
       </router-link>
       <img src="../assets/carousel-harry-potter.png" alt="">
     </div>
-
-    <div class="carousel-item white-text" href="#three!">
-      <img src="../assets/carousel-batman.png" alt="">
+      <div class="carousel-item white-text" href="">
+        <img src="../assets/carousel-batman.png" alt="">
     </div>
 
-    <div class="carousel-item white-text bottom" href="#four!">
+    <div class="carousel-item white-text height" href="">
       <img src="../assets/carousel-frozen.jpg" alt="">
     </div>
 
-    <div class="carousel-item amber white-text" href="#two!">
+    <div class="carousel-item amber white-text" href="">
       <router-link to="/about">
         <button class="toInfo btn right transparent" >Se våra salonger!</button>
       </router-link>
@@ -52,7 +51,7 @@ export default {
     }
   },
   mounted(){
-    let slideTimeDefault = 100000
+    let slideTimeDefault = 10000
     let elems = document.querySelectorAll(".carousel");
     let instance = M.Carousel.init(elems, {
     fullWidth: true,
@@ -83,8 +82,8 @@ export default {
 
 <style>
 .carousel{
-  width: 70% !important;
-  margin: 2vh auto;
+  width: 85% !important;
+  margin: 3vh auto 5vh;
   height: 30vw !important;
 }
 
@@ -107,8 +106,12 @@ export default {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.carousel-item .bottom img{
-  bottom: 0;
+img{
+  width: 100%;
+}
+
+.height{
+  height: 100%;
 }
 
 </style>
