@@ -139,7 +139,7 @@ div.booked:hover {
 button{
    text-align: center;
     display: block;
-  background: rgb(38, 166, 154);
+  background: var(--green);
   text-transform: uppercase;
   font-weight: 20px;
   color: white;
