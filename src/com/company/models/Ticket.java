@@ -7,8 +7,7 @@ public class Ticket {
     @Id
     private String id;
     private int price;
-    private String date;
-    private String time;
+    private long timeStamp;
     private int[] seats;
     private int childPrice = 65;
     private int seniorPrice = 75;
@@ -32,20 +31,12 @@ public class Ticket {
         this.price = price;
     }
 
-    public String getDate() {
-        return date;
+    public long getTimeStamp() {
+        return timeStamp;
     }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
+    public void setTimeStamp(long timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
     public int[] getSeats() {

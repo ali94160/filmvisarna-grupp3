@@ -79,8 +79,7 @@ export default {
   created() {
     let ticket = {
       price: this.totalPrice,
-      date: this.show.date,
-      time: this.show.time,
+      timeStamp: this.show.timeStamp,
       seats: [...this.bookedChairs],
       userId: this.$store.state.user.id,
       showId: this.show.id,

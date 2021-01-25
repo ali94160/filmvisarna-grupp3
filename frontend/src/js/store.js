@@ -109,8 +109,7 @@ const actions = {
   async addTicket(store, ticket) {
     let newTicket = {
       price: ticket.price,
-      date: ticket.date,
-      time: ticket.time,
+      timeStamp: ticket.timeStamp,
       seats: ticket.seats,
       childPrice: 65,
       seniorPrice: 75,

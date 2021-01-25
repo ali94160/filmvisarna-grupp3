@@ -10,7 +10,7 @@
         alt=""
       />
       <p class="movieTitle">{{ getMovieById(ticket.movieId).title }}</p>
-      <p>{{ ticket.time }} {{ ticket.date }}</p>
+      <p>{{ getTime }} {{ getDate }}</p>
 
       <p>Pris: {{ ticket.price }} kr</p>
     </a>
@@ -58,7 +58,15 @@ export default {
     },
     seatRow(seat){
       return (seat + '').split('')[0]
-    }
+    },
+    getDate(){
+      let millis = this.ticket.timeStamp * 1000;
+      return new Date(millis).toLocaleDateString();
+    },
+    getTime(){
+      let millis = this.ticket.timeStamp * 1000;
+      return new Date(millis).toGMTString().substring(17,22);
+    },
   },
   methods: {
     getMovieById(movieId) {

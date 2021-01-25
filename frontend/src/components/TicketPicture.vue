@@ -2,7 +2,7 @@
   <div class="ticketWrapper">
     <img class="transLogo right" src="../assets/transLogo.png" alt="" />
     <div class="ticketBody">
-      <h5 class="date">{{ ticket.date }}</h5>
+      <h5 class="date">{{ getDate }}</h5>
       <h3 class="ticket center">Biljett</h3>
       <h3 class="movieTitle">{{ movieTitle }}</h3>
       <div class="ticketBodyContent">
@@ -16,7 +16,7 @@
         </div>
         <div>
           <p>Tid</p>
-          <p>{{ ticket.time }}</p>
+          <p>{{ getTime }}</p>
         </div>
       </div>
     </div>
@@ -40,6 +40,14 @@ export default {
     },
     seatNumber(){
       return ((this.seat + 1) + '').split('')[1]
+    },
+    getDate(){
+      let millis = this.ticket.timeStamp * 1000;
+      return new Date(millis).toLocaleDateString();
+    },
+    getTime(){
+      let millis = this.ticket.timeStamp * 1000;
+      return new Date(millis).toGMTString().substring(17,22);
     }
   }
 };
