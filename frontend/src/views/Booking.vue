@@ -7,7 +7,6 @@
         <ChairList @updateSelectedChairs="updateSelectedChairs" @decreaseValues="decreaseValue" @increaseValue="increaseValue" @clear="clear"/>
       </div>
 
-      <div class="info">
 
         <div class="info">
           <div :class="{ tickets: hasThreeTickets }">
