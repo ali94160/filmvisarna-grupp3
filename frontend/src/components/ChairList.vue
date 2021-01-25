@@ -1,6 +1,5 @@
 <template>
   <h3>{{ salon.name }}</h3>
-  <p>Du vill boka: {{ showSelectedSeats }}</p>
   <div class="salon">
     <div
       v-for="(seatsPerRow, row) of salon.seatsPerRow"

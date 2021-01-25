@@ -37,12 +37,9 @@ export default {
       this.movies = this.$store.state.movies
     },
     changeSlide(instance){
-      console.log("before", instance);
       setTimeout(() => {
-        console.log(instance)
         changeSlide(instance);
       },3000)
-      console.log("after");
     }
   },
   computed:{
@@ -57,7 +54,6 @@ export default {
     fullWidth: true,
     indicators: true,
     onCycleTo: function(){
-      console.log("slic", slideTimeDefault);
     }
     });
     let indicatorItems = document.querySelectorAll('.carousel .indicator-item'),

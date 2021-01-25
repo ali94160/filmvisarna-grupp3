@@ -1,1 +1,61 @@
-[ ]
+[ {
+  "id" : "-N9EtaGSTKBCDuZzSN6Ix",
+  "price" : 85,
+  "timeStamp" : 1612461600,
+  "seats" : [ 11 ],
+  "childPrice" : 65,
+  "seniorPrice" : 75,
+  "userId" : "sAhKiOFyoWfUo_DeWtBvS",
+  "showId" : "dMiS25CaqchBn1rV7_4a7",
+  "movieId" : "gtR4rG_xXGSqvFUbYFotn"
+}, {
+  "id" : "oTl_H1d5rht1QCAD0gDHG",
+  "price" : 85,
+  "timeStamp" : 1612202400,
+  "seats" : [ 612 ],
+  "childPrice" : 65,
+  "seniorPrice" : 75,
+  "userId" : "sAhKiOFyoWfUo_DeWtBvS",
+  "showId" : "mV3mRaudInVZ4YZcZJCTc",
+  "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O"
+}, {
+  "id" : "7J9ZG1kqR8F5YpZZ3lq8b",
+  "price" : 130,
+  "timeStamp" : 1612288800,
+  "seats" : [ 0, 1 ],
+  "childPrice" : 65,
+  "seniorPrice" : 75,
+  "userId" : "sAhKiOFyoWfUo_DeWtBvS",
+  "showId" : "-KGdGAEivEPvRZ1c2jyaR",
+  "movieId" : "gtR4rG_xXGSqvFUbYFotn"
+}, {
+  "id" : "H6CGJfNirzDltAPTGR_JX",
+  "price" : 170,
+  "timeStamp" : 1612288800,
+  "seats" : [ 510, 511 ],
+  "childPrice" : 65,
+  "seniorPrice" : 75,
+  "userId" : "sAhKiOFyoWfUo_DeWtBvS",
+  "showId" : "-KGdGAEivEPvRZ1c2jyaR",
+  "movieId" : "gtR4rG_xXGSqvFUbYFotn"
+}, {
+  "id" : "xmtam1gwN8CJW3rq57a4p",
+  "price" : 170,
+  "timeStamp" : 1614189600,
+  "seats" : [ 66, 67 ],
+  "childPrice" : 65,
+  "seniorPrice" : 75,
+  "userId" : "sAhKiOFyoWfUo_DeWtBvS",
+  "showId" : "_TW-ttqPOHy63_eG03eqA",
+  "movieId" : "M66J4NuEIMJuoKgpQ6f0x"
+}, {
+  "id" : "UAmTBInsa-fT9J9LyHlU4",
+  "price" : 170,
+  "timeStamp" : 1614448800,
+  "seats" : [ 45, 46 ],
+  "childPrice" : 65,
+  "seniorPrice" : 75,
+  "userId" : "sAhKiOFyoWfUo_DeWtBvS",
+  "showId" : "Q36m8vfirhYM3VArRALwF",
+  "movieId" : "gtR4rG_xXGSqvFUbYFotn"
+} ]
