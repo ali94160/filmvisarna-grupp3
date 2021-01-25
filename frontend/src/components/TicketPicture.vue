@@ -63,7 +63,7 @@ export default {
   padding: 0;
   width: 90%;
   font-size: calc(0.5vh + 1vw);
-  height: calc(20vh +10vw);
+  height: calc(20vh + 10vw);
 }
 
 .ticketWrapper p{
@@ -83,7 +83,7 @@ export default {
 .ticketBody .ticketBodyContent{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  width: 80%;
+  width: 70%;
 }
 
 .ticketBody .ticketBodyContent div{
@@ -114,6 +114,7 @@ export default {
 
 .barCode {
   padding: 5px;
+  width: 30%;
 }
 
 .movieTitle {
@@ -161,6 +162,13 @@ export default {
 
   .transLogo{
     bottom: 30%;
+  }
+
+  .barCode {
+    width: 80%;
+    float: none !important;
+    display: block;
+    margin: 0 auto;
   }
 }
 </style>
