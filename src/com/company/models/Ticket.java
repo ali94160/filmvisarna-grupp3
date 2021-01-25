@@ -14,6 +14,7 @@ public class Ticket {
     private String userId;
     private String showId;
     private String movieId;
+    private String salonName;
 
     public String getId() {
         return id;
@@ -61,6 +62,14 @@ public class Ticket {
 
     public void setSeniorPrice(int seniorPrice) {
         this.seniorPrice = seniorPrice;
+    }
+
+    public String getSalonName() {
+        return salonName;
+    }
+
+    public void setSalonName(String salonName) {
+        this.salonName = salonName;
     }
 
     public String getUserId() {

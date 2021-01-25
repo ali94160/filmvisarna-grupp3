@@ -2,8 +2,9 @@
   <div class="ticketWrapper">
     <img class="transLogo right" src="../assets/transLogo.png" alt="" />
     <div class="ticketBody">
+      <h5>{{ ticket.salonName }}</h5>
       <h5 class="date">{{ getDate }}</h5>
-      <h3 class="ticket center">Biljett</h3>
+      <h5 class="ticket center">Biljett</h5>
       <h3 class="movieTitle">{{ movieTitle }}</h3>
       <div class="ticketBodyContent">
         <div>
@@ -11,7 +12,7 @@
           <p>{{ row }}</p>
         </div>
         <div>
-          <p>Stolnr</p>
+          <p>Stol</p>
           <p>{{ seatNumber }}</p>
         </div>
         <div>
@@ -30,9 +31,10 @@
 
 <script>
 export default {
-  props: ['ticket', 'movieTitle', 'seat'],
+  props: ['movieTitle', 'seat', 'ticket'],
   computed:{
     row(){
+      console.log('here',this.salon);
       // seat 0 = 11
       if(this.seat > 9){
         return parseInt((this.seat + '').split('')[0]) + 1
@@ -56,8 +58,8 @@ export default {
     getTime(){
       let millis = this.ticket.timeStamp * 1000;
       return new Date(millis).toGMTString().substring(17,22);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -68,10 +70,9 @@ export default {
   grid-template-rows: 5fr 1fr;
   border-radius: 10px;
   margin: calc(5px + 1vh) auto;
-  padding: 0;
   width: 90%;
   font-size: calc(0.5vh + 1vw);
-  height: calc(20vh + 10vw);
+  height: calc(22vh + 12vw);
 }
 
 .ticketWrapper p{
@@ -86,10 +87,14 @@ export default {
   background: linear-gradient(red, var(--red));
   border-radius: 10px 10px 0 0;
   width: 100%;
+  padding: 5px;
 }
-
+.ticketBody > h3,h5,p{ 
+  opacity: 70%;
+}
 .ticketBody .ticketBodyContent{
   display: grid;
+  margin-top: 10%;
   grid-template-columns: 1fr 1fr 1fr;
   width: 70%;
 }
@@ -105,7 +110,7 @@ export default {
 }
 
 .ticket{
-  font-size: 2em;
+  font-size: 1.7em;
 }
 
 .ticketFooter {

@@ -116,6 +116,7 @@ const actions = {
       userId: ticket.userId,
       showId: ticket.showId,
       movieId: state.selectedMovie.id,
+      salonName: ticket.salonName
     };
     let response = await fetch("rest/ticket", {
       method: "POST",

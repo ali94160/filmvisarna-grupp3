@@ -79,6 +79,7 @@ export default {
       seats: [...this.bookedChairs],
       userId: this.$store.state.user.id,
       showId: this.show.id,
+      salonName: this.$store.state.currentSalon.name
     };
 
     this.$store.dispatch("addTicket", ticket);

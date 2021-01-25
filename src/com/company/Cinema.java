@@ -32,7 +32,6 @@ public class Cinema {
             var salon = collection("Salon").find();
             res.json(salon);
         });
-
         app.get("/rest/show",(req, res) ->{
             var show = collection("Show").find();
             res.json(show);

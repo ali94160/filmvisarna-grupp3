@@ -4,7 +4,7 @@
     <div class="coming">
       <h4>Bokningar</h4>
 
-      <Ticket v-for="ticket of getTickets" :key="ticket.id" :id="ticket.id"/>
+      <Ticket v-for="ticket of getTickets" :key="ticket.id" :id="ticket.id" :ticket="ticket"/>
     </div>
 
 
