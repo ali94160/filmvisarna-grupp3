@@ -1,10 +1,18 @@
 <template>
   <div v-if="movies" class="carousel carousel-slider center">
-    <div class="carousel-item red white-text" href="#one!">
+    <div class="carousel-item white-text" href="#one!">
       <router-link to="/movies">
         <button class="carousel-fixed-item btn center toMovies" >Se vårt utbud!</button>
       </router-link>
-      <img src="../assets/harryPotter.png" alt="">
+      <img src="../assets/carousel-harry-potter.png" alt="">
+    </div>
+
+    <div class="carousel-item white-text" href="#three!">
+      <img src="../assets/carousel-batman.png" alt="">
+    </div>
+
+    <div class="carousel-item white-text bottom" href="#four!">
+      <img src="../assets/carousel-frozen.jpg" alt="">
     </div>
 
     <div class="carousel-item amber white-text" href="#two!">
@@ -12,14 +20,6 @@
         <button class="toInfo btn right transparent" >Se våra salonger!</button>
       </router-link>
       <img src="../assets/emptySalon.jpg" alt="">
-    </div>
-
-    <div class="carousel-item green white-text" href="#three!">
-      <img src="../assets/harryPotter.png" alt="">
-    </div>
-
-    <div class="carousel-item blue white-text" href="#four!">
-      <img src="../assets/harryPotter.png" alt="">
     </div>
   </div>
 </template>
@@ -105,6 +105,10 @@ export default {
   margin: 0;
   font-weight: 700;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.carousel-item .bottom img{
+  bottom: 0;
 }
 
 </style>
