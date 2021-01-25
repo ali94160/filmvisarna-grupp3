@@ -67,7 +67,7 @@ export default {
     },
     getTime(show) {
       let millis = show.timeStamp * 1000;
-      return new Date(millis).toTimeString().substring(0, 5);
+      return new Date(millis).toGMTString().substring(17,22);
     },
     myPage() {
       this.$router.push("/mypage");
