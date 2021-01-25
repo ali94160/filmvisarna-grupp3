@@ -131,7 +131,6 @@ h5 {
 }
 
 .salongerna {
-  max-width: 30%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 120px;
