@@ -321,4 +321,69 @@ export default {
   text-align: center;
   border-radius: 5px;
 }
+
+@media only screen and (max-width: 600px){
+ .container{
+  grid-template-columns: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.moviePoster img {
+  margin: 0;
+  float: none !important;
+}
+
+.moviePoster {
+  margin: 0 auto;
+}
+
+.movieInfo {
+  float: none !important;
+  width: 85%;
+  margin: 0;
+}
+
+h3 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.5em;
+  font-weight: bolder;
+  margin: 0;
+}
+.movieInfo{
+  width: 100%;
+
+}
+.movieInfo2{
+  margin: 0 auto;
+}
+.info3 {
+  grid-template-columns: none;
+  margin: 10px auto;
+  max-width: 85%;
+  }
+.theBtn {
+  margin: 2px auto;
+  margin-top: 10px;
+}
+
+.moreMovieInfo {
+  margin-bottom: 0;
+}
+
+.selection {
+  margin:0 auto;
+}
+
+.trailerDiv {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+.movieTrailer{
+  width: 90%;
+  height: 70%;
+  margin: 0 auto;
+}
+
+}
 </style>
