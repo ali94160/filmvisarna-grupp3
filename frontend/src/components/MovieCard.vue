@@ -76,8 +76,7 @@ export default {
 .container {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-gap: 3vw;
-  margin: 0 auto;
+    margin: 0 auto;
   margin-top: 3vh;
   background-color: var(--lightgrey);
   border-radius: 10px;
@@ -92,7 +91,8 @@ export default {
 }
 
 .container div {
-  padding-right: 1.5vw;
+  width: 90%;
+  margin: 0 auto;
 }
 
 img {
@@ -124,6 +124,7 @@ p {
     margin: 10px auto;
     padding: 0;
   }
+
 }
 
 </style>
