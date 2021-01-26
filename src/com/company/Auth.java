@@ -39,7 +39,7 @@ public class Auth {
 
             // Set password to null so it does not leak to hacker
             // remember to add this before all res methods
-            user.setPassword(null);
+            //user.setPassword(null);
 
             // save user in the session of the client
             req.session("current-user", user);
@@ -64,7 +64,7 @@ public class Auth {
             // validate password
             if(HashPassword.match(user.getPassword() + secretSalt, userInColl.getPassword())) {
                 // correct -> login
-                userInColl.setPassword(null);
+                //userInColl.setPassword(null);
                 req.session("current-user", userInColl);
                 res.json(userInColl);
             } else {
