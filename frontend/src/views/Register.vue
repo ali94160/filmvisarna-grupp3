@@ -83,9 +83,9 @@ button {
   cursor: pointer;
   display: block;
   margin: 20px auto;
-  padding: 10px;
+  padding: 10px 32px;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   background: #4caf50;
   opacity: 75%;
   color: white;
