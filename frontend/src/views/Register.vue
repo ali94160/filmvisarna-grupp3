@@ -2,14 +2,14 @@
   <div class="regrister">
     <form v-on:submit.prevent="becomeMember">
       <h3>Bli medlem</h3>
-      <label>Namn</label>
       <input v-model="name" required type="text" />
-      <label>Efternamn</label>
+      <label>Förnamn</label>
       <input v-model="lastName" required type="text" />
-      <label>Email</label>
+      <label>Efternamn</label>
       <input v-model="email" required type="email" />
-      <label>Lösenord</label>
+      <label>E-post</label>
       <input v-model="password" required type="password" />
+      <label>Lösenord</label>
       <p v-if="alreadyMember">Emailen är upptagen..</p>
       <button>Bli medlem</button>
     </form>
@@ -83,12 +83,14 @@ button {
   cursor: pointer;
   display: block;
   margin: 20px auto;
-  padding: 10px;
+  padding: 10px 32px;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   background: #4caf50;
   opacity: 75%;
   color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: medium;
 }
 button:hover {
   opacity: 100%;
@@ -99,5 +101,16 @@ p {
 
 .container {
   margin-bottom: 12.5vw; /* For the footer */
+}
+@media only screen and (max-width: 480px){
+ .regrister {
+  max-width: 70%;
+  margin: 25px auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+h3{
+  font-size: 2em;
+}
 }
 </style>

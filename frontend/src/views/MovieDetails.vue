@@ -21,7 +21,7 @@
       </div>
     </div>
   </div>
-  <div class="info3">
+  <div class="descriptionWrapper">
     <div class="moreMovieInfo">
       <p class="description1"><span class="titleTag">Handling:</span></p>
       <p class="description2">{{ movie.description }}</p>
@@ -44,7 +44,7 @@
         >
       </p>
     </div>
-    <div class="theBtn">
+    <div class="selectionWrapper">
       <select
         @change="fullSalon"
         v-model="showId"
@@ -162,9 +162,8 @@ export default {
   width: 100%;
 }
 
-.theBtn {
+.selectionWrapper {
   margin-top: 10px;
-  margin-right: 140px;
   justify-content: start;
 }
 
@@ -172,7 +171,7 @@ export default {
   margin-bottom: 20px;
 }
 
-.info3 {
+.descriptionWrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   -ms-grid-column-align: center;
@@ -290,9 +289,9 @@ export default {
 .trailerDiv {
   display: block;
   margin: 0 auto;
-  margin-bottom: 100px;
   width: 80%;
   height: 50vw;
+  margin-bottom: 30px;
 }
 
 .trailerDiv iframe{
@@ -330,4 +329,72 @@ export default {
   text-align: center;
   border-radius: 5px;
 }
+
+@media only screen and (max-width: 900px){
+ .container{
+  grid-template-columns: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.moviePoster img {
+  margin: 0;
+  float: none !important;
+  width: 100%;
+}
+
+.moviePoster {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.movieInfo {
+  float: none !important;
+  width: 85%;
+  margin: 0;
+}
+
+h3 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.5em;
+  font-weight: bolder;
+  margin: 0;
+}
+.movieInfo{
+  width: 100%;
+
+}
+.movieInfo2{
+  margin: 0 auto;
+}
+.descriptionWrapper {
+  grid-template-columns: none;
+  margin: 10px auto;
+  max-width: 85%;
+  }
+.selectionWrapper {
+  margin: 2px auto;
+  margin-top: 10px;
+}
+
+.moreMovieInfo {
+  margin-bottom: 0;
+}
+
+.selection {
+  margin:0 auto;
+}
+
+.trailerDiv {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+.movieTrailer{
+  width: 90vw;
+  height: 37vw;
+  margin: 0 auto;
+}
+
+}
+
 </style>

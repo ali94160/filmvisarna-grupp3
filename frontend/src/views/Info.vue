@@ -37,10 +37,10 @@
         <h5>Var är biljetterna?</h5>
         <ul>
           <ol>
-            Dina biljetter som du köpt sparas i Mina sidor.
+            Dina biljetter sparas i Mina sidor.
           </ol>
           <ol>
-            Krävs att du är inloggad för att gå till mina sidor.
+            För att ha tillgång till Mina sidor krävs att du är inloggad.
           </ol>
         </ul>
       </div>
@@ -54,7 +54,7 @@ export default {};
 
 <style scoped>
 img {
-  max-width: 15vw;
+  width: 15vw;
   margin-bottom: 10px;
 }
 
@@ -117,4 +117,44 @@ span{
 .container{
   margin-bottom: 12.5vw; /* For the footer */
 }
+
+@media only screen and (max-width: 700px){
+  .grid {
+    grid-template-columns: none;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+   ol .guide {
+    width: 100%;   
+    margin: 0 auto;
+
+  }
+  
+  .guideDiv li {
+    font-size: 0.8rem;
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  .myPage ol {
+    font-size: 0.8em;
+    padding-left: 0;
+  }
+
+  ul {
+    margin: 5vw;
+  }
+
+  img {
+    width: 20vw;
+  }
+
+  h4 {
+    font-size: 7vw;
+  }
+
+}
+
+
 </style>
