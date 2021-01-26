@@ -322,7 +322,7 @@ export default {
   border-radius: 5px;
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 900px){
  .container{
   grid-template-columns: none;
   margin: 0 auto;
@@ -332,10 +332,12 @@ export default {
 .moviePoster img {
   margin: 0;
   float: none !important;
+  width: 100%;
 }
 
 .moviePoster {
   margin: 0 auto;
+  width: 50%;
 }
 
 .movieInfo {
@@ -380,10 +382,19 @@ h3 {
   margin-bottom: 0;
 }
 .movieTrailer{
-  width: 90%;
-  height: 70%;
+  width: 90vw;
+  height: 37vw;
   margin: 0 auto;
 }
 
+}
+
+@media only screen and (max-width: 900px){
+  img{
+    width: 100%;
+  }
+  .moviePoster{
+    width: 50%;
+  }
 }
 </style>
