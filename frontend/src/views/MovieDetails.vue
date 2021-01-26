@@ -288,7 +288,7 @@ export default {
 }
 .trailerDiv {
   display: block;
-  margin-bottom: 100px;
+  margin-bottom: 30px;
 }
 .selection {
   font-weight: bold;
