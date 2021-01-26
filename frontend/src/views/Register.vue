@@ -2,14 +2,14 @@
   <div class="regrister">
     <form v-on:submit.prevent="becomeMember">
       <h3>Bli medlem</h3>
-      <label>Namn</label>
       <input v-model="name" required type="text" />
-      <label>Efternamn</label>
+      <label>Förnamn</label>
       <input v-model="lastName" required type="text" />
-      <label>Email</label>
+      <label>Efternamn</label>
       <input v-model="email" required type="email" />
-      <label>Lösenord</label>
+      <label>E-post</label>
       <input v-model="password" required type="password" />
+      <label>Lösenord</label>
       <p v-if="alreadyMember">Emailen är upptagen..</p>
       <button>Bli medlem</button>
     </form>
@@ -89,6 +89,8 @@ button {
   background: #4caf50;
   opacity: 75%;
   color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: medium;
 }
 button:hover {
   opacity: 100%;
