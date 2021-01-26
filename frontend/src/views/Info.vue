@@ -124,9 +124,17 @@ span{
     width: 100%;
     margin: 0 auto;
   }
+
+   ol .guide {
+    width: 100%;   
+    margin: 0 auto;
+
+  }
   
   .guideDiv li {
     font-size: 0.8rem;
+    width: 85%;
+    margin: 0 auto;
   }
 
   .myPage ol {
