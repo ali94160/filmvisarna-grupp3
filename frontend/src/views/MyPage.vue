@@ -31,6 +31,9 @@ export default {
       for(let ticket of this.$store.state.currentUserTickets){
         if((ticket.timeStamp * 1000) > new Date().getTime()){
           filteredTickets.push(ticket);
+          filteredTickets.sort((a, b) => {
+            return a.timeStamp - b.timeStamp;
+             });
         }
         else{
           this.historyTickets.push(ticket);
