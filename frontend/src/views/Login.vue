@@ -1,13 +1,13 @@
 <template>
   <form v-on:submit.prevent="logIn">
     <h3>Logga in</h3>
-    <label>Epost:</label>
     <input required v-model="email" type="email" />
-    <label>Lösenord:</label>
+    <label>E-post</label>
     <input required v-model="password" type="password" />
-    <p class="failedLogin" v-if="errorMessage">Ej giltigt Epost/lösenord</p>
-    <button>Logga in</button>
-    <button @click="goToRegister">Registrera</button>
+    <label>Lösenord</label>
+    <p class="failedLogin" v-if="errorMessage">Ogiltig E-post/Lösenord</p>
+    <button id="btn1">Logga in</button>
+    <button id="btn2" @click="goToRegister">Registrera</button>
   </form>
 
   <div class="loginFeatures">
@@ -117,11 +117,10 @@ form {
 }
 
 form > button {
-  margin: 15px 5px 5px 0px;
   background-color: #4caf50;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 12px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -129,6 +128,17 @@ form > button {
   width: 100%;
   opacity: 75%;
   cursor: pointer;
+  border-radius: 8px;
+  font-size: medium;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#btn1 {
+  margin-top: 20px;
+}
+#btn2{
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
 form > button:hover {
@@ -161,14 +171,22 @@ li::before {
 
 .failedLogin {
   text-align: center;
-  color: rgb(216, 0, 0);
+  color:white;
+  background-color: crimson;
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 15px;
+  padding: 5px;
+  border: crimson;
+  border-radius: 10px;
+  opacity: 80%;
 }
-
+/*
 .failedLogin::before {
   content: "!";
   margin-right: 8px;
   color: red;
   font-size: 15px;
   font-weight: bolder;
-}
+}*/
 </style>
