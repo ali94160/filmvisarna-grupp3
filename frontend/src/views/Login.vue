@@ -74,6 +74,12 @@ export default {
   text-align: center;
   font-weight: bold;
   grid-gap: 20px;
+  padding: 10px;
+  max-width: 700px;
+  width: 80%;
+  margin: 0 auto;
+  background: rgba(49, 45, 45, 0.664);
+  border-radius: 8px;
 }
 
 img {
@@ -98,6 +104,7 @@ form {
   margin: 30px auto;
   border-radius: 10px;
   max-width: 300px;
+  width: 80%;
   margin-bottom: 50px;
 }
 
@@ -124,14 +131,6 @@ form > input {
   color: white;
 }
 
-.loginFeatures {
-  padding: 10px;
-  max-width: 700px;
-  margin: 0 auto;
-  background: rgba(49, 45, 45, 0.664);
-
-  border-radius: 8px;
-}
 h4 {
   text-align: center;
 }
@@ -155,5 +154,11 @@ li::before {
   color: red;
   font-size: 15px;
   font-weight: bolder;
+}
+
+@media only screen and (max-width: 480px){
+  .loginFeatures p{
+    font-size: 3vw;
+  }
 }
 </style>
