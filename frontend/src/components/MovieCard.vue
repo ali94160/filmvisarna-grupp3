@@ -6,8 +6,9 @@
       <p><span class="titleTag">Åldersgräns:</span> {{ movie.age }}</p>
       <p>
         <span class="titleTag">Genre:</span>
-        <span v-for="genre in movie.genre" :key="genre.is">{{
-          " " + genre + " "
+        <span v-for="(genre,index) in movie.genre" :key="index">{{
+          ' ' + genre + 
+          (movie.genre.length == index + 1 ? '' : ', ')
         }}</span>
       </p>
       <p><span class="titleTag">Språk:</span> {{ movie.languages[0] }}</p>
