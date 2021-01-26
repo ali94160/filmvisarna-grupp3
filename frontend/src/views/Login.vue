@@ -47,9 +47,9 @@ export default {
     async logIn() {
       let member = {
         email: this.email,
-        password: this.password
-      }
-      await this.$store.dispatch('login', member) //inloggning
+        password: this.password,
+      };
+      await this.$store.dispatch("login", member); //inloggning
       if (this.user) {
         this.errorMessage = false;
         await this.$router.push("/");

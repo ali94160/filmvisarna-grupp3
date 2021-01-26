@@ -41,6 +41,7 @@ export default {
         // if not logged in
         if(this.$store.dispatch("register", user)){
           this.$router.push("/");
+          M.toast({ html: "✓ Inloggning lyckades", classes: "color: green" });
           this.alreadyMember = false
         }
         else{
