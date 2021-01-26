@@ -31,33 +31,34 @@
 
 <script>
 export default {
-  props: ['movieTitle', 'seat', 'ticket'],
-  computed:{
-    row(){
-      console.log('here',this.salon);
+  props: ["movieTitle", "seat", "ticket"],
+  computed: {
+    row() {
+      console.log("here", this.salon);
       // seat 0 = 11
-      if(this.seat > 9){
-        return parseInt((this.seat + '').split('')[0]) + 1
+      if (this.seat > 9) {
+        return parseInt((this.seat + "").split("")[0]) + 1;
       }
-      return 1
+      return 1;
     },
-    seatNumber(){
-      if(this.seat/100 > 1){
-        return parseInt((this.seat + '').split('')[1] + (this.seat + '').split('')[2]) + 1
-      }
-      else if(this.seat/10 > 1){
-        return parseInt((this.seat + '').split('')[1]) + 1
-      }
-      else
-        return this.seat + 1
+    seatNumber() {
+      if (this.seat / 100 > 1) {
+        return (
+          parseInt(
+            (this.seat + "").split("")[1] + (this.seat + "").split("")[2]
+          ) + 1
+        );
+      } else if (this.seat / 10 > 1) {
+        return parseInt((this.seat + "").split("")[1]) + 1;
+      } else return this.seat + 1;
     },
-    getDate(){
+    getDate() {
       let millis = this.ticket.timeStamp * 1000;
       return new Date(millis).toLocaleDateString();
     },
-    getTime(){
+    getTime() {
       let millis = this.ticket.timeStamp * 1000;
-      return new Date(millis).toGMTString().substring(17,22);
+      return new Date(millis).toGMTString().substring(17, 22);
     },
   },
 };
@@ -75,7 +76,7 @@ export default {
   height: calc(22vh + 12vw);
 }
 
-.ticketWrapper p{
+.ticketWrapper p {
   margin-bottom: 0;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 2em;
@@ -83,33 +84,35 @@ export default {
   margin: 0;
 }
 
-.ticketBody{
+.ticketBody {
   background: linear-gradient(red, var(--red));
   border-radius: 10px 10px 0 0;
   width: 100%;
   padding: 5px;
 }
-.ticketBody > h3,h5,p{ 
+.ticketBody > h3,
+h5,
+p {
   opacity: 70%;
 }
-.ticketBody .ticketBodyContent{
+.ticketBody .ticketBodyContent {
   display: grid;
   margin-top: 10%;
   grid-template-columns: 1fr 1fr 1fr;
   width: 70%;
 }
 
-.ticketBody .ticketBodyContent div{
+.ticketBody .ticketBodyContent div {
   text-align: center;
 }
 
-.date{
+.date {
   position: absolute;
   right: 5%;
   font-size: 1.5em;
 }
 
-.ticket{
+.ticket {
   font-size: 1.7em;
 }
 
@@ -117,6 +120,7 @@ export default {
   color: black;
   background: white;
   border-radius: 0 0 10px 10px;
+  margin-bottom: 10px;
 }
 
 .ID {
@@ -141,7 +145,7 @@ export default {
   margin-bottom: 0;
 }
 
-.modal-footer{
+.modal-footer {
   color: var(--darkgrey);
   width: 100%;
   background: white;
@@ -163,17 +167,17 @@ export default {
 }
 
 @media screen and (max-width: 800px) {
-  .ticketWrapper{
+  .ticketWrapper {
     height: 30vh;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .ticketWrapper{
+  .ticketWrapper {
     height: 28vh;
   }
 
-  .transLogo{
+  .transLogo {
     bottom: 30%;
   }
 
