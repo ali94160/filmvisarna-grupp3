@@ -1,10 +1,9 @@
 <template>
   <div class="ticketWrapper">
-    <img class="transLogo right" src="../assets/transLogo.png" alt="" />
     <div class="ticketBody">
-      <h5>{{ ticket.salonName }}</h5>
       <h5 class="date">{{ getDate }}</h5>
       <h5 class="ticket center">Biljett</h5>
+      <h5>{{ ticket.salonName }}</h5>
       <h3 class="movieTitle">{{ movieTitle }}</h3>
       <div class="ticketBodyContent">
         <div>
@@ -18,6 +17,9 @@
         <div>
           <p>Tid</p>
           <p>{{ getTime }}</p>
+        </div>
+        <div>
+          <img class="transLogo right" src="../assets/transLogo2.png" alt="" />
         </div>
       </div>
     </div>
@@ -74,6 +76,7 @@ export default {
   width: 90%;
   font-size: calc(0.5vh + 1vw);
   height: calc(22vh + 12vw);
+  margin-bottom: calc(50px + 1vw);
 }
 
 .ticketWrapper p {
@@ -89,6 +92,7 @@ export default {
   border-radius: 10px 10px 0 0;
   width: 100%;
   padding: 5px;
+
 }
 .ticketBody > h3,
 h5,
@@ -98,8 +102,9 @@ p {
 .ticketBody .ticketBodyContent {
   display: grid;
   margin-top: 10%;
-  grid-template-columns: 1fr 1fr 1fr;
-  width: 70%;
+  grid-template-columns: 1fr 1fr 1fr 2fr;
+  height: 50%;
+  width: 100%;
 }
 
 .ticketBody .ticketBodyContent div {
@@ -154,10 +159,8 @@ p {
 
 .transLogo {
   opacity: 30%;
-  width: 40%;
-  position: absolute;
-  right: 0;
-  bottom: 10%;
+  width: 100%;
+  margin-bottom: 10%;
 }
 
 @media screen and (min-width: 800px) {
