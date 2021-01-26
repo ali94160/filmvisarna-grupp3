@@ -21,7 +21,7 @@
       </div>
     </div>
   </div>
-  <div class="info3">
+  <div class="descriptionWrapper">
     <div class="moreMovieInfo">
       <p class="description1"><span class="titleTag">Handling:</span></p>
       <p class="description2">{{ movie.description }}</p>
@@ -44,7 +44,7 @@
         >
       </p>
     </div>
-    <div class="theBtn">
+    <div class="selectionWrapper">
       <select
         @change="fullSalon"
         v-model="showId"
@@ -162,9 +162,8 @@ export default {
   width: 100%;
 }
 
-.theBtn {
+.selectionWrapper {
   margin-top: 10px;
-  margin-right: 140px;
   justify-content: start;
 }
 
@@ -172,7 +171,7 @@ export default {
   margin-bottom: 20px;
 }
 
-.info3 {
+.descriptionWrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   -ms-grid-column-align: center;
@@ -359,12 +358,12 @@ h3 {
 .movieInfo2{
   margin: 0 auto;
 }
-.info3 {
+.descriptionWrapper {
   grid-template-columns: none;
   margin: 10px auto;
   max-width: 85%;
   }
-.theBtn {
+.selectionWrapper {
   margin: 2px auto;
   margin-top: 10px;
 }
@@ -389,12 +388,4 @@ h3 {
 
 }
 
-@media only screen and (max-width: 900px){
-  img{
-    width: 100%;
-  }
-  .moviePoster{
-    width: 50%;
-  }
-}
 </style>
