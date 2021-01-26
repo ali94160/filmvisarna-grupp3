@@ -102,4 +102,15 @@ p {
 .container {
   margin-bottom: 12.5vw; /* For the footer */
 }
+@media only screen and (max-width: 480px){
+ .regrister {
+  max-width: 70%;
+  margin: 25px auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+h3{
+  font-size: 2em;
+}
+}
 </style>
