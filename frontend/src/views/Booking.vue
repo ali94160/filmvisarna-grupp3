@@ -103,7 +103,7 @@ export default {
       return this.chosenSeats > 3;
     },
     getCurrentMovie() {
-      return this.$store.state.currentMovie;
+      return this.$store.state.selectedMovie;
     },
     selectedSeats() {
       return this.$store.state.selectedSeats;
@@ -116,8 +116,11 @@ export default {
 * {
   margin: 0;
 }
-.wrapper {
-  margin-top: 10vh;
+.wrapper{
+  margin-top: calc(5vh + 1vw);
+}
+.wrapper, #bookingDiv {
+  width: 100%;
 }
 h1 {
   font-size: 5vw;
@@ -164,28 +167,6 @@ span {
   background: rgb(29, 29, 29);
 }
 
-.value-button {
-  display: inline-block;
-  border: 1px solid #ddd;
-  width: calc(2vh + 2vw);
-  height: calc(2vh + 2vw);
-  text-align: center;
-  background: rgb(192, 192, 192);
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  color: black;
-  font-weight: bold;
-  font-size: 3vh;
-}
-
-.value-button:hover {
-  cursor: pointer;
-}
-
 .tickets {
   width: 400px;
   height: 50vh;
@@ -215,5 +196,6 @@ opacity: 100%;
   .container {
     grid-template-columns: none;
   }
+
 }
 </style>
