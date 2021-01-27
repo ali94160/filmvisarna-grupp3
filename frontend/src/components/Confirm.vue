@@ -1,8 +1,9 @@
 <template>
   <div>
     <h4 class="title">Tack för din beställning!</h4>
+
     <div class="info">
-      <div>
+      <div class="poster">
         <img :src="movie.imgUrl" alt="" />
       </div>
       <div>
@@ -13,13 +14,16 @@
         <p>Antal biljetter: {{ amountOfTickets }}</p>
       </div>
     </div>
+
     <div class="payment">
       <h5>Att betala: {{ totalPrice }} kr</h5>
     </div>
+
     <div class="buttons">
       <button @click="homePage">Startsidan</button>
       <button @click="myPage">Mina sidor</button>
     </div>
+    
   </div>
 </template>
 
@@ -101,16 +105,20 @@ div {
   box-shadow: 0px 0px 15px 1px rgb(61, 61, 61);
   border-radius: 15px;
   padding: 30px;
-  max-width: 40%;
+  width: 55%;
+  min-width: 400px;
+  max-width: 600px;
   margin: 30px auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-gap: 3vw;
 }
 .info img {
   box-shadow: 0 0 7px 0.1px #7e7e7e;
   border-radius: 15px;
   display: block;
   max-width: 200px;
+  width: 100%;
   justify-self: center;
 }
 .info p {
@@ -124,16 +132,17 @@ div {
   font-weight: bold;
   text-align: start;
   margin-bottom: 20px;
+  font-size: calc(15px + 1vw);
 }
 .payment {
-  max-width: 40%;
+  width: 40%;
   background: var(--red);
   padding: 10px;
   border-radius: 15px;
   margin: 5px auto;
 }
 .buttons {
-  max-width: 40%;
+  width: 40%;
   margin: 10px auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -152,5 +161,54 @@ div {
 }
 .buttons button:hover {
   opacity: 100%;
+}
+@media only screen and (max-width: 700px)  {
+
+  .payment {
+    border-radius: 5px;
+  }
+  .buttons button{
+    padding: 15px;
+    font-size: calc(8px + 1vw);
+    border-radius: 5px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .info {
+    width: 85%;
+    min-width: 0;
+    grid-template-columns: none;
+  }
+
+  .poster {
+    margin: 0 auto;
+  }
+
+  .payment h5{
+    font-size: calc(10px + 1.5vw);
+  }
+
+  .payment {
+    width: 60%;
+    border-radius: 5px;
+    padding: 5px;
+  }
+
+  .title {
+    margin: 2vw;
+    margin-top: 0.5vw;
+  }
+
+  .buttons {
+    margin:0 auto;
+    width: 60%;
+  }
+
+  .buttons button {
+    padding: 10px;
+    font-size: calc(8px + 1vw);
+    border-radius: 5px;
+  }
 }
 </style>
