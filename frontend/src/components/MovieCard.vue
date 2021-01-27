@@ -6,33 +6,78 @@
       <p><span class="titleTag">Åldersgräns:</span> {{ movie.age }}</p>
       <p>
         <span class="titleTag">Genre:</span>
-        <span v-for="genre in movie.genre" :key="genre.is">{{
-          " " + genre + " "
+        <span v-for="(genre,index) in movie.genre" :key="index">{{
+          ' ' + genre + 
+          (movie.genre.length == index + 1 ? '' : ', ')
         }}</span>
       </p>
       <p><span class="titleTag">Språk:</span> {{ movie.languages[0] }}</p>
-      <p><span class="titleTag">Handling:</span> {{ movie.description }}</p>
+      <p>
+        <span class="titleTag">Handling:</span>
+        <span v-if="!smallWidth">{{ movie.description }}</span>
+        <span v-else>{{ shortenText(movie.description, window.width/2) }}</span>
+      </p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  data(){
+    return{
+      window: {
+          width: 0,
+          height: 0
+      }
+    }
+  },
   props: ["movie"],
   methods: {
     goToDetails() {
       this.$router.push("/moviedetails/" + this.movie.id);
     },
+    handleResize() {
+      this.window.width = window.innerWidth;
+      this.window.height = window.innerHeight;
+    },
+    shortenText(text, length){
+      let clamp = '...'
+      let truncatedText = text
+      if(text.length > length){
+        truncatedText = text.slice(0, length)
+        truncatedText = truncatedText.slice(0, truncatedText.lastIndexOf(' ')) + clamp
+      }
+
+      return truncatedText
+    }
   },
+  created(){
+    this.windowWidth = window.innerWidth;
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize);
+  },
+  computed:{
+    smallWidth(){
+        return this.window.width < 480
+    }
+  }
+
 };
 </script>
 
 <style scoped>
+.overflow{
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .container {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-gap: 3vw;
-  margin: 0 auto;
+    margin: 0 auto;
   margin-top: 3vh;
   background-color: var(--lightgrey);
   border-radius: 10px;
@@ -47,11 +92,12 @@ export default {
 }
 
 .container div {
-  padding-right: 1.5vw;
+  width: 90%;
+  margin: 0 auto;
 }
 
 img {
-  width: 100%;
+  width: 90%;
   margin: 5%; 
   border-radius: 10px;
 }
@@ -71,8 +117,15 @@ p {
 
 @media only screen and (max-width: 480px){
   .container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: none;
+    padding: 0;
   }
+  div img{
+    width: 90%;
+    margin: 10px auto;
+    padding: 0;
+  }
+
 }
 
 </style>

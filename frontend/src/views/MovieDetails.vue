@@ -288,8 +288,17 @@ export default {
 }
 .trailerDiv {
   display: block;
+  margin: 0 auto;
+  width: 80%;
+  height: 50vw;
   margin-bottom: 30px;
 }
+
+.trailerDiv iframe{
+  width: 100%;
+  height: 100%;
+}
+
 .selection {
   font-weight: bold;
   outline: none;

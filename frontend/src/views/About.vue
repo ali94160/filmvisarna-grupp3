@@ -1,24 +1,29 @@
 <template>
   <div class="container">
-    <img class="loggan" :src="loggan" /><a class="logoName">Filmvisarna</a>
+    <div class="logo">
+      <img class="loggan" :src="loggan" /><a class="logoName">Filmvisarna</a>
+    </div>
     <hr />
-    <h4>Vilka är vi?</h4>
+    <div class="aboutUsInfo">
+      <h4>Vilka är vi?</h4>
 
-    <p>
-      <span
-        >Filmvisarna grundades Januari 2021 av en grupp studerandra från Teknik
-        Högskolan i Lund.
-      </span>
-      <br />
-      <span>
-        Gruppens medlemmar: Alex, Ali, Anna, Isabella, Lukas, Oscar, Qiling.
-      </span>
-      <br />
-      <span
-        >Filmvisarna har som mål att leverera dem bästa och senaste filmerna i
-        marknaden. Vi riktar vårat utbud mot alla åldrar.</span
-      >
-    </p>
+      <p>
+        <span
+          >Filmvisarna grundades Januari 2021 av en grupp studerandra från Teknik
+          Högskolan i Lund.
+        </span>
+        <br />
+        <span>
+          Gruppens medlemmar: Alex, Ali, Anna, Isabella, Lukas, Oscar, Qiling.
+        </span>
+        <br />
+        <span
+          >Filmvisarna har som mål att leverera dem bästa och senaste filmerna i
+          marknaden. Vi riktar vårat utbud mot alla åldrar.</span
+        >
+      </p>
+    </div>
+    <br>
 
     <h4 class="salTitle">Salonger</h4>
     <div class="salongerna">
@@ -42,7 +47,7 @@
         <h5 class="lilTitle">Lilla salongen</h5>
         <img
           src="https://i.postimg.cc/rpHdphWk/Ska-rmavbild-2021-01-16-kl-00-38-09.png"
-          alt=""
+          class="stora"
         />
 
         <p class="lilInfo">
@@ -67,20 +72,30 @@ export default {
 </script>
 
 <style scoped>
+.container{
+  max-width: 900px;
+  width: 80%;
+}
+.logo{
+  width: 100%;
+  margin: 5vh 0;
+  text-align: center;
+  height: 100%;
+}
 .lol {
   position: relative;
   margin: 0 auto;
 }
 .logoName {
   position: relative;
-  bottom: 60px;
-  font-size: 80px;
+  bottom: calc(30px + 2vw);
+  font-size: calc(16px + 4vw);
   color: white;
 }
 
 .loggan {
-  margin: 50px 50px 10px 9vw;
   max-width: 200px;
+  width: 30%;
 }
 
 .salTitle {
@@ -111,7 +126,7 @@ h5 {
 
 .lillaImg img {
   box-shadow: 0px 0px 15px 1px rgb(61, 61, 61);
-  max-width: 31vw;
+  width: 31vw;
 }
 
 .lilInfo {
@@ -127,15 +142,30 @@ h5 {
 
 .stora {
   box-shadow: 0px 0px 10px 1px rgb(61, 61, 61);
-  max-width: 30vw;
+  width: 30vw;
 }
 
 .salongerna {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 120px;
+  grid-gap: 10vw;
 }
 .storaText {
   margin: 0;
+}
+
+@media only screen and (max-width: 480px) {
+  .salongerna {
+    grid-template-columns: none;
+  }
+
+  .storaImg, .lillaImg{
+    text-align: center;
+  }
+
+  .storaImg img, .lillaImg img{
+    width: 100%;
+  }
+
 }
 </style>

@@ -11,23 +11,21 @@
   </form>
 
   <div class="loginFeatures">
-    <div class="one">
+    <div>
       <img src="../assets/tickets.png" alt="" />
       <p>Boka biljetter snabbt och säkert</p>
     </div>
 
-    <div class="two">
+    <div>
       <img src="../assets/seats.png" alt="" />
       <p>Boka en eller flera platser</p>
     </div>
 
-    <div class="three">
-      <img src="../assets/popcorn.png" alt="" />
-      <img class="soda" src="../assets/soda.png" alt="" />
+    <div>
+      <img src="../assets/popcorn-and-soda.png" alt="" />
       <p>Erbjudande vid kiosken</p>
     </div>
   </div>
-  <div class="container"></div>
 </template>
 
 <script>
@@ -70,30 +68,23 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  margin-bottom: 4.7vw; /* For the footer */
-}
-
 .loginFeatures {
   display: grid;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: repeat(3, 1fr);
   text-align: center;
   font-weight: bold;
   grid-gap: 20px;
-}
-.three {
-  max-width: 80%;
+  padding: 10px;
+  max-width: 700px;
+  width: 80%;
+  margin: 0 auto;
+  background: rgba(49, 45, 45, 0.664);
+  border-radius: 8px;
 }
 
 img {
-  max-width: 200px;
-  max-height: 100px;
-}
-
-.soda {
-  max-width: 180px;
-  max-height: 85px;
-  margin-bottom: 7%;
+  width: 80%;
+  margin: 0 auto;
 }
 
 h3 {
@@ -113,6 +104,7 @@ form {
   margin: 30px auto;
   border-radius: 10px;
   max-width: 300px;
+  width: 80%;
   margin-bottom: 50px;
 }
 
@@ -149,14 +141,6 @@ form > input {
   color: white;
 }
 
-.loginFeatures {
-  padding: 10px;
-  max-width: 700px;
-  margin: 0 auto;
-  background: rgba(49, 45, 45, 0.664);
-
-  border-radius: 8px;
-}
 h4 {
   text-align: center;
 }
@@ -188,5 +172,12 @@ li::before {
   color: red;
   font-size: 15px;
   font-weight: bolder;
+}
+
 }*/
+@media only screen and (max-width: 480px){
+  .loginFeatures p{
+    font-size: 3vw;
+  }
+}
 </style>
