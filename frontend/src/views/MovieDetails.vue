@@ -282,7 +282,7 @@ export default {
 .movieTrailer {
   display: block;
   margin: 0 auto;
-  width: 65vw;
+  width: 20vw;
   height: 55vh;
   border-radius: 10px;
 }
@@ -290,7 +290,7 @@ export default {
   display: block;
   margin: 0 auto;
   width: 80%;
-  height: 50vw;
+  height: 35vw;
   margin-bottom: 30px;
 }
 
