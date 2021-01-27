@@ -1,10 +1,10 @@
 <template>
-  <div class="container row">
-    <div class="input-field col l3">
+  <div class="inputWrapper">
+    <div class="input-field ">
       <span>Vuxen/Barn/Pensionär</span>
     </div>
 
-    <div class="input-field col l3" id="selectDiv">
+    <div class="input-field" id="selectDiv">
       <select v-on:change="onChange" class="select text-white" id="selectPrice">
         <option value="" disabled selected>Välj</option>
         <option value="1">Vuxen</option>
@@ -14,8 +14,8 @@
       <!--<label for="ticket">Biljett {{ticketNumber}}</label>-->
     </div>
 
-    <div class="col l2 right">
-      <span>{{price}}kr</span>
+    <div class="input-field">
+      <span class="right">{{price}}kr</span>
       <!--<span v-show="price>0">{{price}} kr</span>-->
     </div>
   </div>
@@ -53,14 +53,21 @@ span {
   color: var(--lightgrey);
   display: table-cell;
   vertical-align: bottom;
-  padding: 10px;
-  font-size: 1em;
+  padding: 0px;
+  font-size: calc(10px + 0.5vw);
 }
 
-.container .row{
+.inputWrapper{
   height: 6vh; 
   margin-bottom: 10vh;
-  display: table;
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.5fr;
+  grid-gap: 2vw;
+}
+
+.input-field {
+  margin: 0 !important;
+  align-self: end;
 }
 
 .col{
@@ -70,5 +77,12 @@ span {
   color: black;
 }
 
+@media only screen and (max-width: 480px) {
+  span{
+    font-size: 0.6em;
+    padding: 0;
+  }
+
+}
 
 </style>

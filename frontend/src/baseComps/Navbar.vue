@@ -112,6 +112,10 @@ nav {
   font-size: 1rem;
 }
 
+.container .hide-on-med-and-down{
+  margin-left: 20px;
+}
+
 @media screen and (max-width: 360px) {
   .logoName {
     display: none;
