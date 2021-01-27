@@ -157,7 +157,7 @@ export default {
   color: black;
   background: white;
   margin: 10px auto;
-  width: 400px;
+  width: 80%;
 }
 .h3Div{
   margin-bottom: 30px;
@@ -178,8 +178,8 @@ p {
 }
 
 .material-icons {
-  font-size: 1.8rem;
-  padding: 5px;
+  font-size: 1.5rem;
+  padding: 2px;
 }
 
 div > .seats {
@@ -225,5 +225,13 @@ button {
 button:hover {
   background: crimson;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 700px){
+
+  .material-icons{
+    font-size: 4.8vw;
+    padding: 2px;
+  }
 }
 </style>

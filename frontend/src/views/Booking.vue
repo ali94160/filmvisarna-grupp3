@@ -1,12 +1,16 @@
 <template>
-<div class="wrapper">
-  <div id="#bookingDiv" v-if="!booked">
-    <h1>{{ getCurrentMovie.title }}</h1>
-    <div class="container">
-      <div class="salon">
-        <ChairList @updateSelectedChairs="updateSelectedChairs" @decreaseValues="decreaseValue" @increaseValue="increaseValue" @clear="clear"/>
-      </div>
-
+  <div class="wrapper">
+    <div id="#bookingDiv" v-if="!booked">
+      <h1>{{ getCurrentMovie.title }}</h1>
+      <div class="container">
+        <div class="salon">
+          <ChairList
+            @updateSelectedChairs="updateSelectedChairs"
+            @decreaseValues="decreaseValue"
+            @increaseValue="increaseValue"
+            @clear="clear"
+          />
+        </div>
 
         <div class="info">
           <div :class="{ tickets: hasThreeTickets }">
@@ -27,7 +31,11 @@
       </div>
     </div>
 
-  <Confirm v-if="booked" :ticketPrices="ticketPrices" :bookedChairs="selectedChairs"/>
+    <Confirm
+      v-if="booked"
+      :ticketPrices="ticketPrices"
+      :bookedChairs="selectedChairs"
+    />
   </div>
 </template>
 
@@ -42,7 +50,7 @@ export default {
       selectedChairs: [],
       maxSeats: 81,
       ticketPrices: [],
-      booked: false
+      booked: false,
     };
   },
 
@@ -59,10 +67,10 @@ export default {
         this.ticketPrices[this.chosenSeats] = 0;
       }
     },
-    clear(){
+    clear() {
       this.chosenSeats = 0;
       this.ticketPrices = [];
-      console.log(' in clear');
+      console.log(" in clear");
     },
     increaseValue() {
       if (this.chosenSeats < this.maxSeats) this.chosenSeats++;
@@ -72,15 +80,20 @@ export default {
       this.ticketPrices[ticketNumber - 1] = price;
     },
 
-    changeBooked(){
-      if(this.ticketPrices.filter(p => p !== 0).length === this.$store.state.selectedSeats && this.chosenSeats && this.ticketPrices.length){
-        console.log('inne');
-        this.booked = !this.booked
+    changeBooked() {
+      if (
+        this.ticketPrices.filter((p) => p !== 0).length ===
+          this.$store.state.selectedSeats &&
+        this.chosenSeats &&
+        this.ticketPrices.length
+      ) {
+        console.log("inne");
+        this.booked = !this.booked;
       }
     },
-    updateSelectedChairs(selectedChairs){
-      this.selectedChairs = selectedChairs
-    }
+    updateSelectedChairs(selectedChairs) {
+      this.selectedChairs = selectedChairs;
+    },
   },
 
   computed: {
@@ -94,7 +107,9 @@ export default {
     getTotalPrice() {
       let sum = 0;
       for (let i = 0; i < this.ticketPrices.length; i++) {
-        if(this.ticketPrices[i] == undefined){ continue; }
+        if (this.ticketPrices[i] == undefined) {
+          continue;
+        }
         sum += this.ticketPrices[i];
       }
       return sum;
@@ -206,14 +221,36 @@ span {
   margin: 0 auto;
 }
 
-.btn:hover{
-background-color: var(--green);
-opacity: 100%;
+.btn:hover {
+  background-color: var(--green);
+  opacity: 100%;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1000px) {
+  
+}
+
+@media only screen and (max-width: 700px) {
   .container {
     grid-template-columns: none;
   }
+
+  .salon {
+    width: 100%;
+  }
+
+  .info {
+    padding: 0 5vw;
+    padding-top: 8vw;
+    padding-bottom: 4vw;
+  }
+
+  #totalPrice {
+    font-size: 1.2em;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+  }
 }
+
+
 </style>
