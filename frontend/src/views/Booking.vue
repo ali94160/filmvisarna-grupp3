@@ -1,7 +1,6 @@
 <template>
 <div class="wrapper">
   <div id="#bookingDiv" v-if="!booked">
-    <h1>{{ getCurrentMovie.title }}</h1>
     <div class="container">
       <div class="salon">
         <ChairList @updateSelectedChairs="updateSelectedChairs" @decreaseValues="decreaseValue" @increaseValue="increaseValue" @clear="clear"/>
