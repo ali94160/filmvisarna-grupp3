@@ -80,4 +80,14 @@ h4 {
   border-radius: 2%;
   background: rgb(29, 29, 29);
 }
+
+@media only screen and (max-width: 480px) {
+  .container{
+    grid-template-columns: none;
+  }
+
+  .container div {
+    margin: 2vw;
+  }
+}
 </style>
