@@ -132,9 +132,10 @@ export default {
 }
 
 .modal-close {
-  position: absolute;
+  position: sticky;
   z-index: 1;
   right: 5%;
+  top: 5%;
   opacity: 80%;
   font-size: 30px;
   margin-bottom: 15px;

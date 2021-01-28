@@ -70,8 +70,7 @@ export default {
   display: grid;
   grid-template-rows: 5fr 1fr;
   border-radius: 10px;
-  margin: calc(5px + 1vh) auto;
-  margin-bottom: 100px;
+  margin: 50px auto calc(20px + 1vh + 1vw);
   width: 90%;
   font-size: calc(0.5vh + 1vw);
 }
@@ -164,17 +163,18 @@ p {
   .ticketBodyContent p {
     font-size: calc(16px + 6 * ((100vw - 320px) / 680));
   }
+
+  .movieTitle{
+    font-size: 24px;
+  }
 }
 
 @media screen and (max-width: 800px) {
-  .ticketWrapper {
-    height: 30vh;
-  }
 }
 
 @media screen and (max-width: 480px) {
   .ticketWrapper {
-    height: 28vh;
+    height: 30vh;
   }
 
   .transLogo {

@@ -1,7 +1,10 @@
 <template>
 <div class="movieList">
 <Carousel />
-<MovieItemList />
+<div class="posters">
+  <h4>Aktuellt på bio</h4>
+  <MovieItemList />
+</div>
 
 </div>
   
@@ -22,5 +25,13 @@ export default {
 .movieList{
   margin-top: 2vw;
   margin-bottom: 18.2vw; /* For the footer */
+}
+.posters{
+  width: fit-content;
+  margin: 0 auto;
+}
+.posters h4{
+  margin-left: 20px;
+  font-size: calc(16px + 2vw);
 }
 </style>
