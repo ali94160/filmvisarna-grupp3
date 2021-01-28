@@ -65,13 +65,12 @@ export default {
       if (add) {
         this.selectedChairs.push([row, col]);
         this.$store.commit("setSelectedSeats", this.selectedChairs.length);
-        this.$emit("increaseValue");
       }
     },
     clear() {
       this.showSelectedSeats;
       this.selectedChairs = [];
-      this.$store.commit("clearSeats");
+      this.$store.commit("setSelectedSeats", 0);
       this.$emit("clear");
     },
     check(row, col) {
