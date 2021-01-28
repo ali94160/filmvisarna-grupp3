@@ -12,7 +12,7 @@ const state = {
   currentSalon: [],
   //the movie the user selected
   selectedMovie: {},
-  selectedSeats: '',
+  selectedSeats: 0,
 
 }
 
@@ -49,9 +49,6 @@ const mutations = {
   },
   decreaseSeats(state) {
     state.selectedSeats--;
-  },
-  clearSeats(state) {
-    state.selectedSeats = '';
   }
 }
 

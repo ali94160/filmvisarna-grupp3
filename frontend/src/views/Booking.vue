@@ -1,15 +1,11 @@
 <template>
-  <div class="wrapper">
-    <div id="#bookingDiv" v-if="!booked">
-      <div class="container">
-        <div class="salon">
-          <ChairList
-            @updateSelectedChairs="updateSelectedChairs"
-            @decreaseValues="decreaseValue"
-            @increaseValue="increaseValue"
-            @clear="clear"
-          />
-        </div>
+<div class="wrapper">
+  <div id="#bookingDiv" v-if="!booked">
+    <div class="container">
+      <div class="salon">
+        <ChairList @updateSelectedChairs="updateSelectedChairs" @decreaseValues="decreaseValue" @clear="clear"/>
+      </div>
+
 
         <div class="info">
           <div :class="{ tickets: hasThreeTickets }">
@@ -45,7 +41,6 @@ import ChairList from "../components/ChairList.vue";
 export default {
   data() {
     return {
-      chosenSeats: 2,
       selectedChairs: [],
       maxSeats: 81,
       ticketPrices: [],
@@ -61,33 +56,23 @@ export default {
 
   methods: {
     decreaseValue() {
-      if (this.chosenSeats >= 1) {
-        this.chosenSeats--;
-        this.ticketPrices[this.chosenSeats] = 0;
+      if (this.$store.state.selectedSeats >= 1) {
+        this.ticketPrices[this.$store.state.selectedSeats] = 0;
       }
     },
-    clear() {
-      this.chosenSeats = 0;
+    clear(){
       this.ticketPrices = [];
-      console.log(" in clear");
-    },
-    increaseValue() {
-      if (this.chosenSeats < this.maxSeats) this.chosenSeats++;
+      this.$store.commit("setSelectedSeats", 0);
     },
 
     updateTotalPrice(price, ticketNumber) {
       this.ticketPrices[ticketNumber - 1] = price;
     },
 
-    changeBooked() {
-      if (
-        this.ticketPrices.filter((p) => p !== 0).length ===
-          this.$store.state.selectedSeats &&
-        this.chosenSeats &&
-        this.ticketPrices.length
-      ) {
-        console.log("inne");
-        this.booked = !this.booked;
+    changeBooked(){
+      if(this.ticketPrices.filter(p => p !== 0).length === this.$store.state.selectedSeats && this.ticketPrices.length){
+        console.log('inne');
+        this.booked = !this.booked
       }
     },
     updateSelectedChairs(selectedChairs) {
@@ -96,13 +81,6 @@ export default {
   },
 
   computed: {
-    chosenSeatsInput() {
-      let array = [];
-      for (let seat = 1; seat <= this.chosenSeats; seat++) {
-        array.push(seat);
-      }
-      return array;
-    },
     getTotalPrice() {
       let sum = 0;
       for (let i = 0; i < this.ticketPrices.length; i++) {
@@ -114,7 +92,7 @@ export default {
       return sum;
     },
     hasThreeTickets() {
-      return this.chosenSeats > 3;
+      return this.selectedSeats > 3;
     },
     getCurrentMovie() {
       return this.$store.state.selectedMovie;
