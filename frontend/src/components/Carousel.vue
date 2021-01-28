@@ -1,24 +1,24 @@
 <template>
   <div v-if="movies" class="carousel carousel-slider center">
-    <div class="carousel-item white-text" href="#one!">
+    <div class="carousel-item white-text">
         <button @click="guideMe('8Ai8Vq6mWIYfJEVxqnc_O')" id="btnSize" class="carousel-fixed-item btn center transparent" >Boka</button>
       <img src="../assets/carousel-harry-potter.png" alt="">
     </div>
-      <div class="carousel-item white-text" href="">
+      <div class="carousel-item white-text">
         <button @click="guideMe('gtR4rG_xXGSqvFUbYFotn')" id="btnSize" class="carousel-fixed-item btn center transparent" >Boka</button>
         <img src="../assets/carousel-batman.png" alt="">
     </div>
 
-    <div class="carousel-item white-text height" href="">
+    <div class="carousel-item white-text height">
       <button @click="guideMe('M66J4NuEIMJuoKgpQ6f0x')" id="btnSize" class="carousel-fixed-item btn center transparent" >Boka</button>
-      <img src="../assets/carousel-frozen.jpg" alt="">
+      <img src="../assets/carousel-frozen.jpg">
     </div>
 
-    <div class="carousel-item amber white-text" href="">
+    <div class="carousel-item amber white-text">
       <router-link to="/about">
         <button id="btnSize" class="toInfo btn right transparent" >Se våra salonger!</button>
       </router-link>
-      <img src="../assets/emptySalon.jpg" alt="">
+      <img src="../assets/emptySalon.jpg">
     </div>
   </div>
 </template>
@@ -79,7 +79,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .carousel{
   width: 85% !important;
   margin: 3vh auto 5vh;
@@ -99,13 +99,19 @@ export default {
 }
 
 #btnSize{
-  font-size: 1.5em;
+  font-size: calc(1em + 1vw);
+}
+
+button{
+  position: absolute;
+  text-align: center;
+  width: fit-content !important;
+  top: 20vw !important;
+  bottom: auto;
 }
 
 .toInfo{
-  position: absolute;
   right: 5%;
-  top: 60%;
   margin: 0;
   font-weight: 700;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -117,6 +123,21 @@ img{
 
 .height{
   height: 100%;
+}
+
+@media only screen and (max-width: 800px) {
+  button{
+    top: 15vw !important;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  button{
+    top: 0 !important;
+    right: 0 !important;
+    left: auto !important;
+    margin: 0;
+  }
 }
 
 </style>
