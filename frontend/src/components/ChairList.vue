@@ -14,13 +14,14 @@
         :key="col"
         class="seats"
         @click="changeColor(row, col)"
+        :class="{
+            active: check(row, col),
+            booked: checkBooked(row, col),
+        }"
+        
       >
         <span
           class="material-icons"
-          :class="{
-            active: check(row, col),
-            booked: checkBooked(row, col),
-          }"
         >
           event_seat
         </span>
@@ -201,8 +202,11 @@ div.highlight {
   text-align: center;
 }
 .booked {
-  cursor: default;
   color: red;
+}
+.booked:hover {
+  opacity: 100% !important;
+  cursor: default !important;
 }
 button {
   text-align: center;
