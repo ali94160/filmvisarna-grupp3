@@ -73,10 +73,9 @@ export default {
   grid-template-rows: 5fr 1fr;
   border-radius: 10px;
   margin: calc(5px + 1vh) auto;
+  margin-bottom: 100px;
   width: 90%;
   font-size: calc(0.5vh + 1vw);
-  height: calc(22vh + 12vw);
-  margin-bottom: calc(50px + 1vw);
 }
 
 .ticketWrapper p {
