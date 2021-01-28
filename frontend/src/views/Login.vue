@@ -54,7 +54,6 @@ export default {
         //window.location.reload();
         M.toast({ html: "✓ Inloggning lyckades", classes: "color: green" });
       } else {
-        console.log("loggin failed");
         this.errorMessage = true;
       }
     },

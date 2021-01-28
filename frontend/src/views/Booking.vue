@@ -71,7 +71,6 @@ export default {
 
     changeBooked(){
       if(this.ticketPrices.filter(p => p !== 0).length === this.$store.state.selectedSeats && this.ticketPrices.length){
-        console.log('inne');
         this.booked = !this.booked
       }
     },

@@ -36,8 +36,6 @@ export default {
   props: ["movieTitle", "seat", "ticket"],
   computed: {
     row() {
-      console.log("here", this.salon);
-      // seat 0 = 11
       if (this.seat > 9) {
         return parseInt((this.seat + "").split("")[0]) + 1;
       }

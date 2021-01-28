@@ -12,7 +12,7 @@ const state = {
   currentSalon: [],
   //the movie the user selected
   selectedMovie: {},
-  selectedSeats: 0,
+  selectedSeats: '',
 
 }
 
@@ -49,6 +49,9 @@ const mutations = {
   },
   decreaseSeats(state) {
     state.selectedSeats--;
+  },
+  clearSeats(state) {
+    state.selectedSeats = '';
   }
 }
 
@@ -98,7 +101,6 @@ const actions = {
     let user = await fetch("/api/whoami");
     try {
       user = await user.json();
-      console.log(user);
       store.commit("setUser", user);
     } catch (error) { console.warn("Bad credentials");}
   },

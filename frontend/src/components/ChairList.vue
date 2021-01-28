@@ -126,7 +126,6 @@ export default {
         !this.movie.seatsTaken.includes(34) &&
         !this.movie.seatsTaken.includes(35)
       ) {
-        console.log("first default met");
         this.selectedChairs.push([3, 4]);
         this.selectedChairs.push([3, 5]);
         this.$store.commit("setSelectedSeats", this.selectedChairs.length);
@@ -134,7 +133,6 @@ export default {
         !this.movie.seatsTaken.includes(44) &&
         !this.movie.seatsTaken.includes(45)
       ) {
-        console.log("second default met");
         this.selectedChairs.push([4, 4]);
         this.selectedChairs.push([4, 5]);
         this.$store.commit("setSelectedSeats", this.selectedChairs.length);

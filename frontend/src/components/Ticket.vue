@@ -53,7 +53,6 @@ export default {
           toReturn.push({row: s[0], seat: s[1]})
         }
       }
-      console.log(toReturn);
       return toReturn
     },
     seatRow(seat){
@@ -74,9 +73,6 @@ export default {
     },
     getId() {
       return this.id;
-    },
-    clicked() {
-      console.log(this.id);
     }
   },
   mounted() {
