@@ -6,7 +6,6 @@
         <ChairList @updateSelectedChairs="updateSelectedChairs" @decreaseValues="decreaseValue" @clear="clear"/>
       </div>
 
-
         <div class="info">
           <div :class="{ tickets: hasThreeTickets }">
             <BookingInput
@@ -16,13 +15,16 @@
               @updateTotalPrice="updateTotalPrice"
             />
           </div>
-          <p id="totalPrice">
-            Totala priset: <span class="right">{{ getTotalPrice }} kr</span>
-          </p>
-          <button class="btn" v-on:click="changeBooked">
-            Beställ plats(er)
-          </button>
+          <div>
+            <p id="totalPrice">
+              Totala priset: <span class="right">{{ getTotalPrice }} kr</span>
+            </p>
+            <button class="btn" v-on:click="changeBooked">
+              Beställ plats(er)
+            </button>
+          </div>
         </div>
+
       </div>
     </div>
 
@@ -148,14 +150,19 @@ span {
 .salon {
   border-radius: 2%;
   background: rgb(29, 29, 29);
-  padding-bottom: 5px;
 }
 
 .info {
-  padding: 20px;
-  padding-bottom: 0;
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  padding: 0 20px 2vh;
   border-radius: 2%;
   background: rgb(29, 29, 29);
+}
+
+.salon, .info{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .tickets {
