@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import M from "materialize-css";
 import TicketPicture from "./TicketPicture.vue"
 
 export default {
