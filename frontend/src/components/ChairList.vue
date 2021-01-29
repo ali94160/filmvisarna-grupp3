@@ -9,23 +9,13 @@
       :key="row"
       class="rows"
     >
-      <div
+      <ChairItem
         v-for="(seat, col) of seatsPerRow"
         :key="col"
-        class="seats"
-        @click="changeColor(row, col)"
-        :class="{
-            active: check(row, col),
-            booked: checkBooked(row, col),
-        }"
-        
+        :col="col"
+        :row="row"
       >
-        <span
-          class="material-icons"
-        >
-          event_seat
-        </span>
-      </div>
+      </ChairItem>
     </div>
   </div>
   <div class="buttons">
@@ -34,76 +24,15 @@
 </template>
 
 <script>
+import ChairItem from './ChairItem.vue'
 export default {
-  data() {
-    return {
-      chairs: [],
-      selectedChairs: [],
-      isHover: false,
-    };
+  components:{
+    ChairItem,
   },
   methods: {
-    changeColor(row, col) {
-      this.showSelectedSeats;
-      if (this.checkBooked(row, col)) {
-        return;
-      }
-      let add = true;
-      for (let i = 0; i < this.selectedChairs.length; i++) {
-        for (let j = 0; j < this.selectedChairs.length; j++) {
-          if (
-            this.selectedChairs[i][0] === row &&
-            this.selectedChairs[i][1] === col
-          ) {
-            this.selectedChairs.splice(i, 1);
-            this.$store.commit("decreaseSeats");
-            this.$emit("decreaseValues");
-            add = false;
-            return;
-          }
-        }
-      }
-      if (add) {
-        this.selectedChairs.push([row, col]);
-        this.$store.commit("setSelectedSeats", this.selectedChairs.length);
-      }
-    },
     clear() {
-      this.showSelectedSeats;
-      this.selectedChairs = [];
-      this.$store.commit("setSelectedSeats", 0);
-      this.$emit("clear");
-    },
-    check(row, col) {
-      this.showSelectedSeats;
-      let check = false;
-      for (let i = 0; i < this.selectedChairs.length; i++) {
-        for (let j = 0; j < this.selectedChairs.length; j++) {
-          if (
-            this.selectedChairs[i][0] === row &&
-            this.selectedChairs[i][1] === col
-          ) {
-            check = true;
-          }
-        }
-      }
-      return check;
-    },
-    checkBooked(row, col) {
-      this.showSelectedSeats;
-      let booked = false;
-      if (this.movie.seatsTaken) {
-        for (let i = 0; i < this.movie.seatsTaken.length; i++) {
-          if (this.movie.seatsTaken[i] < 10) {
-            if ("0" + this.movie.seatsTaken[i] + "" === row + "" + col)
-              booked = true;
-          } else if (this.movie.seatsTaken[i] + "" === row + "" + col) {
-            booked = true;
-          }
-        }
-        return booked;
-      }
-    },
+      console.log('you clicked on clear.')
+    }
   },
   computed: {
     salon() {
@@ -145,8 +74,8 @@ export default {
       this.selectedChairs.push([3, 5]);
       this.$store.commit("setSelectedSeats", this.selectedChairs.length);
     }
-  },
-};
+  }
+}
 </script>
 
 <style scoped>
@@ -179,31 +108,11 @@ p {
   width: 100%;
 }
 
-.material-icons {
-  font-size: 1.5rem;
-  padding: 2px;
-}
-
-div > .seats {
-  display: inline-block;
-}
-
-div > .seats:hover {
-  cursor: pointer;
-  opacity: 70%;
-}
-
-div.highlight {
-  color: yellow;
-}
-
 .buttons {
   margin: 0 auto;
   text-align: center;
 }
-.booked {
-  color: red;
-}
+
 .booked:hover {
   opacity: 100% !important;
   cursor: default !important;
