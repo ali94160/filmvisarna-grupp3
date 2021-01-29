@@ -34,11 +34,13 @@ export default {
 
 <style scoped>
 .searchBar{
-  margin: 0 auto;
-  max-width: 50%;
+  margin: 10px auto;
+  max-width: 30%;
 }
 .searchBar > input{
   color: white;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1.5em;
 }
-
 </style>
