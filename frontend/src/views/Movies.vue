@@ -22,7 +22,12 @@ export default {
   computed: {
     movies(){
       return this.$store.state.movies
-    }
+    },
+    filteredList(){ 
+      return this.$store.state.movies.filter(movie => {
+        return movie.title.toLowerCase().includes(this.search.toLowerCase())
+      })
+  }
   }
 }
 </script>
