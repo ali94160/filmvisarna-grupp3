@@ -65,7 +65,7 @@ const actions = {
   async register(store, member) {
     let newUser = {
       firstName: member.name,
-      lastName:member.lastName,
+      lastName: member.lastName,
       email: member.email,
       password: member.password,
     };
@@ -102,7 +102,7 @@ const actions = {
     try {
       user = await user.json();
       store.commit("setUser", user);
-    } catch (error) { console.warn("Bad credentials");}
+    } catch (error) { console.warn("Bad credentials"); }
   },
 
   async addTicket(store, ticket) {
@@ -110,8 +110,6 @@ const actions = {
       price: ticket.price,
       timeStamp: ticket.timeStamp,
       seats: ticket.seats,
-      childPrice: 65,
-      seniorPrice: 75,
       userId: ticket.userId,
       showId: ticket.showId,
       movieId: state.selectedMovie.id,
