@@ -1,7 +1,7 @@
 <template>
-  <div @click="select" class="seat">
+  <div @click="highlight" class="seat">
     <span class="material-icons"
-    :class="{active: isClicked, booked: isBooked}">
+    :class="{active: isClicked}">
       event_seat
     </span>    
   </div>
@@ -9,22 +9,22 @@
 
 <script>
 export default {
-  props: ['row', 'col'],
+  props: ['row', 'col', 'booked'],
   data() {
-  return {
-    isClicked: false,
-    isBooked: false,
-    selectedChairs: []
+    return {
+      isClicked: false,
   }
-},
+}, //end of data
   methods: {
-    select() {
-      console.log('you have clicked on ', this.row, this.col)
-      this.isClicked = !this.isClicked; //change color of chair on click
-      this.selectedChairs.push([this.row, this.col]);
-      console.log(this.selectedChairs)
-    }
-  }
+    highlight() {
+      console.log(this.row, this.col)
+      if(!this.booked){
+        this.isClicked = !this.isClicked; //change color of chair on click
+      }
+    },
+
+ }, //end of methods
+
 }
 </script>
 
@@ -47,7 +47,5 @@ div > .seat:hover {
   color: yellow;
 }
 
-.booked {
-  color: red;
-}
+
 </style>

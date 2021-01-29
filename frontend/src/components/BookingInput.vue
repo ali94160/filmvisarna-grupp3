@@ -22,8 +22,6 @@
 </template>
 
 <script>
-import M from "materialize-css";
-
 export default {
   data(){
     return{
@@ -31,6 +29,7 @@ export default {
       price: ''
     }
   },
+  emits: ['updateTotalPrice'],
   props:['ticketNumber'],
   mounted() {
     M.AutoInit();
@@ -38,7 +37,6 @@ export default {
   methods:{
     onChange(){
      //Denna emit funkar
-     //Problem: subtraherar inte priset när man gör mindre input fält
       this.price = this.prices[event.target.value - 1]
       
       this.$emit('updateTotalPrice', this.price, this.ticketNumber )

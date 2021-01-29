@@ -14,6 +14,9 @@
         :key="col"
         :col="col"
         :row="row"
+        :booked="isBooked(row, col)"
+        :class="{booked: isBooked(row, col)}"
+        @click="addToList"
       >
       </ChairItem>
     </div>
@@ -29,11 +32,38 @@ export default {
   components:{
     ChairItem,
   },
+  emits: ['updateSelectedChairs', 'clear'],
+  data() {
+    return {
+      selectedChairs: [],
+    }
+  }, //end of data
   methods: {
     clear() {
       console.log('you clicked on clear.')
+
+      this.$emit("clear"); //clear in Booking.vue
+    },
+    addToList() {
+      this.selectedChairs.push([this.row, this.col])
+      this.$store.commit("setSelectedSeats", this.selectedChairs.length);
+    },
+    isBooked(row, col) {
+      this.showSelectedSeats;
+      let booked = false;
+      if (this.movie.seatsTaken) {
+        for (let i = 0; i < this.movie.seatsTaken.length; i++) {
+          if (this.movie.seatsTaken[i] < 10) {
+            if ("0" + this.movie.seatsTaken[i] + "" === row + "" + col)
+              booked = true;
+          } else if (this.movie.seatsTaken[i] + "" === row + "" + col) {
+            booked = true;
+          }
+        }
+        return booked;
+      }
     }
-  },
+  }, //end of methods
   computed: {
     salon() {
       return this.$store.state.currentSalon;
@@ -51,6 +81,8 @@ export default {
     },
   },
   created() {
+    /*
+    console.log(this.movie, 'see if we get it?')
     if (this.movie.seatsTaken !== null) {
       if (
         !this.movie.seatsTaken.includes(34) &&
@@ -74,7 +106,8 @@ export default {
       this.selectedChairs.push([3, 5]);
       this.$store.commit("setSelectedSeats", this.selectedChairs.length);
     }
-  }
+    */
+  } //end of created
 }
 </script>
 
@@ -139,6 +172,10 @@ button {
 button:hover {
   background: crimson;
   cursor: pointer;
+}
+
+.booked {
+  color: red;
 }
 
 @media only screen and (max-width: 700px){
