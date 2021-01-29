@@ -1,8 +1,8 @@
 <template>
 <div class="searchBar">
-  <input  v-model="search" placeholder="Sök efter en film.." type="text">
+  <input v-model="search" placeholder="Sök efter en film.." type="text">
   </div>
-  <MovieCard v-for="movie of movies" 
+  <MovieCard v-for="movie of filteredList" 
     :key="movie.id"
     :movie="movie"
   />
@@ -36,6 +36,9 @@ export default {
 .searchBar{
   margin: 0 auto;
   max-width: 50%;
+}
+.searchBar > input{
+  color: white;
 }
 
 </style>
