@@ -25,7 +25,6 @@ public class Show {
         for(int i = 0; i < bookedSeats.length; i++) {
             this.seatsTaken.add(Integer.parseInt(bookedSeats[i]));
         }
-        System.out.println(this.seatsTaken);
     }
 
     @Override

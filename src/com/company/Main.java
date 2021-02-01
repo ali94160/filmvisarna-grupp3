@@ -17,7 +17,6 @@ import static express.database.Database.collection;
 public class Main {
 
     public static void main(String[] args) {
-        // write your code here
         var app = new Express();
         app.enableCollections(CollectionOptions.ENABLE_WATCHER); // makes the collections reactive
 
