@@ -42,6 +42,7 @@ export default {
       isHover: false,
     };
   },
+  emits: ['decreaseValues','clear','setSelectedSeats','updateSelectedChairs'],
   methods: {
     changeColor(row, col) {
       this.showSelectedSeats;
