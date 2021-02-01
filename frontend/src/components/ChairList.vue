@@ -97,7 +97,6 @@ export default {
     checkBooked(row, col) {
       if(this.$store.state.clearTheSeats){
         this.clear()
-        console.log('inne i chairlist');
         this.$store.commit('updateClearTheSeats')
       }
       this.showSelectedSeats;
