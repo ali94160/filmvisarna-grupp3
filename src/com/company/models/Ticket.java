@@ -9,8 +9,6 @@ public class Ticket {
     private int price;
     private long timeStamp;
     private int[] seats;
-    private int childPrice = 65;
-    private int seniorPrice = 75;
     private String userId;
     private String showId;
     private String movieId;
@@ -46,22 +44,6 @@ public class Ticket {
 
     public void setSeats(int[] seats) {
         this.seats = seats;
-    }
-
-    public int getChildPrice() {
-        return childPrice;
-    }
-
-    public void setChildPrice(int childPrice) {
-        this.childPrice = childPrice;
-    }
-
-    public int getSeniorPrice() {
-        return seniorPrice;
-    }
-
-    public void setSeniorPrice(int seniorPrice) {
-        this.seniorPrice = seniorPrice;
     }
 
     public String getSalonName() {

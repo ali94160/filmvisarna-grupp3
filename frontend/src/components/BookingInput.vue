@@ -4,7 +4,7 @@
       <span>Vuxen/Barn/Pensionär</span>
     </div>
 
-    <div class="input-field" id="selectDiv">
+    <div class="input-field">
       <select v-on:change="onChange" class="select text-white" id="selectPrice">
         <option value="" disabled selected>Välj</option>
         <option value="1">Vuxen</option>
@@ -22,8 +22,6 @@
 </template>
 
 <script>
-import M from "materialize-css";
-
 export default {
   data(){
     return{
@@ -37,8 +35,6 @@ export default {
   },
   methods:{
     onChange(){
-     //Denna emit funkar
-     //Problem: subtraherar inte priset när man gör mindre input fält
       this.price = this.prices[event.target.value - 1]
       
       this.$emit('updateTotalPrice', this.price, this.ticketNumber )
