@@ -75,22 +75,31 @@ export default {
       this.$store.commit("setSelectedSeats", 0);
       this.$emit("clear");
     },
-    check(row, col) {
+    check(row, col, alreadyBooked = false) {
       this.showSelectedSeats;
       let check = false;
-      for (let i = 0; i < this.selectedChairs.length; i++) {
-        for (let j = 0; j < this.selectedChairs.length; j++) {
-          if (
-            this.selectedChairs[i][0] === row &&
-            this.selectedChairs[i][1] === col
-          ) {
-            check = true;
+      if(alreadyBooked) {
+        return false
+      }
+        for (let i = 0; i < this.selectedChairs.length; i++) {
+          for (let j = 0; j < this.selectedChairs.length; j++) {
+            if (
+              this.selectedChairs[i][0] === row &&
+              this.selectedChairs[i][1] === col
+            ) {
+              check = true;
+            }
           }
         }
-      }
+      
       return check;
     },
     checkBooked(row, col) {
+      if(this.$store.state.clearTheSeats){
+        this.clear()
+        console.log('inne i chairlist');
+        this.$store.commit('updateClearTheSeats')
+      }
       this.showSelectedSeats;
       let booked = false;
       if (this.movie.seatsTaken) {
@@ -102,9 +111,13 @@ export default {
             booked = true;
           }
         }
+        if(booked){
+          this.check(row, col, true)
+         
+        }
         return booked;
       }
-    },
+    }
   },
   computed: {
     salon() {

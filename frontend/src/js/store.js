@@ -13,6 +13,7 @@ const state = {
   //the movie the user selected
   selectedMovie: {},
   selectedSeats: '',
+  clearTheSeats: false
 
 }
 
@@ -52,6 +53,9 @@ const mutations = {
   },
   clearSeats(state) {
     state.selectedSeats = '';
+  },
+  updateClearTheSeats(state) {
+    state.clearTheSeats = !state.clearTheSeats
   }
 }
 

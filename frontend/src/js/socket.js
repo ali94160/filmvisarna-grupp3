@@ -23,6 +23,9 @@ function connect() {
       if (event == "update") {
         if (store.state.currentMovie.id === data[0].id) {
           store.commit('setCurrentMovie', data[0]);
+          console.log(data, 'data');
+          store.commit("setSelectedSeats", 0);
+          store.commit('updateClearTheSeats');
         }
       }
     }

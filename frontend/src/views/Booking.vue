@@ -78,7 +78,7 @@ export default {
     },
     updateSelectedChairs(selectedChairs) {
       this.selectedChairs = selectedChairs;
-    },
+    }
   },
 
   computed: {
@@ -100,7 +100,7 @@ export default {
     },
     selectedSeats() {
       return this.$store.state.selectedSeats;
-    },
+    }
   },
 };
 </script>
