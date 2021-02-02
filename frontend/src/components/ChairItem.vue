@@ -43,8 +43,8 @@ div > .seat:hover {
   opacity: 70%;
 }
 
-.active{
-  color: yellow !important;
+.active {
+  color: #4caf50;
 }
 
 
