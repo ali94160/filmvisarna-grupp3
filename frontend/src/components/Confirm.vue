@@ -29,6 +29,11 @@
 
 <script>
 export default {
+  data(){
+    return {
+      isBookingSuccessful: false
+    }
+  },
   props: ["ticketPrices", "bookedChairs"],
   computed: {
     shows() {

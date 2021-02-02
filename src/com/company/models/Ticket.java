@@ -2,6 +2,9 @@ package com.company.models;
 
 import express.database.Model;
 import org.dizitart.no2.objects.Id;
+
+import java.util.Arrays;
+
 @Model
 public class Ticket {
     @Id
@@ -13,6 +16,20 @@ public class Ticket {
     private String showId;
     private String movieId;
     private String salonName;
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "id='" + id + '\'' +
+                ", price=" + price +
+                ", timeStamp=" + timeStamp +
+                ", seats=" + Arrays.toString(seats) +
+                ", userId='" + userId + '\'' +
+                ", showId='" + showId + '\'' +
+                ", movieId='" + movieId + '\'' +
+                ", salonName='" + salonName + '\'' +
+                '}';
+    }
 
     public String getId() {
         return id;

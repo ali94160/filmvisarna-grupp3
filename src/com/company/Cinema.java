@@ -146,6 +146,18 @@ public class Cinema {
 
         app.post("rest/ticket", (req, res) ->{
             var ticket = req.body(Ticket.class);
+            // get the show
+            Show show = collection("Show").findById(ticket.getShowId());
+            for(int i = 0; i < ticket.getSeats().length; i++){
+                System.out.println(ticket.getSeats()[i]);
+                if(show.getSeatsTaken().contains(ticket.getSeats()[i])){
+                    System.out.println("true-");
+                }
+                else {
+                    System.out.println("false-");
+                }
+            }
+            System.out.println(show.toString());
             var createdTicket = collection("Ticket").save(ticket);
             res.json(createdTicket);
         });
