@@ -12,7 +12,7 @@ const state = {
   currentSalon: [],
   //the movie the user selected
   selectedMovie: {},
-  selectedSeats: '',
+  selectedSeatsAmount: '',
   clearTheSeats: false,
   showById: ''
 
@@ -46,14 +46,14 @@ const mutations = {
   setCurrentSalon(state, salon) {
     state.currentSalon = salon
   },
-  setSelectedSeats(state, amount) {
-    state.selectedSeats = amount;
+  setSelectedSeatsAmount(state, amount) {
+    state.selectedSeatsAmount = amount;
   },
   decreaseSeats(state) {
-    state.selectedSeats--;
+    state.selectedSeatsAmount--;
   },
   clearSeats(state) {
-    state.selectedSeats = '';
+    state.selectedSeatsAmount = '';
   },
   updateClearTheSeats(state) {
     state.clearTheSeats = !state.clearTheSeats

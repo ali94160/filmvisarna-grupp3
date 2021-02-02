@@ -42,7 +42,7 @@ export default {
       isHover: false,
     };
   },
-  emits: ['decreaseValues','clear','setSelectedSeats','updateSelectedChairs'],
+  emits: ['decreaseValues','clear','updateSelectedChairs'],
   methods: {
     changeColor(row, col) {
       this.showSelectedSeats;
@@ -65,22 +65,20 @@ export default {
         }
       }
       if (add) {
+
         this.selectedChairs.push([row, col]);
-        this.$store.commit("setSelectedSeats", this.selectedChairs.length);
+        this.$store.commit("setSelectedSeatsAmount", this.selectedChairs.length);
       }
     },
     clear() {
       this.showSelectedSeats;
       this.selectedChairs = [];
-      this.$store.commit("setSelectedSeats", 0);
+      this.$store.commit("setSelectedSeatsAmount", 0);
       this.$emit("clear");
     },
-    check(row, col, alreadyBooked = false) {
+    check(row, col) {
       this.showSelectedSeats;
       let check = false;
-      if(alreadyBooked) {
-        return false
-      }
         for (let i = 0; i < this.selectedChairs.length; i++) {
           for (let j = 0; j < this.selectedChairs.length; j++) {
             if (
@@ -95,10 +93,6 @@ export default {
       return check;
     },
     checkBooked(row, col) {
-      if(this.$store.state.clearTheSeats){
-        this.clear()
-        this.$store.commit('updateClearTheSeats')
-      }
       this.showSelectedSeats;
       let booked = false;
       if (this.movie.seatsTaken) {
@@ -110,9 +104,15 @@ export default {
             booked = true;
           }
         }
-        if(booked){
-          this.check(row, col, true)
-         
+        if(booked){ 
+          let holder = row + '' + col
+          for(let i = 0; i < this.showSelectedSeats.length; i++){
+            if(this.showSelectedSeats[i] == holder){
+                this.selectedChairs.splice(i,1);
+                this.$store.commit('setSelectedSeatsAmount', this.$store.state.selectedSeatsAmount - 1)
+            }
+          }  
+          this.check(row, col, true)       
         }
         return booked;
       }
@@ -123,9 +123,7 @@ export default {
       return this.$store.state.currentSalon;
     },
     movie() {
-      
-      
-      
+      console.log('change happen');
       return this.$store.state.showById;
     },
     showSelectedSeats() {
@@ -138,11 +136,8 @@ export default {
     },
   },
   async created() {
-    console.log(this.$route.params.id, 'this is params')
     await this.$store.dispatch('fetchShowById', this.$route.params.id)
     await this.$store.dispatch('fetchSpecificSalon',this.$route.params.id  )
-
-    console.log(this.$store.state.showById, 'props');
 
     if (this.movie.seatsTaken !== null) {
       if (
@@ -151,21 +146,21 @@ export default {
       ) {
         this.selectedChairs.push([3, 4]);
         this.selectedChairs.push([3, 5]);
-        this.$store.commit("setSelectedSeats", this.selectedChairs.length);
+        this.$store.commit("setselectedSeatsAmount", this.selectedChairs.length);
       } else if (
         !this.movie.seatsTaken.includes(44) &&
         !this.movie.seatsTaken.includes(45)
       ) {
         this.selectedChairs.push([4, 4]);
         this.selectedChairs.push([4, 5]);
-        this.$store.commit("setSelectedSeats", this.selectedChairs.length);
+        this.$store.commit("setSelectedSeatsAmount", this.selectedChairs.length);
       } else {
-        this.$store.commit("setSelectedSeats", 0);
+        this.$store.commit("setSelectedSeatsAmount", 0);
       }
     } else {
       this.selectedChairs.push([3, 4]);
       this.selectedChairs.push([3, 5]);
-      this.$store.commit("setSelectedSeats", this.selectedChairs.length);
+      this.$store.commit("setSelectedSeatsAmount", this.selectedChairs.length);
     }
   }
 };

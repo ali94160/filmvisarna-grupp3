@@ -9,7 +9,7 @@
         <div class="info">
           <div :class="{ tickets: hasThreeTickets }">
             <BookingInput
-              v-for="seat in selectedSeats"
+              v-for="seat in selectedSeatsAmount"
               :key="seat"
               :ticketNumber="seat"
               @updateTotalPrice="updateTotalPrice"
@@ -58,13 +58,13 @@ export default {
 
   methods: {
     decreaseValue() {
-      if (this.$store.state.selectedSeats >= 1) {
-        this.ticketPrices[this.$store.state.selectedSeats] = 0;
+      if (this.$store.state.selectedSeatsAmount >= 1) {
+        this.ticketPrices[this.$store.state.selectedSeatsAmount] = 0;
       }
     },
     clear(){
       this.ticketPrices = [];
-      this.$store.commit("setSelectedSeats", 0);
+      this.$store.commit("setSelectedSeatsAmount", 0);
     },
 
     updateTotalPrice(price, ticketNumber) {
@@ -72,7 +72,7 @@ export default {
     },
 
     changeBooked(){
-      if(this.ticketPrices.filter(p => p !== 0).length === this.$store.state.selectedSeats 
+      if(this.ticketPrices.filter(p => p !== 0).length === this.$store.state.selectedSeatsAmount 
       && this.ticketPrices.length){
         this.booked = !this.booked
       }
@@ -97,13 +97,13 @@ export default {
       return sum;
     },
     hasThreeTickets() {
-      return this.selectedSeats > 3;
+      return this.selectedSeatsAmount > 3;
     },
     getCurrentMovie() {
       return this.$store.state.showById;
     },
-    selectedSeats() {
-      return this.$store.state.selectedSeats;
+    selectedSeatsAmount() {
+      return this.$store.state.selectedSeatsAmount;
     }
   },
   mounted(){  
