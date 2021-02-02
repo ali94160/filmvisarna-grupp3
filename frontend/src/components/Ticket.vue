@@ -7,7 +7,6 @@
       <img
         class="ticketPost left"
         :src="getMovieById(ticket.movieId).imgUrl"
-        alt=""
       />
       <p class="movieTitle">{{ getMovieById(ticket.movieId).title }}</p>
       <p>{{ getTime }} {{ getDate }}</p>
