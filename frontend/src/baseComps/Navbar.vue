@@ -71,7 +71,7 @@ export default {
   methods: {
     async logOut() {
       await this.$router.push("/");
-      M.toast({ html: "✓ Utloggning lyckades", classes: "color: red" });
+      M.toast({ html: "✓ Utloggning lyckades", classes: "color: green" });
       fetch("api/logout");
       this.$store.commit("setUser", null);
     },
