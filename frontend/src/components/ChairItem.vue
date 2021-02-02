@@ -1,7 +1,8 @@
 <template>
   <div @click="highlight" class="seat">
     <span class="material-icons"
-    :class="{active: isClicked}">
+    :class="{active: isClicked}"
+    >
       event_seat
     </span>    
   </div>
@@ -17,7 +18,6 @@ export default {
 }, //end of data
   methods: {
     highlight() {
-      console.log(this.row, this.col)
       if(!this.booked){
         this.isClicked = !this.isClicked; //change color of chair on click
       }
@@ -44,7 +44,7 @@ div > .seat:hover {
 }
 
 .active{
-  color: yellow;
+  color: yellow !important;
 }
 
 

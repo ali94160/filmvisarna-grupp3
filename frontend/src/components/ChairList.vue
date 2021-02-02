@@ -16,7 +16,7 @@
         :row="row"
         :booked="isBooked(row, col)"
         :class="{booked: isBooked(row, col)}"
-        @click="addToList"
+        @click="addToList(row, col)"
       >
       </ChairItem>
     </div>
@@ -32,21 +32,35 @@ export default {
   components:{
     ChairItem,
   },
-  emits: ['updateSelectedChairs', 'clear'],
+  emits: ['decreaseValues','clear','updateSelectedChairs'],
   data() {
     return {
       selectedChairs: [],
     }
   }, //end of data
   methods: {
-    clear() {
-      console.log('you clicked on clear.')
+    addToList(row, col) {
+      let add = true;
+      for (let i = 0; i < this.selectedChairs.length; i++) {
+          if (this.selectedChairs[i] === row + '' + col) {
+            this.selectedChairs.splice(i, 1);
+            this.$store.commit("decreaseSeats");
+            this.$emit("decreaseValues");
+            add = false;
+            return;
+          }
+      }
+      if (add && !this.isBooked(row, col)) {
+        this.selectedChairs.push(row + '' + col);
+        this.$store.commit("setSelectedSeatsAmount", this.selectedChairs.length);
+      }
 
-      this.$emit("clear"); //clear in Booking.vue
     },
-    addToList() {
-      this.selectedChairs.push([this.row, this.col])
-      this.$store.commit("setSelectedSeats", this.selectedChairs.length);
+    clear() {
+      this.showSelectedSeats;
+      this.selectedChairs = [];
+      this.$store.commit("setSelectedSeatsAmount", 0);
+      this.$emit("clear"); //booking.vue
     },
     isBooked(row, col) {
       this.showSelectedSeats;
@@ -67,8 +81,7 @@ export default {
                 this.selectedChairs.splice(i,1);
                 this.$store.commit('setSelectedSeatsAmount', this.$store.state.selectedSeatsAmount - 1)
             }
-          }  
-          this.check(row, col, true)       
+          }        
         }
         return booked;
       }
@@ -92,32 +105,7 @@ export default {
     },
   },
   created() {
-    /*
-    console.log(this.movie, 'see if we get it?')
-    if (this.movie.seatsTaken !== null) {
-      if (
-        !this.movie.seatsTaken.includes(34) &&
-        !this.movie.seatsTaken.includes(35)
-      ) {
-        this.selectedChairs.push([3, 4]);
-        this.selectedChairs.push([3, 5]);
-        this.$store.commit("setselectedSeatsAmount", this.selectedChairs.length);
-      } else if (
-        !this.movie.seatsTaken.includes(44) &&
-        !this.movie.seatsTaken.includes(45)
-      ) {
-        this.selectedChairs.push([4, 4]);
-        this.selectedChairs.push([4, 5]);
-        this.$store.commit("setSelectedSeatsAmount", this.selectedChairs.length);
-      } else {
-        this.$store.commit("setSelectedSeatsAmount", 0);
-      }
-    } else {
-      this.selectedChairs.push([3, 4]);
-      this.selectedChairs.push([3, 5]);
-      this.$store.commit("setSelectedSeatsAmount", this.selectedChairs.length);
-    }
-    */
+   
   } //end of created
 }
 </script>
@@ -137,9 +125,7 @@ export default {
 .h3Div{
   margin-bottom: 30px;
 }
-.active {
-  color: #4caf50;
-}
+
 h3,
 p {
   margin: 0 auto;
