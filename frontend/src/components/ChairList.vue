@@ -51,16 +51,22 @@ export default {
       }
       let add = true;
       for (let i = 0; i < this.selectedChairs.length; i++) {
-          if (this.selectedChairs[i] === row + '' + col) {
+        for (let j = 0; j < this.selectedChairs.length; j++) {
+          if (
+            this.selectedChairs[i][0] === row &&
+            this.selectedChairs[i][1] === col
+          ) {
             this.selectedChairs.splice(i, 1);
             this.$store.commit("decreaseSeats");
             this.$emit("decreaseValues");
             add = false;
             return;
+          }
         }
       }
       if (add) {
-        this.selectedChairs.push(row + '' + col);
+
+        this.selectedChairs.push([row, col]);
         this.$store.commit("setSelectedSeatsAmount", this.selectedChairs.length);
       }
     },
@@ -74,10 +80,14 @@ export default {
       this.showSelectedSeats;
       let check = false;
         for (let i = 0; i < this.selectedChairs.length; i++) {
-            if (this.selectedChairs[i] === row + '' + col) {
+          for (let j = 0; j < this.selectedChairs.length; j++) {
+            if (
+              this.selectedChairs[i][0] === row &&
+              this.selectedChairs[i][1] === col
+            ) {
               check = true;
             }
-          
+          }
         }
       
       return check;
