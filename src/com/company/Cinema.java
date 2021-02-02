@@ -146,19 +146,16 @@ public class Cinema {
 
         app.post("rest/ticket", (req, res) ->{
             var ticket = req.body(Ticket.class);
-            //System.out.println("-----------------------------------------------------");
-            // get the show
+            // test when trying to book seats that are already booked
             //int[] newSeats = {2, 3};
             //ticket.setSeats(newSeats);
             Show show = collection("Show").findById(ticket.getShowId());
             for(int i = 0; i < ticket.getSeats().length; i++){
-                //System.out.println(ticket.getSeats()[i]);
                 if(show.getSeatsTaken().contains(ticket.getSeats()[i])){
                     res.send("Seats already taken");
                     return;
                 }
             }
-            //System.out.println(show.toString());
             var createdTicket = collection("Ticket").save(ticket);
             res.json(createdTicket);
         });

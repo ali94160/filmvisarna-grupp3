@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="isBookingSuccessful">
     <h4 class="title">Tack för din beställning!</h4>
 
     <div class="info">
@@ -24,6 +24,11 @@
       <button @click="myPage">Mina sidor</button>
     </div>
     
+  </div>
+
+  <div v-else>
+  <h1>Bokning misslyckad!</h1>
+  <p> En eller flera platser du valde är redan bokad! Tryck på tillbaka knappen för att boka igen! </p>
   </div>
 </template>
 
