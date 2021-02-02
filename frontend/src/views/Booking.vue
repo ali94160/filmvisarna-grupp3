@@ -3,7 +3,7 @@
   <div id="#bookingDiv" v-if="!booked">
     <div class="container">
       <div class="salon">
-        <ChairList @updateSelectedChairs="updateSelectedChairs" @decreaseValues="decreaseValue" @clear="clear" :showId="showId"/>
+        <ChairList @updateSelectedChairs="updateSelectedChairs" @decreaseValues="decreaseValue" @clear="clear"/>
       </div>
 
         <div class="info">

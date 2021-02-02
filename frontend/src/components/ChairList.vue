@@ -35,7 +35,6 @@
 
 <script>
 export default {
-  props: ['showId'],
   data() {
     return {
       chairs: [],
@@ -124,7 +123,7 @@ export default {
       return this.$store.state.currentSalon;
     },
     movie() {
-      return this.$store.state.showId;
+      return this.$store.state.showById;
     },
     showSelectedSeats() {
       let sc = [];
@@ -135,8 +134,13 @@ export default {
       return sc;
     },
   },
-  created() {
-    console.log(this.showId., 'props');
+  async created() {
+    console.log(this.$route.params.id, 'this is params')
+    await this.$store.dispatch('fetchShowById', this.$route.params.id)
+    await this.$store.dispatch('fetchSpecificSalon',this.$route.params.id  )
+
+    console.log(this.$store.state.showById, 'props');
+
     if (this.movie.seatsTaken !== null) {
       if (
         !this.movie.seatsTaken.includes(34) &&
