@@ -1,5 +1,5 @@
 <template>
-<div class="wrapper">
+<div class="wrapper" v-if="user">
   <div id="#bookingDiv" v-if="!booked">
     <div class="container">
       <div class="salon">
@@ -34,6 +34,10 @@
       :bookedChairs="selectedChairs"
     />
   </div>
+  <div class="errorMessage" v-else>
+    <h3>Du måste vara inloggad för att boka en film</h3>
+    <button @click="login">logga in</button>
+  </div>
 </template>
 
 <script>
@@ -57,6 +61,9 @@ export default {
   },
 
   methods: {
+    login(){
+      this.$router.push('/login');
+    },
     decreaseValue() {
       if (this.$store.state.selectedSeatsAmount >= 1) {
         this.ticketPrices[this.$store.state.selectedSeatsAmount] = 0;
@@ -83,6 +90,9 @@ export default {
   },
 
   computed: {
+    user(){
+      return this.$store.state.user
+    },
     showId(){
       return this.$route.params.id
     },
@@ -197,9 +207,29 @@ span {
   background-color: var(--green);
   opacity: 100%;
 }
+.errorMessage{
+  width: 80%;
+  margin: 5% auto;
+  font-size: calc(12px + 1vw);
+  text-align: center;
+}
 
-@media only screen and (max-width: 1000px) {
-  
+.errorMessage > button{
+  margin-top: 20px;
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  width: 50%;
+  opacity: 75%;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: medium;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 @media only screen and (max-width: 700px) {
