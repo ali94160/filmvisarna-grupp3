@@ -17,6 +17,7 @@
         v-for="ticket of historyTickets"
         :key="ticket.id"
         :id="ticket.id"
+        :ticket="ticket"
       />
     </div>
   </div>

@@ -1,61 +1,61 @@
 [ {
   "id" : "VODrZb-SpugmQTwsVlQx2",
   "timeStamp" : 1612202400,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 35, 44, 45, 3, 75, 76 ],
   "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
   "id" : "mV3mRaudInVZ4YZcZJCTc",
   "timeStamp" : 1612202400,
-  "seatsTaken" : [ 612 ],
+  "seatsTaken" : [ 0, 1, 2, 3, 34, 35, 10, 44, 45, 46, 24, 5, 11, 12, 13 ],
   "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
   "id" : "RSKDcmAhO3nyjUytpWEVH",
   "timeStamp" : 1612213200,
-  "seatsTaken" : [ 0, 1, 2, 1, 2 ],
+  "seatsTaken" : [ 34, 35, 44, 45 ],
   "movieId" : "kE86jJGJ7EMWx3ka17XGK",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
   "id" : "HXzvkqCxDO3uXk1VSnib7",
   "timeStamp" : 1612288800,
-  "seatsTaken" : [ 87, 87 ],
+  "seatsTaken" : null,
   "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
   "id" : "-KGdGAEivEPvRZ1c2jyaR",
   "timeStamp" : 1612288800,
-  "seatsTaken" : [ 66, 66, 66, 56, 56, 56, 56, 56, 56, 56, 56, 56, 68, 0, 1, 510, 511 ],
+  "seatsTaken" : [ 0, 1, 34 ],
   "movieId" : "gtR4rG_xXGSqvFUbYFotn",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
   "id" : "Is8a1sZldotLJQDi7Spvk",
   "timeStamp" : 1612299600,
-  "seatsTaken" : [ 45, 46 ],
+  "seatsTaken" : [ 4 ],
   "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
   "id" : "UNkxn7KxckzPQgv1ww6au",
   "timeStamp" : 1612375200,
-  "seatsTaken" : [ 77 ],
+  "seatsTaken" : [ 34, 35, 44, 64, 65, 66 ],
   "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
   "id" : "ny06h9Ex_hGUbAJsAa3Ao",
   "timeStamp" : 1612375200,
-  "seatsTaken" : [ 3, 4 ],
+  "seatsTaken" : [ 34, 35, 34, 35 ],
   "movieId" : "kE86jJGJ7EMWx3ka17XGK",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
   "id" : "6SXnLQY85-adJZqClhUVX",
   "timeStamp" : 1612386000,
-  "seatsTaken" : [ 3, 4 ],
+  "seatsTaken" : [ 34, 35, 711, 710, 79, 78 ],
   "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
   "id" : "dMiS25CaqchBn1rV7_4a7",
   "timeStamp" : 1612461600,
-  "seatsTaken" : [ 11 ],
+  "seatsTaken" : null,
   "movieId" : "gtR4rG_xXGSqvFUbYFotn",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
@@ -79,25 +79,25 @@
 }, {
   "id" : "-YgOzoKMfz2f_xJ1Ih0nq",
   "timeStamp" : 1612548000,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 35, 34, 35, 3, 55, 56 ],
   "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
   "id" : "NVaaOW-hyI2UZgSXKFSsr",
   "timeStamp" : 1612558800,
-  "seatsTaken" : [ 3, 4 ],
+  "seatsTaken" : null,
   "movieId" : "gtR4rG_xXGSqvFUbYFotn",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
   "id" : "_-ggUYkaeGfv-YEUhPjDU",
   "timeStamp" : 1612634400,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 35 ],
   "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
   "id" : "6pMGnVtuG_kLHB48zfcBG",
   "timeStamp" : 1612634400,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 34, 34, 44, 45, 55 ],
   "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
@@ -109,43 +109,43 @@
 }, {
   "id" : "BJUtuqe69DoNj7ldb7Gfh",
   "timeStamp" : 1612720800,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 3, 4 ],
   "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
   "id" : "WbU8aQXhGkr-9vKkc-je0",
   "timeStamp" : 1612720800,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 0 ],
   "movieId" : "gtR4rG_xXGSqvFUbYFotn",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
   "id" : "uWQRM-2moy5zClp41gbDE",
   "timeStamp" : 1612731600,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 3 ],
   "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
   "id" : "g4LKkJTAxbyfy8RXhlPmf",
   "timeStamp" : 1612807200,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 35 ],
   "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
   "id" : "z88zweMA-8HxLg6xQeFKe",
   "timeStamp" : 1612807200,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 35 ],
   "movieId" : "kE86jJGJ7EMWx3ka17XGK",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
   "id" : "0otdbzOOIceSLh6SXUmCc",
   "timeStamp" : 1612818000,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 35, 34, 35 ],
   "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
   "id" : "W9Hs6qDE8_xUnrY2tDf31",
   "timeStamp" : 1612893600,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 35 ],
   "movieId" : "gtR4rG_xXGSqvFUbYFotn",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
@@ -157,13 +157,13 @@
 }, {
   "id" : "BcqsPKBYXDoJZUcx1TqGf",
   "timeStamp" : 1612904400,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 35 ],
   "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
   "id" : "zB_7fYlfBqZLun9If4Baz",
   "timeStamp" : 1612980000,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 35 ],
   "movieId" : "kE86jJGJ7EMWx3ka17XGK",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
@@ -205,7 +205,7 @@
 }, {
   "id" : "Udz81Z6labp5Sp0-0hEXJ",
   "timeStamp" : 1613152800,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 35, 44, 45 ],
   "movieId" : "gtR4rG_xXGSqvFUbYFotn",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
@@ -217,7 +217,7 @@
 }, {
   "id" : "7nimA-8v78RV0mDuHi5EL",
   "timeStamp" : 1613239200,
-  "seatsTaken" : [ 45, 45 ],
+  "seatsTaken" : [ 34, 35 ],
   "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
@@ -241,7 +241,7 @@
 }, {
   "id" : "yR8l_jO531LaiUKs--8tY",
   "timeStamp" : 1613325600,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34 ],
   "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
@@ -259,7 +259,7 @@
 }, {
   "id" : "S19VU9S6w7TC8jk3HsFSv",
   "timeStamp" : 1613412000,
-  "seatsTaken" : [ 68, 68 ],
+  "seatsTaken" : null,
   "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
@@ -349,13 +349,13 @@
 }, {
   "id" : "FjkPhjTFTwfPn-Ac_Dlxj",
   "timeStamp" : 1613844000,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 35, 44, 45 ],
   "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
   "id" : "Kk0siJxm8MYGi_9-QTEhX",
   "timeStamp" : 1613854800,
-  "seatsTaken" : [ 87 ],
+  "seatsTaken" : null,
   "movieId" : "gtR4rG_xXGSqvFUbYFotn",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
@@ -373,7 +373,7 @@
 }, {
   "id" : "chFaFBGvCKSw22R5vbjSj",
   "timeStamp" : 1613941200,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 35 ],
   "movieId" : "kE86jJGJ7EMWx3ka17XGK",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
@@ -415,25 +415,25 @@
 }, {
   "id" : "XLoYmST48xfBiOTFkCyns",
   "timeStamp" : 1614189600,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 35, 44, 45, 44, 45 ],
   "movieId" : "gtR4rG_xXGSqvFUbYFotn",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
   "id" : "_TW-ttqPOHy63_eG03eqA",
   "timeStamp" : 1614189600,
-  "seatsTaken" : [ 66, 67 ],
+  "seatsTaken" : null,
   "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
   "id" : "aotJ7Lq9ezl0dhrNZjo6Z",
   "timeStamp" : 1614276000,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 76 ],
   "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
   "id" : "Omr7ckBv4u6qF6o6dqwjK",
   "timeStamp" : 1614276000,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 35 ],
   "movieId" : "kE86jJGJ7EMWx3ka17XGK",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
@@ -445,7 +445,7 @@
 }, {
   "id" : "A8XiGhizKgwdD0LhwYgYA",
   "timeStamp" : 1614286800,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 35 ],
   "movieId" : "gtR4rG_xXGSqvFUbYFotn",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
@@ -457,13 +457,13 @@
 }, {
   "id" : "eeElBPh_0pxNbd4oXxq0e",
   "timeStamp" : 1614362400,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 35 ],
   "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
   "id" : "wzpULQ-5G_Db30MKCMU2D",
   "timeStamp" : 1614373200,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 35 ],
   "movieId" : "kE86jJGJ7EMWx3ka17XGK",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
@@ -475,31 +475,31 @@
 }, {
   "id" : "Q36m8vfirhYM3VArRALwF",
   "timeStamp" : 1614448800,
-  "seatsTaken" : [ 45, 46 ],
+  "seatsTaken" : [ 34, 35 ],
   "movieId" : "gtR4rG_xXGSqvFUbYFotn",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
   "id" : "mE64uQ5cEtduZnkzUP7ds",
   "timeStamp" : 1614459600,
-  "seatsTaken" : [ 87 ],
+  "seatsTaken" : [ 34, 35, 44, 45 ],
   "movieId" : "M66J4NuEIMJuoKgpQ6f0x",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
   "id" : "qgdS7DOfmxpzVhyhryWxk",
   "timeStamp" : 1614535200,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 35, 44, 45 ],
   "movieId" : "8Ai8Vq6mWIYfJEVxqnc_O",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 }, {
   "id" : "RRBOn_ZqniJHCkPrU2ebl",
   "timeStamp" : 1614535200,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 35, 34, 35 ],
   "movieId" : "kE86jJGJ7EMWx3ka17XGK",
   "salonId" : "5Abg3kYWFU-mVRFXOJ3Dd"
 }, {
   "id" : "4SY76vfTpNUuImGWUXBE3",
   "timeStamp" : 1614546000,
-  "seatsTaken" : null,
+  "seatsTaken" : [ 34, 35 ],
   "movieId" : "1l7pgmSX5KBQTvgrOVkuN",
   "salonId" : "FK5WXajTTlWZf7ftYu58r"
 } ]

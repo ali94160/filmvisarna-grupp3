@@ -60,6 +60,16 @@ export default {
             booked = true;
           }
         }
+        if(booked){ 
+          let holder = row + '' + col
+          for(let i = 0; i < this.showSelectedSeats.length; i++){
+            if(this.showSelectedSeats[i] == holder){
+                this.selectedChairs.splice(i,1);
+                this.$store.commit('setSelectedSeatsAmount', this.$store.state.selectedSeatsAmount - 1)
+            }
+          }  
+          this.check(row, col, true)       
+        }
         return booked;
       }
     }
@@ -69,7 +79,8 @@ export default {
       return this.$store.state.currentSalon;
     },
     movie() {
-      return this.$store.state.currentMovie;
+      console.log('change happen');
+      return this.$store.state.showById;
     },
     showSelectedSeats() {
       let sc = [];
@@ -90,21 +101,21 @@ export default {
       ) {
         this.selectedChairs.push([3, 4]);
         this.selectedChairs.push([3, 5]);
-        this.$store.commit("setSelectedSeats", this.selectedChairs.length);
+        this.$store.commit("setselectedSeatsAmount", this.selectedChairs.length);
       } else if (
         !this.movie.seatsTaken.includes(44) &&
         !this.movie.seatsTaken.includes(45)
       ) {
         this.selectedChairs.push([4, 4]);
         this.selectedChairs.push([4, 5]);
-        this.$store.commit("setSelectedSeats", this.selectedChairs.length);
+        this.$store.commit("setSelectedSeatsAmount", this.selectedChairs.length);
       } else {
-        this.$store.commit("setSelectedSeats", 0);
+        this.$store.commit("setSelectedSeatsAmount", 0);
       }
     } else {
       this.selectedChairs.push([3, 4]);
       this.selectedChairs.push([3, 5]);
-      this.$store.commit("setSelectedSeats", this.selectedChairs.length);
+      this.$store.commit("setSelectedSeatsAmount", this.selectedChairs.length);
     }
     */
   } //end of created

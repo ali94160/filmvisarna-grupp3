@@ -12,7 +12,9 @@ const state = {
   currentSalon: [],
   //the movie the user selected
   selectedMovie: {},
-  selectedSeats: '',
+  selectedSeatsAmount: '',
+  clearTheSeats: false,
+  showById: ''
 
 }
 
@@ -44,14 +46,20 @@ const mutations = {
   setCurrentSalon(state, salon) {
     state.currentSalon = salon
   },
-  setSelectedSeats(state, amount) {
-    state.selectedSeats = amount;
+  setSelectedSeatsAmount(state, amount) {
+    state.selectedSeatsAmount = amount;
   },
   decreaseSeats(state) {
-    state.selectedSeats--;
+    state.selectedSeatsAmount--;
   },
   clearSeats(state) {
-    state.selectedSeats = '';
+    state.selectedSeatsAmount = '';
+  },
+  updateClearTheSeats(state) {
+    state.clearTheSeats = !state.clearTheSeats
+  },
+  setShowById(state, showById) {
+    state.showById = showById
   }
 }
 
@@ -65,7 +73,7 @@ const actions = {
   async register(store, member) {
     let newUser = {
       firstName: member.name,
-      lastName:member.lastName,
+      lastName: member.lastName,
       email: member.email,
       password: member.password,
     };
@@ -102,7 +110,7 @@ const actions = {
     try {
       user = await user.json();
       store.commit("setUser", user);
-    } catch (error) { console.warn("Bad credentials");}
+    } catch (error) { console.warn("Bad credentials"); }
   },
 
   async addTicket(store, ticket) {
@@ -110,17 +118,24 @@ const actions = {
       price: ticket.price,
       timeStamp: ticket.timeStamp,
       seats: ticket.seats,
-      childPrice: 65,
-      seniorPrice: 75,
       userId: ticket.userId,
       showId: ticket.showId,
       movieId: state.selectedMovie.id,
       salonName: ticket.salonName
     };
-    let response = await fetch("rest/ticket", {
+    let response = await fetch("/rest/ticket", {
       method: "POST",
       body: JSON.stringify(newTicket),
     });
+    console.log(response, "response");
+
+    try {
+      response = await response.json();
+      return true
+    } catch (error) {
+      console.warn("Seats already taken");
+      return false
+    }
   },
 
   async fetchTicketsFromUser(store, userId) {
@@ -141,6 +156,13 @@ const actions = {
     } else {
       store.commit("setCurrentShow", []);
     }
+  },
+
+  async fetchShowById(store, showId) {
+    let show = await fetch("/rest/show/" + showId)
+    show = await show.json()
+  
+    store.commit("setShowById", show);
   },
 
   async fetchSalons(store) {

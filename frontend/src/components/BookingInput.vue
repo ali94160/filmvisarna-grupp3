@@ -4,7 +4,7 @@
       <span>Vuxen/Barn/Pensionär</span>
     </div>
 
-    <div class="input-field" id="selectDiv">
+    <div class="input-field">
       <select v-on:change="onChange" class="select text-white" id="selectPrice">
         <option value="" disabled selected>Välj</option>
         <option value="1">Vuxen</option>
@@ -36,7 +36,6 @@ export default {
   },
   methods:{
     onChange(){
-     //Denna emit funkar
       this.price = this.prices[event.target.value - 1]
       
       this.$emit('updateTotalPrice', this.price, this.ticketNumber )

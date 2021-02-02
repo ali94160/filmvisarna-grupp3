@@ -42,6 +42,12 @@ public class Cinema {
             res.json(ticket);
         });
 
+        app.get("/rest/show/:id", (req, res) -> {
+            var id = req.params("id");
+            var show = collection("Show").findById(id);
+            res.json(show);
+        });
+
         app.get("/rest/show/get-salon/:id",(req, res) ->{
             //get salon with showId
             var id = req.params("id");
@@ -51,7 +57,6 @@ public class Cinema {
                 return;
             }
             Salon salon = collection("Salon").findById(show.getSalonId());
-            System.out.println("found " + salon);
             res.json(salon);
         });
 
@@ -142,12 +147,21 @@ public class Cinema {
 
             list.increaseSeatsTaken(seats);
             collection("Show").updateById(id, list);
-            System.out.println(list);
             res.json(list);
         });
 
         app.post("rest/ticket", (req, res) ->{
             var ticket = req.body(Ticket.class);
+            // test when trying to book seats that are already booked
+            //int[] newSeats = {2, 3};
+            //ticket.setSeats(newSeats);
+            Show show = collection("Show").findById(ticket.getShowId());
+            for(int i = 0; i < ticket.getSeats().length; i++){
+                if(show.getSeatsTaken().contains(ticket.getSeats()[i])){
+                    res.send("Seats already taken");
+                    return;
+                }
+            }
             var createdTicket = collection("Ticket").save(ticket);
             res.json(createdTicket);
         });

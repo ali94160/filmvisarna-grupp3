@@ -9,6 +9,7 @@ import Register from '../views/Register.vue'
 import MyPage from '../views/MyPage.vue'
 import Booking from '../views/Booking.vue'
 import MovieDetails from '../views/MovieDetails.vue'
+import PageNotFound from '../views/PageNotFound.vue'
 
 const routes = [
   {
@@ -48,13 +49,18 @@ const routes = [
   },
   {
     name: 'Booking',
-    path: "/booking",
+    path: "/booking/:id",
     component: Booking
   },
   {
     name: "MovieDetails",
     path: "/moviedetails/:id",
     component: MovieDetails
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: PageNotFound
   }
 ]
 

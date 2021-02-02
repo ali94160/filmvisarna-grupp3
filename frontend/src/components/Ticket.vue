@@ -7,7 +7,6 @@
       <img
         class="ticketPost left"
         :src="getMovieById(ticket.movieId).imgUrl"
-        alt=""
       />
       <p class="movieTitle">{{ getMovieById(ticket.movieId).title }}</p>
       <p>{{ getTime }} {{ getDate }}</p>
@@ -25,7 +24,6 @@
 </template>
 
 <script>
-import M from "materialize-css";
 import TicketPicture from "./TicketPicture.vue"
 
 export default {
@@ -34,16 +32,11 @@ export default {
       modalId: null,
     };
   },
-  props: ["id"],
+  props: ["id","ticket"],
   components:{
     TicketPicture
   },
   computed: {
-    ticket() {
-      return this.$store.state.currentUserTickets.filter(
-        (p) => p.id == this.id
-      )[0];
-    },
     showSeats(){
       let toReturn = []
       let seatStrings = (this.ticket.seats + '').split(',')
