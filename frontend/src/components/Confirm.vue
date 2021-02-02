@@ -81,7 +81,8 @@ export default {
       this.$router.push("/");
     },
   },
-  created() {
+  async created() {
+    console.log("before", this.isBookingSuccessful);
     let ticket = {
       price: this.totalPrice,
       timeStamp: this.show.timeStamp,
@@ -91,9 +92,11 @@ export default {
       salonName: this.$store.state.currentSalon.name
     };
 
-    this.$store.dispatch("addTicket", ticket);
-    let showInfo = { showId: this.show.id, seats: [...this.bookedChairs] + "" };
-    this.$store.dispatch("increaseSeatsInShow", showInfo);
+    this.isBookingSuccessful = await this.$store.dispatch("addTicket", ticket);
+    console.log("after", this.isBookingSuccessful);
+    if(this.isBookingSuccessful){
+      let showInfo = { showId: this.show.id, seats: [...this.bookedChairs] + "" };
+      this.$store.dispatch("increaseSeatsInShow", showInfo);    }
   },
 };
 </script>
