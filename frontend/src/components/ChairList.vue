@@ -51,10 +51,8 @@ export default {
       }
       let add = true;
       for (let i = 0; i < this.selectedChairs.length; i++) {
-        for (let j = 0; j < this.selectedChairs.length; j++) {
           if (
-            this.selectedChairs[i][0] === row &&
-            this.selectedChairs[i][1] === col
+            this.selectedChairs[i] === row + '' + col
           ) {
             this.selectedChairs.splice(i, 1);
             this.$store.commit("decreaseSeats");
@@ -62,11 +60,10 @@ export default {
             add = false;
             return;
           }
-        }
       }
       if (add) {
 
-        this.selectedChairs.push([row, col]);
+        this.selectedChairs.push(row + '' + col);
         this.$store.commit("setSelectedSeatsAmount", this.selectedChairs.length);
       }
     },
@@ -76,18 +73,17 @@ export default {
       this.$store.commit("setSelectedSeatsAmount", 0);
       this.$emit("clear");
     },
+    // this one changes the color of clicked seats!
     check(row, col) {
       this.showSelectedSeats;
       let check = false;
         for (let i = 0; i < this.selectedChairs.length; i++) {
-          for (let j = 0; j < this.selectedChairs.length; j++) {
             if (
               this.selectedChairs[i][0] === row &&
-              this.selectedChairs[i][1] === col
+              this.selectedChairs[i][1] === col || this.selectedChairs[i] === row + '' + col
             ) {
               check = true;
             }
-          }
         }
       
       return check;
