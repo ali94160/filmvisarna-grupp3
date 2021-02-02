@@ -13,7 +13,8 @@ const state = {
   //the movie the user selected
   selectedMovie: {},
   selectedSeats: '',
-  clearTheSeats: false
+  clearTheSeats: false,
+  showById: ''
 
 }
 
@@ -56,6 +57,9 @@ const mutations = {
   },
   updateClearTheSeats(state) {
     state.clearTheSeats = !state.clearTheSeats
+  },
+  setShowById(state, showById) {
+    state.showById = showById
   }
 }
 
@@ -142,6 +146,16 @@ const actions = {
       store.commit("setCurrentShow", list);
     } else {
       store.commit("setCurrentShow", []);
+    }
+  },
+
+  async fetchShowById(store, showId) {
+    let show = await fetch("/rest/show/" + showId)
+    show = await show.json()
+    if (show.length) {
+      store.commit('setShowById', show)
+    } else {
+      store.commit('setShowById', '')
     }
   },
 

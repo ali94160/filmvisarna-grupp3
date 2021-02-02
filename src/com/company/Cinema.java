@@ -42,6 +42,12 @@ public class Cinema {
             res.json(ticket);
         });
 
+        app.get("/rest/show/:id", (req, res) -> {
+            var id = req.params("id");
+            var show = collection("Show").findById(id);
+            res.json(show);
+        });
+
         app.get("/rest/show/get-salon/:id",(req, res) ->{
             //get salon with showId
             var id = req.params("id");

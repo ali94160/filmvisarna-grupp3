@@ -3,7 +3,7 @@
   <div id="#bookingDiv" v-if="!booked">
     <div class="container">
       <div class="salon">
-        <ChairList @updateSelectedChairs="updateSelectedChairs" @decreaseValues="decreaseValue" @clear="clear"/>
+        <ChairList @updateSelectedChairs="updateSelectedChairs" @decreaseValues="decreaseValue" @clear="clear" :showId="showId"/>
       </div>
 
         <div class="info">
@@ -99,7 +99,7 @@ export default {
       return this.selectedSeats > 3;
     },
     getCurrentMovie() {
-      return this.$store.state.selectedMovie;
+      return this.$store.state.showById;
     },
     selectedSeats() {
       return this.$store.state.selectedSeats;
@@ -107,6 +107,7 @@ export default {
   },
   mounted(){  
     this.showId
+    this.$store.dispatch('fetchShowById', this.showId)
   }
 };
 </script>

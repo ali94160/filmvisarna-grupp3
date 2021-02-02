@@ -35,6 +35,7 @@
 
 <script>
 export default {
+  props: ['showId'],
   data() {
     return {
       chairs: [],
@@ -123,7 +124,7 @@ export default {
       return this.$store.state.currentSalon;
     },
     movie() {
-      return this.$store.state.currentMovie;
+      return this.$store.state.showId;
     },
     showSelectedSeats() {
       let sc = [];
@@ -135,6 +136,7 @@ export default {
     },
   },
   created() {
+    console.log(this.showId., 'props');
     if (this.movie.seatsTaken !== null) {
       if (
         !this.movie.seatsTaken.includes(34) &&
@@ -158,7 +160,7 @@ export default {
       this.selectedChairs.push([3, 5]);
       this.$store.commit("setSelectedSeats", this.selectedChairs.length);
     }
-  },
+  }
 };
 </script>
 
