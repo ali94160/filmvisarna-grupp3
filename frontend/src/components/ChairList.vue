@@ -123,6 +123,9 @@ export default {
       return this.$store.state.currentSalon;
     },
     movie() {
+      
+      
+      
       return this.$store.state.showById;
     },
     showSelectedSeats() {

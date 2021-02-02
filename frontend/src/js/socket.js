@@ -20,9 +20,8 @@ function connect() {
     if (model == "Show") {
       if (event == "update") {
         if (store.state.currentMovie.id === data[0].id) {
-          store.commit('setCurrentMovie', data[0]);
-          store.commit("setSelectedSeats", 0);
-          store.commit('updateClearTheSeats');
+          store.commit('setShowById', data[0]);
+
         }
       }
     }
