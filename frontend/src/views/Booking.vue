@@ -82,6 +82,9 @@ export default {
   },
 
   computed: {
+    showId(){
+      return this.$route.params.id
+    },
     getTotalPrice() {
       let sum = 0;
       for (let i = 0; i < this.ticketPrices.length; i++) {
@@ -102,6 +105,9 @@ export default {
       return this.$store.state.selectedSeats;
     }
   },
+  mounted(){  
+    this.showId
+  }
 };
 </script>
 

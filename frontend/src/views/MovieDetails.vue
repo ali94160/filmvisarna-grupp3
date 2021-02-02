@@ -113,7 +113,7 @@ export default {
 
     book() {
       if (!this.isFullSalon && this.showId.length) {
-        this.$router.push("/booking");
+        this.$router.push("/booking/" + this.showId);
       }     
     },
     getDate(show){
