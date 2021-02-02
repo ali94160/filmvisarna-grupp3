@@ -1,6 +1,9 @@
 <template>
   <div class="h3Div">
     <h3>{{ salon.name }}</h3>
+    <div>
+      <p>{{ getDate() }} hello {{ getTime() }}</p>
+    </div>
     <span>FILMDUK</span>
   </div>
   <div class="salon">
@@ -42,6 +45,7 @@ export default {
       isHover: false,
     };
   },
+  props:['show'],
   emits: ['decreaseValues','clear','updateSelectedChairs'],
   methods: {
     changeColor(row, col) {
@@ -116,6 +120,14 @@ export default {
         }
         return booked;
       }
+    },
+    getDate(){
+      let millis = this.show.timeStamp * 1000;
+      return new Date(millis).toLocaleDateString();
+    },
+    getTime(){
+      let millis = this.show.timeStamp * 1000;
+      return new Date(millis).toGMTString().substring(17,22);
     }
   },
   computed: {
