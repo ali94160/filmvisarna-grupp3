@@ -127,6 +127,15 @@ const actions = {
       method: "POST",
       body: JSON.stringify(newTicket),
     });
+    console.log(response, "response");
+
+    try {
+      response = await response.json();
+      return true
+    } catch (error) {
+      console.warn("Seats already taken");
+      return false
+    }
   },
 
   async fetchTicketsFromUser(store, userId) {

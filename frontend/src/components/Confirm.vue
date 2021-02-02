@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="isBookingSuccessful">
     <h4 class="title">Tack för din beställning!</h4>
 
     <div class="info">
@@ -25,10 +25,20 @@
     </div>
     
   </div>
+
+  <div v-else>
+  <h1>Bokning misslyckad!</h1>
+  <p> En eller flera platser du valde är redan bokad! Tryck på tillbaka knappen för att boka igen! </p>
+  </div>
 </template>
 
 <script>
 export default {
+  data(){
+    return {
+      isBookingSuccessful: false
+    }
+  },
   props: ["ticketPrices", "bookedChairs"],
   computed: {
     shows() {
@@ -76,7 +86,8 @@ export default {
       this.$router.push("/");
     },
   },
-  created() {
+  async created() {
+    console.log("before", this.isBookingSuccessful);
     let ticket = {
       price: this.totalPrice,
       timeStamp: this.show.timeStamp,
@@ -85,9 +96,12 @@ export default {
       showId: this.show.id,
       salonName: this.$store.state.currentSalon.name
     };
-    this.$store.dispatch("addTicket", ticket);
-    let showInfo = { showId: this.show.id, seats: [...this.bookedChairs] + "" };
-    this.$store.dispatch("increaseSeatsInShow", showInfo);
+
+    this.isBookingSuccessful = await this.$store.dispatch("addTicket", ticket);
+    console.log("after", this.isBookingSuccessful);
+    if(this.isBookingSuccessful){
+      let showInfo = { showId: this.show.id, seats: [...this.bookedChairs] + "" };
+      this.$store.dispatch("increaseSeatsInShow", showInfo);    }
   },
 };
 </script>
