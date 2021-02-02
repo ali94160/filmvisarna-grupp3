@@ -54,7 +54,7 @@
       >
         <option value="" disabled selected>Välj datum/tid</option>
         <option v-for="show in shows" :key="show.id" :value="show.id">
-          {{ getDate(show) }} kl: {{getTime(show)}}
+          {{ getDate(show) }} kl. {{getTime(show)}}
         </option>
       </select>
       <div v-if="isFullSalon" class="fullSalonAlert">Fullbokat Datum</div>

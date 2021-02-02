@@ -2,7 +2,8 @@
   <div class="h3Div">
     <h3>{{ salon.name }}</h3>
     <div>
-      <p>{{ getDate() }} hello {{ getTime() }}</p>
+      <p>{{ movie.title }}</p>
+      <p>{{ getDate() }} kl. {{ getTime() }}</p>
     </div>
     <span>FILMDUK</span>
   </div>
@@ -43,9 +44,9 @@ export default {
       chairs: [],
       selectedChairs: [],
       isHover: false,
+      movie: ''
     };
   },
-  props:['show'],
   emits: ['decreaseValues','clear','updateSelectedChairs'],
   methods: {
     changeColor(row, col) {
@@ -99,12 +100,12 @@ export default {
     checkBooked(row, col) {
       this.showSelectedSeats;
       let booked = false;
-      if (this.movie.seatsTaken) {
-        for (let i = 0; i < this.movie.seatsTaken.length; i++) {
-          if (this.movie.seatsTaken[i] < 10) {
-            if ("0" + this.movie.seatsTaken[i] + "" === row + "" + col)
+      if (this.show.seatsTaken) {
+        for (let i = 0; i < this.show.seatsTaken.length; i++) {
+          if (this.show.seatsTaken[i] < 10) {
+            if ("0" + this.show.seatsTaken[i] + "" === row + "" + col)
               booked = true;
-          } else if (this.movie.seatsTaken[i] + "" === row + "" + col) {
+          } else if (this.show.seatsTaken[i] + "" === row + "" + col) {
             booked = true;
           }
         }
@@ -134,8 +135,7 @@ export default {
     salon() {
       return this.$store.state.currentSalon;
     },
-    movie() {
-      console.log('change happen');
+    show() {
       return this.$store.state.showById;
     },
     showSelectedSeats() {
@@ -145,23 +145,23 @@ export default {
       }
       this.$emit("updateSelectedChairs", sc);
       return sc;
-    },
+    }
   },
   async created() {
     await this.$store.dispatch('fetchShowById', this.$route.params.id)
     await this.$store.dispatch('fetchSpecificSalon',this.$route.params.id  )
 
-    if (this.movie.seatsTaken !== null) {
+    if (this.show.seatsTaken !== null) {
       if (
-        !this.movie.seatsTaken.includes(34) &&
-        !this.movie.seatsTaken.includes(35)
+        !this.show.seatsTaken.includes(34) &&
+        !this.show.seatsTaken.includes(35)
       ) {
         this.selectedChairs.push([3, 4]);
         this.selectedChairs.push([3, 5]);
         this.$store.commit("setselectedSeatsAmount", this.selectedChairs.length);
       } else if (
-        !this.movie.seatsTaken.includes(44) &&
-        !this.movie.seatsTaken.includes(45)
+        !this.show.seatsTaken.includes(44) &&
+        !this.show.seatsTaken.includes(45)
       ) {
         this.selectedChairs.push([4, 4]);
         this.selectedChairs.push([4, 5]);
@@ -174,6 +174,8 @@ export default {
       this.selectedChairs.push([3, 5]);
       this.$store.commit("setSelectedSeatsAmount", this.selectedChairs.length);
     }
+
+    this.movie = this.$store.state.movies.filter((movie) => movie.id == this.show.movieId)[0]
   }
 };
 </script>
