@@ -85,7 +85,6 @@ export default {
       showId: this.show.id,
       salonName: this.$store.state.currentSalon.name
     };
-
     this.$store.dispatch("addTicket", ticket);
     let showInfo = { showId: this.show.id, seats: [...this.bookedChairs] + "" };
     this.$store.dispatch("increaseSeatsInShow", showInfo);

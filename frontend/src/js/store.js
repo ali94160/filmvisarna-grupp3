@@ -123,7 +123,7 @@ const actions = {
       movieId: state.selectedMovie.id,
       salonName: ticket.salonName
     };
-    let response = await fetch("rest/ticket", {
+    let response = await fetch("/rest/ticket", {
       method: "POST",
       body: JSON.stringify(newTicket),
     });
