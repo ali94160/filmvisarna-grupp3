@@ -80,7 +80,7 @@ export default {
 
     changeBooked(){
       if(this.ticketPrices.filter(p => p !== 0).length === this.$store.state.selectedSeatsAmount 
-      && this.ticketPrices.length){
+      && this.$store.state.selectedSeatsAmount){
         this.booked = !this.booked
       }
     },
