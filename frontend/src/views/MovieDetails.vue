@@ -59,7 +59,7 @@
             {{ getDate(show) }} kl: {{getTime(show)}}
           </option>
         </select>
-        <div v-if="isFullSalon" class="fullSalonAlert">Fullbokat Datum</div>
+        <div v-if="isFullSalon" class="fullSalonAlert">Fullbokad</div>
         <button @click="book" v-if="online" class="movieDetailsButton">
           Boka
         </button>
@@ -336,14 +336,18 @@ export default {
 .fullSalonAlert {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
     Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-size: 17px;
-  color: rgb(0, 0, 0);
-  background: crimson;
-  max-width: 15vw;
+  font-size: 12px;
+  color:white;
+  background: var(--red);
+  width: fit-content;
   margin: 0 auto;
-
+  margin-top: 10px;
+  padding: 10px 15px;
+  text-transform: uppercase;
   text-align: center;
   border-radius: 5px;
+  letter-spacing: 0.0px;
+  font-weight: bold;
 }
 
 @media only screen and (max-width: 900px){
