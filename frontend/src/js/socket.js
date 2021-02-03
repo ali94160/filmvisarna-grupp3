@@ -5,7 +5,6 @@ connect();
 
 function connect() {
   ws = new WebSocket("ws://localhost:4000/watch-collections");
-  console.log("Connecting WebSocket");
 
   ws.onopen = () => {
     console.log("Connected");

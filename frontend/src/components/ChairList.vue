@@ -56,7 +56,6 @@ export default {
       }
       let add = true;
       for (let i = 0; i < this.selectedChairs.length; i++) {
-        for (let j = 0; j < this.selectedChairs.length; j++) {
           if (
             this.selectedChairs[i][0] === row &&
             this.selectedChairs[i][1] === col
@@ -67,7 +66,6 @@ export default {
             add = false;
             return;
           }
-        }
       }
       if (add) {
 
@@ -85,14 +83,12 @@ export default {
       this.showSelectedSeats;
       let check = false;
         for (let i = 0; i < this.selectedChairs.length; i++) {
-          for (let j = 0; j < this.selectedChairs.length; j++) {
             if (
               this.selectedChairs[i][0] === row &&
               this.selectedChairs[i][1] === col
             ) {
               check = true;
             }
-          }
         }
       
       return check;
@@ -165,6 +161,7 @@ export default {
       ) {
         this.selectedChairs.push([4, 4]);
         this.selectedChairs.push([4, 5]);
+        
         this.$store.commit("setSelectedSeatsAmount", this.selectedChairs.length);
       } else {
         this.$store.commit("setSelectedSeatsAmount", 0);

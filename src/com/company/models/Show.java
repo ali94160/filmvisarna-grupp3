@@ -18,7 +18,6 @@ public class Show {
     public void increaseSeatsTaken(String seats){
 
         String[] bookedSeats = seats.split(",");
-        System.out.println(Arrays.toString(bookedSeats));
         if(this.seatsTaken == null){
             this.seatsTaken = new ArrayList<Integer>();
         }

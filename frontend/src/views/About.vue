@@ -46,7 +46,7 @@
       <div class="lillaImg">
         <h5 class="lilTitle">Lilla salongen</h5>
         <img
-          src="https://i.postimg.cc/rpHdphWk/Ska-rmavbild-2021-01-16-kl-00-38-09.png"
+          src="https://i.postimg.cc/Dz2GrFnP/Ska-rmavbild-2021-01-16-kl-00-38-09.png"
           class="stora"
         />
 

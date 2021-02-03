@@ -35,6 +35,7 @@ export default {
   computed: {
     getTickets() {
       let filteredTickets = [];
+      this.historyTickets = [];
       for (let ticket of this.$store.state.currentUserTickets) {
         if (ticket.timeStamp * 1000 > new Date().getTime()) {
           filteredTickets.push(ticket);
@@ -48,7 +49,10 @@ export default {
       return filteredTickets;
     },
   },
-  created() {
+  async created() {
+    if(!this.$store.state.user){
+      await this.$store.dispatch('whoAmI')
+    }
     this.$store.dispatch("fetchTicketsFromUser", this.$store.state.user.id);
   },
   components: {
