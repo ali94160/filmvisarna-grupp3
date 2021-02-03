@@ -36,7 +36,7 @@
   </div>
   <div class="errorMessage" v-else>
     <h3>Du måste vara inloggad för att boka en film</h3>
-    <button @click="login">logga in</button>
+    <button @click="login">Logga in</button>
   </div>
 </template>
 

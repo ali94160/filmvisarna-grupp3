@@ -11,12 +11,10 @@
         <option value="2">Barn</option>
         <option value="3">Pensionär</option>
       </select>
-      <!--<label for="ticket">Biljett {{ticketNumber}}</label>-->
     </div>
 
     <div class="input-field">
       <span class="right">{{price}}kr</span>
-      <!--<span v-show="price>0">{{price}} kr</span>-->
     </div>
   </div>
 </template>
@@ -36,7 +34,6 @@ export default {
   methods:{
     onChange(){
       this.price = this.prices[event.target.value - 1]
-      
       this.$emit('updateTotalPrice', this.price, this.ticketNumber )
       
     }
