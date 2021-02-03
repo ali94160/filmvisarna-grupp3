@@ -55,7 +55,7 @@ span {
 
 .inputWrapper{
   height: 6vh; 
-  margin-bottom: 10vh;
+  margin-bottom: 5vh;
   display: grid;
   grid-template-columns: 1fr 1fr 0.5fr;
   grid-gap: 2vw;
