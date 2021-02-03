@@ -49,7 +49,10 @@ export default {
       return filteredTickets;
     },
   },
-  created() {
+  async created() {
+    if(!this.$store.state.user){
+      await this.$store.dispatch('whoAmI')
+    }
     this.$store.dispatch("fetchTicketsFromUser", this.$store.state.user.id);
   },
   components: {

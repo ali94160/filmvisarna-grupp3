@@ -95,7 +95,6 @@ export default {
       return this.$route.params.id;
     },
     movie() {
-      console.log("le movie", this.$store.state.movies.filter((movie) => movie.id == this.id)[0]);
       return this.$store.state.movies.filter((movie) => movie.id == this.id)[0];
     },
     online() {
@@ -138,7 +137,6 @@ export default {
         this.$store.commit("setCurrentMovie", show);
         await this.$store.dispatch("fetchSpecificSalon", show.id);
         if(!this.$store.state.currentMovie.seatsTaken){
-          console.log("condition met");
           this.isFullSalon = false;
           return;
         }
@@ -154,7 +152,6 @@ export default {
     },
   },
   async created() {
-    console.log("before created beginning");
     if(!this.$store.state.movies.length){
       await this.$store.dispatch('whoAmI')
       await this.$store.dispatch("fetchMovie");
@@ -164,10 +161,8 @@ export default {
       "setSelectedMovie",
       this.$store.state.movies.filter((movie) => movie.id == this.id)[0]
     );
-    console.log(this.$store.state.selectedMovie, "selected movie");
     await this.$store.dispatch("fetchShows", this.id);
     this.isMovieFetched = true
-    console.log(this.isMovieFetched);
   },
   mounted() {
     window.scrollTo(0, 0);
