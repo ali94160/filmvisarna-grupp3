@@ -52,7 +52,8 @@ export default {
       let add = true;
       for (let i = 0; i < this.selectedChairs.length; i++) {
           if (
-            this.selectedChairs[i] === row + '' + col
+            this.selectedChairs[i][0] === row &&
+            this.selectedChairs[i][1] === col
           ) {
             this.selectedChairs.splice(i, 1);
             this.$store.commit("decreaseSeats");
@@ -63,7 +64,7 @@ export default {
       }
       if (add) {
 
-        this.selectedChairs.push(row + '' + col);
+        this.selectedChairs.push([row, col]);
         this.$store.commit("setSelectedSeatsAmount", this.selectedChairs.length);
       }
     },
@@ -73,14 +74,13 @@ export default {
       this.$store.commit("setSelectedSeatsAmount", 0);
       this.$emit("clear");
     },
-    // this one changes the color of clicked seats!
     check(row, col) {
       this.showSelectedSeats;
       let check = false;
         for (let i = 0; i < this.selectedChairs.length; i++) {
             if (
               this.selectedChairs[i][0] === row &&
-              this.selectedChairs[i][1] === col || this.selectedChairs[i] === row + '' + col
+              this.selectedChairs[i][1] === col
             ) {
               check = true;
             }
@@ -148,6 +148,7 @@ export default {
       ) {
         this.selectedChairs.push([4, 4]);
         this.selectedChairs.push([4, 5]);
+        
         this.$store.commit("setSelectedSeatsAmount", this.selectedChairs.length);
       } else {
         this.$store.commit("setSelectedSeatsAmount", 0);
@@ -157,6 +158,7 @@ export default {
       this.selectedChairs.push([3, 5]);
       this.$store.commit("setSelectedSeatsAmount", this.selectedChairs.length);
     }
+    console.log(this.selectedChairs, 'hehs')
   }
 };
 </script>
