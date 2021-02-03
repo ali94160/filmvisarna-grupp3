@@ -158,7 +158,6 @@ export default {
       this.selectedChairs.push([3, 5]);
       this.$store.commit("setSelectedSeatsAmount", this.selectedChairs.length);
     }
-    console.log(this.selectedChairs, 'hehs')
   }
 };
 </script>
