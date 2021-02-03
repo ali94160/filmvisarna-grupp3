@@ -127,7 +127,6 @@ const actions = {
       method: "POST",
       body: JSON.stringify(newTicket),
     });
-    console.log(response, "response");
 
     try {
       response = await response.json();
