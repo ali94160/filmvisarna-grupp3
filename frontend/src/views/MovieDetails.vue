@@ -1,81 +1,84 @@
 <template>
-  <img class="backgroundImage" :src="movie.backgroundUrl" alt="" />
-  <div class="container">
-    <div class="moviePoster">
-      <img :src="movie.imgUrl" :alt="movie.title" class="right" />
-    </div>
-    <div class="movieInfo">
-      <div class="movieInfo2">
-        <div class="titleDiv">
-          <h3>{{ movie.title }}</h3>
+  <div v-if="isMovieFetched">
+    <img class="backgroundImage" :src="movie.backgroundUrl" alt="" />
+    <div class="container">
+      <div class="moviePoster">
+        <img :src="movie.imgUrl" :alt="movie.title" class="right" />
+      </div>
+      <div class="movieInfo">
+        <div class="movieInfo2">
+          <div class="titleDiv">
+            <h3>{{ movie.title }}</h3>
+          </div>
+
+          <p><span class="titleTag">Åldersgräns:</span> {{ movie.age }}</p>
+
+          <p>
+            <span class="titleTag">Genre:</span>
+            <span v-for="genre in movie.genre" :key="genre.id">
+              {{ " " + genre }}
+            </span>
+          </p>
         </div>
-
-        <p><span class="titleTag">Åldersgräns:</span> {{ movie.age }}</p>
-
-        <p>
-          <span class="titleTag">Genre:</span>
-          <span v-for="genre in movie.genre" :key="genre.id">
-            {{ " " + genre }}
-          </span>
-        </p>
       </div>
     </div>
-  </div>
-  <div class="descriptionWrapper">
-    <div class="moreMovieInfo">
-      <p class="description1"><span class="titleTag">Handling:</span></p>
-      <p class="description2">{{ movie.description }}</p>
+    <div class="descriptionWrapper">
+      <div class="moreMovieInfo">
+        <p class="description1"><span class="titleTag">Handling:</span></p>
+        <p class="description2">{{ movie.description }}</p>
 
-      <p><span class="titleTag">Språk:</span> {{ movie.languages[0] }}</p>
-      <p><span class="titleTag">Undertext:</span> {{ movie.subtitles[0] }}</p>
-      <p class="actors"><span class="titleTag">Skådespelare:</span></p>
-      <span
-        class="movieActors"
-        v-for="(actor, index) in movie.actors"
-        :key="index"
-      >
-        {{ actor }},  
-      </span>
-
-      <p>
-        <span class="titleTag">Regissör:</span>
-        <span v-for="(director, index) in movie.directors" :key="index">
-          {{ " " + director + " " }}</span
+        <p><span class="titleTag">Språk:</span> {{ movie.languages[0] }}</p>
+        <p><span class="titleTag">Undertext:</span> {{ movie.subtitles[0] }}</p>
+        <p class="actors"><span class="titleTag">Skådespelare:</span></p>
+        <span
+          class="movieActors"
+          v-for="(actor, index) in movie.actors"
+          :key="index"
         >
-      </p>
+          {{ actor }},  
+        </span>
+
+        <p>
+          <span class="titleTag">Regissör:</span>
+          <span v-for="(director, index) in movie.directors" :key="index">
+            {{ " " + director + " " }}</span
+          >
+        </p>
+      </div>
+      <div class="selectionWrapper">
+        <select
+          @change="fullSalon"
+          v-model="showId"
+          class="selection"
+          name="opt"
+          id="name"
+        >
+          <option value="" disabled selected>Välj datum/tid</option>
+          <option v-for="show in shows" :key="show.id" :value="show.id">
+            {{ getDate(show) }} kl: {{getTime(show)}}
+          </option>
+        </select>
+        <div v-if="isFullSalon" class="fullSalonAlert">Fullbokat Datum</div>
+        <button @click="book" v-if="online" class="movieDetailsButton">
+          Boka
+        </button>
+        <button @click="signIn" v-if="!online" class="signInToBook">
+          Logga in för att boka
+        </button>
+      </div>
     </div>
-    <div class="selectionWrapper">
-      <select
-        @change="fullSalon"
-        v-model="showId"
-        class="selection"
-        name="opt"
-        id="name"
-      >
-        <option value="" disabled selected>Välj datum/tid</option>
-        <option v-for="show in shows" :key="show.id" :value="show.id">
-          {{ getDate(show) }} kl: {{getTime(show)}}
-        </option>
-      </select>
-      <div v-if="isFullSalon" class="fullSalonAlert">Fullbokat Datum</div>
-      <button @click="book" v-if="online" class="movieDetailsButton">
-        Boka
-      </button>
-      <button @click="signIn" v-if="!online" class="signInToBook">
-        Logga in för att boka
-      </button>
+
+    <div class="trailerDiv">
+      <iframe
+        class="movieTrailer"
+        :src="movie.trailerUrl"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
     </div>
   </div>
 
-  <div class="trailerDiv">
-    <iframe
-      class="movieTrailer"
-      :src="movie.trailerUrl"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    ></iframe>
-  </div>
 </template>
 
 <script>
@@ -84,6 +87,7 @@ export default {
     return {
       showId: "",
       isFullSalon: false,
+      isMovieFetched: false
     };
   },
   computed: {
@@ -91,6 +95,7 @@ export default {
       return this.$route.params.id;
     },
     movie() {
+      console.log("le movie", this.$store.state.movies.filter((movie) => movie.id == this.id)[0]);
       return this.$store.state.movies.filter((movie) => movie.id == this.id)[0];
     },
     online() {
@@ -132,8 +137,13 @@ export default {
         )[0];
         this.$store.commit("setCurrentMovie", show);
         await this.$store.dispatch("fetchSpecificSalon", show.id);
+        if(!this.$store.state.currentMovie.seatsTaken){
+          console.log("condition met");
+          this.isFullSalon = false;
+          return;
+        }
         if (
-          this.$store.state.currentMovie.seatsTaken !==
+          this.$store.state.currentMovie.seatsTaken.length !==
           this.$store.state.currentSalon.seats
         ) {
           this.isFullSalon = false;
@@ -143,12 +153,21 @@ export default {
       }
     },
   },
-  created() {
-    this.$store.commit(
+  async created() {
+    console.log("before created beginning");
+    if(!this.$store.state.movies.length){
+      await this.$store.dispatch('whoAmI')
+      await this.$store.dispatch("fetchMovie");
+      await this.$store.dispatch("fetchSalons");
+    }
+    await this.$store.commit(
       "setSelectedMovie",
       this.$store.state.movies.filter((movie) => movie.id == this.id)[0]
     );
-    this.$store.dispatch("fetchShows", this.id);
+    console.log(this.$store.state.selectedMovie, "selected movie");
+    await this.$store.dispatch("fetchShows", this.id);
+    this.isMovieFetched = true
+    console.log(this.isMovieFetched);
   },
   mounted() {
     window.scrollTo(0, 0);
