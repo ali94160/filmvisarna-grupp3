@@ -119,7 +119,6 @@ export default {
       return this.$store.state.currentSalon;
     },
     movie() {
-      console.log('change happen');
       return this.$store.state.showById;
     },
     showSelectedSeats() {

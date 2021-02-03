@@ -35,6 +35,7 @@ export default {
   computed: {
     getTickets() {
       let filteredTickets = [];
+      this.historyTickets = [];
       for (let ticket of this.$store.state.currentUserTickets) {
         if (ticket.timeStamp * 1000 > new Date().getTime()) {
           filteredTickets.push(ticket);
