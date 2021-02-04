@@ -54,7 +54,7 @@ export default {
       return this.$store.state.selectedMovie;
     },
     show() {
-      return this.$store.state.currentMovie;
+      return this.$store.state.showById;
     },
     salon() {
       return this.$store.state.currentSalon;

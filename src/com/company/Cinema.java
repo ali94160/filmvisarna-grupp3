@@ -152,8 +152,11 @@ public class Cinema {
 
         app.post("rest/ticket", (req, res) ->{
             var ticket = req.body(Ticket.class);
+            System.out.println(ticket);
             Show show = collection("Show").findById(ticket.getShowId());
+            System.out.println(show);
             if(show.getSeatsTaken() != null){
+                System.out.println("condition met");
             for(int i = 0; i < ticket.getSeats().length; i++) {
                 for (int j = 0; j < show.getSeatsTaken().size(); j++) {
                     if (show.getSeatsTaken().get(j) == ticket.getSeats()[i]) {
