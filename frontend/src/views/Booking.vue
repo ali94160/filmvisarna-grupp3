@@ -65,13 +65,9 @@ export default {
       this.$router.push('/login');
     },
     decreaseValue() {
-      console.log("decreaseValue called");
-        console.log("before ticketPrices",this.ticketPrices);
       if (this.$store.state.selectedSeatsAmount >= 0) {
-        //this.ticketPrices[this.$store.state.selectedSeatsAmount] = 0;
-        this.ticketPrices.splice(this.$store.state.selectedSeatsAmount,1)
+        this.ticketPrices.splice(this.$store.state.selectedSeatsAmount)
       }
-      console.log("after ticketPrices",this.ticketPrices);
     },
     clear(){
       this.ticketPrices = [];
