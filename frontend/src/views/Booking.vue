@@ -113,9 +113,6 @@ export default {
     hasThreeTickets() {
       return this.selectedSeatsAmount > 3;
     },
-    getCurrentMovie() {
-      return this.$store.state.showById;
-    },
     selectedSeatsAmount() {
       return this.$store.state.selectedSeatsAmount;
     }

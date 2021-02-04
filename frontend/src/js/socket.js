@@ -18,7 +18,10 @@ function connect() {
 
     if (model == "Show") {
       if (event == "update") {
-        if (store.state.currentMovie.id === data[0].id) {
+        console.log("selMov in socket");
+        console.log(store.state.showById.id);
+        console.log(data[0].id);
+        if (store.state.showById.id === data[0].id) {
           store.commit('setShowById', data[0]);
 
         }
