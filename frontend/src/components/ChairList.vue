@@ -154,7 +154,7 @@ export default {
       ) {
         this.selectedChairs.push([3, 4]);
         this.selectedChairs.push([3, 5]);
-        this.$store.commit("setSelectedSeatsAmount", this.selectedChairs.length);
+        this.$store.commit("setselectedSeatsAmount", this.selectedChairs.length);
       } else if (
         !this.show.seatsTaken.includes(44) &&
         !this.show.seatsTaken.includes(45)
@@ -171,7 +171,7 @@ export default {
       this.selectedChairs.push([3, 5]);
       this.$store.commit("setSelectedSeatsAmount", this.selectedChairs.length);
     }
-    console.log("in chairlist movies", this.$store.state.movies);
+
     this.movie = this.$store.state.movies.filter((movie) => movie.id == this.show.movieId)[0]
   }
 };
