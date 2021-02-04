@@ -116,9 +116,13 @@ export default {
       return this.$store.state.selectedSeatsAmount;
     }
   },
-  mounted(){  
+  async mounted(){  
     this.showId
-    this.$store.dispatch('fetchShowById', this.showId)
+    await this.$store.dispatch('fetchShowById', this.showId)
+    await this.$store.dispatch('fetchMovie')
+    this.$store.commit("setSelectedMovie",
+      this.$store.state.movies.filter(
+        (movie) => movie.id == this.$store.state.showById.movieId)[0])
   }
 };
 </script>
