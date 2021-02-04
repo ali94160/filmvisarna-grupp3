@@ -39,10 +39,10 @@ export default {
 
       if (!this.userLoggedIn) {
         // if not logged in
-        if(this.$store.dispatch("register", user)){
+        if(await this.$store.dispatch("register", user)){
+          this.alreadyMember = false
           this.$router.push("/");
           M.toast({ html: "✓ Inloggning lyckades", classes: "color: green" });
-          this.alreadyMember = false
         }
         else{
           this.alreadyMember = true
