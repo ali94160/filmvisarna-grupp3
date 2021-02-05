@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isBookingSuccessful">
+  <div v-if="checkBooking">
     <h4 class="title">Tack för din beställning!</h4>
 
     <div class="info">
@@ -85,22 +85,27 @@ export default {
     homePage() {
       this.$router.push("/");
     },
-  },
-  async created() {
-    let ticket = {
+    async checkBooking(){
+      let ticket = {
       price: this.totalPrice,
       timeStamp: this.show.timeStamp,
       seats: [...this.bookedChairs],
       userId: this.$store.state.user.id,
       showId: this.show.id,
       salonName: this.$store.state.currentSalon.name
-    };
+      };
 
-    this.isBookingSuccessful = await this.$store.dispatch("addTicket", ticket);
-    if(this.isBookingSuccessful){
+      const isBookingSuccessful = await this.$store.dispatch("addTicket", ticket);
+      if(isBookingSuccessful){
       let showInfo = { showId: this.show.id, seats: [...this.bookedChairs] + "" };
-      this.$store.dispatch("increaseSeatsInShow", showInfo);    }
+      this.$store.dispatch("increaseSeatsInShow", showInfo);   
+      }
+      return isBookingSuccessful;
+    }
   },
+  created() {
+    this.checkBooking();
+  }
 };
 </script>
 
