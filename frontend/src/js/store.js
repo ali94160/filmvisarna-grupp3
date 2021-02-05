@@ -84,6 +84,7 @@ const actions = {
     try {
       user = await user.json();
       store.commit("setUser", user);
+      return true
     } catch (error) {
       console.warn("Bad credentials");
       return false
