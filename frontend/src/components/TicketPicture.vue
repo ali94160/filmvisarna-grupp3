@@ -42,13 +42,13 @@ export default {
       return 1;
     },
     seatNumber() {
-      if (this.seat / 100 > 1) {
+      if (this.seat / 100 >= 1) {
         return (
           parseInt(
             (this.seat + "").split("")[1] + (this.seat + "").split("")[2]
           ) + 1
         );
-      } else if (this.seat / 10 > 1) {
+      } else if (this.seat / 10 >= 1) {
         return parseInt((this.seat + "").split("")[1]) + 1;
       } else return this.seat + 1;
     },
