@@ -169,12 +169,10 @@ p {
   }
 }
 
-@media screen and (max-width: 800px) {
-}
-
 @media screen and (max-width: 480px) {
   .ticketWrapper {
     height: 30vh;
+    margin-bottom: 100px;
   }
 
   .transLogo {
