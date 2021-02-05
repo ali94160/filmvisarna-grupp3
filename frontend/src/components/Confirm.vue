@@ -41,15 +41,6 @@ export default {
   },
   props: ["ticketPrices", "bookedChairs"],
   computed: {
-    shows() {
-      let filteredShows = [];
-      for (let show of this.$store.state.currentShows) {
-        if (show.timeStamp * 1000 > new Date().getTime()) {
-          filteredShows.push(show);
-        }
-      }
-      return filteredShows;
-    },
     movie() {
       return this.$store.state.selectedMovie;
     },
