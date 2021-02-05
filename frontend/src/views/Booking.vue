@@ -65,8 +65,8 @@ export default {
       this.$router.push('/login');
     },
     decreaseValue() {
-      if (this.$store.state.selectedSeatsAmount >= 1) {
-        this.ticketPrices[this.$store.state.selectedSeatsAmount] = 0;
+      if (this.$store.state.selectedSeatsAmount >= 0) {
+        this.ticketPrices.splice(this.$store.state.selectedSeatsAmount)
       }
     },
     clear(){
@@ -108,9 +108,6 @@ export default {
     },
     hasThreeTickets() {
       return this.selectedSeatsAmount > 3;
-    },
-    getCurrentMovie() {
-      return this.$store.state.showById;
     },
     selectedSeatsAmount() {
       return this.$store.state.selectedSeatsAmount;

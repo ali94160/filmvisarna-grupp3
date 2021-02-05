@@ -5,7 +5,6 @@ const state = {
   salons: [],
   user: null,
   //holds the current show
-  currentMovie: {},
   currentUserTickets: [],
   //all the shows for the specific movie
   currentShows: [],
@@ -30,9 +29,6 @@ const mutations = {
   },
   setSalons(state, list) {
     state.salons = list
-  },
-  setCurrentMovie(state, movie) {
-    state.currentMovie = movie;
   },
   addCurrentUserTickets(state, tickets) {
     state.currentUserTickets.push(tickets)

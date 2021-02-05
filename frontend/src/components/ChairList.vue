@@ -111,6 +111,7 @@ export default {
             if(this.showSelectedSeats[i] == holder){
                 this.selectedChairs.splice(i,1);
                 this.$store.commit('setSelectedSeatsAmount', this.$store.state.selectedSeatsAmount - 1)
+                this.$emit("decreaseValues");
             }
           }  
           this.check(row, col, true)       
@@ -171,7 +172,6 @@ export default {
       this.selectedChairs.push([3, 5]);
       this.$store.commit("setSelectedSeatsAmount", this.selectedChairs.length);
     }
-    console.log("in chairlist movies", this.$store.state.movies);
     this.movie = this.$store.state.movies.filter((movie) => movie.id == this.show.movieId)[0]
   }
 };

@@ -136,14 +136,14 @@ export default {
         let show = this.$store.state.currentShows.filter(
           (s) => s.id == this.showId
         )[0];
-        this.$store.commit("setCurrentMovie", show);
+        this.$store.commit("setShowById", show);
         await this.$store.dispatch("fetchSpecificSalon", show.id);
-        if(!this.$store.state.currentMovie.seatsTaken){
+        if(!this.$store.state.showById.seatsTaken){
           this.isFullSalon = false;
           return;
         }
         if (
-          this.$store.state.currentMovie.seatsTaken.length !==
+          this.$store.state.showById.seatsTaken.length !==
           this.$store.state.currentSalon.seats
         ) {
           this.isFullSalon = false;
