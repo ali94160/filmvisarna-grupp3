@@ -10,13 +10,14 @@ All data is saved in JSON format, the backend server is run with Java Express an
 <hr>
 
 ### Features:
+* My pages (when logged in)
+* Search bar
 * Carousel
 * Authentication with SHA3-256 Hashing
-* Seat map with input field(s)
+* Seat map with sensitive input field(s)
 * Embeded data
-* My page (when logged in)
-* Search bar (using filter method)
 * Proxy (for handling chairs booked at the same time)
+* Fully mobile-friendly website
 
 <hr>
 
@@ -43,17 +44,16 @@ All data is saved in JSON format, the backend server is run with Java Express an
 
 
 
-### Making a reservation:
-
-<img width="540" src="makeReservation.gif">
-<hr>
-
-
-
-
-
 ### Login + My Pages with previous bookings
 
 <img width="540" src="login.gif">
 <hr>
 
+
+
+
+
+### Mobile-friendly responsive design
+
+<img width="540" src="mobileVersion.gif">
+<hr>
