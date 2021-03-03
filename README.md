@@ -21,11 +21,16 @@ All data is saved in JSON format, the backend server is run with Java Express an
 <hr>
 
 
+
+
+
 ### General look of the Website:
 
 <img width="540" src="main.jpg">
 
 <hr>
+
+
 
 
 
@@ -36,6 +41,8 @@ All data is saved in JSON format, the backend server is run with Java Express an
 
 
 
+
+
 ### Making a reservation:
 
 <img width="540" src="makeReservation.gif">
@@ -43,8 +50,10 @@ All data is saved in JSON format, the backend server is run with Java Express an
 
 
 
-### Register + Automatic login + My page with history
 
-<img width="600" src="register.gif">
+
+### Login + My Pages with previous bookings
+
+<img width="540" src="login.gif">
 <hr>
 
