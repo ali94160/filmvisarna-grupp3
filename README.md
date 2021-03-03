@@ -1,7 +1,5 @@
 # filmvisarna-grupp3
-
-make sure to run in FRONTEND (!IMPORTANT) map
-  npm install
-  npm install vuex@next vue-router@next
+<img src="New Project.jpg" width="540px">
+test
 
 Filmvisarna (c) 2021 
